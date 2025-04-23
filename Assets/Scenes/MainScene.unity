@@ -1935,7 +1935,7 @@ PrefabInstance:
       objectReference: {fileID: 756192407}
     - target: {fileID: 4449733540666295176, guid: 800d7d95c5a1b4888bb1c0f39e0d7d4a, type: 3}
       propertyPath: pourThreshold
-      value: 60
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7310695694456426973, guid: 800d7d95c5a1b4888bb1c0f39e0d7d4a, type: 3}
       propertyPath: m_Name

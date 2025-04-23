@@ -67,7 +67,7 @@ public class Stream : MonoBehaviour
 
     private void AnimateToTarget(int index, Vector3 targetPosition) {
         Vector3 currentPoint = lineRenderer.GetPosition(index);
-        Vector3 newPoint = Vector3.MoveTowards(currentPoint, targetPosition, Time.deltaTime * 1.75f);
+        Vector3 newPoint = Vector3.MoveTowards(currentPoint, targetPosition, Time.deltaTime * 3.5f);
 
         lineRenderer.SetPosition(index, newPoint);
     }
@@ -80,7 +80,10 @@ public class Stream : MonoBehaviour
 
     private IEnumerator UpdateParticleCoroutine() {
         while (gameObject.activeSelf) {
-            splashParticle.gameObject.transform.position = targetPosition + Vector3.up * 0.01f;
+            splashParticle.gameObject.transform.position = targetPosition + Vector3.up * 0.001f;
+            // Lock rotation on the X and Z axes
+            splashParticle.gameObject.transform.rotation = Quaternion.Euler(-90, transform.rotation.y, 0);
+
 
             bool isHitting = HasReachedTarget(1, targetPosition);
             splashParticle.gameObject.SetActive(isHitting);
