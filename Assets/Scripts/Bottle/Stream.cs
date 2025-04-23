@@ -5,6 +5,7 @@ public class Stream : MonoBehaviour
 {
     private LineRenderer lineRenderer;
     private ParticleSystem splashParticle;
+    [SerializeField] private Transform streamTrigger;
 
     private Coroutine pourRoutine;
     private Vector3 targetPosition = Vector3.zero;
@@ -21,6 +22,7 @@ public class Stream : MonoBehaviour
 
     public void BeginStream() {
         StartCoroutine(UpdateParticleCoroutine());
+        StartCoroutine(UpdateTriggerCoroutine());
         pourRoutine = StartCoroutine(PourCoroutine());
     }
 
@@ -87,6 +89,17 @@ public class Stream : MonoBehaviour
 
             bool isHitting = HasReachedTarget(1, targetPosition);
             splashParticle.gameObject.SetActive(isHitting);
+
+            yield return null;
+        }
+    }
+
+    private IEnumerator UpdateTriggerCoroutine() {
+        while (gameObject.activeSelf) {
+            streamTrigger.position = targetPosition + Vector3.up * 0.001f;
+
+            bool isHitting = HasReachedTarget(1, targetPosition);
+            streamTrigger.gameObject.SetActive(isHitting);
 
             yield return null;
         }
