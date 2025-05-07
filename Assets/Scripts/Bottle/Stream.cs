@@ -6,6 +6,7 @@ public class Stream : MonoBehaviour
     private LineRenderer lineRenderer;
     private ParticleSystem splashParticle;
     [SerializeField] private Transform streamTrigger;
+    [SerializeField] private LayerMask ignoreLayer;
 
     private Coroutine pourRoutine;
     private Vector3 targetPosition = Vector3.zero;
@@ -21,8 +22,8 @@ public class Stream : MonoBehaviour
     }
 
     public void BeginStream() {
+        // StartCoroutine(UpdateTriggerCoroutine());
         StartCoroutine(UpdateParticleCoroutine());
-        StartCoroutine(UpdateTriggerCoroutine());
         pourRoutine = StartCoroutine(PourCoroutine());
     }
 
@@ -57,7 +58,7 @@ public class Stream : MonoBehaviour
         RaycastHit hit;
         Ray ray = new Ray(transform.position, Vector3.down);
 
-        Physics.Raycast(ray, out hit, Mathf.Infinity);
+        Physics.Raycast(ray, out hit, Mathf.Infinity, ignoreLayer.value);
         Vector3 endPoint = hit.collider ? hit.point : ray.GetPoint(2f);
 
         return endPoint;
@@ -97,9 +98,8 @@ public class Stream : MonoBehaviour
     private IEnumerator UpdateTriggerCoroutine() {
         while (gameObject.activeSelf) {
             streamTrigger.position = targetPosition + Vector3.up * 0.001f;
-
-            bool isHitting = HasReachedTarget(1, targetPosition);
-            streamTrigger.gameObject.SetActive(isHitting);
+            // bool isHitting = HasReachedTarget(1, targetPosition);
+            // streamTrigger.gameObject.SetActive(isHitting);
 
             yield return null;
         }

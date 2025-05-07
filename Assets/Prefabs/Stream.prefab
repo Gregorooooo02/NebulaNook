@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 2705378090978899691}
   - component: {fileID: 9008526439518803087}
   - component: {fileID: 3978457059187930430}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SplashParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4911,7 +4911,7 @@ GameObject:
   - component: {fileID: 1067097793928179472}
   - component: {fileID: 8621739143435559671}
   - component: {fileID: 6379790514580552709}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stream
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4948,6 +4948,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   streamTrigger: {fileID: 5593831209845178720}
+  ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 247
 --- !u!120 &6379790514580552709
 LineRenderer:
   serializedVersion: 2
