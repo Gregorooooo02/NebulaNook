@@ -4,7 +4,7 @@ public class StreamTrigger : MonoBehaviour
 {
     [SerializeField] private float fillSpeed = 0.2f;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         GlassFiller glassFiller = other.GetComponent<GlassFiller>();
         if (glassFiller != null)

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5593831209845178720}
   - component: {fileID: 2093737992009204431}
   - component: {fileID: 8965292070027811792}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StreamTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ SphereCollider:
     m_Bits: 128
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -4950,7 +4950,7 @@ MonoBehaviour:
   streamTrigger: {fileID: 5593831209845178720}
   ignoreLayer:
     serializedVersion: 2
-    m_Bits: 247
+    m_Bits: 119
 --- !u!120 &6379790514580552709
 LineRenderer:
   serializedVersion: 2

@@ -22,7 +22,7 @@ public class Stream : MonoBehaviour
     }
 
     public void BeginStream() {
-        // StartCoroutine(UpdateTriggerCoroutine());
+        StartCoroutine(UpdateTriggerCoroutine());
         StartCoroutine(UpdateParticleCoroutine());
         pourRoutine = StartCoroutine(PourCoroutine());
     }
@@ -97,9 +97,7 @@ public class Stream : MonoBehaviour
 
     private IEnumerator UpdateTriggerCoroutine() {
         while (gameObject.activeSelf) {
-            streamTrigger.position = targetPosition + Vector3.up * 0.001f;
-            // bool isHitting = HasReachedTarget(1, targetPosition);
-            // streamTrigger.gameObject.SetActive(isHitting);
+            streamTrigger.position = targetPosition;
 
             yield return null;
         }
