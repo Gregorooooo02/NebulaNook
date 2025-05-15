@@ -970,6 +970,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: BarChair (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3826780365564265268, guid: d98dd3be5adbdd3458efe393a331aa65, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3826780365564265268, guid: d98dd3be5adbdd3458efe393a331aa65, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3826780365564265268, guid: d98dd3be5adbdd3458efe393a331aa65, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.15
+      objectReference: {fileID: 0}
     - target: {fileID: 7845697122535657168, guid: d98dd3be5adbdd3458efe393a331aa65, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.35
@@ -1781,6 +1793,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: BarChair (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3826780365564265268, guid: d98dd3be5adbdd3458efe393a331aa65, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 3826780365564265268, guid: d98dd3be5adbdd3458efe393a331aa65, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3826780365564265268, guid: d98dd3be5adbdd3458efe393a331aa65, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.15
+      objectReference: {fileID: 0}
     - target: {fileID: 7845697122535657168, guid: d98dd3be5adbdd3458efe393a331aa65, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.3
@@ -1856,6 +1880,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextState: {fileID: 1419579283}
+  Continue: 0
 --- !u!4 &1163488908
 Transform:
   m_ObjectHideFlags: 0
@@ -2895,6 +2920,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentState: {fileID: 440435327}
+  IsWaiting: 0
 --- !u!1 &1419579282
 GameObject:
   m_ObjectHideFlags: 0
@@ -3551,6 +3577,18 @@ PrefabInstance:
     - target: {fileID: 1363360365522046673, guid: d98dd3be5adbdd3458efe393a331aa65, type: 3}
       propertyPath: m_Name
       value: BarChair
+      objectReference: {fileID: 0}
+    - target: {fileID: 3826780365564265268, guid: d98dd3be5adbdd3458efe393a331aa65, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3826780365564265268, guid: d98dd3be5adbdd3458efe393a331aa65, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3826780365564265268, guid: d98dd3be5adbdd3458efe393a331aa65, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.15
       objectReference: {fileID: 0}
     - target: {fileID: 7845697122535657168, guid: d98dd3be5adbdd3458efe393a331aa65, type: 3}
       propertyPath: m_LocalPosition.x

@@ -3,9 +3,15 @@ using UnityEngine;
 public class WaitForDrink : ClientState
 {
     public LeaveState nextState;
+    public bool Continue = false;
 
     public override ClientState RunState()
     {
-        return nextState;
+        if (Continue)
+        {
+            Continue = false;
+            return nextState;
+        }
+        return this;
     }
 }

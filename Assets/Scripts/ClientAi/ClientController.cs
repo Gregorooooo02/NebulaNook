@@ -74,4 +74,12 @@ public class ClientController : MonoBehaviour
             _isWaving = false;
         }
     }
+
+    public void Drink()
+    {
+        if (IsWaiting)
+        {
+            ((WaitForDrink)CurrentState).Continue = true;
+        }
+    }
 }
