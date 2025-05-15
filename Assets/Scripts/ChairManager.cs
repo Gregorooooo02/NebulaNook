@@ -28,5 +28,6 @@ public class ChairManager : MonoBehaviour
     public void VacateChair(BarChairScript chair)
     {
         chair.Occupied = false;
+        chair.Occupier = null;
     }
 }
