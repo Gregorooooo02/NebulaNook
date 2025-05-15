@@ -8,6 +8,6 @@ public class ZoneScript : MonoBehaviour
     {
         //Add passing some sort of argument later
         //For example the drink contents or maybe the drink effects only
-        BarChairScript.Occupier.Drink();
+        if(BarChairScript.Occupied)BarChairScript.Occupier.Drink();
     }
 }
