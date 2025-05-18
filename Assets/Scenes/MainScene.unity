@@ -1006,6 +1006,9 @@ PrefabInstance:
       addedObject: {fileID: 974717819}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: effcdd4e5722d4c31a8787c9e7174e75, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 974717826}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: effcdd4e5722d4c31a8787c9e7174e75, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 974717816}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: effcdd4e5722d4c31a8787c9e7174e75, type: 3}
       insertIndex: -1
@@ -1046,7 +1049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ca7d1c6b1d674bacb9d2589c1ad5d3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxWobble: 0.03
+  MaxWobble: 0.01
   WobbleSpeed: 1
   Recovery: 1
 --- !u!4 &974717814 stripped
@@ -1222,6 +1225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   liquidRenderer: {fileID: 1180729378}
   fillSpeed: 1
+  startingFill: 0
 --- !u!65 &974717821
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1327,6 +1331,26 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 0.1, z: 0.5}
   m_Center: {x: 0, y: -0.2, z: 0}
+--- !u!114 &974717826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974717815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14060a245b57d42f8b68bac946b006cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glassFiller: {fileID: 974717819}
+  streamPrefab: {fileID: 8941625051351596894, guid: 991d207acfd59472493d54e8b2fc0f57, type: 3}
+  rimRadius: 0.065
+  rimHeight: 0.065
+  minPourAngle: 15
+  maxPourAngle: 90
+  minFlowRate: 0.5
+  maxFlowRate: 1.5
 --- !u!1 &1011652358
 GameObject:
   m_ObjectHideFlags: 0
@@ -1667,8 +1691,8 @@ Material:
     - _Fill: 0
     - _QueueControl: 1
     - _QueueOffset: 0
-    - _WobbleX: -1.4822548e-11
-    - _WobbleZ: 1.4822548e-11
+    - _WobbleX: 0.000000069623134
+    - _WobbleZ: -0.000000069623134
     m_Colors:
     - _SideColor: {r: 1, g: 0.88550174, b: 0, a: 0}
     - _TopColor: {r: 0.99034953, g: 1, b: 0, a: 0}

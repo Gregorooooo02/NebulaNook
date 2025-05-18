@@ -48,7 +48,4 @@ public class Wobble : MonoBehaviour
         lastPos = transform.position;
         lastRot = transform.rotation.eulerAngles;
     }
-
-
-
 }
