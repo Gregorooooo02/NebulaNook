@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Anchor
   - Interactable
+  - CutTrigger
+  - ChoppedFruit
   layers:
   - Default
   - TransparentFX
