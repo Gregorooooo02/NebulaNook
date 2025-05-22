@@ -26,6 +26,7 @@ public class AproachBar : ClientState
                     _isWalking = false;
                     _finalAproach = false;
                     Agent.angularSpeed = _baseAngularSpeed;
+                    nextState.SetBarChair(Destination);
                     return nextState;
                 }
             }

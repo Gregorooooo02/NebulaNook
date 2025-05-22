@@ -8,6 +8,9 @@ public class ZoneScript : MonoBehaviour
     {
         //Add passing some sort of argument later
         //For example the drink contents or maybe the drink effects only
-        if(BarChairScript.Occupied)BarChairScript.Occupier.Drink();
+
+        TestEffectObject testEffectObject = other.gameObject.GetComponent<TestEffectObject>();
+
+        if(BarChairScript.Occupied && testEffectObject != null)BarChairScript.Occupier.Drink(testEffectObject.drinkEffect);
     }
 }
