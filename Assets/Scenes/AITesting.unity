@@ -7303,9 +7303,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 448911216853069916, guid: 1ee9786dbf422d1438b17063d05dfeaa, type: 3}
+      propertyPath: m_ConnectedBody
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1939184348405024080, guid: 1ee9786dbf422d1438b17063d05dfeaa, type: 3}
       propertyPath: m_LocalPosition.z
       value: -6.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 3136790542030613720, guid: 1ee9786dbf422d1438b17063d05dfeaa, type: 3}
+      propertyPath: m_ConnectedBody
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3339061516446886156, guid: 1ee9786dbf422d1438b17063d05dfeaa, type: 3}
+      propertyPath: m_ConnectedBody
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3585869751219213972, guid: 1ee9786dbf422d1438b17063d05dfeaa, type: 3}
       propertyPath: m_Enabled
@@ -7317,7 +7329,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3677401958677421276, guid: 1ee9786dbf422d1438b17063d05dfeaa, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694127101591579783, guid: 1ee9786dbf422d1438b17063d05dfeaa, type: 3}
+      propertyPath: m_ConnectedBody
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995649882470157692, guid: 1ee9786dbf422d1438b17063d05dfeaa, type: 3}
+      propertyPath: m_ConnectedBody
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032982009191991364, guid: 1ee9786dbf422d1438b17063d05dfeaa, type: 3}
+      propertyPath: m_ConnectedBody
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461366980955033442, guid: 1ee9786dbf422d1438b17063d05dfeaa, type: 3}
+      propertyPath: m_ConnectedBody
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8529224593424759280, guid: 1ee9786dbf422d1438b17063d05dfeaa, type: 3}
       propertyPath: m_Enabled

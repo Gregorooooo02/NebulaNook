@@ -3,7 +3,10 @@ using UnityEngine;
 public class WaitForDrink : ClientState
 {
     public LeaveState nextState;
+    public PassOut passOutState;
     public bool Continue = false;
+
+    public DrinkEffect DrinkEffect;
 
     private BarChairScript barChairScript;
 
@@ -14,7 +17,13 @@ public class WaitForDrink : ClientState
             Continue = false;
             ClientSpawner.Instance.clientCount--;
             ChairManager.Instance.VacateChair(barChairScript);
-            return nextState;
+            switch (DrinkEffect)
+            {
+                case DrinkEffect.MATTER:
+                    return passOutState;
+                default:
+                    return nextState;       
+            }
         }
         return this;
     }

@@ -120,7 +120,56 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextState: {fileID: 7826847411584171985}
+  passOutState: {fileID: 3015105417421221048}
   Continue: 0
+  DrinkEffect: 0
+--- !u!1 &3089281269676272489
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6651096856760014575}
+  - component: {fileID: 3015105417421221048}
+  m_Layer: 0
+  m_Name: PassOut
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6651096856760014575
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3089281269676272489}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 351278869304687391}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3015105417421221048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3089281269676272489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc35a983d6044224e8b1a5a4bb3d44fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCollider: {fileID: 1589277149631054468}
+  Animator: {fileID: 8529224593424759280}
+  TimeToDisapear: 5
 --- !u!1 &3677401958677421276
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,6 +209,7 @@ Transform:
   - {fileID: 8589698981362988496}
   - {fileID: 8892814325516647637}
   - {fileID: 5471147352676192075}
+  - {fileID: 6651096856760014575}
   - {fileID: 3043878974992229165}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -277,6 +327,7 @@ MonoBehaviour:
   DesiredDrinkEffect: 1
   bubble: {fileID: 4495717203893623376}
   IsWaiting: 0
+  mainCollider: {fileID: 1589277149631054468}
   SourceType: 0
 --- !u!1 &3995799480028209012
 GameObject:
@@ -879,8 +930,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.3692883, y: 0.41688043, z: 0.24717116}
-  m_Center: {x: 0.019806415, y: 0.14186835, z: -0.0032332093}
+  m_Size: {x: 0.27379692, y: 0.3656355, z: 0.24717379}
+  m_Center: {x: 0.0039920807, y: 0.11624703, z: -0.003233199}
 --- !u!54 &410014705956862917
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1442,8 +1493,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.3715949, y: 0.06116709, z: 0.24108684}
-  m_Center: {x: -0.0004633963, y: 0.030583575, z: 0.033366337}
+  m_Size: {x: 0.2831651, y: 0.06116709, z: 0.24108684}
+  m_Center: {x: 0.0070791175, y: 0.03058357, z: 0.033366337}
 --- !u!54 &560862872108575243
 Rigidbody:
   m_ObjectHideFlags: 0

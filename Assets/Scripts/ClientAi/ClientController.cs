@@ -37,6 +37,7 @@ public class ClientController : MonoBehaviour
 
     private NavMeshAgent _agent;
     private Animator _animator;
+    public CapsuleCollider mainCollider;
 
     private bool _isWalking = false;
     private bool _isWaving = false;
@@ -46,6 +47,8 @@ public class ClientController : MonoBehaviour
     public QuestSourceType SourceType = QuestSourceType.HUMAN;
     private Quests questsSource;
 
+    private Rigidbody[] Joints;
+
     private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
@@ -54,7 +57,9 @@ public class ClientController : MonoBehaviour
 
         var v = Enum.GetValues(typeof(DrinkEffect));
         DesiredDrinkEffect = (DrinkEffect)v.GetValue(Random.Range(1, v.Length));
+        DesiredDrinkEffect = DrinkEffect.MATTER;
 
+        Joints = GetComponentsInChildren<Rigidbody>();
         switch (SourceType)
         {
             case QuestSourceType.HUMAN:
@@ -63,6 +68,8 @@ public class ClientController : MonoBehaviour
             case QuestSourceType.ROBOT:
                 break;
         }
+
+        ToggleRagdoll(false);
     }
 
     void FixedUpdate()
@@ -128,7 +135,20 @@ public class ClientController : MonoBehaviour
     {
         if (IsWaiting && DesiredDrinkEffect == effect)
         {
+            _drinkWaiting.DrinkEffect = effect;
             _drinkWaiting.Continue = true;
+        }
+    }
+
+    public void ToggleRagdoll(bool isRagdoll)
+    {
+        mainCollider.enabled = !isRagdoll;
+        _animator.enabled = !isRagdoll;
+        _agent.enabled = !isRagdoll;
+
+        foreach(Rigidbody r in Joints)
+        {
+            r.isKinematic = !isRagdoll;
         }
     }
 }
