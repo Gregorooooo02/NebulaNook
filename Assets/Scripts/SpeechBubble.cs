@@ -14,9 +14,8 @@ public class SpeechBubble : MonoBehaviour
     private string _currentText;
     private bool _startWriting = false;
 
-    private Vector2 TextPadding = new Vector2(25.0f, 25.0f);
+    private Vector2 TextPadding = new Vector2(50.0f, 25.0f);
 
-    // Update is called once per frame
     void Update()
     {
         if (_startWriting)

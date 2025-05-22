@@ -10,6 +10,7 @@ public class WaitForDrink : ClientState
         if (Continue)
         {
             Continue = false;
+            ClientSpawner.Instance.clientCount--;
             return nextState;
         }
         return this;
