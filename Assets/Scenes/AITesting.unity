@@ -3958,6 +3958,10 @@ PrefabInstance:
       propertyPath: ExitPoint
       value: 
       objectReference: {fileID: 509673391}
+    - target: {fileID: 2551818860270427237, guid: 133e0f6e2ccea034c9f0d2e5535f17d2, type: 3}
+      propertyPath: BarChairs.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2869088024437428573, guid: 133e0f6e2ccea034c9f0d2e5535f17d2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.654096
