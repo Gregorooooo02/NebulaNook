@@ -2,14 +2,10 @@ using UnityEngine;
 
 public class PassOut : ClientState
 {
-    public CapsuleCollider mainCollider;
-    public Animator Animator;
-
     public float TimeToDisapear;
     private float _currentTime = 0;
 
     private bool triggered = false;
-
 
     public override ClientState RunState()
     {

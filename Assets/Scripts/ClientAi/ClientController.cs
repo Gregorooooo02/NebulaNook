@@ -57,7 +57,7 @@ public class ClientController : MonoBehaviour
 
         var v = Enum.GetValues(typeof(DrinkEffect));
         DesiredDrinkEffect = (DrinkEffect)v.GetValue(Random.Range(1, v.Length));
-        DesiredDrinkEffect = DrinkEffect.MATTER;
+        DesiredDrinkEffect = DrinkEffect.EXPLOSION;
 
         Joints = GetComponentsInChildren<Rigidbody>();
         switch (SourceType)

@@ -4,6 +4,7 @@ public class WaitForDrink : ClientState
 {
     public LeaveState nextState;
     public PassOut passOutState;
+    public Explode explodeState;
     public bool Continue = false;
 
     public DrinkEffect DrinkEffect;
@@ -21,6 +22,8 @@ public class WaitForDrink : ClientState
             {
                 case DrinkEffect.MATTER:
                     return passOutState;
+                case DrinkEffect.EXPLOSION:
+                    return explodeState;
                 default:
                     return nextState;       
             }
