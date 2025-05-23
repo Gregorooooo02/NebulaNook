@@ -167,6 +167,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2075413414094418232, guid: cfeac452c39ce6f458017a7fea1a200c, type: 3}
+      propertyPath: startDelay.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745949950958096829, guid: cfeac452c39ce6f458017a7fea1a200c, type: 3}
+      propertyPath: startDelay.scalar
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8784169859946565572, guid: cfeac452c39ce6f458017a7fea1a200c, type: 3}
       propertyPath: m_Name
       value: Explosion
