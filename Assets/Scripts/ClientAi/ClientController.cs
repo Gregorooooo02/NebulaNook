@@ -48,6 +48,7 @@ public class ClientController : MonoBehaviour
     private Quests questsSource;
 
     private Rigidbody[] Joints;
+    private CharacterJoint[] CharacterJoints;
 
     private void Start()
     {
@@ -57,9 +58,10 @@ public class ClientController : MonoBehaviour
 
         var v = Enum.GetValues(typeof(DrinkEffect));
         DesiredDrinkEffect = (DrinkEffect)v.GetValue(Random.Range(1, v.Length));
-        DesiredDrinkEffect = DrinkEffect.EXPLOSION;
+        DesiredDrinkEffect = DrinkEffect.MATTER;
 
         Joints = GetComponentsInChildren<Rigidbody>();
+        CharacterJoints = GetComponentsInChildren<CharacterJoint>();
         switch (SourceType)
         {
             case QuestSourceType.HUMAN:
@@ -149,6 +151,19 @@ public class ClientController : MonoBehaviour
         foreach(Rigidbody r in Joints)
         {
             r.isKinematic = !isRagdoll;
+        }
+    }
+
+    public void StiffenRagdoll()
+    {
+        SoftJointLimit newLimit = new SoftJointLimit();
+        newLimit.limit = 0;
+        foreach(CharacterJoint joint in CharacterJoints)
+        {
+            joint.swing1Limit = newLimit;
+            joint.swing2Limit = newLimit;
+            joint.highTwistLimit = newLimit;
+            joint.lowTwistLimit = newLimit;
         }
     }
 }
