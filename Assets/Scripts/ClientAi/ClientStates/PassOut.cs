@@ -20,7 +20,6 @@ public class PassOut : ClientState
         } 
         else
         {
-            GetComponentInParent<ClientController>().StiffenRagdoll();
             GetComponentInParent<ClientController>().ToggleRagdoll(true);
             triggered = true;
         }
