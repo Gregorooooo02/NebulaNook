@@ -5,6 +5,8 @@ public class WaitForDrink : ClientState
     public LeaveState nextState;
     public PassOut passOutState;
     public Explode explodeState;
+    public Freeze freezeState;
+
     public bool Continue = false;
 
     public DrinkEffect DrinkEffect;
@@ -24,6 +26,8 @@ public class WaitForDrink : ClientState
                     return passOutState;
                 case DrinkEffect.EXPLOSION:
                     return explodeState;
+                case DrinkEffect.FREEZE:
+                    return freezeState;
                 default:
                     return nextState;       
             }

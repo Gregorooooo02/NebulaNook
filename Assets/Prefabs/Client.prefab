@@ -122,6 +122,7 @@ MonoBehaviour:
   nextState: {fileID: 7826847411584171985}
   passOutState: {fileID: 3015105417421221048}
   explodeState: {fileID: 770654052580373748}
+  freezeState: {fileID: 5778710821512121081}
   Continue: 0
   DrinkEffect: 0
 --- !u!1 &3089281269676272489
@@ -169,6 +170,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeToDisapear: 5
+--- !u!1 &3325556984355825396
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8375195796259100082}
+  - component: {fileID: 5778710821512121081}
+  m_Layer: 0
+  m_Name: Freeze
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8375195796259100082
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3325556984355825396}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.03130765, y: -0.04653642, z: -0.029024545, w: 0.9980039}
+  m_LocalPosition: {x: 0.014037717, y: 0.20904012, z: 0.01518669}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6249042625570252228}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5778710821512121081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3325556984355825396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a08d3f490325594b990d31676b0a469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeToDisapear: 10
+  FreezeEffect: {fileID: 6691560211994750216, guid: 863e439569d752a43aa3d8e5e11828aa, type: 3}
+  parent: {fileID: 3677401958677421276}
 --- !u!1 &3677401958677421276
 GameObject:
   m_ObjectHideFlags: 0
@@ -826,7 +874,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5465940246521907071, guid: a2ee97e826b6b45f89efe2571665e316, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8375195796259100082}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a2ee97e826b6b45f89efe2571665e316, type: 3}
       insertIndex: -1
@@ -1617,6 +1668,11 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!4 &6249042625570252228 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5465940246521907071, guid: a2ee97e826b6b45f89efe2571665e316, type: 3}
+  m_PrefabInstance: {fileID: 2117787597690413755}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6826549494396538867 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4332706925441422008, guid: a2ee97e826b6b45f89efe2571665e316, type: 3}
