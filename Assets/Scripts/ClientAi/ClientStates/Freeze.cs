@@ -7,6 +7,9 @@ public class Freeze : ClientState
 
     private bool triggered = false;
 
+    public SkinnedMeshRenderer[] materialsToChange;
+    public Material FrozenMaterial;
+
     public GameObject FreezeEffect;
     public GameObject parent;
     public override ClientState RunState()
@@ -25,6 +28,10 @@ public class Freeze : ClientState
             GetComponentInParent<ClientController>().ToggleRagdoll(true);
             GetComponentInParent<ClientController>().StiffenRagdoll();
             Instantiate(FreezeEffect, transform);
+            foreach(SkinnedMeshRenderer m in materialsToChange)
+            {
+                m.material = FrozenMaterial;
+            }
             triggered = true;
         }
         return this;

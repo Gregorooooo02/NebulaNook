@@ -215,6 +215,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeToDisapear: 10
+  materialsToChange:
+  - {fileID: 5597188377845528216}
+  FrozenMaterial: {fileID: 2100000, guid: 3f2887c8c6f6cf541b3c46fd28134e41, type: 2}
   FreezeEffect: {fileID: 6691560211994750216, guid: 863e439569d752a43aa3d8e5e11828aa, type: 3}
   parent: {fileID: 3677401958677421276}
 --- !u!1 &3677401958677421276
@@ -1569,6 +1572,11 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!137 &5597188377845528216 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5822821947120931875, guid: a2ee97e826b6b45f89efe2571665e316, type: 3}
+  m_PrefabInstance: {fileID: 2117787597690413755}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6032219945217449062 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3542885339558904099, guid: a2ee97e826b6b45f89efe2571665e316, type: 3}
