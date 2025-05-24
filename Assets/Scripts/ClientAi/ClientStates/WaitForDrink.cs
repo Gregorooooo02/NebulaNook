@@ -6,6 +6,7 @@ public class WaitForDrink : ClientState
     public PassOut passOutState;
     public Explode explodeState;
     public Freeze freezeState;
+    public LowGravity low_gravityState;
 
     public bool Continue = false;
 
@@ -28,6 +29,8 @@ public class WaitForDrink : ClientState
                     return explodeState;
                 case DrinkEffect.FREEZE:
                     return freezeState;
+                case DrinkEffect.GRAVITY_LIFT:
+                    return low_gravityState;
                 default:
                     return nextState;       
             }
