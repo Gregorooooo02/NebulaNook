@@ -7,6 +7,9 @@ public class WaitForDrink : ClientState
     public Explode explodeState;
     public Freeze freezeState;
     public LowGravity low_gravityState;
+    public Speed speedState;
+    public Slow slowState;
+    public Anihilation anihilationState;
 
     public bool Continue = false;
 
@@ -31,6 +34,12 @@ public class WaitForDrink : ClientState
                     return freezeState;
                 case DrinkEffect.GRAVITY_LIFT:
                     return low_gravityState;
+                case DrinkEffect.QUICKNESS:
+                    return speedState;
+                case DrinkEffect.SLOWNESS:
+                    return slowState;
+                case DrinkEffect.ANIHILATION:
+                    return anihilationState;
                 default:
                     return nextState;       
             }
