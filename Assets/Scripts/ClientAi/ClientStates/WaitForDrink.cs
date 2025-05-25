@@ -10,6 +10,7 @@ public class WaitForDrink : ClientState
     public Speed speedState;
     public Slow slowState;
     public Anihilation anihilationState;
+    public Bubbles bubblesState;
 
     public bool Continue = false;
 
@@ -40,6 +41,8 @@ public class WaitForDrink : ClientState
                     return slowState;
                 case DrinkEffect.ANIHILATION:
                     return anihilationState;
+                case DrinkEffect.LIFE:
+                    return bubblesState;
                 default:
                     return nextState;       
             }

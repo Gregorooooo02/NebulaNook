@@ -127,6 +127,7 @@ MonoBehaviour:
   speedState: {fileID: 7298853080490757770}
   slowState: {fileID: 8611992552197391600}
   anihilationState: {fileID: 1086000093935757502}
+  bubblesState: {fileID: 8927392838397394440}
   Continue: 0
   DrinkEffect: 0
 --- !u!1 &2039675920324358801
@@ -318,6 +319,7 @@ Transform:
   - {fileID: 5397044318149029548}
   - {fileID: 6516768578004695699}
   - {fileID: 7701331153283276316}
+  - {fileID: 2546992050537284519}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5472068502532061457
@@ -975,6 +977,53 @@ MonoBehaviour:
   parent: {fileID: 3677401958677421276}
   flash: {fileID: 8771651359076398066, guid: adfe0788ac5c1d442a2aca30addb7a9f, type: 3}
   Model: {fileID: 1270733387834695658}
+--- !u!1 &7773560564222966827
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2546992050537284519}
+  - component: {fileID: 8927392838397394440}
+  m_Layer: 0
+  m_Name: Bubbles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2546992050537284519
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7773560564222966827}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.566, z: 0.017}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 351278869304687391}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8927392838397394440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7773560564222966827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0d8c02eaa92f3f42b24b7125fd6e6a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Agent: {fileID: 6546193348599966578}
+  MinPointDist: 0.75
+  BubblesPrefab: {fileID: 8678071041699480933, guid: 48063ce8fd8513c429c1aafeef80ff18, type: 3}
 --- !u!1 &8731011768602569803
 GameObject:
   m_ObjectHideFlags: 0
