@@ -135,7 +135,7 @@ public class ClientController : MonoBehaviour
 
     public void Drink(DrinkEffect effect)
     {
-        if (IsWaiting && DesiredDrinkEffect == effect)
+        if (IsWaiting /*&& DesiredDrinkEffect == effect*/)
         {
             _drinkWaiting.DrinkEffect = effect;
             _drinkWaiting.Continue = true;

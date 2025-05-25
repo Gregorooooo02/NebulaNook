@@ -13,6 +13,7 @@ public class WaitForDrink : ClientState
     public Bubbles bubblesState;
     public SizeChange bigState;
     public SizeChange smallState;
+    public Blackhole blackHoleState;
 
     public bool Continue = false;
 
@@ -49,6 +50,8 @@ public class WaitForDrink : ClientState
                     return bigState;
                 case DrinkEffect.SHRINKING:
                     return smallState;
+                case DrinkEffect.BLACK_HOLE:
+                    return blackHoleState;
                 default:
                     return nextState;       
             }

@@ -130,6 +130,7 @@ MonoBehaviour:
   bubblesState: {fileID: 8927392838397394440}
   bigState: {fileID: 1619132910379942340}
   smallState: {fileID: 5821286651983675841}
+  blackHoleState: {fileID: 5958516757462892079}
   Continue: 0
   DrinkEffect: 0
 --- !u!1 &2039675920324358801
@@ -327,6 +328,7 @@ Transform:
   - {fileID: 2546992050537284519}
   - {fileID: 5201410854972764455}
   - {fileID: 7863790763331089442}
+  - {fileID: 1884698936771580765}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5472068502532061457
@@ -1104,6 +1106,51 @@ MonoBehaviour:
   Agent: {fileID: 6546193348599966578}
   MinPointDist: 0.75
   BubblesPrefab: {fileID: 8678071041699480933, guid: 48063ce8fd8513c429c1aafeef80ff18, type: 3}
+--- !u!1 &7882308545749935618
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1884698936771580765}
+  - component: {fileID: 5958516757462892079}
+  m_Layer: 0
+  m_Name: Blackhole
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1884698936771580765
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7882308545749935618}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.324, z: 0.031}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 351278869304687391}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5958516757462892079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7882308545749935618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8050f55ab1eebe4291b5fa2dfb1173f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BlackHole: {fileID: 470982254637823090, guid: ed16ff2c8bb01ba41aa34690790f3d1d, type: 3}
 --- !u!1 &8149028606511170370
 GameObject:
   m_ObjectHideFlags: 0
