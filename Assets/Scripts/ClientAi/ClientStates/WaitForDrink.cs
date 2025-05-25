@@ -11,6 +11,8 @@ public class WaitForDrink : ClientState
     public Slow slowState;
     public Anihilation anihilationState;
     public Bubbles bubblesState;
+    public SizeChange bigState;
+    public SizeChange smallState;
 
     public bool Continue = false;
 
@@ -43,6 +45,10 @@ public class WaitForDrink : ClientState
                     return anihilationState;
                 case DrinkEffect.LIFE:
                     return bubblesState;
+                case DrinkEffect.ENLARGEMENT:
+                    return bigState;
+                case DrinkEffect.SHRINKING:
+                    return smallState;
                 default:
                     return nextState;       
             }

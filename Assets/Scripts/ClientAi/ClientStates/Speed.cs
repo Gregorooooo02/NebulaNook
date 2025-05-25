@@ -24,6 +24,7 @@ public class Speed : ClientState
         {
             Agent.SetDestination(ChairManager.Instance.ExitPoint.transform.position);
             animator.speed = SpeedUpValue;
+            Agent.speed *= SpeedUpValue;
             _isWalking = true;
         }
         return this;

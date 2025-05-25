@@ -24,6 +24,7 @@ public class Slow : ClientState
         {
             Agent.SetDestination(ChairManager.Instance.ExitPoint.transform.position);
             animator.speed = SlowValue;
+            Agent.speed *= SlowValue;
             _isWalking = true;
         }
         return this;

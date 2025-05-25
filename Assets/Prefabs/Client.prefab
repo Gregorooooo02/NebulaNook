@@ -128,6 +128,8 @@ MonoBehaviour:
   slowState: {fileID: 8611992552197391600}
   anihilationState: {fileID: 1086000093935757502}
   bubblesState: {fileID: 8927392838397394440}
+  bigState: {fileID: 1619132910379942340}
+  smallState: {fileID: 5821286651983675841}
   Continue: 0
   DrinkEffect: 0
 --- !u!1 &2039675920324358801
@@ -222,7 +224,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc35a983d6044224e8b1a5a4bb3d44fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeToDisapear: 5
+  Agent: {fileID: 6546193348599966578}
+  MinPointDist: 0.75
+  TimeToDisapear: 10
+  TimeToPassOut: 2
 --- !u!1 &3325556984355825396
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,6 +325,8 @@ Transform:
   - {fileID: 6516768578004695699}
   - {fileID: 7701331153283276316}
   - {fileID: 2546992050537284519}
+  - {fileID: 5201410854972764455}
+  - {fileID: 7863790763331089442}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5472068502532061457
@@ -883,6 +890,79 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 6303698858358509019}
   m_maskType: 0
+--- !u!1 &5795467650870672485
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5201410854972764455}
+  - component: {fileID: 1619132910379942340}
+  m_Layer: 0
+  m_Name: Enlargement
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5201410854972764455
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5795467650870672485}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 351278869304687391}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1619132910379942340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5795467650870672485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a43549226aab5d34693f31ec672bcdff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Agent: {fileID: 6546193348599966578}
+  MinPointDist: 0.75
+  SizeMultiplier: {x: 2, y: 2, z: 2}
+  BodyPart: {fileID: 5514040999626201043}
+  ChangeTime: 1
+  AnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5851141697216543416
 GameObject:
   m_ObjectHideFlags: 0
@@ -1024,6 +1104,79 @@ MonoBehaviour:
   Agent: {fileID: 6546193348599966578}
   MinPointDist: 0.75
   BubblesPrefab: {fileID: 8678071041699480933, guid: 48063ce8fd8513c429c1aafeef80ff18, type: 3}
+--- !u!1 &8149028606511170370
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7863790763331089442}
+  - component: {fileID: 5821286651983675841}
+  m_Layer: 0
+  m_Name: Shrinking
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7863790763331089442
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8149028606511170370}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 351278869304687391}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5821286651983675841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8149028606511170370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a43549226aab5d34693f31ec672bcdff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Agent: {fileID: 6546193348599966578}
+  MinPointDist: 0.75
+  SizeMultiplier: {x: 0.5, y: 0.5, z: 0.5}
+  BodyPart: {fileID: 5514040999626201043}
+  ChangeTime: 1
+  AnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &8731011768602569803
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,6 +1271,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a2ee97e826b6b45f89efe2571665e316, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3321919801592875672, guid: a2ee97e826b6b45f89efe2571665e316, type: 3}
+      propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a2ee97e826b6b45f89efe2571665e316, type: 3}
@@ -1821,6 +1978,11 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!4 &5514040999626201043 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -3321919801592875672, guid: a2ee97e826b6b45f89efe2571665e316, type: 3}
+  m_PrefabInstance: {fileID: 2117787597690413755}
+  m_PrefabAsset: {fileID: 0}
 --- !u!137 &5597188377845528216 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 5822821947120931875, guid: a2ee97e826b6b45f89efe2571665e316, type: 3}
