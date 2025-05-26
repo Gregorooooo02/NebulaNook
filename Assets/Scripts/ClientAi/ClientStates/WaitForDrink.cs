@@ -14,7 +14,8 @@ public class WaitForDrink : ClientState
     public SizeChange bigState;
     public SizeChange smallState;
     public Blackhole blackHoleState;
-    public Combution combutionState;    
+    public Combution combutionState;
+    public Rocket rocketState;
 
     public bool Continue = false;
 
@@ -55,6 +56,8 @@ public class WaitForDrink : ClientState
                     return blackHoleState;
                 case DrinkEffect.COMBUTION:
                     return combutionState;
+                case DrinkEffect.OIL:
+                    return rocketState;
                 default:
                     return nextState;       
             }

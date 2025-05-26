@@ -36,7 +36,7 @@ public class ClientController : MonoBehaviour
     public bool IsWaiting = false;
 
     private NavMeshAgent _agent;
-    private Animator _animator;
+    public Animator Animator;
     public CapsuleCollider mainCollider;
 
     private bool _isWalking = false;
@@ -53,7 +53,6 @@ public class ClientController : MonoBehaviour
     private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
-        _animator = GetComponentInChildren<Animator>();
         _drinkWaiting = GetComponentInChildren<WaitForDrink>();
 
         var v = Enum.GetValues(typeof(DrinkEffect));
@@ -109,12 +108,12 @@ public class ClientController : MonoBehaviour
         float speed = _agent.velocity.magnitude;
         if (!_isWalking && speed > 0.1f)
         {
-            _animator.SetBool("isWalking", true);
+            Animator.SetBool("isWalking", true);
             _isWalking = true;
         }
         else if(_isWalking && speed <= 0.1f)
         {
-            _animator.SetBool("isWalking", false);
+            Animator.SetBool("isWalking", false);
             _isWalking = false;
         }
     }
@@ -123,12 +122,12 @@ public class ClientController : MonoBehaviour
     {
         if (!_isWaving && IsWaiting)
         {
-            _animator.SetBool("isWaving", true);
+            Animator.SetBool("isWaving", true);
             _isWaving = true;
         }
         else if(_isWaving && !IsWaiting)
         {
-            _animator.SetBool("isWaving", false);
+            Animator.SetBool("isWaving", false);
             _isWaving = false;
         }
     }
@@ -145,7 +144,7 @@ public class ClientController : MonoBehaviour
     public void ToggleRagdoll(bool isRagdoll)
     {
         mainCollider.enabled = !isRagdoll;
-        _animator.enabled = !isRagdoll;
+        Animator.enabled = !isRagdoll;
         _agent.enabled = !isRagdoll;
 
         foreach(Rigidbody r in Joints)
@@ -165,6 +164,27 @@ public class ClientController : MonoBehaviour
             joint.highTwistLimit = newLimit;
             joint.lowTwistLimit = newLimit;
         }
+    }
+
+    public void DissableGravity()
+    {
+        foreach(Rigidbody rb in Joints)
+        {
+            rb.useGravity = false;
+        }
+    }
+
+    public void FreezeRotation()
+    {
+        foreach (Rigidbody rb in Joints)
+        {
+            rb.constraints = RigidbodyConstraints.FreezeRotation;
+        }
+    }
+
+    public void DeleteYourself()
+    {
+        Destroy(gameObject);
     }
 }
 
