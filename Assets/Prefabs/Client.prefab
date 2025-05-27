@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f74d970519e7b74885626117111afdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Controller: {fileID: 3585869751219213972}
   animator: {fileID: 4261310786893091742}
 --- !u!1 &1280539031427290859
 GameObject:
@@ -164,6 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63b741ce61773cd4db0c23be3e587d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Controller: {fileID: 3585869751219213972}
   nextState: {fileID: 7826847411584171985}
   passOutState: {fileID: 3015105417421221048}
   explodeState: {fileID: 770654052580373748}
@@ -224,6 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06e25c1880a939d4f9ba51a58e9aeb12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Controller: {fileID: 3585869751219213972}
   Agent: {fileID: 6546193348599966578}
   animator: {fileID: 8529224593424759280}
   MinPointDist: 0.75
@@ -272,6 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc35a983d6044224e8b1a5a4bb3d44fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Controller: {fileID: 3585869751219213972}
   Agent: {fileID: 6546193348599966578}
   MinPointDist: 0.75
   TimeToDisapear: 10
@@ -320,6 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a08d3f490325594b990d31676b0a469, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Controller: {fileID: 3585869751219213972}
   TimeToDisapear: 10
   materialsToChange:
   - {fileID: 5597188377845528216}
@@ -498,6 +503,7 @@ MonoBehaviour:
   Animator: {fileID: 8529224593424759280}
   mainCollider: {fileID: 1589277149631054468}
   SourceType: 0
+  Spawner: {fileID: 0}
 --- !u!95 &4261310786893091742
 Animator:
   serializedVersion: 7
@@ -564,6 +570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bcdb1242b257914a82227c56dfc7999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Controller: {fileID: 3585869751219213972}
   nextState: {fileID: 8577308682655723657}
   Agent: {fileID: 6546193348599966578}
   MinPointDist: 0.75
@@ -690,6 +697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f691e71e7d1904fada89725198ba16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Controller: {fileID: 3585869751219213972}
   MainBone: {fileID: 410014705956862917}
   explosionForce: 10000
   explosionRadius: 5
@@ -739,8 +747,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f5e8b7ce60c25340a3b8f5a3812492c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Controller: {fileID: 3585869751219213972}
   nextState: {fileID: 4000507221238529956}
-  ChairTimeout: 2
 --- !u!1 &5065744745876210492
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,6 +794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c360594af821c6e41ae33d7d0c0019bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Controller: {fileID: 3585869751219213972}
   CombutionEffect: {fileID: 2057665557751278318}
   parent: {fileID: 3677401958677421276}
   Agent: {fileID: 6546193348599966578}
@@ -834,6 +843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a26e151330cad44a09aa58501c0a5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Controller: {fileID: 3585869751219213972}
   Agent: {fileID: 6546193348599966578}
   animator: {fileID: 8529224593424759280}
   MinPointDist: 0.75
@@ -1058,6 +1068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a43549226aab5d34693f31ec672bcdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Controller: {fileID: 3585869751219213972}
   Agent: {fileID: 6546193348599966578}
   MinPointDist: 0.75
   SizeMultiplier: {x: 2, y: 2, z: 2}
@@ -1131,6 +1142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862b91b926de313419cfc663f960a356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Controller: {fileID: 3585869751219213972}
   Agent: {fileID: 6546193348599966578}
   MinPointDist: 0.75
 --- !u!1 &6634146755890754031
@@ -1177,6 +1189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7eecc87bbfcf048829e53e458b1c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Controller: {fileID: 3585869751219213972}
   TimeToDisapear: 4
   parent: {fileID: 3677401958677421276}
   flash: {fileID: 8771651359076398066, guid: adfe0788ac5c1d442a2aca30addb7a9f, type: 3}
@@ -1225,6 +1238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d8c02eaa92f3f42b24b7125fd6e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Controller: {fileID: 3585869751219213972}
   Agent: {fileID: 6546193348599966578}
   MinPointDist: 0.75
   BubblesPrefab: {fileID: 8678071041699480933, guid: 48063ce8fd8513c429c1aafeef80ff18, type: 3}
@@ -1272,6 +1286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8050f55ab1eebe4291b5fa2dfb1173f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Controller: {fileID: 3585869751219213972}
   BlackHole: {fileID: 470982254637823090, guid: ed16ff2c8bb01ba41aa34690790f3d1d, type: 3}
 --- !u!1 &8149028606511170370
 GameObject:
@@ -1317,6 +1332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a43549226aab5d34693f31ec672bcdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Controller: {fileID: 3585869751219213972}
   Agent: {fileID: 6546193348599966578}
   MinPointDist: 0.75
   SizeMultiplier: {x: 0.5, y: 0.5, z: 0.5}
@@ -1390,6 +1406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3680045dedcaf9e449a75b60c4d32b2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Controller: {fileID: 3585869751219213972}
   TimeToDisapear: 10
   anitgravityStrenghtMultiplier: 12
   parent: {fileID: 3677401958677421276}

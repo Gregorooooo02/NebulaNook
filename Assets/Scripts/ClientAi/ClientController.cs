@@ -50,6 +50,9 @@ public class ClientController : MonoBehaviour
     private Rigidbody[] Joints;
     private CharacterJoint[] CharacterJoints;
 
+    [HideInInspector]
+    public ClientSpawner Spawner = null;
+
     private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();

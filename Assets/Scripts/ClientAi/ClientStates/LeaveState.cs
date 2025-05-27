@@ -12,7 +12,7 @@ public class LeaveState : ClientState
     {
         if (_isWalking)
         {
-            if (Vector3.Distance(transform.position, ChairManager.Instance.ExitPoint.transform.position) <= MinPointDist)
+            if (Vector3.Distance(transform.position, Controller.Spawner.Exit.transform.position) <= MinPointDist)
             {
                 _isWalking = false;
                 Destroy(gameObject.transform.parent.gameObject);
@@ -20,7 +20,7 @@ public class LeaveState : ClientState
         }
         else
         {
-            Agent.SetDestination(ChairManager.Instance.ExitPoint.transform.position);
+            Agent.SetDestination(Controller.Spawner.Exit.transform.position);
             _isWalking = true;
         }
         return this;

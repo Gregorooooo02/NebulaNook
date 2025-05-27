@@ -4,12 +4,12 @@ public class ChairManager : MonoBehaviour
 {
     public BarChairScript[] BarChairs;
     public GameObject ExitPoint;
-    public static ChairManager Instance;
+    //public static ChairManager Instance;
 
     void Start()
     {
         BarChairs = FindObjectsByType<BarChairScript>(FindObjectsInactive.Exclude,FindObjectsSortMode.None);
-        Instance = this;
+        //Instance = this;
     }
 
     public BarChairScript ReserveAnyAvailableChair()

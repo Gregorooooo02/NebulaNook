@@ -45,7 +45,7 @@ public class ClientScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        switch (state)
+        /*switch (state)
         {
             case ClientState.WaitForChair:
             {
@@ -62,7 +62,7 @@ public class ClientScript : MonoBehaviour
                         _isInChairTimeout = false;
                     }
                 }
-                BarChairScript result = ChairManager.Instance.ReserveAnyAvailableChair();
+                //BarChairScript result = ChairManager.Instance.ReserveAnyAvailableChair();
                 if(result == null)
                 {
                     _isInChairTimeout = true;
@@ -165,7 +165,7 @@ public class ClientScript : MonoBehaviour
                 Destroy(gameObject);
                 break;
             }
-        }
+        }*/
     }
 
     private void OnCollisionEnter(Collision collision)

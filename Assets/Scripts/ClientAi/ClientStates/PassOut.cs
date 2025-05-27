@@ -43,7 +43,7 @@ public class PassOut : ClientState
         } 
         else
         {
-            Agent.SetDestination(ChairManager.Instance.ExitPoint.transform.position);
+            Agent.SetDestination(Controller.Spawner.Exit.transform.position);
             _isWalking=true;
         }
         return this;

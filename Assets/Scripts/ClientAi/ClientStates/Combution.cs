@@ -14,9 +14,10 @@ public class Combution : ClientState
 
     public override ClientState RunState()
     {
+
         if (triggered)
         {
-            if (Vector3.Distance(parent.transform.position, ChairManager.Instance.ExitPoint.transform.position) <= MinPointDist)
+            if (Vector3.Distance(parent.transform.position, Controller.Spawner.Exit.transform.position) <= MinPointDist)
             {
                 triggered = false;
                 Destroy(parent);
@@ -24,7 +25,8 @@ public class Combution : ClientState
         }
         else
         {
-            Agent.SetDestination(ChairManager.Instance.ExitPoint.transform.position);
+            
+            Agent.SetDestination(Controller.Spawner.Exit.transform.position);
             CombutionEffect.SetActive(true);
             triggered = true;
         }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.XR.Interaction.Toolkit.Inputs.Haptics.HapticsUtility;
 
 public class WaitForDrink : ClientState
 {
@@ -28,8 +29,9 @@ public class WaitForDrink : ClientState
         if (Continue)
         {
             Continue = false;
-            ClientSpawner.Instance.clientCount--;
-            ChairManager.Instance.VacateChair(barChairScript);
+            Controller.Spawner.ClientSpawned = false;
+            Controller.Spawner.barChairScript.Occupied = false;
+            Controller.Spawner.barChairScript.Occupier = null;
             switch (DrinkEffect)
             {
                 case DrinkEffect.MATTER:
