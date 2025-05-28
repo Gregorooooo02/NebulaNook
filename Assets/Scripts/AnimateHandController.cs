@@ -1,10 +1,13 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class AnimateHandController : MonoBehaviour
 {
     [SerializeField] InputActionReference gripInputAction;
     [SerializeField] InputActionReference triggerInputAction;
+
+    [SerializeField] private XRBaseInteractor interactor;
 
     private Animator handAnimator;
     private float gripValue;
@@ -23,19 +26,18 @@ public class AnimateHandController : MonoBehaviour
             return;
         }
 
-        AnimateGrip();
-        AnimateTrigger();
-    }
+        bool isHolding = interactor != null && interactor.hasSelection;
 
-    private void AnimateGrip()
-    {
         gripValue = gripInputAction.action.ReadValue<float>();
-        handAnimator.SetFloat("Grip", gripValue);
-    }
-
-    private void AnimateTrigger()
-    {
         triggerValue = triggerInputAction.action.ReadValue<float>();
+
+        if (isHolding)
+        {
+            gripValue = 1f;
+            triggerValue = 1f;
+        }
+
+        handAnimator.SetFloat("Grip", gripValue);
         handAnimator.SetFloat("Trigger", triggerValue);
     }
 }
