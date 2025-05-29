@@ -12,5 +12,10 @@ public class ZoneScript : MonoBehaviour
         TestEffectObject testEffectObject = other.gameObject.GetComponent<TestEffectObject>();
 
         if(BarChairScript.Occupied && testEffectObject != null)BarChairScript.Occupier.Drink(testEffectObject.drinkEffect);
+
+        if(BarChairScript.Occupied && other.gameObject.TryGetComponent<GlassFiller>(out GlassFiller component))
+        {
+            BarChairScript.Occupier.Drink(component.GetFinalDrinkEffect());
+        }
     }
 }

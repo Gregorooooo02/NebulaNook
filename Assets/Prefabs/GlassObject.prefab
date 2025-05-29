@@ -79,7 +79,7 @@ PrefabInstance:
     - target: {fileID: -772798723794940250, guid: effcdd4e5722d4c31a8787c9e7174e75, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2100000, guid: 83185b6c6e1d3441789e0e88bfb9bd27, type: 2}
     - target: {fileID: 919132149155446097, guid: effcdd4e5722d4c31a8787c9e7174e75, type: 3}
       propertyPath: m_Name
       value: GlassObject
@@ -255,6 +255,17 @@ MonoBehaviour:
   liquidRenderer: {fileID: 563024564132929711}
   fillSpeed: 1
   startingFill: 0
+  drinkEffectMap: {fileID: 2877044013710967528, guid: 162e866c1d2591b4ebbac24ef2af697a, type: 3}
+  fillAmounts:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  DrinkMovementAmount: 0.99
+  minimumDrinkAmount: 0.05
+  minimumDrinkDistance: 0.05
 --- !u!114 &31219874172086790
 MonoBehaviour:
   m_ObjectHideFlags: 0

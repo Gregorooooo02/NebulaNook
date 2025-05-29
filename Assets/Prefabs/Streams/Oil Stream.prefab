@@ -67,6 +67,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fillSpeed: 0.2
+  streamEffect: 4
 --- !u!1 &8247792326252429193
 GameObject:
   m_ObjectHideFlags: 0
