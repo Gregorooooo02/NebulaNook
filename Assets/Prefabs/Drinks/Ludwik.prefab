@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pourOrigin: {fileID: 661607386338761678}
-  streamPrefab: {fileID: 8941625051351596894, guid: 991d207acfd59472493d54e8b2fc0f57, type: 3}
+  streamPrefab: {fileID: 8941625051351596894, guid: 0bc4d0b2246e04df19b820878d0f2c47, type: 3}
   grabInteractable: {fileID: 5341051078392254795}
   pourThreshold: 15
 --- !u!114 &5341051078392254795
