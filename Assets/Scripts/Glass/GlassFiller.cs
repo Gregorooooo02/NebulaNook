@@ -48,8 +48,8 @@ public class GlassFiller : MonoBehaviour
         resultPoint.z += fillAmounts[4] * DrinkMovementAmount;
         resultPoint.y -= fillAmounts[5] * DrinkMovementAmount;
 
-        if(currentFillAmount < minimumDrinkAmount) return DrinkEffect.BLACK_HOLE; // Check if enough drink was poured
-        if(resultPoint.magnitude < minimumDrinkDistance) return DrinkEffect.BLACK_HOLE; // Check if result is water
+        //if(currentFillAmount < minimumDrinkAmount) return DrinkEffect.BLACK_HOLE; // Check if enough drink was poured
+        //if(resultPoint.magnitude < minimumDrinkDistance) return DrinkEffect.BLACK_HOLE; // Check if result is water
 
         resultPoint += DrinkEffectMap.MapObject.transform.position;
 
