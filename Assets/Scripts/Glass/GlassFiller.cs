@@ -75,7 +75,7 @@ public class GlassFiller : MonoBehaviour
             currentFillAmount = 0f;
         }
 
-        float diffMul = (prev - currentFillAmount) / prev;
+        float diffMul = 1.0f - ((prev - currentFillAmount) / prev);
         for(int i = 0;i < fillAmounts.Length; i++)
         {
             fillAmounts[i] *= diffMul;
