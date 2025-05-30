@@ -17,7 +17,10 @@ public enum DrinkEffect
     ENLARGEMENT,
     SHRINKING,
     SLOWNESS,
-    QUICKNESS
+    QUICKNESS,
+
+    EMPTY,
+    WATER
 }
 
 public enum QuestSourceType

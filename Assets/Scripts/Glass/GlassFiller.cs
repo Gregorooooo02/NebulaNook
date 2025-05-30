@@ -25,7 +25,7 @@ public class GlassFiller : MonoBehaviour
         currentFillAmount = Mathf.Clamp(currentFillAmount + delta * fillSpeed, 0f, 1f);
         liquidRenderer.sharedMaterial.SetFloat("_Fill", currentFillAmount);
 
-        if (currentFillAmount > 1.0f) return;
+        if (currentFillAmount >= 1.0f) return;
         fillAmounts[(int)pouredDrink] += delta * fillSpeed;
 
         Color currentColor = new Color(0, 0, 0);
@@ -48,8 +48,8 @@ public class GlassFiller : MonoBehaviour
         resultPoint.z += fillAmounts[4] * DrinkMovementAmount;
         resultPoint.y -= fillAmounts[5] * DrinkMovementAmount;
 
-        //if(currentFillAmount < minimumDrinkAmount) return DrinkEffect.BLACK_HOLE; // Check if enough drink was poured
-        //if(resultPoint.magnitude < minimumDrinkDistance) return DrinkEffect.BLACK_HOLE; // Check if result is water
+        if(currentFillAmount < minimumDrinkAmount) return DrinkEffect.EMPTY; // Check if enough drink was poured
+        if(resultPoint.magnitude < minimumDrinkDistance) return DrinkEffect.WATER; // Check if result is water
 
         resultPoint += DrinkEffectMap.MapObject.transform.position;
 
@@ -63,7 +63,7 @@ public class GlassFiller : MonoBehaviour
             }
         }
 
-        return DrinkEffect.BLACK_HOLE; // If everything fails kill everything :D
+        return DrinkEffect.MATTER; // If everything fails keel over :D
     }
 
     public float Drain(float amount) {
@@ -73,6 +73,12 @@ public class GlassFiller : MonoBehaviour
         const float eps = 0.01f;
         if (currentFillAmount < eps) {
             currentFillAmount = 0f;
+        }
+
+        float diffMul = (prev - currentFillAmount) / prev;
+        for(int i = 0;i < fillAmounts.Length; i++)
+        {
+            fillAmounts[i] *= diffMul;
         }
 
         liquidRenderer.sharedMaterial.SetFloat("_Fill", currentFillAmount);

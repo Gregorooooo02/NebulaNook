@@ -24,7 +24,7 @@ public class Wobble : MonoBehaviour
     void Start()
     {
         rend = GetComponent<Renderer>();
-        //rend.sharedMaterial = new Material(rend.sharedMaterial);
+        rend.sharedMaterial = new Material(rend.sharedMaterial);
     }
     private void Update()
     {

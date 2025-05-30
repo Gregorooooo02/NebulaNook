@@ -60,6 +60,9 @@ public class WaitForDrink : ClientState
                     return combutionState;
                 case DrinkEffect.OIL:
                     return rocketState;
+                case DrinkEffect.WATER:
+                case DrinkEffect.EMPTY:
+                    break;
                 default:
                     return nextState;       
             }

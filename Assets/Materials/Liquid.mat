@@ -54,10 +54,10 @@ Material:
     - _Fill: 1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _WobbleX: 7.484734e-25
-    - _WobbleZ: 7.484734e-25
+    - _WobbleX: 0
+    - _WobbleZ: 0
     m_Colors:
-    - _SideColor: {r: 0.70208055, g: 0.3903249, b: 0.32640007, a: 0.8}
-    - _TopColor: {r: 0.87760067, g: 0.4879061, b: 0.40800008, a: 1}
+    - _SideColor: {r: 0.4449, g: 0.7390488, b: 0.9375992, a: 0.8}
+    - _TopColor: {r: 0.556125, g: 0.92381096, b: 1.171999, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
