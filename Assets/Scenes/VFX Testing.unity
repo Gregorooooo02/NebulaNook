@@ -1194,6 +1194,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fireworks
       objectReference: {fileID: 0}
+    - target: {fileID: 2386758517117557157, guid: 91fbaacba3ddb9c43bdbe61abead981f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7775226408416019816, guid: 91fbaacba3ddb9c43bdbe61abead981f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.764553
