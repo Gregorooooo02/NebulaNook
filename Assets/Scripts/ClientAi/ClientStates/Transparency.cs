@@ -23,6 +23,8 @@ public class Transparency : ClientState
     private bool effectDone = false;
     private bool first = true;
 
+    public GameObject particles;
+
     private void Start()
     {
         _colors = new Color[transparentMaterials.Length];
@@ -41,6 +43,7 @@ public class Transparency : ClientState
         if (!effectDone)
         {
             ChangeAlphas();
+            particles.SetActive(true);
             _currentTime += Time.fixedDeltaTime;
             if (_currentTime >= transitionTime)
             {

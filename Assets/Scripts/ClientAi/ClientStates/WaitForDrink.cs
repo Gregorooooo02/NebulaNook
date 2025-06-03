@@ -19,6 +19,7 @@ public class WaitForDrink : ClientState
     public Rocket rocketState;
     public Transparency transparencyState;
     public Clone cloneState;
+    public Rave raveState;
 
     public bool Continue = false;
 
@@ -66,6 +67,8 @@ public class WaitForDrink : ClientState
                     return transparencyState;
                 case DrinkEffect.CLONE:
                     return cloneState;
+                case DrinkEffect.RAVE:
+                    return raveState;
                 case DrinkEffect.WATER:
                 case DrinkEffect.EMPTY:
                     break;

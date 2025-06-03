@@ -20,6 +20,7 @@ public enum DrinkEffect
     QUICKNESS,
     TRANSPARENCY,
     CLONE,
+    RAVE,
 
     EMPTY,
     WATER
@@ -290,6 +291,9 @@ public class NormalQuests : Quests
         },
         new string[]/*CLONE*/{
             "CLONE! "
+        },
+        new string[]/*RAVE*/{
+            "CARAMELDANSEN! "
         }
     };
 
