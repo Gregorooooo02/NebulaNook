@@ -10,6 +10,11 @@ public class CloneControler : MonoBehaviour
     private bool _isWalking = false;
     private Vector3 targetPos;
 
+    public GameObject Model;
+
+    public float timeToActivate;
+    private float _currentTime = 0;
+
     public void Exit(Vector3 position)
     {
         agent.SetDestination(position);
@@ -24,6 +29,11 @@ public class CloneControler : MonoBehaviour
             return;
         }
         CheckWalking();
+        _currentTime += Time.fixedDeltaTime;
+        if (!Model.activeInHierarchy && _currentTime >= timeToActivate)
+        {
+            Model.SetActive(true);
+        }
     }
 
     private void CheckWalking()
