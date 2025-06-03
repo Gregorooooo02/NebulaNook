@@ -62,8 +62,7 @@ public class ClientController : MonoBehaviour
         _drinkWaiting = GetComponentInChildren<WaitForDrink>();
 
         var v = Enum.GetValues(typeof(DrinkEffect));
-        DesiredDrinkEffect = (DrinkEffect)v.GetValue(Random.Range(1, v.Length));
-        //DesiredDrinkEffect = DrinkEffect.LIFE;
+        DesiredDrinkEffect = (DrinkEffect)v.GetValue(Random.Range(1, v.Length - 2));
 
         Joints = GetComponentsInChildren<Rigidbody>();
         CharacterJoints = GetComponentsInChildren<CharacterJoint>();
