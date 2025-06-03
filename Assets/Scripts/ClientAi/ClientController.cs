@@ -18,6 +18,7 @@ public enum DrinkEffect
     SHRINKING,
     SLOWNESS,
     QUICKNESS,
+    TRANSPARENCY,
 
     EMPTY,
     WATER
@@ -282,6 +283,9 @@ public class NormalQuests : Quests
         },
         new string[]/*QUICKNESS*/{
             "FAST! "
+        },
+        new string[]/*TRANSPARENCY*/{
+            "INVIS! "
         }
     };
 
