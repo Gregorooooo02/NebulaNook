@@ -18,6 +18,9 @@ public enum DrinkEffect
     SHRINKING,
     SLOWNESS,
     QUICKNESS,
+    TRANSPARENCY,
+    CLONE,
+    RAVE,
 
     EMPTY,
     WATER
@@ -62,8 +65,7 @@ public class ClientController : MonoBehaviour
         _drinkWaiting = GetComponentInChildren<WaitForDrink>();
 
         var v = Enum.GetValues(typeof(DrinkEffect));
-        DesiredDrinkEffect = (DrinkEffect)v.GetValue(Random.Range(1, v.Length));
-        //DesiredDrinkEffect = DrinkEffect.LIFE;
+        DesiredDrinkEffect = (DrinkEffect)v.GetValue(Random.Range(1, v.Length - 2));
 
         Joints = GetComponentsInChildren<Rigidbody>();
         CharacterJoints = GetComponentsInChildren<CharacterJoint>();
@@ -283,6 +285,15 @@ public class NormalQuests : Quests
         },
         new string[]/*QUICKNESS*/{
             "FAST! "
+        },
+        new string[]/*TRANSPARENCY*/{
+            "INVIS! "
+        },
+        new string[]/*CLONE*/{
+            "CLONE! "
+        },
+        new string[]/*RAVE*/{
+            "CARAMELDANSEN! "
         }
     };
 
