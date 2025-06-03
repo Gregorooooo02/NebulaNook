@@ -17,7 +17,8 @@ public class WaitForDrink : ClientState
     public Blackhole blackHoleState;
     public Combution combutionState;
     public Rocket rocketState;
-    public Transparency transparencyState;  
+    public Transparency transparencyState;
+    public Clone cloneState;
 
     public bool Continue = false;
 
@@ -63,6 +64,8 @@ public class WaitForDrink : ClientState
                     return rocketState;
                 case DrinkEffect.TRANSPARENCY:
                     return transparencyState;
+                case DrinkEffect.CLONE:
+                    return cloneState;
                 case DrinkEffect.WATER:
                 case DrinkEffect.EMPTY:
                     break;

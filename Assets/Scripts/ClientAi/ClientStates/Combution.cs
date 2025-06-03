@@ -11,7 +11,6 @@ public class Combution : ClientState
     public NavMeshAgent Agent;
     public float MinPointDist = 0.75f;
 
-
     public override ClientState RunState()
     {
 
@@ -25,7 +24,6 @@ public class Combution : ClientState
         }
         else
         {
-            
             Agent.SetDestination(Controller.Spawner.Exit.transform.position);
             CombutionEffect.SetActive(true);
             triggered = true;
