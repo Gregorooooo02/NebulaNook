@@ -295,6 +295,9 @@ public class NormalQuests : Quests
         },
         new string[]/*RAVE*/{
             "CARAMELDANSEN! "
+        },
+        new string[]/*POSSESION*/{
+            "POSSESION! "
         }
     };
 
