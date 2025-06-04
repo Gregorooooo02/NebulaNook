@@ -105,7 +105,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 2417325388689883724}
   - component: {fileID: 5943680045852290725}
   - component: {fileID: 4567950196477481483}
+  - component: {fileID: 4762681486025428517}
   m_Layer: 0
   m_Name: Glass1
   m_TagString: Untagged
@@ -326,6 +327,16 @@ MonoBehaviour:
   liquidRenderer: {fileID: 4700694629279950373}
   fillSpeed: 1
   startingFill: 0
+  fillAmounts:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  DrinkMovementAmount: 2
+  minimumDrinkAmount: 0.05
+  minimumDrinkDistance: 0.05
 --- !u!114 &4567950196477481483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,6 +357,27 @@ MonoBehaviour:
   maxPourAngle: 90
   minFlowRate: 0.5
   maxFlowRate: 5
+--- !u!65 &4762681486025428517
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071645477898967731}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5, y: 2, z: 1.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5164139375451075304
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,7 +482,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30

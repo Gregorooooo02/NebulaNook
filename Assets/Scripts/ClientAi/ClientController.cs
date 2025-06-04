@@ -142,8 +142,15 @@ public class ClientController : MonoBehaviour
 
     public void Drink(DrinkEffect effect)
     {
-        if (IsWaiting /*&& DesiredDrinkEffect == effect*/)
+        if (IsWaiting && DesiredDrinkEffect == effect)
         {
+            GameManager.Instance.IncrementQuota(10);
+            _drinkWaiting.DrinkEffect = effect;
+            _drinkWaiting.Continue = true;
+        }
+        else if (IsWaiting && DesiredDrinkEffect != effect && DesiredDrinkEffect != DrinkEffect.EMPTY)
+        {
+            GameManager.Instance.DecrementQuota(10);
             _drinkWaiting.DrinkEffect = effect;
             _drinkWaiting.Continue = true;
         }
@@ -209,23 +216,23 @@ public class NormalQuests : Quests
         new string[]/*Combution*/{
             "Ugh I'm done with those bland and boring drinks! Give me something with more spice would ya? ",
             "Ugh I didn't know **Scaldra Fruits** were so bitter! Quick give me something strong to burn out this terrible taste! ",
-            "It’s cold out in the void. Got anything to warm my bones? ",
+            "Itï¿½s cold out in the void. Got anything to warm my bones? ",
             "Spent too long in cryosleep. Need something to bring me back to life. ",
-            "I seek something that steams… like old Earth tea. ",
+            "I seek something that steamsï¿½ like old Earth tea. ",
             "Surprise me with something that burns slow and steady. ",
             "I could use a warm touch in this sterile place. ",
             "Something above standard atmospheric temperature, perhaps? "
         },
         new string[]/*Freeze*/{
             "It's so stuffy in here! Do you have anything that can help? ",
-            "Man I'm melting… Could you help me? ",
+            "Man I'm meltingï¿½ Could you help me? ",
             "Ow! I thcalded my tong real bad... Can you helph? ",
-            "Let’s go with something that bites… frost first. ",
+            "Letï¿½s go with something that bitesï¿½ frost first. ",
             "A drink with entropy. Preferably below room temp. "
         },
         new string[]/*Live*/{
             "Got anything that tastes like rebirth?",
-            "Make it brecht, make it bubble — I want to feel alive again. ",
+            "Make it brecht, make it bubble ï¿½ I want to feel alive again. ",
             "Need a drink that kicks like life support coming back online. ",
             "Give me something bubbly and alive!",
             "*Yawn* That was a long mission, I'm beat. Gimme something to liven up! ",
@@ -235,11 +242,11 @@ public class NormalQuests : Quests
             "I crave something unrefined. Viscous. Black. ",
             "I require something with industrial-grade bitterness. ",
             "Been elbow-deep in engine guts. I need something to match the mood. ",
-            "Give me something that smells like a machine bay — but smoother. ",
+            "Give me something that smells like a machine bay ï¿½ but smoother. ",
             "Something dark, thick, and flammable. Like home. "
         },
         new string[]/*Matter*/{
-            "Something with substance. If it doesn’t crawl a little, I don’t want it. ",
+            "Something with substance. If it doesnï¿½t crawl a little, I donï¿½t want it. ",
             "Gimme something heavy. I want it to glug when it hits the glass. ",
             "Non-Newtonian preferred. I want to feel the viscosity shift. ",
             "A fluid with personality. Resistance. Texture. ",
@@ -252,27 +259,27 @@ public class NormalQuests : Quests
             "Pour me something unstable. I want to feel it fight back. ",
             "Give me something that tastes like a weapons test gone right. ",
             "Let it be bright, wild, and barely contained. Like the moment before a star dies. ",
-            "I seek a drink that whispers… then screams. ",
+            "I seek a drink that whispersï¿½ then screams. ",
             "I want something with kick. Real kick. Like reactor-core cascade. ",
             "I need a drink that punches harder than a missile. ",
-            "I’m in the mood for a controlled detonation… "
+            "Iï¿½m in the mood for a controlled detonationï¿½ "
         },
         new string[]/*Anihilation*/{
             "Pour me a drink that disappears like unpaid docking fees. ",
-            "I don’t wanna taste it. I want it gone before I know I drank it. ",
-            "I need something that leaves no trace — in the glass or in me. ",
-            "I’m not here. Never was. Just serve me something that matches. ",
+            "I donï¿½t wanna taste it. I want it gone before I know I drank it. ",
+            "I need something that leaves no trace ï¿½ in the glass or in me. ",
+            "Iï¿½m not here. Never was. Just serve me something that matches. ",
             "Something clean. Erasing. Like a signature wiped. ",
             "Let it be like falling into a black star. Final. Silent. ",
             "I want a drink that takes something with it when it leaves. "
         },
         new string[]/*Gravity Lift*/{
-            "I’ve been dragging all day — got anything to lighten the load? ",
-            "I want to rise — not burn, just drift. ",
-            "Something that lifts the soul… or whatever I’ve got left of one. ",
-            "A drink that forgets weight. That’s what I need. ",
+            "Iï¿½ve been dragging all day ï¿½ got anything to lighten the load? ",
+            "I want to rise ï¿½ not burn, just drift. ",
+            "Something that lifts the soulï¿½ or whatever Iï¿½ve got left of one. ",
+            "A drink that forgets weight. Thatï¿½s what I need. ",
             "Something like freefall, but in a glass. ",
-            "I’d like something… unburdened. Something with altitude. "
+            "Iï¿½d like somethingï¿½ unburdened. Something with altitude. "
         },
         new string[]/*ENLARGEMENT*/{
             "BIG! "

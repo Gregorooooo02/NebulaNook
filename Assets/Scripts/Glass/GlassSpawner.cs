@@ -1,34 +1,25 @@
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit.Interactors;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
-public class GlassSpawner : MonoBehaviour
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Collider))]
+public class GlassSpawner : XRBaseInteractable
 {
     [Header("References")]
     [SerializeField] private GameObject glassPrefab;
 
-    private Collider glassTrigger;
-
-    private void Awake()
+    protected override void OnSelectEntered(SelectEnterEventArgs args)
     {
-        glassTrigger = GetComponent<Collider>();
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("GameController"))
-        {
-            // Check if player grabs the glass
-            var interactor = other.GetComponentInChildren<XRBaseInteractor>();
-            if (interactor != null && interactor.hasSelection)
-            {
-                // Player has grabbed the glass, spawn a new one
-                SpawnGlass();
-            }
-        }
-    }
-
-    private void SpawnGlass()
-    {
+        // Spawn a new glass at the position of the spawner
         GameObject newGlass = Instantiate(glassPrefab, transform.position, Quaternion.identity);
+
+        // Get the XRGrabInteractable component from the new glass
+        XRGrabInteractable grabInteractable = newGlass.GetComponent<XRGrabInteractable>();
+
+        // Select object into the interactor
+        interactionManager.SelectEnter(args.interactorObject, grabInteractable);
+
+        base.OnSelectEntered(args);
     }
 }
