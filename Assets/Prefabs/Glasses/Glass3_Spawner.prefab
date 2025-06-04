@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 352081309246858836}
   - component: {fileID: 2255612184696440343}
   - component: {fileID: 1901946148867844379}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Glass3_Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
-  glassPrefab: {fileID: 0}
+  glassPrefab: {fileID: 2071645477898967731, guid: e10919e19eee8463d82804ce45f3043a, type: 3}
 --- !u!1 &1374474175391767902
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 8182037219099922528}
   - component: {fileID: 7722909345016399565}
   - component: {fileID: 800987263876585065}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: liquid3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 2372680765837974249}
   - component: {fileID: 8799022595604052227}
   - component: {fileID: 928459388389338634}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: glass3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

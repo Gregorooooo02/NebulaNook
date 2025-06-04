@@ -12,6 +12,9 @@ public class ClientSpawner : MonoBehaviour
     public float minClientSpawnDelay;
     public float maxClientSpawnDelay;
 
+    public int maxClientsToSpawn = 5;
+    [HideInInspector] public int currentClientCount = 0;
+
     private void SpawnClient()
     {
         GameObject client = Instantiate(ClientPrefab, transform);
@@ -20,8 +23,9 @@ public class ClientSpawner : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(!ClientSpawned)
+        if(!ClientSpawned && currentClientCount < maxClientsToSpawn)
         {
+            currentClientCount++;
             Invoke("SpawnClient", Random.Range(minClientSpawnDelay, maxClientSpawnDelay));
             ClientSpawned = true;
         }
