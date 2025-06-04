@@ -21,6 +21,7 @@ public enum DrinkEffect
     TRANSPARENCY,
     CLONE,
     RAVE,
+    POSSESION,
 
     EMPTY,
     WATER

@@ -245,6 +245,7 @@ MonoBehaviour:
   transparencyState: {fileID: 6500510610332133796}
   cloneState: {fileID: 5249924153704103816}
   raveState: {fileID: 3608187258023337916}
+  possesionState: {fileID: 5168918029344168932}
   Continue: 0
   DrinkEffect: 0
 --- !u!1 &1325662999513371938
@@ -626,6 +627,7 @@ Transform:
   - {fileID: 2741062835518681825}
   - {fileID: 8763448011798317266}
   - {fileID: 8937156397940124258}
+  - {fileID: 6939793186905968398}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5472068502532061457
@@ -1781,6 +1783,52 @@ MonoBehaviour:
   anitgravityStrenghtMultiplier: 12
   parent: {fileID: 3677401958677421276}
   mainBone: {fileID: 410014705956862917}
+--- !u!1 &8922991103714684715
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6939793186905968398}
+  - component: {fileID: 5168918029344168932}
+  m_Layer: 0
+  m_Name: Possesion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6939793186905968398
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8922991103714684715}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 351278869304687391}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5168918029344168932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8922991103714684715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c73fa36b15ae64942a77523e5670addb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Controller: {fileID: 3585869751219213972}
+  animator: {fileID: 4261310786893091742}
 --- !u!1001 &809108540273452099
 PrefabInstance:
   m_ObjectHideFlags: 0

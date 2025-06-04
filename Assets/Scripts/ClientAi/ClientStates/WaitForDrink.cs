@@ -20,6 +20,7 @@ public class WaitForDrink : ClientState
     public Transparency transparencyState;
     public Clone cloneState;
     public Rave raveState;
+    public Possesion possesionState;    
 
     public bool Continue = false;
 
@@ -69,6 +70,8 @@ public class WaitForDrink : ClientState
                     return cloneState;
                 case DrinkEffect.RAVE:
                     return raveState;
+                case DrinkEffect.POSSESION:
+                    return possesionState;
                 case DrinkEffect.WATER:
                 case DrinkEffect.EMPTY:
                     break;
