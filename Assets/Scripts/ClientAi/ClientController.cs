@@ -22,6 +22,7 @@ public enum DrinkEffect
     CLONE,
     RAVE,
     POSSESION,
+    OVERGROWTH,
 
     EMPTY,
     WATER
@@ -298,6 +299,9 @@ public class NormalQuests : Quests
         },
         new string[]/*POSSESION*/{
             "POSSESION! "
+        },
+        new string[]/*OVERGROWTH*/{
+            "OVERGROWTH! "
         }
     };
 

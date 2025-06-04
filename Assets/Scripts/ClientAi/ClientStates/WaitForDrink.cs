@@ -21,6 +21,7 @@ public class WaitForDrink : ClientState
     public Clone cloneState;
     public Rave raveState;
     public Possesion possesionState;    
+    public Overgrowth overgrowthState;
 
     public bool Continue = false;
 
@@ -72,6 +73,8 @@ public class WaitForDrink : ClientState
                     return raveState;
                 case DrinkEffect.POSSESION:
                     return possesionState;
+                case DrinkEffect.OVERGROWTH:
+                    return overgrowthState;
                 case DrinkEffect.WATER:
                 case DrinkEffect.EMPTY:
                     break;
