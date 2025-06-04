@@ -154,7 +154,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2071645477898967731}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 1
@@ -162,7 +162,7 @@ Transform:
   - {fileID: 7380306504553458515}
   - {fileID: 3784217781728695699}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &723329668586112973
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -334,7 +334,7 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  DrinkMovementAmount: 2
+  DrinkMovementAmount: 0.99
   minimumDrinkAmount: 0.05
   minimumDrinkDistance: 0.05
 --- !u!114 &4567950196477481483
@@ -377,7 +377,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1.5, y: 2, z: 1.5}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.5, z: 0}
 --- !u!1 &5164139375451075304
 GameObject:
   m_ObjectHideFlags: 0
