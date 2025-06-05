@@ -135,5 +135,4 @@ public class Possesion : ClientState
         yield return new WaitForSeconds(destroyTime);
         Destroy(Parent);
     }
-
 }

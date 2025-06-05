@@ -25,6 +25,8 @@ public class WaitForDrink : ClientState
     public Portal portalState;  
     public Negative negativeState; 
     public Aplause aplauseState;
+    public Fireflies firefliesState;
+    public Fireflies frostfliesState;
 
     public bool Continue = false;
 
@@ -84,6 +86,10 @@ public class WaitForDrink : ClientState
                     return negativeState;
                 case DrinkEffect.APLAUSE:
                     return aplauseState;
+                case DrinkEffect.FIREFLIES:
+                    return firefliesState;
+                case DrinkEffect.FROSTFLIES: 
+                    return frostfliesState;
                 case DrinkEffect.WATER:
                 case DrinkEffect.EMPTY:
                     break;

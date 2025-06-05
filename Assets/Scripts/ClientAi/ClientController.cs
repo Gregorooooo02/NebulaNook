@@ -26,6 +26,8 @@ public enum DrinkEffect
     PORTAL,
     NEGATIVE,
     APLAUSE,
+    FIREFLIES,
+    FROSTFLIES,
 
     EMPTY,
     WATER
@@ -314,6 +316,12 @@ public class NormalQuests : Quests
         },
         new string[]/*APLAUSE*/{
             "APLAUSE! "
+        },
+        new string[]/*FIREFLIES*/{
+            "FIREFLIES! "
+        },
+        new string[]/*FROSTFLIES*/{
+            "FROSTFLIES! "
         }
     };
 
