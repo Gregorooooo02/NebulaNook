@@ -25,6 +25,7 @@ public enum DrinkEffect
     OVERGROWTH,
     PORTAL,
     NEGATIVE,
+    APLAUSE,
 
     EMPTY,
     WATER
@@ -310,6 +311,9 @@ public class NormalQuests : Quests
         },
         new string[]/*NEGATIVE*/{
             "NEGATIVE! "
+        },
+        new string[]/*APLAUSE*/{
+            "APLAUSE! "
         }
     };
 
