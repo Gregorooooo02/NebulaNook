@@ -2266,7 +2266,7 @@ MonoBehaviour:
   zAxisReference: {fileID: 2722637822268745705}
   xAxisReference: {fileID: 7334970615023690083}
   TimeToPosses: 2
-  InitialFloatingForce: 100
+  InitialFloatingForce: 300
   maxInitialVerticalOffset: 2
   initialSuspensionTime3rdStage: 0.8
   sidewaysJerkForce: 200
