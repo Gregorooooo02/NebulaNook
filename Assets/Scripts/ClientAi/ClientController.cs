@@ -23,6 +23,7 @@ public enum DrinkEffect
     RAVE,
     POSSESION,
     OVERGROWTH,
+    PORTAL,
 
     EMPTY,
     WATER
@@ -302,6 +303,9 @@ public class NormalQuests : Quests
         },
         new string[]/*OVERGROWTH*/{
             "OVERGROWTH! "
+        },
+        new string[]/*PORTAL*/{
+            "PORTAL! "
         }
     };
 
