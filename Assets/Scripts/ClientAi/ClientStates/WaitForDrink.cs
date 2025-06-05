@@ -23,6 +23,7 @@ public class WaitForDrink : ClientState
     public Possesion possesionState;    
     public Overgrowth overgrowthState;
     public Portal portalState;  
+    public Negative negativeState;  
 
     public bool Continue = false;
 
@@ -78,6 +79,8 @@ public class WaitForDrink : ClientState
                     return overgrowthState;
                 case DrinkEffect.PORTAL:
                     return portalState;
+                case DrinkEffect.NEGATIVE:
+                    return negativeState;
                 case DrinkEffect.WATER:
                 case DrinkEffect.EMPTY:
                     break;
