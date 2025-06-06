@@ -12,7 +12,9 @@ public class Negative : ClientState
 
     public float initialDelay;
 
-    public GameObject inverter;
+    public Material NegativeMaterial;
+    public Renderer[] renderers;
+
     public GameObject Parent;
     public override ClientState RunState()
     {
@@ -29,7 +31,10 @@ public class Negative : ClientState
 
     IEnumerator ExecuteEffect()
     {
-        inverter.SetActive(true);
+        foreach (Renderer r in renderers)
+        {
+            r.material = new Material(NegativeMaterial);
+        }
         yield return new WaitForSeconds(initialDelay);
         agent.SetDestination(Controller.Spawner.Exit.transform.position);
         yield return new WaitForFixedUpdate();
