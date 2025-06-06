@@ -395,6 +395,7 @@ MonoBehaviour:
   frostfliesState: {fileID: 6378811812760099607}
   dissolveState: {fileID: 1701099482712049326}
   meteorState: {fileID: 1338560924571608129}
+  tableGlitchState: {fileID: 843630776991642529}
   Continue: 0
   DrinkEffect: 0
 --- !u!1 &1325662999513371938
@@ -785,6 +786,7 @@ Transform:
   - {fileID: 9072333656464533097}
   - {fileID: 2756646273577351757}
   - {fileID: 3493059862974572548}
+  - {fileID: 4899000001170828410}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5472068502532061457
@@ -2329,6 +2331,59 @@ MonoBehaviour:
   anitgravityStrenghtMultiplier: 12
   parent: {fileID: 3677401958677421276}
   mainBone: {fileID: 410014705956862917}
+--- !u!1 &8874409254402112446
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4899000001170828410}
+  - component: {fileID: 843630776991642529}
+  m_Layer: 0
+  m_Name: TableGlitch
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4899000001170828410
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8874409254402112446}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -45.47998, y: -2.732067, z: -6.397994}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 351278869304687391}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &843630776991642529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8874409254402112446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4b94dc81ae9a4c43ad868216790708b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Controller: {fileID: 3585869751219213972}
+  initialDelay: 1
+  mainBone: {fileID: 410014705956862917}
+  agent: {fileID: 6546193348599966578}
+  MinPointDist: 0.75
+  animationActivationDelay: 2
+  Parent: {fileID: 3677401958677421276}
+  yeetDelay: 2
+  yeetForce: 30000
 --- !u!1 &8897302339697292937
 GameObject:
   m_ObjectHideFlags: 0

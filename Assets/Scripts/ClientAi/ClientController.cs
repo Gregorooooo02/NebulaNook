@@ -30,6 +30,7 @@ public enum DrinkEffect
     FROSTFLIES,
     DISSOLVE,
     METEOR,
+    TABLE_GLITCH,
 
     EMPTY,
     WATER
@@ -330,9 +331,12 @@ public class NormalQuests : Quests
         },
         new string[]/*METEOR*/{
             "METEOR! "
+        },
+        new string[]/*TABLE_GLITCH*/{
+            "TABLE_GLITCH! "
         }
     };
-
+    
     public override string GetRandomQuestText(DrinkEffect effect)
     {
         int textIterations = texts[(int)(effect) - 1].Length;
