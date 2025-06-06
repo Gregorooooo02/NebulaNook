@@ -2382,7 +2382,7 @@ MonoBehaviour:
   MinPointDist: 0.75
   animationActivationDelay: 0.5
   Parent: {fileID: 3677401958677421276}
-  yeetDelay: 2
+  yeetDelay: 7
   yeetForce: 100000
 --- !u!1 &8897302339697292937
 GameObject:
