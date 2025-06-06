@@ -9,21 +9,6 @@ public class TableHandle : MonoBehaviour
 
     public Vector3 yeetDirection;
 
-    private bool act = false;
-    public bool Activate
-    {
-        get => act;
-        set
-        {
-            act = value;
-            if (act)
-            {
-                StartAnim();
-                act = false;
-            }
-        }
-    }
-
     void Start()
     {
         Instance = this;
@@ -57,4 +42,8 @@ public class TableHandle : MonoBehaviour
         animator.SetBool("Back", true);
     }
 
+    public void TriggerBoom()
+    {
+        GetComponentInChildren<Boom>().Explode();
+    }
 }

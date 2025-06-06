@@ -2380,10 +2380,10 @@ MonoBehaviour:
   mainBone: {fileID: 410014705956862917}
   agent: {fileID: 6546193348599966578}
   MinPointDist: 0.75
-  animationActivationDelay: 2
+  animationActivationDelay: 0.5
   Parent: {fileID: 3677401958677421276}
   yeetDelay: 2
-  yeetForce: 30000
+  yeetForce: 100000
 --- !u!1 &8897302339697292937
 GameObject:
   m_ObjectHideFlags: 0
