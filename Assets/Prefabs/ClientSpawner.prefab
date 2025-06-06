@@ -46,6 +46,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GizmoColor: {r: 0, g: 0.5989783, b: 1, a: 1}
   type: 0
+--- !u!1 &8432704671969121039
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8506646352467799673}
+  - component: {fileID: 3177571964450844049}
+  m_Layer: 0
+  m_Name: MeteorSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8506646352467799673
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8432704671969121039}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6350204000497952013}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3177571964450844049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8432704671969121039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ef2079d88e436448a0d3d5ed5d895d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GizmoColor: {r: 1, g: 0.38829625, b: 0, a: 1}
+  type: 1
 --- !u!1 &8506741414891714057
 GameObject:
   m_ObjectHideFlags: 0
@@ -78,6 +124,7 @@ Transform:
   m_Children:
   - {fileID: 5826602635857755046}
   - {fileID: 6664226072939799697}
+  - {fileID: 8506646352467799673}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4780621927995412780
@@ -98,6 +145,7 @@ MonoBehaviour:
   ClientSpawned: 0
   minClientSpawnDelay: 2
   maxClientSpawnDelay: 10
+  MeteorSpawnPoint: {fileID: 8506646352467799673}
 --- !u!1001 &4340840900850431350
 PrefabInstance:
   m_ObjectHideFlags: 0

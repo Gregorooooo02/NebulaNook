@@ -12,10 +12,13 @@ public class ClientSpawner : MonoBehaviour
     public float minClientSpawnDelay;
     public float maxClientSpawnDelay;
 
+    public Transform MeteorSpawnPoint;
+
     private void SpawnClient()
     {
         GameObject client = Instantiate(ClientPrefab, transform);
-        client.GetComponent<ClientController>().Spawner = this;
+        ClientController controller = client.GetComponent<ClientController>();
+        controller.Spawner = this;
     }
 
     void FixedUpdate()

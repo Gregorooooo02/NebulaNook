@@ -8,6 +8,7 @@ TagManager:
   - Interactable
   - CutTrigger
   - ChoppedFruit
+  - Meteor
   layers:
   - Default
   - TransparentFX

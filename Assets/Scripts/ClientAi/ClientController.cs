@@ -29,6 +29,7 @@ public enum DrinkEffect
     FIREFLIES,
     FROSTFLIES,
     DISSOLVE,
+    METEOR,
 
     EMPTY,
     WATER
@@ -326,6 +327,9 @@ public class NormalQuests : Quests
         },
         new string[]/*DISSOLVE*/{
             "DISSOLVE! "
+        },
+        new string[]/*METEOR*/{
+            "METEOR! "
         }
     };
 
