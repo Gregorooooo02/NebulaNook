@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activator: {fileID: 0}
-  yeetDirection: {x: 1, y: 1, z: 1}
+  yeetDirection: {x: 1, y: 2, z: 1}
 --- !u!95 &5124227421671003012
 Animator:
   serializedVersion: 7
