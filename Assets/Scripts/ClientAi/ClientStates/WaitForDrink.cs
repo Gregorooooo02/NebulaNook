@@ -27,6 +27,7 @@ public class WaitForDrink : ClientState
     public Aplause aplauseState;
     public Fireflies firefliesState;
     public Fireflies frostfliesState;
+    public Dissolve dissolveState;
 
     public bool Continue = false;
 
@@ -90,6 +91,8 @@ public class WaitForDrink : ClientState
                     return firefliesState;
                 case DrinkEffect.FROSTFLIES: 
                     return frostfliesState;
+                case DrinkEffect.DISSOLVE:
+                    return dissolveState;
                 case DrinkEffect.WATER:
                 case DrinkEffect.EMPTY:
                     break;
