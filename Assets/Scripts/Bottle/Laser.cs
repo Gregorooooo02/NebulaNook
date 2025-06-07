@@ -66,7 +66,7 @@ public class Laser : MonoBehaviour
     private Vector3 FindEndPoint()
     {
         RaycastHit hit;
-        Ray ray = new Ray(transform.position, Vector3.forward);
+        Ray ray = new Ray(transform.position, -transform.right);
 
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, ignoreLayer))
         {
