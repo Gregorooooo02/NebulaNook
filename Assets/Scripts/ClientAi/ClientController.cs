@@ -31,6 +31,7 @@ public enum DrinkEffect
     DISSOLVE,
     METEOR,
     TABLE_GLITCH,
+    GLITCH,
 
     EMPTY,
     WATER
@@ -334,6 +335,9 @@ public class NormalQuests : Quests
         },
         new string[]/*TABLE_GLITCH*/{
             "TABLE_GLITCH! "
+        },
+        new string[]/*GLITCH*/{
+            "GLITCH! "
         }
     };
     

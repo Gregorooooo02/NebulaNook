@@ -30,6 +30,7 @@ public class WaitForDrink : ClientState
     public Dissolve dissolveState;
     public Meteor meteorState;
     public TableGlitch tableGlitchState;
+    public Glitch glitchState;
 
     public bool Continue = false;
 
@@ -99,6 +100,8 @@ public class WaitForDrink : ClientState
                     return meteorState;
                 case DrinkEffect.TABLE_GLITCH:
                     return tableGlitchState;
+                case DrinkEffect.GLITCH:
+                    return glitchState;
                 case DrinkEffect.WATER:
                 case DrinkEffect.EMPTY:
                     break;
