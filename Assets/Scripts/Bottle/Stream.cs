@@ -87,7 +87,6 @@ public class Stream : MonoBehaviour
             // Lock rotation on the X and Z axes
             splashParticle.gameObject.transform.rotation = Quaternion.Euler(-90, transform.rotation.y, 0);
 
-
             bool isHitting = HasReachedTarget(1, targetPosition);
             splashParticle.gameObject.SetActive(isHitting);
 
@@ -98,7 +97,6 @@ public class Stream : MonoBehaviour
     private IEnumerator UpdateTriggerCoroutine() {
         while (gameObject.activeSelf) {
             streamTrigger.position = targetPosition;
-
             yield return null;
         }
     }
