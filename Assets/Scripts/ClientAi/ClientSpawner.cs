@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using UnityEngine;
 
 public class ClientSpawner : MonoBehaviour
@@ -14,20 +14,32 @@ public class ClientSpawner : MonoBehaviour
 
     public int maxClientsToSpawn = 5;
     [HideInInspector] public int currentClientCount = 0;
+    private int finishedClientCount = 0;
+
+    public event Action OnAllClientsFinished;
 
     private void SpawnClient()
     {
+        currentClientCount++;
         GameObject client = Instantiate(ClientPrefab, transform);
         client.GetComponent<ClientController>().Spawner = this;
     }
 
     void FixedUpdate()
     {
-        if(!ClientSpawned && currentClientCount < maxClientsToSpawn)
+        if (!ClientSpawned && currentClientCount < maxClientsToSpawn)
         {
-            currentClientCount++;
-            Invoke("SpawnClient", Random.Range(minClientSpawnDelay, maxClientSpawnDelay));
+            Invoke(nameof(SpawnClient), UnityEngine.Random.Range(minClientSpawnDelay, maxClientSpawnDelay));
             ClientSpawned = true;
+        }
+    }
+
+    public void NotifyClientFinished()
+    {
+        finishedClientCount++;
+        if (finishedClientCount >= maxClientsToSpawn)
+        {
+            OnAllClientsFinished?.Invoke();
         }
     }
 }

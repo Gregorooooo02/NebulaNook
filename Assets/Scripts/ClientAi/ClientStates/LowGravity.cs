@@ -21,6 +21,7 @@ public class LowGravity : ClientState
                 mainBone.AddForce(Physics.gravity * -2 * anitgravityStrenghtMultiplier, ForceMode.Force);
                 return this;
             }
+            Controller.Spawner?.NotifyClientFinished();
             Destroy(parent);
         }
         else

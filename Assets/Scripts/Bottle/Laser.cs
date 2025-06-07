@@ -88,7 +88,7 @@ public class Laser : MonoBehaviour
     private void AnimateToTarget(int index, Vector3 targetPosition)
     {
         Vector3 currentPoint = lineRenderer.GetPosition(index);
-        Vector3 newPoint = Vector3.MoveTowards(currentPoint, targetPosition, Time.deltaTime * 10f);
+        Vector3 newPoint = Vector3.MoveTowards(currentPoint, targetPosition, Time.deltaTime * 50f);
         lineRenderer.SetPosition(index, newPoint);
     }
 

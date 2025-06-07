@@ -21,6 +21,8 @@ public class Freeze : ClientState
                 _currentTime += Time.fixedDeltaTime;
                 return this;
             }
+
+            Controller.Spawner?.NotifyClientFinished();
             Destroy(parent);
         }
         else

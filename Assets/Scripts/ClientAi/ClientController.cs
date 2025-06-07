@@ -26,6 +26,20 @@ public enum DrinkEffect
     WATER
 }
 
+public enum GlassType
+{
+    COCKTAIL,
+    WHISKY,
+    PEG,
+    MARTINI
+}
+
+public enum FruitType
+{
+    EXPLOSIVE,
+    JUMPY
+}
+
 public enum QuestSourceType
 {
     HUMAN,
@@ -36,6 +50,8 @@ public class ClientController : MonoBehaviour
 {
     public ClientState CurrentState;
     public DrinkEffect DesiredDrinkEffect = DrinkEffect.COMBUTION;
+    public GlassType DesiredGlassType = GlassType.COCKTAIL;
+    public FruitType DesiredFruitType = FruitType.EXPLOSIVE;
     
     public SpeechBubble bubble;
 
@@ -102,7 +118,7 @@ public class ClientController : MonoBehaviour
         {
             IsWaiting = true;
             bubble.gameObject.SetActive(true);
-            bubble.SetText(questsSource.GetRandomQuestText(DesiredDrinkEffect));     
+            bubble.SetText(questsSource.GetRandomQuestText(DesiredDrinkEffect));
         }
         else if(IsWaiting && CurrentState is not WaitForDrink)
         {
@@ -140,20 +156,44 @@ public class ClientController : MonoBehaviour
         }
     }
 
-    public void Drink(DrinkEffect effect)
+    public void Drink(DrinkEffect effect/*, GlassType glass, FruitType fruit*/)
     {
-        if (IsWaiting && DesiredDrinkEffect == effect)
+        if (IsWaiting && DesiredDrinkEffect != DrinkEffect.EMPTY /*&& DesiredDrinkEffect == effect*/)
         {
-            GameManager.Instance.IncrementQuota(10);
+            CalculatePoints(effect);
             _drinkWaiting.DrinkEffect = effect;
             _drinkWaiting.Continue = true;
         }
-        else if (IsWaiting && DesiredDrinkEffect != effect && DesiredDrinkEffect != DrinkEffect.EMPTY)
+    }
+
+    private void CalculatePoints(DrinkEffect effect/*, GlassType glass, FruitType fruit*/)
+    {
+        if (DesiredDrinkEffect == effect)
+        {
+            GameManager.Instance.IncrementQuota(20);
+        }
+        else
         {
             GameManager.Instance.DecrementQuota(10);
-            _drinkWaiting.DrinkEffect = effect;
-            _drinkWaiting.Continue = true;
         }
+
+        // if (DesiredGlassType == glass)
+        // {
+        //     GameManager.Instance.IncrementQuota(5);
+        // }
+        // else
+        // {
+        //     GameManager.Instance.DecrementQuota(5);
+        // }
+
+        // if (DesiredFruitType == fruit)
+        // {
+        //     GameManager.Instance.IncrementQuota(10);
+        // }
+        // else
+        // {
+        //     GameManager.Instance.DecrementQuota(5);
+        // }
     }
 
     public void ToggleRagdoll(bool isRagdoll)
@@ -162,7 +202,7 @@ public class ClientController : MonoBehaviour
         Animator.enabled = !isRagdoll;
         _agent.enabled = !isRagdoll;
 
-        foreach(Rigidbody r in Joints)
+        foreach (Rigidbody r in Joints)
         {
             r.isKinematic = !isRagdoll;
         }
@@ -199,6 +239,7 @@ public class ClientController : MonoBehaviour
 
     public void DeleteYourself()
     {
+        Spawner?.NotifyClientFinished();
         Destroy(gameObject);
     }
 }

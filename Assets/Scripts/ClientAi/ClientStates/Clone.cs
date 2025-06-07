@@ -40,6 +40,7 @@ public class Clone : ClientState
             if (Vector3.Distance(transform.position, Controller.Spawner.Exit.transform.position) <= MinPointDist)
             {
                 isWalking = false;
+                Controller.Spawner?.NotifyClientFinished();
                 Destroy(Parent);
             }
 
