@@ -21,6 +21,7 @@ public class Explode : ClientState
                 _currentTime += Time.fixedDeltaTime;
                 return this;
             }
+            Controller.Spawner?.NotifyClientFinished();
             Destroy(gameObject.transform.parent.gameObject);
         }
         else

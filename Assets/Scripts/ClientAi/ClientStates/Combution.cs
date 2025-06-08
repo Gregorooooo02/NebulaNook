@@ -19,6 +19,7 @@ public class Combution : ClientState
             if (Vector3.Distance(parent.transform.position, Controller.Spawner.Exit.transform.position) <= MinPointDist)
             {
                 triggered = false;
+                Controller.Spawner?.NotifyClientFinished();
                 Destroy(parent);
             }
         }

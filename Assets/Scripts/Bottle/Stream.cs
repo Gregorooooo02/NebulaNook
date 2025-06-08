@@ -58,7 +58,7 @@ public class Stream : MonoBehaviour
         RaycastHit hit;
         Ray ray = new Ray(transform.position, Vector3.down);
 
-        Physics.Raycast(ray, out hit, Mathf.Infinity, ignoreLayer.value);
+        Physics.Raycast(ray, out hit, Mathf.Infinity, ignoreLayer);
         Vector3 endPoint = hit.collider ? hit.point : ray.GetPoint(2f);
 
         return endPoint;
@@ -87,7 +87,6 @@ public class Stream : MonoBehaviour
             // Lock rotation on the X and Z axes
             splashParticle.gameObject.transform.rotation = Quaternion.Euler(-90, transform.rotation.y, 0);
 
-
             bool isHitting = HasReachedTarget(1, targetPosition);
             splashParticle.gameObject.SetActive(isHitting);
 
@@ -98,7 +97,6 @@ public class Stream : MonoBehaviour
     private IEnumerator UpdateTriggerCoroutine() {
         while (gameObject.activeSelf) {
             streamTrigger.position = targetPosition;
-
             yield return null;
         }
     }

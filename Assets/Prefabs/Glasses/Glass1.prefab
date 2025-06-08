@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 871528712841844930}
   serializedVersion: 2
   m_LocalRotation: {x: 1.5860912e-14, y: -0.000000081460335, z: 1, w: -0.00000019470718}
-  m_LocalPosition: {x: -0.000000010296693, y: 2.2143788, z: 0.00000001173615}
+  m_LocalPosition: {x: -0, y: 1.711, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -105,7 +105,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 2417325388689883724}
   - component: {fileID: 5943680045852290725}
   - component: {fileID: 4567950196477481483}
+  - component: {fileID: 4762681486025428517}
   m_Layer: 0
   m_Name: Glass1
   m_TagString: Untagged
@@ -153,7 +154,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2071645477898967731}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 1
@@ -161,7 +162,7 @@ Transform:
   - {fileID: 7380306504553458515}
   - {fileID: 3784217781728695699}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &723329668586112973
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -326,6 +327,16 @@ MonoBehaviour:
   liquidRenderer: {fileID: 4700694629279950373}
   fillSpeed: 1
   startingFill: 0
+  fillAmounts:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  DrinkMovementAmount: 0.99
+  minimumDrinkAmount: 0.05
+  minimumDrinkDistance: 0.05
 --- !u!114 &4567950196477481483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,12 +351,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glassFiller: {fileID: 5943680045852290725}
   streamPrefab: {fileID: 8941625051351596894, guid: 991d207acfd59472493d54e8b2fc0f57, type: 3}
-  rimRadius: 0.05
-  rimHeight: 0.16
+  rimRadius: 0.051
+  rimHeight: 0.131
   minPourAngle: 15
   maxPourAngle: 90
   minFlowRate: 0.5
   maxFlowRate: 5
+--- !u!65 &4762681486025428517
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071645477898967731}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5, y: 2, z: 1.5}
+  m_Center: {x: 0, y: -0.5, z: 0}
 --- !u!1 &5164139375451075304
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,7 +406,7 @@ Transform:
   m_GameObject: {fileID: 5164139375451075304}
   serializedVersion: 2
   m_LocalRotation: {x: 1.5860912e-14, y: -0.000000081460335, z: 1, w: -0.00000019470718}
-  m_LocalPosition: {x: 0.0000000016165317, y: 0.50145, z: -0.0000000013858832}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -450,7 +482,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30

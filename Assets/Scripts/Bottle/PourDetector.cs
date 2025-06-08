@@ -15,6 +15,8 @@ public class PourDetector : MonoBehaviour
     private bool isPouring = false;
     private Stream currentStream = null;
 
+    [SerializeField] private bool shouldParentStream = true;
+
     private void Awake()
     {
         grabInteractable.selectEntered.AddListener(OnSelectEntered);
@@ -75,7 +77,15 @@ public class PourDetector : MonoBehaviour
     }
 
     private Stream CreateStream() {
-        GameObject streamObject = Instantiate(streamPrefab, pourOrigin.position, Quaternion.identity, transform);
+        GameObject streamObject;
+        if (shouldParentStream)
+        {
+            streamObject = Instantiate(streamPrefab, pourOrigin.position, Quaternion.identity, transform);
+        }
+        else
+        {
+            streamObject = Instantiate(streamPrefab, pourOrigin.position, Quaternion.identity);
+        }
 
         return streamObject.GetComponent<Stream>();
     }

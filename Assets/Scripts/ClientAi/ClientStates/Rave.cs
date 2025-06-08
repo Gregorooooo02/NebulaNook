@@ -57,6 +57,7 @@ public class Rave : ClientState
             if (Vector3.Distance(transform.position, Controller.Spawner.Exit.transform.position) <= MinPointDist)
             {
                 _isWalking = false;
+                Controller.Spawner?.NotifyClientFinished();
                 Destroy(gameObject.transform.parent.gameObject);
             }
         }

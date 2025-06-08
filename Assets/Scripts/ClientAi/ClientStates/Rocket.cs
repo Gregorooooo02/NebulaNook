@@ -8,8 +8,16 @@ public class Rocket : ClientState
     {
         if (triggered)
         {
-
-        } 
+            // Check if "Takeoff" animation is finished
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Takeoff"))
+            {
+                if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+                {
+                    Controller.Spawner?.NotifyClientFinished();
+                    Destroy(gameObject);
+                }
+            }
+        }
         else
         {
             ClientController controller = GetComponentInParent<ClientController>();
@@ -19,7 +27,7 @@ public class Rocket : ClientState
             controller.FreezeRotation();
             triggered = true;
             animator.enabled = true;
-            animator.SetBool("Takeoff",true);
+            animator.SetBool("Takeoff", true);
         }
 
         return this;
