@@ -8,12 +8,8 @@ public class WaitForDrink : ClientState
     public Explode explodeState;
     public Freeze freezeState;
     public LowGravity low_gravityState;
-    public Speed speedState;
-    public Slow slowState;
     public Anihilation anihilationState;
     public Bubbles bubblesState;
-    public SizeChange bigState;
-    public SizeChange smallState;
     public Blackhole blackHoleState;
     public Combution combutionState;
     public Rocket rocketState;
@@ -56,18 +52,10 @@ public class WaitForDrink : ClientState
                     return freezeState;
                 case DrinkEffect.GRAVITY_LIFT:
                     return low_gravityState;
-                case DrinkEffect.QUICKNESS:
-                    return speedState;
-                case DrinkEffect.SLOWNESS:
-                    return slowState;
                 case DrinkEffect.ANIHILATION:
                     return anihilationState;
                 case DrinkEffect.LIFE:
                     return bubblesState;
-                case DrinkEffect.ENLARGEMENT:
-                    return bigState;
-                case DrinkEffect.SHRINKING:
-                    return smallState;
                 case DrinkEffect.BLACK_HOLE:
                     return blackHoleState;
                 case DrinkEffect.COMBUTION:

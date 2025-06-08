@@ -14,10 +14,6 @@ public enum DrinkEffect
     EXPLOSION,
     ANIHILATION,
     GRAVITY_LIFT,
-    ENLARGEMENT,
-    SHRINKING,
-    SLOWNESS,
-    QUICKNESS,
     TRANSPARENCY,
     CLONE,
     RAVE,
@@ -284,18 +280,6 @@ public class NormalQuests : Quests
             "A drink that forgets weight. That’s what I need. ",
             "Something like freefall, but in a glass. ",
             "I’d like something… unburdened. Something with altitude. "
-        },
-        new string[]/*ENLARGEMENT*/{
-            "BIG! "
-        },
-        new string[]/*SHRINKING*/{
-            "SMALL! "
-        },
-        new string[]/*SLOWNESS*/{
-            "SLOW! "
-        },
-        new string[]/*QUICKNESS*/{
-            "FAST! "
         },
         new string[]/*TRANSPARENCY*/{
             "INVIS! "
