@@ -58,6 +58,7 @@ public class ClientController : MonoBehaviour
     private WaitForDrink _drinkWaiting;
 
     public QuestSourceType SourceType = QuestSourceType.HUMAN;
+    public bool useIcons = false;
     private Quests questsSource;
 
     private Rigidbody[] Joints;
@@ -109,7 +110,14 @@ public class ClientController : MonoBehaviour
         {
             IsWaiting = true;
             bubble.gameObject.SetActive(true);
-            bubble.SetText(questsSource.GetRandomQuestText(DesiredDrinkEffect));     
+            if (useIcons)
+            {
+                bubble.SetIcon(DrinkEffectMap.Instance.effectIcons[(int)DesiredDrinkEffect]);
+            } 
+            else
+            {
+                bubble.SetText(questsSource.GetRandomQuestText(DesiredDrinkEffect));
+            }
         }
         else if(IsWaiting && CurrentState is not WaitForDrink)
         {

@@ -1,11 +1,12 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpeechBubble : MonoBehaviour
 {
     public Canvas canvas;
     public TextMeshPro textMeshPro;
-    public RectTransform Image;
+    public RectTransform Background;
 
     public float CharDelay = 0.05f;
     private float _currentCharTime = 0;
@@ -15,6 +16,9 @@ public class SpeechBubble : MonoBehaviour
     private bool _startWriting = false;
 
     private Vector2 TextPadding = new Vector2(50.0f, 25.0f);
+
+    public GameObject textObject;
+    public GameObject iconObject;
 
     void Update()
     {
@@ -28,7 +32,7 @@ public class SpeechBubble : MonoBehaviour
                 textMeshPro.text = _currentText.Substring(0, characterIndex);
                 textMeshPro.ForceMeshUpdate();
                 Vector2 textSize = textMeshPro.GetRenderedValues(false);
-                Image.sizeDelta = textSize + TextPadding;
+                Background.sizeDelta = textSize + TextPadding;
                 if (characterIndex == _currentText.Length - 1)
                 {
                     _startWriting = false;
@@ -41,6 +45,17 @@ public class SpeechBubble : MonoBehaviour
     public void SetText(string text)
     {
         _currentText = text;
+        textObject.SetActive(true);
         _startWriting = true;
+    }
+
+    public void SetIcon(Texture2D icon)
+    {
+        iconObject.SetActive(true);
+        Image image = iconObject.GetComponent<Image>();
+        image.sprite = Sprite.Create(icon,new Rect(0,0,icon.width,icon.height), new Vector2(0, 0));
+        
+        RectTransform rectTransform = iconObject.GetComponent<RectTransform>();
+        Background.sizeDelta = rectTransform.sizeDelta + TextPadding;
     }
 }

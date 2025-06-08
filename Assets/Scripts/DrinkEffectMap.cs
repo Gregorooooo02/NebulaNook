@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DrinkEffectMap : MonoBehaviour
 {
@@ -6,6 +7,7 @@ public class DrinkEffectMap : MonoBehaviour
     public static DrinkEffectMap Instance;
 
     public Color[] colorTable = new Color[6];
+    public Texture2D[] effectIcons;
 
     private void Start()
     {
