@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
@@ -9,33 +10,43 @@ public class PipScript : MonoBehaviour
     [SerializeField] private XRGrabInteractable pipInteractable;
     [SerializeField] private GameObject playerObject;
     private float currentTime = 0;
-    private bool didStandUp = false;
-    [SerializeField] private float timeToStandUp;
+    public bool didCollideAfterGrab = false;
+    [SerializeField] private float timeToTriggerStandup;
 
     void Update()
     {
         currentTime += Time.deltaTime;
-        standUp();
+
+        if (didCollideAfterGrab && currentTime > timeToTriggerStandup && !IsGrabbed)
+        {
+            followPlayer();
+        }
+
+    }
+
+    public void TriggerFollowing()
+    {
+        currentTime = 0;
+        didCollideAfterGrab = true;
     }
 
     private void Awake()
     {
         pipInteractable.selectEntered.AddListener((_) => IsGrabbed = true);
-        pipInteractable.selectExited.AddListener((_) => IsGrabbed = false);
+        pipInteractable.selectExited.AddListener((_) => {
+            IsGrabbed = false;
+            didCollideAfterGrab = false;
+        });
     }
 
-    public void TriggerStandUp()
+    private void followPlayer()
     {
-        currentTime = 0;
-        didStandUp = false;
-    }
+        Vector3 cameraPos = Camera.main.transform.position;
+        Vector3 atPlayer = cameraPos - transform.position;
+        atPlayer.y = 0;
 
-    private void standUp()
-    {
-        if (currentTime >= timeToStandUp && !didStandUp && !IsGrabbed)
-        {
-            gameObject.transform.LookAt(new Vector3(0, 0, 0));
-            didStandUp = true;
-        }
+        Quaternion rotation = Quaternion.LookRotation(atPlayer);
+        transform.rotation = rotation;
+        
     }
 }
