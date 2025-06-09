@@ -29,6 +29,7 @@ public class CombustPIP : PipState
 
     IEnumerator ExecuteEffect()
     {
+        yield return new WaitForSeconds(initialDelay);
         Fire.SetActive(true);
         yield return new WaitForSeconds(duration);
         Fire.SetActive(false);

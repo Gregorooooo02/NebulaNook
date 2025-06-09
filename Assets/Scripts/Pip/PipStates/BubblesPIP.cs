@@ -1,16 +1,37 @@
+using System.Collections;
 using UnityEngine;
 
-public class BubblesPIP : MonoBehaviour
+public class BubblesPIP : PipState
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public GameObject bubbles;
+
+    public float duration;
+
+    private bool triggered = false;
+    private bool done = false;
+
+    public override PipState RunState()
     {
-        
+        if (!triggered)
+        {
+            triggered = true;
+            StartCoroutine("ExecuteEffect");
+        }
+        if (done)
+        {
+            done = false;
+            triggered = false;
+            return DefaultState;
+        }
+        return this;
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator ExecuteEffect()
     {
-        
+        yield return new WaitForSeconds(initialDelay);
+        bubbles.SetActive(true);
+        yield return new WaitForSeconds(duration);
+        bubbles.SetActive(false);
+        done = true;
     }
 }

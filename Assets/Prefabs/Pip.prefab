@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a8dcce0970ec314bb8aaa98430c9908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ReturnState: {fileID: 3576423974815676630}
+  DefaultState: {fileID: 0}
+  initialDelay: 0.5
   Fire: {fileID: 5616541477700841597}
   duration: 3
 --- !u!1 &6684682407449620629
@@ -92,7 +93,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e575f4698500f3246811848e7d29b80a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ReturnState: {fileID: 0}
+  DefaultState: {fileID: 0}
+  initialDelay: 0
   GotDrink: 0
   drinkEffect: 0
   minIdleCooldown: 1
@@ -544,7 +546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ae5a49d442cd354cbfa315b278b8071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentState: {fileID: 0}
+  CurrentState: {fileID: 3576423974815676630}
 --- !u!4 &6839874285185796789 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d8b2a622cefb46c4f9e743ee3062e875, type: 3}
