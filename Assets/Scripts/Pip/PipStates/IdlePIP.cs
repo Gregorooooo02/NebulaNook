@@ -5,7 +5,7 @@ public class IdlePIP : PipState
     public bool GotDrink;
     public DrinkEffect drinkEffect;
 
-    private bool AnimationPlaying = false;
+    private bool AnimationPlaying = true;
 
     public float minIdleCooldown;
     public float maxIdleCooldown; 
@@ -13,6 +13,9 @@ public class IdlePIP : PipState
     private float currentTime;
 
     public Animator animator;
+
+
+    public CombustPIP combustState;
 
     public override PipState RunState()
     {
@@ -33,8 +36,7 @@ public class IdlePIP : PipState
 
                     break;
                 case DrinkEffect.COMBUTION:
-
-                    break;
+                    return combustState;
                 case DrinkEffect.FREEZE:
 
                     break;
@@ -124,5 +126,10 @@ public class IdlePIP : PipState
         currentTime = 0;
     }
 
+    public void SetDrinkEffect(DrinkEffect drink)
+    {
+        this.drinkEffect = drink;
+        GotDrink = true;
+    }
 
 }
