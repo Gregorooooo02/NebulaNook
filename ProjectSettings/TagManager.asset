@@ -9,6 +9,7 @@ TagManager:
   - CutTrigger
   - ChoppedFruit
   - Meteor
+  - Glass
   layers:
   - Default
   - TransparentFX
