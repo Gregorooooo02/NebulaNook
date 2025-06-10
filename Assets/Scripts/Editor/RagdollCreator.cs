@@ -28,7 +28,7 @@ namespace UnityEditor
                 rb = root.gameObject.GetComponent<Rigidbody>();
             }
 
-            rb.mass = 5f;
+            rb.mass = 1f;
             rb.interpolation = RigidbodyInterpolation.None;
             rb.collisionDetectionMode = CollisionDetectionMode.Discrete;
 

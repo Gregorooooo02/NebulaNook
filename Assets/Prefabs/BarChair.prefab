@@ -49,8 +49,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AccessPoint: {fileID: 4303098951282355507}
   SeatPoint: {fileID: 8801892597497374580}
+  ZonePoint: {fileID: 0}
   Occupier: {fileID: 0}
   Occupied: 0
+--- !u!1 &4224275810755744266
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2904230488819577159}
+  - component: {fileID: 4614098150540579995}
+  m_Layer: 0
+  m_Name: DrinkTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2904230488819577159
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4224275810755744266}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3826780365564265268}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4614098150540579995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4224275810755744266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6210c0fb117144235b4a6f2a6f1bad93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drawGizmo: 1
+  gizmoColor: {r: 0, g: 1, b: 0, a: 1}
+  gizmoSize: 0.1
 --- !u!1 &4303098951282355507
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,7 +179,8 @@ Transform:
   m_LocalPosition: {x: 0.053, y: 0, z: -0.572}
   m_LocalScale: {x: 0.5, y: 0.1, z: 0.5}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2904230488819577159}
   m_Father: {fileID: 7845697122535657168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6835906001751044491
@@ -141,7 +190,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5325124165527614056}
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -2124705421725058983, guid: 5e923a9c38ada4f4abaf9105dd5de7ee, type: 3}
 --- !u!23 &3891829408741328813
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -222,7 +271,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46be606ebc4551343a276b513fbdc985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DrinkTarget: {fileID: 0}
   BarChairScript: {fileID: 4262281903835993148}
+  glassTransitionTime: 0.5
 --- !u!54 &6981099678410175042
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -260,7 +311,7 @@ Animator:
   m_GameObject: {fileID: 5325124165527614056}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 997affd8ba41b4142964fa63dadf7975, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
