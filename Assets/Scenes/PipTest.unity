@@ -1035,54 +1035,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1445801100}
   m_SourcePrefab: {fileID: 100100000, guid: d8b2a622cefb46c4f9e743ee3062e875, type: 3}
---- !u!21 &330213996
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Liquid
-  m_Shader: {fileID: -6465566751694194690, guid: 51c3d129ee295453690ebf19f1684e97, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses:
-  - MOTIONVECTORS
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _Fill: 0
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    - _WobbleX: -0.000000028106623
-    - _WobbleZ: -0.000000028106623
-    m_Colors:
-    - _SideColor: {r: 0.4449, g: 0.7390488, b: 0.9375992, a: 0.8}
-    - _TopColor: {r: 0.556125, g: 0.92381096, b: 1.171999, a: 1}
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!4 &411110073 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7223425378247122850, guid: 4a5742245f2a04cd397533ba6a36e793, type: 3}
@@ -4382,7 +4334,6 @@ MonoBehaviour:
   IsGrabbed: 0
   pipInteractable: {fileID: 1445801095}
   playerObject: {fileID: 1617683160}
-  didCollideAfterGrab: 0
   timeToTriggerStandup: 1
 --- !u!1 &1495713542
 GameObject:
@@ -4747,7 +4698,7 @@ Transform:
   m_GameObject: {fileID: 1585833613}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.88, z: 0}
+  m_LocalPosition: {x: 0, y: 4.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4767,6 +4718,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1445801097}
   pipScript: {fileID: 1445801100}
+  glassGrabState: {fileID: 2111114901}
 --- !u!135 &1585833616
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4786,7 +4738,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 4
+  m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1611727648
 PrefabInstance:
@@ -5251,7 +5203,7 @@ PrefabInstance:
     - target: {fileID: 563024564132929711, guid: 4ab5fe4b01ee349b7a42ee2767b5e568, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 330213996}
+      objectReference: {fileID: 1774075022}
     - target: {fileID: 8438774839083846114, guid: 4ab5fe4b01ee349b7a42ee2767b5e568, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.207
@@ -5306,7 +5258,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8438774839083846114, guid: 4ab5fe4b01ee349b7a42ee2767b5e568, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1526329215}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9103848173484938072, guid: 4ab5fe4b01ee349b7a42ee2767b5e568, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2111114901}
   m_SourcePrefab: {fileID: 100100000, guid: 4ab5fe4b01ee349b7a42ee2767b5e568, type: 3}
 --- !u!4 &1681550843 stripped
 Transform:
@@ -5542,6 +5497,54 @@ Transform:
   - {fileID: 284931956}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &1774075022
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Liquid
+  m_Shader: {fileID: -6465566751694194690, guid: 51c3d129ee295453690ebf19f1684e97, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Fill: 0
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _WobbleX: -0.0014819773
+    - _WobbleZ: -0.0014819773
+    m_Colors:
+    - _SideColor: {r: 0.4449, g: 0.7390488, b: 0.9375992, a: 0.8}
+    - _TopColor: {r: 0.556125, g: 0.92381096, b: 1.171999, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!4 &1802353247 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6350204000497952013, guid: e9cb9ee5e2dae0d408ae37b037d77748, type: 3}
@@ -6472,6 +6475,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: de1a8536460484f969aaec1e131c01a5, type: 3}
   m_PrefabInstance: {fileID: 2063297223}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2111114891 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9103848173484938072, guid: 4ab5fe4b01ee349b7a42ee2767b5e568, type: 3}
+  m_PrefabInstance: {fileID: 1681550842}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2111114897 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3140305344095216551, guid: 4ab5fe4b01ee349b7a42ee2767b5e568, type: 3}
+  m_PrefabInstance: {fileID: 1681550842}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111114891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2111114901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111114891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f838dd922362d48b4ac5a84256770c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsGrabbed: 0
+  grabInteractable: {fileID: 2111114897}
 --- !u!1001 &2061385601907608722
 PrefabInstance:
   m_ObjectHideFlags: 0

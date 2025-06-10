@@ -10,8 +10,14 @@ public class PipScript : MonoBehaviour
     [SerializeField] private XRGrabInteractable pipInteractable;
     [SerializeField] private GameObject playerObject;
     private float currentTime = 0;
-    public bool didCollideAfterGrab = false;
+    private bool didCollideAfterGrab = false;
     [SerializeField] private float timeToTriggerStandup;
+    private Vector3 pipInitialPosition;
+
+    void Start()
+    {
+        pipInitialPosition = transform.position;    
+    }
 
     void Update()
     {
