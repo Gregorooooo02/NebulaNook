@@ -14,14 +14,13 @@ public class PipScript : MonoBehaviour
     [SerializeField] private float timeToTriggerStandup;
     private Vector3 pipInitialPosition;
 
-    void Start()
-    {
-        pipInitialPosition = transform.position;    
-    }
+    public bool isOutsideBarZone = false;
 
     void Update()
     {
         currentTime += Time.deltaTime;
+
+        print(didCollideAfterGrab + " " + (currentTime > timeToTriggerStandup) + " " + !IsGrabbed);
 
         if (didCollideAfterGrab && currentTime > timeToTriggerStandup && !IsGrabbed)
         {
@@ -30,10 +29,21 @@ public class PipScript : MonoBehaviour
 
     }
 
+    public void ResetPosition()
+    {
+        transform.position = pipInitialPosition;
+    }
+
     public void TriggerFollowing()
     {
         currentTime = 0;
         didCollideAfterGrab = true;
+
+        if (isOutsideBarZone)
+        {
+            isOutsideBarZone = false;
+            ResetPosition();
+        }
     }
 
     private void Awake()
@@ -43,6 +53,8 @@ public class PipScript : MonoBehaviour
             IsGrabbed = false;
             didCollideAfterGrab = false;
         });
+        pipInitialPosition = transform.position;
+        pipInitialPosition.y += 0.1f;
     }
 
     private void followPlayer()
