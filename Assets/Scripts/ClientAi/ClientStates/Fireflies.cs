@@ -19,6 +19,7 @@ public class Fireflies : ClientState
     {
         if (_isWalking && agent.remainingDistance < MinPointDist)
         {
+            Controller.Spawner?.NotifyClientFinished();
             Destroy(Parent);
         }
         if (!triggered)

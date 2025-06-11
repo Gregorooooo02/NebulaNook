@@ -47,6 +47,7 @@ public class Dissolve : ClientState
             yield return new WaitForFixedUpdate();
         }
         yield return new WaitForSeconds(finalDelay);
+        Controller.Spawner?.NotifyClientFinished();
         Destroy(Parent);
     }
 }

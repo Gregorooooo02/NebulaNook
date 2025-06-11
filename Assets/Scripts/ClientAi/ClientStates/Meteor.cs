@@ -52,7 +52,8 @@ public class Meteor : ClientState
         Vector3 explosionPosition = transform.position - ((transform.position - SpawnPoint.transform.position).normalized * explosionDistance);
         GameObject exposionObject = Instantiate(ExplosionPrefab, explosionPosition, Quaternion.identity);
         Head.AddExplosionForce(explosionForce,explosionPosition, explosionRadius);
-
+        Controller.Spawner?.NotifyClientFinished();
+        
         yield return new WaitForSeconds(finalDelay);
         Destroy(exposionObject);
         Destroy(Parent);

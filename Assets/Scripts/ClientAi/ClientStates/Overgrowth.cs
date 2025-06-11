@@ -24,6 +24,7 @@ public class Overgrowth : ClientState
             {
                 if (Vector3.Distance(Parent.transform.position, Controller.Spawner.Exit.transform.position) <= MinPointDist)
                 {
+                    Controller.Spawner?.NotifyClientFinished();
                     Destroy(Parent);
                 }
             }

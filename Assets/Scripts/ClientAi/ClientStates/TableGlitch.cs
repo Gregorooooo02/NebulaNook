@@ -48,6 +48,7 @@ public class TableGlitch : ClientState
         direction.Normalize();
         Vector3 explosionPoint = mainBone.transform.position - direction;
         mainBone.AddExplosionForce(yeetForce, explosionPoint, 5);
+        Controller.Spawner?.NotifyClientFinished();
         StartCoroutine("Delete");
     }
 

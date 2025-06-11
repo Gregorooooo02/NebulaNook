@@ -34,6 +34,7 @@ public class Glitch : ClientState
         }
         if (isWalking && agent.remainingDistance < MinPointDist)
         {
+            Controller.Spawner?.NotifyClientFinished();
             Destroy(Parent);
         }
         return this;

@@ -21,7 +21,7 @@ public class Anihilation : ClientState
                 Model.SetActive(false);
                 return this;
             }
-            GetComponentInParent<ClientController>().Spawner?.NotifyClientFinished();
+            Controller.Spawner?.NotifyClientFinished();
             Destroy(parent);
         }
         else

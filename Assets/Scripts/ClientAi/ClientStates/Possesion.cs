@@ -133,6 +133,7 @@ public class Possesion : ClientState
             yield return new WaitForFixedUpdate();
         }
         yield return new WaitForSeconds(destroyTime);
+        Controller.Spawner?.NotifyClientFinished();
         Destroy(Parent);
     }
 }

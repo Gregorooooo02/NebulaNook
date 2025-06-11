@@ -59,6 +59,7 @@ public class Portal : ClientState
         yield return new WaitForSeconds(1.05f);
         portalEffect.SetActive(false);
         yield return new WaitForSeconds(finalDelay);
+        Controller.Spawner?.NotifyClientFinished();
         Destroy(Parent);
     }
 }
