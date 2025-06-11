@@ -23,6 +23,19 @@ public class IdlePIP : PipState
     public ExplosionPIP expsionState;
     public AnihilationPIP anihilationState;
     public GravityPIP gravityState;
+    public DissolvePIP dissolveState;
+    public TransparencyPIP transparencyState;
+    public NegativePIP negativeState;
+
+
+
+
+
+
+
+
+
+    public GlitchPIP glitchState;
 
     public override PipState RunState()
     {
@@ -60,8 +73,7 @@ public class IdlePIP : PipState
                 case DrinkEffect.GRAVITY_LIFT:
                     return gravityState;
                 case DrinkEffect.TRANSPARENCY:
-
-                    break;
+                    return transparencyState;
                 case DrinkEffect.CLONE:
 
                     break;
@@ -78,8 +90,7 @@ public class IdlePIP : PipState
 
                     break;
                 case DrinkEffect.NEGATIVE:
-
-                    break;
+                    return negativeState;
                 case DrinkEffect.APLAUSE:
 
                     break;
@@ -90,8 +101,7 @@ public class IdlePIP : PipState
 
                     break;
                 case DrinkEffect.DISSOLVE:
-
-                    break;
+                    return dissolveState;
                 case DrinkEffect.METEOR:
 
                     break;
@@ -99,8 +109,7 @@ public class IdlePIP : PipState
 
                     break;
                 case DrinkEffect.GLITCH:
-
-                    break;
+                    return glitchState;
                 case DrinkEffect.WATER:
                 case DrinkEffect.EMPTY:
                 default:
