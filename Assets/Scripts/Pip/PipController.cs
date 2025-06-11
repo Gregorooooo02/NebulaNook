@@ -4,11 +4,11 @@ public class PipController : MonoBehaviour
 {
     public PipState CurrentState;
 
-
     private Rigidbody[] Joints;
     private CharacterJoint[] CharacterJoints;
 
     public Animator animator;
+    public Collider mainCollider;
 
     private void Start()
     {
@@ -30,6 +30,7 @@ public class PipController : MonoBehaviour
 
     public void ToggleRagdoll(bool isRagdoll)
     {
+        mainCollider.enabled = !isRagdoll;
         animator.enabled = !isRagdoll;
 
         foreach (var joint in Joints)
@@ -64,6 +65,15 @@ public class PipController : MonoBehaviour
         foreach (Rigidbody rb in Joints)
         {
             rb.constraints = RigidbodyConstraints.FreezeRotation;
+        }
+    }
+
+    public void Drink(DrinkEffect effect)
+    {
+        if(CurrentState is IdlePIP)
+        {
+            IdlePIP idle = (IdlePIP)CurrentState;
+            idle.SetDrinkEffect(effect);
         }
     }
 }

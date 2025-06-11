@@ -1,16 +1,23 @@
 using UnityEngine;
 
-public class RocketPIP : MonoBehaviour
+public class RocketPIP : PipState
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public Animator animator;
+
+    private bool triggered = false;
+
+    public override PipState RunState()
     {
-        
+        if (!triggered)
+        {
+            triggered = true;
+            animator.enabled = true;
+            //controller.ToggleRagdoll(true);
+            //controller.StiffenRagdoll();
+            //controller.FreezeRotation();
+            animator.SetBool("Takeoff",true);
+        }
+        return this;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

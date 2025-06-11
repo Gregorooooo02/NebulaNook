@@ -16,20 +16,24 @@ public class IdlePIP : PipState
 
 
     public CombustPIP combustState;
+    public FreezePIP freezeState;
+    public BubblesPIP bubblesState;
+    public RocketPIP rocketState;
 
     public override PipState RunState()
     {
-        if(!AnimationPlaying && currentTime >= currentCooldownTime)
+/*        if(!AnimationPlaying && currentTime >= currentCooldownTime)
         {
             PlayRandomIdle();
         } 
         else if(currentTime < currentCooldownTime)
         {
             currentTime += Time.fixedDeltaTime;
-        }
+        }*/
 
         if (GotDrink)
         {
+            GotDrink = false;
             switch (drinkEffect)
             {
                 case DrinkEffect.BLACK_HOLE:
@@ -38,14 +42,11 @@ public class IdlePIP : PipState
                 case DrinkEffect.COMBUTION:
                     return combustState;
                 case DrinkEffect.FREEZE:
-
-                    break;
+                    return freezeState;
                 case DrinkEffect.LIFE:
-
-                    break;
+                    return bubblesState;
                 case DrinkEffect.OIL:
-
-                    break;
+                    return rocketState;
                 case DrinkEffect.MATTER:
 
                     break;
