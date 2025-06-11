@@ -16,7 +16,7 @@ namespace UnityEditor
 
         static void CreateRagdollRecursive(Transform root, Rigidbody parentRb, int depth)
         {
-            bool shouldAddCollider = depth % 2 == 0;
+            // bool shouldAddCollider = depth % 2 == 0;
 
             Rigidbody rb;
             if (root.gameObject.GetComponent<Rigidbody>() == null)
@@ -32,11 +32,11 @@ namespace UnityEditor
             rb.interpolation = RigidbodyInterpolation.None;
             rb.collisionDetectionMode = CollisionDetectionMode.Discrete;
 
-            if (shouldAddCollider && root.childCount > 0)
+            if (/*shouldAddCollider &&*/ root.childCount > 0)
             {
                 var child = root.GetChild(0);
                 float length = Vector3.Distance(root.position, child.position);
-                float radius = length * 0.01f;
+                float radius = length * 0.05f;
 
                 CapsuleCollider col;
                 if (root.gameObject.GetComponent<CapsuleCollider>() == null)
@@ -49,7 +49,7 @@ namespace UnityEditor
                 }
 
                 col.radius = radius;
-                col.height = Mathf.Max(length, radius) / 40f;
+                col.height = Mathf.Max(length, radius) / 30f;
                 col.direction = 1; // Y-axis
 
                 Vector3 midWorld = Vector3.Lerp(root.position, root.GetChild(0).position, 0.5f);
