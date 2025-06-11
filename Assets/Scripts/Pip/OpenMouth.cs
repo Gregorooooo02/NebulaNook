@@ -14,10 +14,12 @@ public class OpenMouth : MonoBehaviour
             pipSpawner = FindAnyObjectByType<PipSpawner>();
         }
 
-        if (pipSpawner.PipInstance != null)
+        if (pipSpawner.PipInstance != null && other.tag == "Glass")
         {
-            bool isGrabbed = pipSpawner.PipInstance.GetComponent<PipScript>().IsGrabbed;
-            if (other.tag == "Glass" && !isGrabbed) 
+            bool isPipGrabbed = pipSpawner.PipInstance.GetComponent<PipScript>().IsGrabbed;
+            bool isGlassGrabbed = other.GetComponent<GlassGrabState>().IsGrabbed;
+
+            if ((isPipGrabbed && isGlassGrabbed) || (!isPipGrabbed && isGlassGrabbed))
             {
                 animator.SetBool("GlassInCollider", true);
             }
@@ -31,14 +33,9 @@ public class OpenMouth : MonoBehaviour
             pipSpawner = FindAnyObjectByType<PipSpawner>();
         }
 
-        if (pipSpawner.PipInstance != null)
+        if (pipSpawner.PipInstance != null && other.tag == "Glass")
         {
-            
-            bool isGrabbed = pipSpawner.PipInstance.GetComponent<PipScript>().IsGrabbed;
-            if (other.tag == "Glass" && !isGrabbed)
-            {
-                animator.SetBool("GlassInCollider", false);
-            }
+            animator.SetBool("GlassInCollider", false);
         }
         
     }
