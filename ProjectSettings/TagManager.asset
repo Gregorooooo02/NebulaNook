@@ -15,6 +15,7 @@ TagManager:
   - BadScreen
   - Spawner
   - PipFloorCollider
+  - Bottle
   layers:
   - Default
   - TransparentFX
@@ -26,7 +27,7 @@ TagManager:
   - Liquid
   - Stream
   - Spawner
-  - 
+  - Bottle
   - 
   - 
   - 
