@@ -10,6 +10,10 @@ TagManager:
   - ChoppedFruit
   - Meteor
   - Glass
+  - QuotaText
+  - GoodScreen
+  - BadScreen
+  - Spawner
   layers:
   - Default
   - TransparentFX

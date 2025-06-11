@@ -214,8 +214,9 @@ public class ClientController : MonoBehaviour
         if (currentGlass && GlassSocket && !_isGlassInHand)
         {
             currentGlass.transform.SetParent(GlassSocket);
-            currentGlass.transform.position = GlassSocket.position;
-            currentGlass.transform.rotation = GlassSocket.rotation;
+            
+            currentGlass.transform.localPosition = Vector3.zero;
+            currentGlass.transform.localRotation = Quaternion.identity;
 
             Rigidbody glassRb = currentGlass.GetComponent<Rigidbody>();
             if (glassRb != null)
@@ -239,39 +240,6 @@ public class ClientController : MonoBehaviour
 
             _isGlassInHand = false;
         }
-    }
-
-    public void MoveGlassNearHand()
-    {
-        if (GlassSocket == null)
-        {
-            Debug.LogError("GlassSocket is not assigned in ClientController.");
-            return;
-        }
-
-        Vector3 startPosition = currentGlass.transform.position;
-        Quaternion startRotation = currentGlass.transform.rotation;
-
-        Vector3 nearHandPosition = GlassSocket.position - GlassSocket.forward * 0.1f; // Adjust the distance as needed
-
-        Rigidbody glassRb = currentGlass.GetComponent<Rigidbody>();
-        if (glassRb != null)
-        {
-            glassRb.isKinematic = true; // Temporarily set to kinematic to avoid physics issues
-        }
-
-        float duration = 0.25f;
-        float elapsedTime = 0f;
-
-        while (elapsedTime < duration)
-        {
-            currentGlass.transform.position = Vector3.Lerp(startPosition, nearHandPosition, elapsedTime / duration);
-            currentGlass.transform.rotation = Quaternion.Lerp(startRotation, GlassSocket.rotation, elapsedTime / duration);
-            elapsedTime += Time.deltaTime;
-        }
-
-        currentGlass.transform.position = nearHandPosition;
-        currentGlass.transform.rotation = GlassSocket.rotation;
     }
 
     private void CalculatePoints(DrinkEffect effect/*, GlassType glass, FruitType fruit*/)

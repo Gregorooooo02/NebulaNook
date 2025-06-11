@@ -31,12 +31,4 @@ public class ClientAnimationEvents : MonoBehaviour
             clientController.ReleaseGlass();
         }
     }
-
-    public void OnMoveGlassNearHand()
-    {
-        if (clientController != null)
-        {
-            clientController.MoveGlassNearHand();
-        }
-    }
 }

@@ -39,7 +39,7 @@ public class ZoneScript : MonoBehaviour
         */
         if (!BarChairScript.Occupied && currentGlass != null) return;
 
-        if (other.gameObject.TryGetComponent<GlassFiller>(out GlassFiller component))
+        if (other.gameObject.TryGetComponent<GlassFiller>(out GlassFiller component) && !component.wasServed)
         {
             currentGlass = other.gameObject;
 
@@ -50,6 +50,7 @@ public class ZoneScript : MonoBehaviour
 
             BarChairScript.Occupier.currentGlass = currentGlass;
             BarChairScript.Occupier.Drink(component.GetFinalDrinkEffect());
+            component.wasServed = true;
 
             currentGlass = null;
         }
