@@ -1208,7 +1208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Controller: {fileID: 6456090248501370823}
   TimeToDisapear: 10
-  anitgravityStrenghtMultiplier: 12
+  anitgravityStrenghtMultiplier: 24
   parent: {fileID: 7293946214203817095}
   mainBone: {fileID: 2655704746700022124}
 --- !u!1 &5793387578603978027
@@ -1436,7 +1436,7 @@ MonoBehaviour:
   Controller: {fileID: 6456090248501370823}
   MeteorPrefab: {fileID: 4868147546304944043, guid: 7ebf81ef434f04746af760d2a4fb9f70, type: 3}
   meteorForce: 300
-  explosionForce: 5000
+  explosionForce: 10000
   explosionRadius: 5
   explosionDistance: 0.2
   Parent: {fileID: 7293946214203817095}
@@ -2007,7 +2007,7 @@ MonoBehaviour:
   animationActivationDelay: 0.5
   Parent: {fileID: 7293946214203817095}
   yeetDelay: 7
-  yeetForce: 100000
+  yeetForce: 200000
 --- !u!1 &7679468496361615186
 GameObject:
   m_ObjectHideFlags: 0
@@ -2060,7 +2060,7 @@ MonoBehaviour:
   Controller: {fileID: 6456090248501370823}
   Agent: {fileID: 6456754139563140130}
   cloneSpawnDelay: 0.35
-  clientClonePrefab: {fileID: 4958140414647071798, guid: ff164cb2d22499f46bbb2807ba5e0c74, type: 3}
+  clientClonePrefab: {fileID: 4958140414647071798, guid: f421d6591d73b4cf9a0e6504862b53d8, type: 3}
   MinPointDist: 0.75
   Parent: {fileID: 7293946214203817095}
   spawnLocations:
