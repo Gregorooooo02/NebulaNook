@@ -19,6 +19,10 @@ public class IdlePIP : PipState
     public FreezePIP freezeState;
     public BubblesPIP bubblesState;
     public RocketPIP rocketState;
+    public PassOutPIP passOutState;
+    public ExplosionPIP expsionState;
+    public AnihilationPIP anihilationState;
+    public GravityPIP gravityState;
 
     public override PipState RunState()
     {
@@ -48,17 +52,13 @@ public class IdlePIP : PipState
                 case DrinkEffect.OIL:
                     return rocketState;
                 case DrinkEffect.MATTER:
-
-                    break;
+                    return passOutState;
                 case DrinkEffect.EXPLOSION:
-
-                    break;
+                    return expsionState;
                 case DrinkEffect.ANIHILATION:
-
-                    break;
+                    return anihilationState;
                 case DrinkEffect.GRAVITY_LIFT:
-
-                    break;
+                    return gravityState;
                 case DrinkEffect.TRANSPARENCY:
 
                     break;

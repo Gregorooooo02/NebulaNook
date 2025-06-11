@@ -1,16 +1,14 @@
 using System.Collections;
 using UnityEngine;
 
-public class ExplosionPIP : PipState
+public class GravityPIP : PipState
 {
-    public GameObject ExplosionEffect;
-
     public Rigidbody mainBone;
+    public float upwardForce;
+    public float floattime;
 
-    public float duration;
-    public float explosiveForce;
-
-    private bool triggered = false; 
+    private float currentTime = 0;
+    private bool triggered = false;
 
     public override PipState RunState()
     {
@@ -19,7 +17,6 @@ public class ExplosionPIP : PipState
             triggered = true;
             StartCoroutine("ExecuteEffect");
         }
-
         return this;
     }
 
@@ -27,9 +24,12 @@ public class ExplosionPIP : PipState
     {
         yield return new WaitForSeconds(initialDelay);
         controller.ToggleRagdoll(true);
-        mainBone.AddExplosionForce(explosiveForce, transform.position, 5);
-        ExplosionEffect.SetActive(true);
-        yield return new WaitForSeconds(duration);
+        while (currentTime < floattime)
+        {
+            mainBone.AddForce(Physics.gravity * -2 * upwardForce,ForceMode.Force);
+            currentTime += Time.fixedDeltaTime;
+            yield return new WaitForFixedUpdate();
+        }
         Destroy(controller.gameObject);
     }
 }

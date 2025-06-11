@@ -1,16 +1,30 @@
+using System.Collections;
 using UnityEngine;
 
-public class AnihilationPIP : MonoBehaviour
+public class AnihilationPIP : PipState
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public GameObject Flash;
+
+    public float duration;
+
+    private bool triggered = false;
+
+    public override PipState RunState()
     {
-        
+
+        if (!triggered)
+        {
+            triggered = true;
+            StartCoroutine("ExecuteEffect");
+        }
+        return this;
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator ExecuteEffect()
     {
-        
+        yield return new WaitForSeconds(initialDelay);
+        Instantiate(Flash,transform);
+        yield return new WaitForSeconds(duration);
+        Destroy(controller.gameObject);
     }
 }
