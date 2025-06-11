@@ -29,8 +29,8 @@ public class PipScript : MonoBehaviour
 
     public void ResetPosition()
     {
-        print(transform.position);
         transform.position = pipInitialPosition;
+        GetComponent<Animator>().SetBool("GlassInCollider", false);
     }
 
     public void TriggerFollowing()
