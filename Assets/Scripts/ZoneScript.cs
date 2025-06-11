@@ -41,6 +41,7 @@ public class ZoneScript : MonoBehaviour
 
         if (other.gameObject.TryGetComponent<GlassFiller>(out GlassFiller component) && !component.wasServed)
         {
+            if (component.currentFillAmount < 0.5f) return; // Check if the glass is filled enough
             currentGlass = other.gameObject;
 
             other.gameObject.GetComponent<XRGrabInteractable>().enabled = false;

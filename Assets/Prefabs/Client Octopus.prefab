@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 487905086415652380}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1067518, y: -2.557909, z: -3.0394335}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -893,19 +893,19 @@ MonoBehaviour:
   zAxisReference: {fileID: 67080909300977744}
   xAxisReference: {fileID: 3006686678546623021}
   TimeToPosses: 2
-  InitialFloatingForce: 40000
-  maxInitialVerticalOffset: 2
+  InitialFloatingForce: 10000
+  maxInitialVerticalOffset: 1
   initialSuspensionTime3rdStage: 0.8
-  sidewaysJerkForce: 20000
-  max1stJerkOffset: 1.5
-  max2ndJerkOffset: 1.5
+  sidewaysJerkForce: 5000
+  max1stJerkOffset: 1
+  max2ndJerkOffset: 1
   firstJerkCooldown: 0.4
   secondJerkCooldown: 0.4
   returnForce: 125
   returnCooldown: 0.6
   jerksAmount: 5
-  maxJerksOffset: 0.6
-  jerkForce: 30000
+  maxJerksOffset: 0.4
+  jerkForce: 5000
   jerkCooldown: 0.1
   backwardsForce: 100000
   targetVelocity: 40
@@ -1208,7 +1208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Controller: {fileID: 6456090248501370823}
   TimeToDisapear: 5
-  anitgravityStrenghtMultiplier: 1000
+  anitgravityStrenghtMultiplier: 10000
   parent: {fileID: 7293946214203817095}
   mainBone: {fileID: 2655704746700022124}
 --- !u!1 &5793387578603978027
@@ -1569,7 +1569,7 @@ Transform:
   m_GameObject: {fileID: 6624040706477905939}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -45.47998, y: -2.732067, z: -6.397994}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1981,7 +1981,7 @@ Transform:
   m_GameObject: {fileID: 7430182813830975943}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -45.47998, y: -2.732067, z: -6.397994}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2007,7 +2007,7 @@ MonoBehaviour:
   animationActivationDelay: 0.5
   Parent: {fileID: 7293946214203817095}
   yeetDelay: 7
-  yeetForce: 200000
+  yeetForce: 2000000
 --- !u!1 &7679468496361615186
 GameObject:
   m_ObjectHideFlags: 0
@@ -2891,17 +2891,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 831082171850810162}
     m_Modifications:
+    - target: {fileID: 2039023440858196529, guid: 140c685af0c3bd146b1c27e6d99eef84, type: 3}
+      propertyPath: prewarm
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6008428333756797052, guid: 140c685af0c3bd146b1c27e6d99eef84, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.7662874
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6008428333756797052, guid: 140c685af0c3bd146b1c27e6d99eef84, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.748356
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6008428333756797052, guid: 140c685af0c3bd146b1c27e6d99eef84, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.36344346
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6008428333756797052, guid: 140c685af0c3bd146b1c27e6d99eef84, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2938,6 +2942,14 @@ PrefabInstance:
     - target: {fileID: 6606101493411773791, guid: 140c685af0c3bd146b1c27e6d99eef84, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7879524555261920753, guid: 140c685af0c3bd146b1c27e6d99eef84, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8998087234123611371, guid: 140c685af0c3bd146b1c27e6d99eef84, type: 3}
+      propertyPath: prewarm
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
