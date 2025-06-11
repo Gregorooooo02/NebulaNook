@@ -10,6 +10,8 @@ TagManager:
   - ChoppedFruit
   - Glass
   - PipFloorCollider
+  - Pip
+  - PipSpawner
   layers:
   - Default
   - TransparentFX
