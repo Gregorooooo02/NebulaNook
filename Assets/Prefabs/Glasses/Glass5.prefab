@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 4567950196477481483}
   m_Layer: 0
   m_Name: Glass5
-  m_TagString: Untagged
+  m_TagString: Glass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -358,6 +358,7 @@ MonoBehaviour:
   DrinkMovementAmount: 0.99
   minimumDrinkAmount: 0.05
   minimumDrinkDistance: 0.05
+  wasServed: 0
 --- !u!114 &4567950196477481483
 MonoBehaviour:
   m_ObjectHideFlags: 0

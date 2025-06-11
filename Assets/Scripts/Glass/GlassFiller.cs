@@ -15,6 +15,9 @@ public class GlassFiller : MonoBehaviour
     [SerializeField] private float minimumDrinkAmount = 0.05f;
     [SerializeField] private float minimumDrinkDistance = 0.05f;
 
+    [HideInInspector]
+    public bool wasServed = false;
+
     private void Awake()
     {
         currentFillAmount = Mathf.Clamp01(startingFill);

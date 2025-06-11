@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
@@ -79,9 +80,12 @@ public class ClientController : MonoBehaviour
 
     private Rigidbody[] Joints;
     private CharacterJoint[] CharacterJoints;
+    public Transform GlassSocket;
 
     [HideInInspector]
     public ClientSpawner Spawner = null;
+    public GameObject currentGlass;
+    private bool _isGlassInHand = false;
 
     private void Start()
     {
@@ -161,7 +165,7 @@ public class ClientController : MonoBehaviour
     {
         if (!_isWaving && IsWaiting)
         {
-            Animator.SetBool("isWaving", true);
+            StartCoroutine(WavingCoroutine());
             _isWaving = true;
         }
         else if(_isWaving && !IsWaiting)
@@ -171,13 +175,70 @@ public class ClientController : MonoBehaviour
         }
     }
 
+    private IEnumerator WavingCoroutine()
+    {
+        Animator.SetBool("isWaving", true);
+        var wait = new WaitForSeconds(Animator.GetCurrentAnimatorStateInfo(0).length);
+        // Wait for the waving animation to finish
+        yield return wait;
+        Animator.SetBool("isWaving", false);
+    }
+
     public void Drink(DrinkEffect effect/*, GlassType glass, FruitType fruit*/)
     {
-        if (IsWaiting && DesiredDrinkEffect != DrinkEffect.EMPTY /*&& DesiredDrinkEffect == effect*/)
+        if (IsWaiting && DesiredDrinkEffect != DrinkEffect.EMPTY)
         {
-            CalculatePoints(effect);
-            _drinkWaiting.DrinkEffect = effect;
-            _drinkWaiting.Continue = true;
+            StartCoroutine(DrinkCoroutine(effect));
+        }
+    }
+
+    private IEnumerator DrinkCoroutine(DrinkEffect effect)
+    {
+        if (!Animator.enabled)
+        {
+            Animator.enabled = true;
+        }
+        Animator.SetBool("isDrinking", true);
+        var wait = new WaitForSeconds(Animator.GetCurrentAnimatorStateInfo(0).length);
+        // Wait for the drinking animation to finish
+        yield return wait;
+        Animator.SetBool("isDrinking", false);
+
+        CalculatePoints(effect);
+        _drinkWaiting.DrinkEffect = effect;
+        _drinkWaiting.Continue = true;
+    }
+
+    public void GrabGlass()
+    {
+        if (currentGlass && GlassSocket && !_isGlassInHand)
+        {
+            currentGlass.transform.SetParent(GlassSocket);
+            
+            currentGlass.transform.localPosition = Vector3.zero;
+            currentGlass.transform.localRotation = Quaternion.identity;
+
+            Rigidbody glassRb = currentGlass.GetComponent<Rigidbody>();
+            if (glassRb != null)
+            {
+                glassRb.isKinematic = true;
+            }
+            _isGlassInHand = true;
+        }
+    }
+
+    public void ReleaseGlass()
+    {
+        if (currentGlass && _isGlassInHand)
+        {
+            currentGlass.transform.SetParent(null);
+            Rigidbody glassRb = currentGlass.GetComponent<Rigidbody>();
+            if (glassRb != null)
+            {
+                glassRb.isKinematic = false;
+            }
+
+            _isGlassInHand = false;
         }
     }
 
