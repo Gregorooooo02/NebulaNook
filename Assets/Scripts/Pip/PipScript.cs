@@ -20,8 +20,6 @@ public class PipScript : MonoBehaviour
     {
         currentTime += Time.deltaTime;
 
-        print(didCollideAfterGrab + " " + (currentTime > timeToTriggerStandup) + " " + !IsGrabbed);
-
         if (didCollideAfterGrab && currentTime > timeToTriggerStandup && !IsGrabbed)
         {
             followPlayer();
@@ -31,6 +29,7 @@ public class PipScript : MonoBehaviour
 
     public void ResetPosition()
     {
+        print(transform.position);
         transform.position = pipInitialPosition;
     }
 
