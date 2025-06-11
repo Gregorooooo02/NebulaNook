@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
@@ -9,33 +10,61 @@ public class PipScript : MonoBehaviour
     [SerializeField] private XRGrabInteractable pipInteractable;
     [SerializeField] private GameObject playerObject;
     private float currentTime = 0;
-    private bool didStandUp = false;
-    [SerializeField] private float timeToStandUp;
+    private bool didCollideAfterGrab = false;
+    [SerializeField] private float timeToTriggerStandup;
+    private Vector3 pipInitialPosition;
+
+    public bool isOutsideBarZone = false;
 
     void Update()
     {
         currentTime += Time.deltaTime;
-        standUp();
+
+        print(didCollideAfterGrab + " " + (currentTime > timeToTriggerStandup) + " " + !IsGrabbed);
+
+        if (didCollideAfterGrab && currentTime > timeToTriggerStandup && !IsGrabbed)
+        {
+            followPlayer();
+        }
+
+    }
+
+    public void ResetPosition()
+    {
+        transform.position = pipInitialPosition;
+    }
+
+    public void TriggerFollowing()
+    {
+        currentTime = 0;
+        didCollideAfterGrab = true;
+
+        if (isOutsideBarZone)
+        {
+            isOutsideBarZone = false;
+            ResetPosition();
+        }
     }
 
     private void Awake()
     {
         pipInteractable.selectEntered.AddListener((_) => IsGrabbed = true);
-        pipInteractable.selectExited.AddListener((_) => IsGrabbed = false);
+        pipInteractable.selectExited.AddListener((_) => {
+            IsGrabbed = false;
+            didCollideAfterGrab = false;
+        });
+        pipInitialPosition = transform.position;
+        pipInitialPosition.y += 0.1f;
     }
 
-    public void TriggerStandUp()
+    private void followPlayer()
     {
-        currentTime = 0;
-        didStandUp = false;
-    }
+        Vector3 cameraPos = Camera.main.transform.position;
+        Vector3 atPlayer = cameraPos - transform.position;
+        atPlayer.y = 0;
 
-    private void standUp()
-    {
-        if (currentTime >= timeToStandUp && !didStandUp && !IsGrabbed)
-        {
-            gameObject.transform.LookAt(new Vector3(0, 0, 0));
-            didStandUp = true;
-        }
+        Quaternion rotation = Quaternion.LookRotation(atPlayer);
+        transform.rotation = rotation;
+        
     }
 }

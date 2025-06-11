@@ -7,8 +7,7 @@ public class Collisions : MonoBehaviour
     {
         if (!pipScript.IsGrabbed)
         {
-            print("collision");
-            pipScript.TriggerStandUp();
+            pipScript.TriggerFollowing();
         }
     }
 }
