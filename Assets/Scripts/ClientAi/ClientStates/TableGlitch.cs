@@ -14,6 +14,7 @@ public class TableGlitch : ClientState
     private bool triggered = false;
 
     public float animationActivationDelay;
+    public float agentPathingDelay = 0.25f;
     public GameObject Parent;
 
     public float yeetDelay;
@@ -33,7 +34,7 @@ public class TableGlitch : ClientState
     {
         yield return new WaitForSeconds(initialDelay);
         agent.SetDestination(TableHandle.Instance.transform.position);
-        yield return new WaitForFixedUpdate();
+        yield return new WaitForSeconds(agentPathingDelay);
         while(agent.remainingDistance > 0.05f)
         {
             yield return new WaitForFixedUpdate();
