@@ -835,6 +835,58 @@ MonoBehaviour:
   initialDelay: 0.5
   Flash: {fileID: 8771651359076398066, guid: adfe0788ac5c1d442a2aca30addb7a9f, type: 3}
   duration: 2
+--- !u!1 &3667480826911430666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9116012029172239572}
+  - component: {fileID: 4159163620592823646}
+  m_Layer: 0
+  m_Name: TableGlitch
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9116012029172239572
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3667480826911430666}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 0.7, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6839874285185796789}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4159163620592823646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3667480826911430666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53453b5e7b789b14d933df79387f4ccc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: -880466001289745716}
+  DefaultState: {fileID: 3576423974815676630}
+  initialDelay: 0.5
+  mainBone: {fileID: 432048996946866802}
+  tableSpeed: 1000
+  minTableDist: 0.25
+  tableExplosiveForce: 2500
+  duration: 10
 --- !u!1 &3790339037443792011
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,6 +1203,7 @@ MonoBehaviour:
   firefliesState: {fileID: 855227251003568696}
   frostfliesState: {fileID: 6716415232383740488}
   meteorState: {fileID: 9199346956552756176}
+  tableGlitchState: {fileID: 4159163620592823646}
   glitchState: {fileID: 356255152082261275}
 --- !u!1 &6740475694378907643
 GameObject:
@@ -2845,6 +2898,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: d8b2a622cefb46c4f9e743ee3062e875, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3958438286715333079}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: d8b2a622cefb46c4f9e743ee3062e875, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9116012029172239572}
     - targetCorrespondingSourceObject: {fileID: 8879528566716807029, guid: d8b2a622cefb46c4f9e743ee3062e875, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7295490394913509040}
