@@ -84,15 +84,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1959a419d19ea4626a65a50692505e5d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.465
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1959a419d19ea4626a65a50692505e5d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.084
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1959a419d19ea4626a65a50692505e5d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.522
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1959a419d19ea4626a65a50692505e5d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -134,6 +134,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Oil
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1959a419d19ea4626a65a50692505e5d, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1959a419d19ea4626a65a50692505e5d, type: 3}
+      propertyPath: m_TagString
+      value: Bottle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -156,6 +164,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1959a419d19ea4626a65a50692505e5d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6001721787293642997}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1959a419d19ea4626a65a50692505e5d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -3108992203638892705}
   m_SourcePrefab: {fileID: 100100000, guid: 1959a419d19ea4626a65a50692505e5d, type: 3}
 --- !u!4 &1174606990364566586 stripped
 Transform:
@@ -231,6 +242,7 @@ MonoBehaviour:
   streamPrefab: {fileID: 8941625051351596894, guid: d8e7bc8ec0278402f9d8576cf94c27a6, type: 3}
   grabInteractable: {fileID: 6001721787293642997}
   pourThreshold: 15
+  shouldParentStream: 1
 --- !u!114 &6001721787293642997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,3 +365,15 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 1
+--- !u!114 &-3108992203638892705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947484102142639744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26ebdb3fd44d647dfaa518bd49f71d6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

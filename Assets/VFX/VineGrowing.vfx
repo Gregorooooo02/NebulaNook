@@ -10740,7 +10740,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615450}
   m_ExposedName: Vine Color Gradient
   m_Exposed: 1
-  m_Order: 5
+  m_Order: 4
   m_Category: 
   m_Min:
     m_Type:
@@ -10821,7 +10821,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615452}
   m_ExposedName: Main Particles Rate
   m_Exposed: 1
-  m_Order: 6
+  m_Order: 5
   m_Category: 
   m_Min:
     m_Type:
@@ -10902,7 +10902,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615454}
   m_ExposedName: Vine Expansion Smoothness
   m_Exposed: 1
-  m_Order: 7
+  m_Order: 6
   m_Category: 
   m_Min:
     m_Type:
@@ -10983,7 +10983,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615456}
   m_ExposedName: Polen Rate
   m_Exposed: 1
-  m_Order: 8
+  m_Order: 7
   m_Category: 
   m_Min:
     m_Type:
@@ -11430,7 +11430,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615471}
   m_ExposedName: Upward vine growth ratio
   m_Exposed: 1
-  m_Order: 9
+  m_Order: 8
   m_Category: 
   m_Min:
     m_Type:
