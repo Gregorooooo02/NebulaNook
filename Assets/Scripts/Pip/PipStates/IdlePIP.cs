@@ -26,7 +26,7 @@ public class IdlePIP : PipState
     public DissolvePIP dissolveState;
     public TransparencyPIP transparencyState;
     public NegativePIP negativeState;
-
+    public ClonePIP cloneState;
 
 
 
@@ -75,8 +75,7 @@ public class IdlePIP : PipState
                 case DrinkEffect.TRANSPARENCY:
                     return transparencyState;
                 case DrinkEffect.CLONE:
-
-                    break;
+                    return cloneState;
                 case DrinkEffect.RAVE:
 
                     break;

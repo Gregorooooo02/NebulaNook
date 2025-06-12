@@ -103,6 +103,57 @@ MonoBehaviour:
   initialDelay: 0.5
   Fire: {fileID: 5616541477700841597}
   duration: 3
+--- !u!1 &748971694985587009
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7668388472560464087}
+  - component: {fileID: 2404967255181209385}
+  m_Layer: 0
+  m_Name: Clone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7668388472560464087
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748971694985587009}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: -0.6034946, y: 2.4420426, z: -0.42552575}
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6839874285185796789}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2404967255181209385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748971694985587009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49b4ed814afbebc45a79910b669bb573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: -880466001289745716}
+  DefaultState: {fileID: 3576423974815676630}
+  initialDelay: 0.5
+  ClonePrefab: {fileID: 7436711981840746132, guid: 07be32bbde5bf264b9a866513be05deb, type: 3}
+  cloudDelay: 0.3
+  duration: 2
+  finalDelay: 1.5
 --- !u!1 &817645998249310185
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,6 +632,7 @@ MonoBehaviour:
   dissolveState: {fileID: 1151737434904632100}
   transparencyState: {fileID: 3122853475177648360}
   negativeState: {fileID: 4596745672195032910}
+  cloneState: {fileID: 2404967255181209385}
   glitchState: {fileID: 356255152082261275}
 --- !u!1 &6740475694378907643
 GameObject:
@@ -1546,6 +1598,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: d8b2a622cefb46c4f9e743ee3062e875, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1263189944392311645}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: d8b2a622cefb46c4f9e743ee3062e875, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7668388472560464087}
     - targetCorrespondingSourceObject: {fileID: 8879528566716807029, guid: d8b2a622cefb46c4f9e743ee3062e875, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7295490394913509040}
