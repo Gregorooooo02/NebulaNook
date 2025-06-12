@@ -27,10 +27,10 @@ public class IdlePIP : PipState
     public TransparencyPIP transparencyState;
     public NegativePIP negativeState;
     public ClonePIP cloneState;
-
-
-
-
+    public RavePIP raveState;
+    public PossesionPIP possesionState;
+    public OvergrowthPIP overgrowthState;
+    public PortalPIP portalState;
 
 
 
@@ -77,17 +77,13 @@ public class IdlePIP : PipState
                 case DrinkEffect.CLONE:
                     return cloneState;
                 case DrinkEffect.RAVE:
-
-                    break;
+                    return raveState;
                 case DrinkEffect.POSSESION:
-
-                    break;
+                    return possesionState;
                 case DrinkEffect.OVERGROWTH:
-
-                    break;
+                    return overgrowthState;
                 case DrinkEffect.PORTAL:
-
-                    break;
+                    return portalState;
                 case DrinkEffect.NEGATIVE:
                     return negativeState;
                 case DrinkEffect.APLAUSE:

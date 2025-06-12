@@ -1,16 +1,27 @@
+using System.Collections;
 using UnityEngine;
 
-public class OvergrowthPIP : MonoBehaviour
+public class OvergrowthPIP : PipState
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private bool triggered = false;
+    public GameObject VFX;
+
+    public float duration;
+    public override PipState RunState()
     {
-        
+        if (!triggered)
+        {
+            triggered = true;
+            StartCoroutine("ExecuteEffect");
+        }
+        return this;
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator ExecuteEffect()
     {
-        
+        yield return new WaitForSeconds(initialDelay);
+        VFX.SetActive(true);
+        yield return new WaitForSeconds(duration);
+        Destroy(controller.gameObject);
     }
 }
