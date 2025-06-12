@@ -1,16 +1,9 @@
 using UnityEngine;
 
-public class TableGlitchPIP : MonoBehaviour
+public class TableGlitchPIP : PipState
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override PipState RunState()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        return this;
     }
 }

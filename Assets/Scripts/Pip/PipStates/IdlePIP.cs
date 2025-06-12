@@ -14,7 +14,7 @@ public class IdlePIP : PipState
 
     public Animator animator;
 
-
+    public BlackHolePIP blackHolePIP;
     public CombustPIP combustState;
     public FreezePIP freezeState;
     public BubblesPIP bubblesState;
@@ -55,8 +55,7 @@ public class IdlePIP : PipState
             switch (drinkEffect)
             {
                 case DrinkEffect.BLACK_HOLE:
-
-                    break;
+                    return blackHolePIP;
                 case DrinkEffect.COMBUTION:
                     return combustState;
                 case DrinkEffect.FREEZE:
