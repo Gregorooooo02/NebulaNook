@@ -14,92 +14,92 @@ public class IdlePIP : PipState
 
     public Animator animator;
 
-
+    public BlackHolePIP blackHolePIP;
     public CombustPIP combustState;
+    public FreezePIP freezeState;
+    public BubblesPIP bubblesState;
+    public RocketPIP rocketState;
+    public PassOutPIP passOutState;
+    public ExplosionPIP expsionState;
+    public AnihilationPIP anihilationState;
+    public GravityPIP gravityState;
+    public DissolvePIP dissolveState;
+    public TransparencyPIP transparencyState;
+    public NegativePIP negativeState;
+    public ClonePIP cloneState;
+    public RavePIP raveState;
+    public PossesionPIP possesionState;
+    public OvergrowthPIP overgrowthState;
+    public PortalPIP portalState;
+    public AplausePIP aplauseState;
+    public FirefliesPIP firefliesState;
+    public FrostfliesPIP frostfliesState;
+    public MeteorPIP meteorState;
+    public TableGlitchPIP tableGlitchState;
+    public GlitchPIP glitchState;
 
     public override PipState RunState()
     {
-        if(!AnimationPlaying && currentTime >= currentCooldownTime)
+/*        if(!AnimationPlaying && currentTime >= currentCooldownTime)
         {
             PlayRandomIdle();
         } 
         else if(currentTime < currentCooldownTime)
         {
             currentTime += Time.fixedDeltaTime;
-        }
+        }*/
 
         if (GotDrink)
         {
+            GotDrink = false;
             switch (drinkEffect)
             {
                 case DrinkEffect.BLACK_HOLE:
-
-                    break;
+                    return blackHolePIP;
                 case DrinkEffect.COMBUTION:
                     return combustState;
                 case DrinkEffect.FREEZE:
-
-                    break;
+                    return freezeState;
                 case DrinkEffect.LIFE:
-
-                    break;
+                    return bubblesState;
                 case DrinkEffect.OIL:
-
-                    break;
+                    return rocketState;
                 case DrinkEffect.MATTER:
-
-                    break;
+                    return passOutState;
                 case DrinkEffect.EXPLOSION:
-
-                    break;
+                    return expsionState;
                 case DrinkEffect.ANIHILATION:
-
-                    break;
+                    return anihilationState;
                 case DrinkEffect.GRAVITY_LIFT:
-
-                    break;
+                    return gravityState;
                 case DrinkEffect.TRANSPARENCY:
-
-                    break;
+                    return transparencyState;
                 case DrinkEffect.CLONE:
-
-                    break;
+                    return cloneState;
                 case DrinkEffect.RAVE:
-
-                    break;
+                    return raveState;
                 case DrinkEffect.POSSESION:
-
-                    break;
+                    return possesionState;
                 case DrinkEffect.OVERGROWTH:
-
-                    break;
+                    return overgrowthState;
                 case DrinkEffect.PORTAL:
-
-                    break;
+                    return portalState;
                 case DrinkEffect.NEGATIVE:
-
-                    break;
+                    return negativeState;
                 case DrinkEffect.APLAUSE:
-
-                    break;
+                    return aplauseState;
                 case DrinkEffect.FIREFLIES:
-
-                    break;
+                    return firefliesState;
                 case DrinkEffect.FROSTFLIES:
-
-                    break;
+                    return frostfliesState;
                 case DrinkEffect.DISSOLVE:
-
-                    break;
+                    return dissolveState;
                 case DrinkEffect.METEOR:
-
-                    break;
+                    return meteorState;
                 case DrinkEffect.TABLE_GLITCH:
-
-                    break;
+                    return tableGlitchState;
                 case DrinkEffect.GLITCH:
-
-                    break;
+                    return glitchState;
                 case DrinkEffect.WATER:
                 case DrinkEffect.EMPTY:
                 default:

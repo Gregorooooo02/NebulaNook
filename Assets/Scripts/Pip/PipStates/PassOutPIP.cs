@@ -1,16 +1,28 @@
+using System.Collections;
 using UnityEngine;
 
-public class PassOutPIP : MonoBehaviour
+public class PassOutPIP : PipState
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public GameObject Parent;
+    public float duration;
+
+    private bool triggered = false;
+
+    public override PipState RunState()
     {
-        
+        if (!triggered)
+        {
+            triggered = true;
+            StartCoroutine("ExecuteEffect");
+        }
+        return this;
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator ExecuteEffect()
     {
-        
+        yield return new WaitForSeconds(initialDelay);
+        controller.ToggleRagdoll(true);
+        yield return new WaitForSeconds(duration);
+        Destroy(Parent);
     }
 }

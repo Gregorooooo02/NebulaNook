@@ -26,6 +26,7 @@ public class Negative : ClientState
         if (!triggered)
         {
             StartCoroutine("ExecuteEffect");
+            triggered = true;
         }
         return this;
     }

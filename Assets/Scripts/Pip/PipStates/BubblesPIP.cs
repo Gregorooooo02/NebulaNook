@@ -4,11 +4,17 @@ using UnityEngine;
 public class BubblesPIP : PipState
 {
     public GameObject bubbles;
-
+    private ParticleSystem.EmissionModule system;
+    
     public float duration;
 
     private bool triggered = false;
     private bool done = false;
+
+    private void Start()
+    {
+        system = bubbles.GetComponent<ParticleSystem>().emission;
+    }
 
     public override PipState RunState()
     {
@@ -29,9 +35,9 @@ public class BubblesPIP : PipState
     IEnumerator ExecuteEffect()
     {
         yield return new WaitForSeconds(initialDelay);
-        bubbles.SetActive(true);
+        system.enabled = true;
         yield return new WaitForSeconds(duration);
-        bubbles.SetActive(false);
+        system.enabled = false;
         done = true;
     }
 }
