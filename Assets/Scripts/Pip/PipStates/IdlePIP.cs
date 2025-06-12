@@ -34,6 +34,7 @@ public class IdlePIP : PipState
     public AplausePIP aplauseState;
     public FirefliesPIP firefliesState;
     public FrostfliesPIP frostfliesState;
+    public MeteorPIP meteorState;
 
     public GlitchPIP glitchState;
 
@@ -95,8 +96,7 @@ public class IdlePIP : PipState
                 case DrinkEffect.DISSOLVE:
                     return dissolveState;
                 case DrinkEffect.METEOR:
-
-                    break;
+                    return meteorState;
                 case DrinkEffect.TABLE_GLITCH:
 
                     break;
