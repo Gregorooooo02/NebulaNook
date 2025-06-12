@@ -14,6 +14,7 @@ public class GlassSpawner : XRBaseInteractable
     [SerializeField] private int maxGlasses = 5;
     [SerializeField] private bool removeOldestWhenFull = true;
     [SerializeField] private float minFillToProtect = 0.1f;
+    [SerializeField] private float removeConsumedDelay = 2f;
 
     private List<GameObject> spawnedGlasses = new List<GameObject>();
 
@@ -70,10 +71,45 @@ public class GlassSpawner : XRBaseInteractable
         }
     }
 
+    public void OnGlassDrinkConsumed(GameObject glass)
+    {
+        Debug.Log($"[GlassSpawner] Drink został wypity z szklanki: {glass.name}");
+        StartCoroutine(RemoveConsumedGlassDelayed(glass));
+    }
+
+    private System.Collections.IEnumerator RemoveConsumedGlassDelayed(GameObject glass)
+    {
+        yield return new WaitForSeconds(removeConsumedDelay);
+        
+        if (glass != null)
+        {
+            Debug.Log($"[GlassSpawner] Usuwam wypitą szklankę: {glass.name}");
+            RemoveGlass(glass);
+        }
+    }
+
+    public void OnGlassDestroyed(GameObject glass)
+    {
+        if (spawnedGlasses.Contains(glass))
+        {
+            spawnedGlasses.Remove(glass);
+            Debug.Log($"[GlassSpawner] Szklanka usunięta z listy. Pozostało: {spawnedGlasses.Count}");
+        }
+    }
+
+    public void RemoveGlass(GameObject glass)
+    {
+        if (glass == null) return;
+        OnGlassDestroyed(glass);
+        Destroy(glass);
+    }
+
     private bool CanSpawnNewGlass()
     {
         CleanupNullReferences();
-        return spawnedGlasses.Count < maxGlasses;
+        int activeCount = spawnedGlasses.Count;
+        Debug.Log($"[GlassSpawner] Sprawdzam czy można zespawnować: {activeCount}/{maxGlasses}");
+        return activeCount < maxGlasses;
     }
 
     private bool RemoveOldestRemovableGlass()
@@ -97,22 +133,10 @@ public class GlassSpawner : XRBaseInteractable
         GlassFiller glassFiller = glass.GetComponent<GlassFiller>();
         if (glassFiller == null) return true;
 
-        return glassFiller.currentFillAmount < minFillToProtect && !glassFiller.wasServed;
-    }
-
-    public void OnGlassDestroyed(GameObject glass)
-    {
-        if (spawnedGlasses.Contains(glass))
-        {
-            spawnedGlasses.Remove(glass);
-        }
-    }
-
-    public void RemoveGlass(GameObject glass)
-    {
-        if (glass == null) return;
-        OnGlassDestroyed(glass);
-        Destroy(glass);
+        bool hasContent = glassFiller.currentFillAmount >= minFillToProtect;
+        bool wasServedButNotConsumed = glassFiller.wasServed && glassFiller.currentFillAmount > 0.1f;
+        
+        return !hasContent && !wasServedButNotConsumed;
     }
 
     private void FindExistingGlasses()
@@ -130,14 +154,12 @@ public class GlassSpawner : XRBaseInteractable
 
     private void CleanupNullReferences()
     {
+        int beforeCount = spawnedGlasses.Count;
         spawnedGlasses.RemoveAll(glass => glass == null);
-    }
-
-    void OnGUI()
-    {
-        if (Application.isPlaying)
+        
+        if (beforeCount != spawnedGlasses.Count)
         {
-            GUI.Label(new Rect(10, 95, 300, 20), $"Szklanki: {spawnedGlasses.Count}/{maxGlasses}");
+            Debug.Log($"[GlassSpawner] Usunięto {beforeCount - spawnedGlasses.Count} null referencji");
         }
     }
 }

@@ -180,13 +180,8 @@ MonoBehaviour:
   - {fileID: 1270592490845043541}
   - {fileID: 9004415967201165129}
   replacementMaterials:
-  - {fileID: 2100000, guid: f573516447fad479d9fc57c0b79602ad, type: 2}
-  - {fileID: 2100000, guid: f573516447fad479d9fc57c0b79602ad, type: 2}
-  - {fileID: 2100000, guid: d286be227a43a4d03b61a644f22203db, type: 2}
-  - {fileID: 2100000, guid: f573516447fad479d9fc57c0b79602ad, type: 2}
-  - {fileID: 2100000, guid: f573516447fad479d9fc57c0b79602ad, type: 2}
-  - {fileID: 2100000, guid: f573516447fad479d9fc57c0b79602ad, type: 2}
-  - {fileID: 2100000, guid: f573516447fad479d9fc57c0b79602ad, type: 2}
+  - {fileID: 2100000, guid: e6c2d13fccd31b14fbd3ff053cd4df80, type: 2}
+  - {fileID: 2100000, guid: ec41cafe210faf045a33f6c1d1909509, type: 2}
   dissolveSpeed: 0.33
   initialDelay: 0.25
   finalDelay: 0.25
@@ -1802,7 +1797,7 @@ GameObject:
   - component: {fileID: 6456090248501370823}
   - component: {fileID: 405454394730435261}
   m_Layer: 0
-  m_Name: Client Octopus
+  m_Name: Client Octopus Trailer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1963,7 +1958,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentState: {fileID: 2374942741825442400}
-  useCustomDrinkEffect: 0
+  useCustomDrinkEffect: 1
   CustomDrinkEffect: 6
   DesiredDrinkEffect: 1
   DesiredGlassType: 0

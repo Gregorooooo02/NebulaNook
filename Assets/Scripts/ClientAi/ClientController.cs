@@ -57,6 +57,8 @@ public enum QuestSourceType
 public class ClientController : MonoBehaviour
 {
     public ClientState CurrentState;
+    public bool useCustomDrinkEffect = false;
+    public DrinkEffect CustomDrinkEffect = DrinkEffect.EXPLOSION;
     public DrinkEffect DesiredDrinkEffect = DrinkEffect.COMBUTION;
     public GlassType DesiredGlassType = GlassType.COCKTAIL;
     public FruitType DesiredFruitType = FruitType.EXPLOSIVE;
@@ -92,12 +94,7 @@ public class ClientController : MonoBehaviour
         _agent = GetComponent<NavMeshAgent>();
         _drinkWaiting = GetComponentInChildren<WaitForDrink>();
 
-        var v = Enum.GetValues(typeof(DrinkEffect));
-        DesiredDrinkEffect = (DrinkEffect)v.GetValue(Random.Range(1, v.Length - 2));
-        var u = Enum.GetValues(typeof(GlassType));
-        DesiredGlassType = (GlassType)u.GetValue(Random.Range(0, u.Length));
-        var f = Enum.GetValues(typeof(FruitType));
-        DesiredFruitType = (FruitType)f.GetValue(Random.Range(0, f.Length));
+        SetDesiredDrink();
 
         Joints = GetComponentsInChildren<Rigidbody>();
         CharacterJoints = GetComponentsInChildren<CharacterJoint>();
@@ -111,6 +108,24 @@ public class ClientController : MonoBehaviour
         }
 
         ToggleRagdoll(false);
+    }
+
+    private void SetDesiredDrink()
+    {
+        if (useCustomDrinkEffect)
+        {
+            DesiredDrinkEffect = CustomDrinkEffect;
+        }
+        else
+        {
+            var v = Enum.GetValues(typeof(DrinkEffect));
+            DesiredDrinkEffect = (DrinkEffect)v.GetValue(Random.Range(1, v.Length - 2));
+        }
+
+        var u = Enum.GetValues(typeof(GlassType));
+        DesiredGlassType = (GlassType)u.GetValue(Random.Range(0, u.Length));
+        var f = Enum.GetValues(typeof(FruitType));
+        DesiredFruitType = (FruitType)f.GetValue(Random.Range(0, f.Length));
     }
 
     void FixedUpdate()
@@ -208,7 +223,20 @@ public class ClientController : MonoBehaviour
         yield return wait;
         Animator.SetBool("isDrinking", false);
 
-        CalculatePoints(effect);
+        if (currentGlass != null)
+        {
+            GlassFiller filler = currentGlass.GetComponent<GlassFiller>();
+            if (filler != null)
+            {
+                filler.currentFillAmount = 0f; // Empty the glass
+                currentGlass.GetComponent<GlassTracker>().OnDrinkConsumed();
+            }
+        }
+
+        if (!useCustomDrinkEffect)
+        {
+            CalculatePoints(effect);
+        }
         _drinkWaiting.DrinkEffect = effect;
         _drinkWaiting.Continue = true;
     }
