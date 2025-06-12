@@ -24,6 +24,7 @@ public class Fireflies : ClientState
         }
         if (!triggered)
         {
+            triggered = true;
             StartCoroutine("ExecuteEffect");
         }
         return this;

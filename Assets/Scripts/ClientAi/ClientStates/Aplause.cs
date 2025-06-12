@@ -25,6 +25,7 @@ public class Aplause : ClientState
         }
         if (!triggered)
         {
+            triggered = true;
             StartCoroutine("ExecuteEffect");
         }
         return this;

@@ -31,9 +31,9 @@ public class IdlePIP : PipState
     public PossesionPIP possesionState;
     public OvergrowthPIP overgrowthState;
     public PortalPIP portalState;
-
-
-
+    public AplausePIP aplauseState;
+    public FirefliesPIP firefliesState;
+    public FrostfliesPIP frostfliesState;
 
     public GlitchPIP glitchState;
 
@@ -87,14 +87,11 @@ public class IdlePIP : PipState
                 case DrinkEffect.NEGATIVE:
                     return negativeState;
                 case DrinkEffect.APLAUSE:
-
-                    break;
+                    return aplauseState;
                 case DrinkEffect.FIREFLIES:
-
-                    break;
+                    return firefliesState;
                 case DrinkEffect.FROSTFLIES:
-
-                    break;
+                    return frostfliesState;
                 case DrinkEffect.DISSOLVE:
                     return dissolveState;
                 case DrinkEffect.METEOR:
