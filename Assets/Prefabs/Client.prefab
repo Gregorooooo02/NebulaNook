@@ -921,13 +921,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentState: {fileID: 1704347740332463654}
   DesiredDrinkEffect: 1
+  DesiredGlassType: 0
+  DesiredFruitType: 0
   bubble: {fileID: 4495717203893623376}
   IsWaiting: 0
   Animator: {fileID: 8529224593424759280}
   mainCollider: {fileID: 1589277149631054468}
   SourceType: 0
   useIcons: 1
+  GlassSocket: {fileID: 0}
   Spawner: {fileID: 0}
+  currentGlass: {fileID: 0}
 --- !u!95 &4261310786893091742
 Animator:
   serializedVersion: 7

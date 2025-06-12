@@ -1122,7 +1122,7 @@ GameObject:
   - component: {fileID: 246713316}
   - component: {fileID: 246713315}
   m_Layer: 5
-  m_Name: MainCanvas
+  m_Name: FinishCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1394,6 +1394,9 @@ MonoBehaviour:
   bottleLayer:
     serializedVersion: 2
     m_Bits: 1024
+  glassLayer:
+    serializedVersion: 2
+    m_Bits: 2048
   graceTimer: 0.5
 --- !u!136 &325294466
 CapsuleCollider:

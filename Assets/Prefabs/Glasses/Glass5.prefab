@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 2417325388689883724}
   - component: {fileID: 5943680045852290725}
   - component: {fileID: 4567950196477481483}
+  - component: {fileID: -1509438934103824406}
   m_Layer: 0
   m_Name: Glass5
   m_TagString: Glass
@@ -348,6 +349,7 @@ MonoBehaviour:
   liquidRenderer: {fileID: 4700694629279950373}
   fillSpeed: 1
   startingFill: 0
+  currentFillAmount: 0
   fillAmounts:
   - 0
   - 0
@@ -379,6 +381,18 @@ MonoBehaviour:
   maxPourAngle: 90
   minFlowRate: 0.5
   maxFlowRate: 5
+--- !u!114 &-1509438934103824406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071645477898967731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43f4762008b524b9f85711a82707ef11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5164139375451075304
 GameObject:
   m_ObjectHideFlags: 0

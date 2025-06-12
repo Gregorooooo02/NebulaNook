@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 5943680045852290725}
   - component: {fileID: 4567950196477481483}
   - component: {fileID: 4762681486025428517}
+  - component: {fileID: 5330648615832197064}
   m_Layer: 0
   m_Name: Glass1
   m_TagString: Glass
@@ -327,6 +328,7 @@ MonoBehaviour:
   liquidRenderer: {fileID: 4700694629279950373}
   fillSpeed: 1
   startingFill: 0
+  currentFillAmount: 0
   fillAmounts:
   - 0
   - 0
@@ -337,6 +339,7 @@ MonoBehaviour:
   DrinkMovementAmount: 0.99
   minimumDrinkAmount: 0.05
   minimumDrinkDistance: 0.05
+  wasServed: 0
 --- !u!114 &4567950196477481483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,6 +381,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.5, y: 2, z: 1.5}
   m_Center: {x: 0, y: -0.5, z: 0}
+--- !u!114 &5330648615832197064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071645477898967731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43f4762008b524b9f85711a82707ef11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5164139375451075304
 GameObject:
   m_ObjectHideFlags: 0

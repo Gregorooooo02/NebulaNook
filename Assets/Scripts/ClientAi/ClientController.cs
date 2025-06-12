@@ -94,6 +94,10 @@ public class ClientController : MonoBehaviour
 
         var v = Enum.GetValues(typeof(DrinkEffect));
         DesiredDrinkEffect = (DrinkEffect)v.GetValue(Random.Range(1, v.Length - 2));
+        var u = Enum.GetValues(typeof(GlassType));
+        DesiredGlassType = (GlassType)u.GetValue(Random.Range(0, u.Length));
+        var f = Enum.GetValues(typeof(FruitType));
+        DesiredFruitType = (FruitType)f.GetValue(Random.Range(0, f.Length));
 
         Joints = GetComponentsInChildren<Rigidbody>();
         CharacterJoints = GetComponentsInChildren<CharacterJoint>();

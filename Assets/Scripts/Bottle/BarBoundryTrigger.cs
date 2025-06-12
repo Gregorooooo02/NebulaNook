@@ -7,78 +7,156 @@ public class BarBoundaryTrigger : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private bool destroyOnExit = true;
     [SerializeField] private LayerMask bottleLayer = -1;
+    [SerializeField] private LayerMask glassLayer = -1;
     [SerializeField] private float graceTimer = 0.5f;
 
-    private void OnTriggerExit(Collider other)
+    void OnTriggerExit(Collider other)
     {
-        // Sprawdź czy obiekt jest butelką
         if (IsBottle(other.gameObject))
         {
-            var grabInteractable = other.GetComponent<XRGrabInteractable>();
-            if (grabInteractable != null && grabInteractable.isSelected)
-            {
-                // Jeśli butelka jest trzymana, nie niszcz jej od razu
-                Debug.Log($"Butelka {other.name} jest trzymana, nie niszczę jej jeszcze.");
-                return;
-            }
-
-            Debug.Log($"Butelka {other.name} opuściła obszar baru");
-            
-            if (destroyOnExit)
-            {
-                StartCoroutine(DelayedDestroy(other.gameObject, graceTimer));
-            }
+            HandleBottleExit(other);
+        }
+        else if (IsGlass(other.gameObject))
+        {
+            HandleGlassExit(other);
         }
     }
 
-    private IEnumerator DelayedDestroy(GameObject bottle, float delay)
+    private void HandleBottleExit(Collider other)
+    {
+        XRGrabInteractable grabInteractable = other.GetComponent<XRGrabInteractable>();
+        if (grabInteractable != null && grabInteractable.isSelected)
+        {
+            Debug.Log($"Butelka {other.name} jest chwytana - ignoruję");
+            return;
+        }
+
+        Debug.Log($"Butelka {other.name} opuściła obszar baru");
+        
+        if (destroyOnExit)
+        {
+            StartCoroutine(DelayedDestroyBottle(other.gameObject, graceTimer));
+        }
+    }
+
+    private void HandleGlassExit(Collider other)
+    {
+        XRGrabInteractable grabInteractable = other.GetComponent<XRGrabInteractable>();
+        if (grabInteractable != null && grabInteractable.isSelected)
+        {
+            Debug.Log($"Szklanka {other.name} jest chwytana - ignoruję");
+            return;
+        }
+
+        GlassFiller filler = other.GetComponent<GlassFiller>();
+        if (filler != null)
+        {
+            if (filler.currentFillAmount > 0.1f)
+            {
+                Debug.Log($"Szklanka {other.name} ma ciecz - wydłużam czas grace");
+                StartCoroutine(DelayedDestroyGlass(other.gameObject, graceTimer * 3));
+                return;
+            }
+            
+            if (filler.wasServed)
+            {
+                Debug.Log($"Szklanka {other.name} została podana - wydłużam czas grace");
+                StartCoroutine(DelayedDestroyGlass(other.gameObject, graceTimer * 5));
+                return;
+            }
+        }
+
+        Debug.Log($"Szklanka {other.name} opuściła obszar baru");
+        
+        if (destroyOnExit)
+        {
+            StartCoroutine(DelayedDestroyGlass(other.gameObject, graceTimer));
+        }
+    }
+
+    private IEnumerator DelayedDestroyBottle(GameObject bottle, float delay)
     {
         yield return new WaitForSeconds(delay);
 
         if (bottle != null)
         {
-            var grabInteractable = bottle.GetComponent<XRGrabInteractable>();
+            XRGrabInteractable grabInteractable = bottle.GetComponent<XRGrabInteractable>();
             if (grabInteractable != null && grabInteractable.isSelected)
             {
-                // Jeśli butelka jest nadal trzymana, nie niszcz jej
-                Debug.Log($"Butelka {bottle.name} jest nadal trzymana, nie niszczę jej.");
+                Debug.Log($"Butelka {bottle.name} jest nadal chwytana - nie niszczę");
                 yield break;
             }
 
             Collider bottleCollider = bottle.GetComponent<Collider>();
             if (bottleCollider != null && GetComponent<Collider>().bounds.Intersects(bottleCollider.bounds))
             {
-                // Sprawdź czy butelka jest wciąż w obszarze
-                Debug.Log($"Butelka {bottle.name} jest nadal w obszarze, nie niszczę jej.");
+                Debug.Log($"Butelka {bottle.name} wróciła do obszaru baru - nie niszczę");
                 yield break;
             }
-
-            BottleTracker bottleTracker = bottle.GetComponent<BottleTracker>();
-            if (bottleTracker != null)
+            
+            BottleTracker tracker = bottle.GetComponent<BottleTracker>();
+            if (tracker != null)
             {
-                // Jeśli butelka ma tracker, zniszcz ją przez tracker
-                bottleTracker.DestroyBottle();
+                tracker.DestroyBottle();
             }
             else
             {
-                // W przeciwnym razie zniszcz ją bezpośrednio
-                Debug.Log($"Zniszczenie butelki {bottle.name} przez BarBoundaryTrigger.");
                 Destroy(bottle);
+            }
+        }
+    }
+
+    private IEnumerator DelayedDestroyGlass(GameObject glass, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (glass != null)
+        {
+            XRGrabInteractable grabInteractable = glass.GetComponent<XRGrabInteractable>();
+            if (grabInteractable != null && grabInteractable.isSelected)
+            {
+                Debug.Log($"Szklanka {glass.name} jest nadal chwytana - nie niszczę");
+                yield break;
+            }
+
+            Collider glassCollider = glass.GetComponent<Collider>();
+            if (glassCollider != null && GetComponent<Collider>().bounds.Intersects(glassCollider.bounds))
+            {
+                Debug.Log($"Szklanka {glass.name} wróciła do obszaru baru - nie niszczę");
+                yield break;
+            }
+
+            GlassFiller filler = glass.GetComponent<GlassFiller>();
+            if (filler != null && (filler.currentFillAmount > 0.1f || filler.wasServed))
+            {
+                yield break;
+            }
+            
+            GlassTracker tracker = glass.GetComponent<GlassTracker>();
+            if (tracker != null)
+            {
+                tracker.DestroyGlass();
+            }
+            else
+            {
+                Destroy(glass);
             }
         }
     }
 
     private bool IsBottle(GameObject obj)
     {
-        // Sprawdź tag
         if (obj.CompareTag("Bottle")) return true;
-
-        // Lub sprawdź layer
         if (((1 << obj.layer) & bottleLayer) != 0) return true;
-
-        // Lub sprawdź komponent
         if (obj.GetComponent<BottleTracker>() != null) return true;
+        return false;
+    }
 
+    private bool IsGlass(GameObject obj)
+    {
+        if (obj.CompareTag("Glass")) return true;
+        if (((1 << obj.layer) & glassLayer) != 0) return true;
+        if (obj.GetComponent<GlassTracker>() != null) return true;
         return false;
     }
 }
