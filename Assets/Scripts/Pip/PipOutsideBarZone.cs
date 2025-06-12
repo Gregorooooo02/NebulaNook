@@ -2,14 +2,25 @@ using UnityEngine;
 
 public class PipOutsideBarZone : MonoBehaviour
 {
-    [SerializeField] private PipScript pipScript;
+    private PipSpawner pipSpawner;
+
+    void Start()
+    {
+        pipSpawner = FindAnyObjectByType<PipSpawner>();
+    }
 
     void OnTriggerEnter(Collider other)
     {
-        pipScript.isOutsideBarZone = false;
+        if (pipSpawner.PipInstance != null && other.tag == "Pip")
+        {
+            pipSpawner.PipInstance.GetComponent<PipScript>().isOutsideBarZone = false;
+        }
     }
     void OnTriggerExit(Collider other)
     {
-        pipScript.isOutsideBarZone = true;
+        if (pipSpawner.PipInstance != null && other.tag == "Pip")
+        {
+            pipSpawner.PipInstance.GetComponent<PipScript>().isOutsideBarZone = true;
+        }
     }
 }

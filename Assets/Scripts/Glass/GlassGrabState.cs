@@ -3,7 +3,7 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class GlassGrabState : MonoBehaviour
 {
-    [SerializeField] public bool IsGrabbed;
+    public bool IsGrabbed;
     [SerializeField] private XRGrabInteractable grabInteractable;
 
     private void Awake()

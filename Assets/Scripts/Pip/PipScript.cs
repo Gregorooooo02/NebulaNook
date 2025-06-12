@@ -20,8 +20,6 @@ public class PipScript : MonoBehaviour
     {
         currentTime += Time.deltaTime;
 
-        print(didCollideAfterGrab + " " + (currentTime > timeToTriggerStandup) + " " + !IsGrabbed);
-
         if (didCollideAfterGrab && currentTime > timeToTriggerStandup && !IsGrabbed)
         {
             followPlayer();
@@ -32,6 +30,7 @@ public class PipScript : MonoBehaviour
     public void ResetPosition()
     {
         transform.position = pipInitialPosition;
+        GetComponent<Animator>().SetBool("GlassInCollider", false);
     }
 
     public void TriggerFollowing()
