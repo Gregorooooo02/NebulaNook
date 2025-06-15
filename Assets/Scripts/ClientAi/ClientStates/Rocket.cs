@@ -51,12 +51,12 @@ public class Rocket : ClientState
         Controller.FreezeRotation();
         animator.enabled = true;
         animator.SetBool("Takeoff", true);
-        while(animator.GetCurrentAnimatorStateInfo(0).IsName("Takeoff") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
+/*        while(animator.GetCurrentAnimatorStateInfo(0).IsName("Takeoff") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
         {
             yield return new WaitForSeconds(destinationPollingTime);
         }
         Controller.Spawner?.NotifyClientFinished();
-        Destroy(gameObject.transform.parent.gameObject);
+        Destroy(gameObject.transform.parent.gameObject);*/
     }
 
 }

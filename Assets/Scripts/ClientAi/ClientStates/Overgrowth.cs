@@ -61,8 +61,8 @@ public class Overgrowth : ClientState
         VFX.SetActive(true);
         yield return new WaitForSeconds(waitTime);
         Agent.SetDestination(Controller.Spawner.Exit.transform.position);
-        yield return new WaitForFixedUpdate();  
-        while(Agent.remainingDistance > MinPointDist)
+        yield return new WaitForSeconds(destinationPollingTime);
+        while (Agent.remainingDistance > MinPointDist)
         {
             yield return new WaitForSeconds(destinationPollingTime);
         }

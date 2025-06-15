@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 5699413937266542906}
-  Animator: {fileID: 0}
+  Animator: {fileID: 4878872347435324903}
   minRemoveDist: 1.5
   Model: {fileID: 4963621056197795643}
   timeToActivate: 0.25
@@ -319,5 +319,10 @@ PrefabInstance:
 --- !u!4 &1537152819841601437 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7436333411168751229, guid: e39c175a6f1714adf994dea6cad25ee9, type: 3}
+  m_PrefabInstance: {fileID: 8243339454227612128}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4878872347435324903 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3590218834250355719, guid: e39c175a6f1714adf994dea6cad25ee9, type: 3}
   m_PrefabInstance: {fileID: 8243339454227612128}
   m_PrefabAsset: {fileID: 0}

@@ -30,9 +30,9 @@ public class ZoneScript : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         
-        //TestEffectObject testEffectObject = other.gameObject.GetComponent<TestEffectObject>();
+        TestEffectObject testEffectObject = other.gameObject.GetComponent<TestEffectObject>();
 
-        //if (BarChairScript.Occupied && testEffectObject != null) BarChairScript.Occupier.Drink(testEffectObject.drinkEffect);
+        if (BarChairScript.Occupied && testEffectObject != null) BarChairScript.Occupier.Drink(testEffectObject.drinkEffect);
         
         if (!BarChairScript.Occupied && currentGlass != null) return;
 

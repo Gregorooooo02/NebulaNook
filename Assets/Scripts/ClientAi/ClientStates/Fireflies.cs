@@ -35,7 +35,7 @@ public class Fireflies : ClientState
         fireflies.SetActive(true);
         yield return new WaitForSeconds(waitingTime);
         agent.SetDestination(Controller.Spawner.Exit.transform.position);
-        yield return new WaitForFixedUpdate();
+        yield return new WaitForSeconds(0.25f);
         _isWalking = true;
     }
 

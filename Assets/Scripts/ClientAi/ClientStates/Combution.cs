@@ -48,7 +48,7 @@ public class Combution : ClientState
         CombutionEffect.SetActive(true);
         yield return new WaitForSeconds(leaveDelay);
         Agent.SetDestination(Controller.Spawner.Exit.transform.position);
-        yield return new WaitForFixedUpdate();
+        yield return new WaitForSeconds(destinationPollingTime);
         while(Agent.remainingDistance > MinPointDist)
         {
             yield return new WaitForSeconds(destinationPollingTime);

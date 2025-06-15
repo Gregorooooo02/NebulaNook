@@ -45,6 +45,7 @@ public class Explode : ClientState
     {
         yield return new WaitForSeconds(initialDelay);
         Controller.ToggleRagdoll(true);
+        Instantiate(ExplosionEffect, transform);
         MainBone.AddExplosionForce(explosionForce, transform.position, explosionRadius);
         yield return new WaitForSeconds(TimeToDisapear);
         Controller.Spawner?.NotifyClientFinished();
