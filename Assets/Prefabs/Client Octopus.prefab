@@ -938,7 +938,7 @@ MonoBehaviour:
   Controller: {fileID: 6456090248501370823}
   initialDelay: 0.5
   particles: {fileID: 7059915676020873697}
-  rootBoneRB: {fileID: 2655704746700022124}
+  rootBoneRB: {fileID: 3586392987656624068}
   Parent: {fileID: 7293946214203817095}
   zAxisReference: {fileID: 67080909300977744}
   xAxisReference: {fileID: 3006686678546623021}
@@ -4974,6 +4974,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clientController: {fileID: 6456090248501370823}
+--- !u!54 &3586392987656624068 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 7829074229252995138, guid: e39c175a6f1714adf994dea6cad25ee9, type: 3}
+  m_PrefabInstance: {fileID: 6729249634494164870}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4201912556994339323 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7436333411168751229, guid: e39c175a6f1714adf994dea6cad25ee9, type: 3}
