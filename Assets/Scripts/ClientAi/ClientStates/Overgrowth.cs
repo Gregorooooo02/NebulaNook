@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -15,10 +16,10 @@ public class Overgrowth : ClientState
 
     private bool isWalking = false;
     public GameObject Parent;
-
+    public float destinationPollingTime = 0.5f;
     public override ClientState RunState()
     {
-        if (triggered)
+/*        if (triggered)
         {
             if (isWalking)
             {
@@ -42,8 +43,30 @@ public class Overgrowth : ClientState
         {
             VFX.SetActive(true);
             triggered = true;
+        }*/
+
+        if (!triggered)
+        {
+            triggered = true;
+            StartCoroutine("ExecuteEffect");
         }
+
         return this;
     }
 
+
+    IEnumerator ExecuteEffect()
+    {
+        yield return new WaitForSeconds(initialDelay);
+        VFX.SetActive(true);
+        yield return new WaitForSeconds(waitTime);
+        Agent.SetDestination(Controller.Spawner.Exit.transform.position);
+        yield return new WaitForFixedUpdate();  
+        while(Agent.remainingDistance > MinPointDist)
+        {
+            yield return new WaitForSeconds(destinationPollingTime);
+        }
+        Controller.Spawner?.NotifyClientFinished();
+        Destroy(Parent);
+    }
 }

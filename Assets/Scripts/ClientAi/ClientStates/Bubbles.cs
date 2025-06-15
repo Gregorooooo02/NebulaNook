@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,9 +10,14 @@ public class Bubbles : ClientState
 
     private bool _isWalking = false;
 
+    private bool triggered = false; 
+
+    public float walkDelay = 2;
+    public float destinationPollingTime = 0.5f;
+
     public override ClientState RunState()
     {
-        if (_isWalking)
+/*        if (_isWalking)
         {
             if (Vector3.Distance(transform.position, Controller.Spawner.Exit.transform.position) <= MinPointDist)
             {
@@ -25,7 +31,29 @@ public class Bubbles : ClientState
             Agent.SetDestination(Controller.Spawner.Exit.transform.position);
             Instantiate(BubblesPrefab, transform);
             _isWalking = true;
+        }*/
+
+        if (!triggered)
+        {
+            triggered = true;
+            StartCoroutine("ExecuteEffect");
         }
         return this;
+    }
+
+
+    IEnumerator ExecuteEffect()
+    {
+        yield return new WaitForSeconds(initialDelay);
+        Instantiate(BubblesPrefab, transform);
+        yield return new WaitForSeconds(walkDelay);
+        Agent.SetDestination(Controller.Spawner.Exit.transform.position);
+        yield return new WaitForFixedUpdate();
+        while(Agent.remainingDistance > MinPointDist)
+        {
+            yield return new WaitForSeconds(destinationPollingTime);
+        }
+        Controller.Spawner?.NotifyClientFinished();
+        Destroy(Controller.gameObject);
     }
 }

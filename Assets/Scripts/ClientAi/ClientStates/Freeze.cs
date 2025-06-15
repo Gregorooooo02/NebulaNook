@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Freeze : ClientState
@@ -14,7 +15,7 @@ public class Freeze : ClientState
     public GameObject parent;
     public override ClientState RunState()
     {
-        if (triggered)
+/*        if (triggered)
         {
             if (_currentTime < TimeToDisapear)
             {
@@ -35,8 +36,30 @@ public class Freeze : ClientState
                 m.material = FrozenMaterial;
             }
             triggered = true;
+        }*/
+
+
+        if (!triggered)
+        {
+            triggered = true;
+            StartCoroutine("ExecuteEffect");
         }
         return this;
+    }
+
+    IEnumerator ExecuteEffect()
+    {
+        yield return new WaitForSeconds(initialDelay);
+        Controller.ToggleRagdoll(true);
+        Controller.StiffenRagdoll();
+        Instantiate(FreezeEffect, transform);
+        foreach (SkinnedMeshRenderer m in materialsToChange)
+        {
+            m.material = FrozenMaterial;
+        }
+        yield return new WaitForSeconds(TimeToDisapear);
+        Controller.Spawner?.NotifyClientFinished();
+        Destroy(parent);
     }
 
 }

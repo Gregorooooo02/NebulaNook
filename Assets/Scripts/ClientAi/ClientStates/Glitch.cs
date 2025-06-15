@@ -7,8 +7,6 @@ public class Glitch : ClientState
     public NavMeshAgent agent;
     public float MinPointDist = 0.75f;
 
-    public float initialDelay;
-
     private bool triggered = false;
     private bool isWalking = false;
 

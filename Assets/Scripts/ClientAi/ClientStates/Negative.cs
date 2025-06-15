@@ -10,8 +10,6 @@ public class Negative : ClientState
     private bool _isWalking = false;
     private bool triggered = false;
 
-    public float initialDelay;
-
     public Material NegativeMaterial;
     public Renderer[] renderers;
 

@@ -1,10 +1,9 @@
+using System.Collections;
 using UnityEngine;
 
 public class Anihilation : ClientState
 {
-
     public float TimeToDisapear;
-    private float _currentTime = 0;
 
     private bool triggered = false;
 
@@ -13,23 +12,23 @@ public class Anihilation : ClientState
     public GameObject Model;
     public override ClientState RunState()
     {
-        if (triggered)
+        if (!triggered)
         {
-            if (_currentTime < TimeToDisapear)
-            {
-                _currentTime += Time.fixedDeltaTime;
-                Model.SetActive(false);
-                return this;
-            }
-            Controller.Spawner?.NotifyClientFinished();
-            Destroy(parent);
-        }
-        else
-        {
-            GetComponentInParent<ClientController>().ToggleRagdoll(true);
-            Instantiate(flash, transform);
+            StartCoroutine("ExecuteEffect");
             triggered = true;
         }
         return this;
+    }
+
+    IEnumerator ExecuteEffect()
+    {
+        yield return new WaitForSeconds(initialDelay);
+        Controller.ToggleRagdoll(true);
+        Instantiate(flash, transform);
+        yield return new WaitForFixedUpdate();
+        Model.SetActive(false);
+        yield return new WaitForSeconds(TimeToDisapear);
+        Controller.Spawner?.NotifyClientFinished();
+        Destroy(parent);
     }
 }

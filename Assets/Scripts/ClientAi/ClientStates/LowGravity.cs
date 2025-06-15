@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class LowGravity : ClientState
@@ -13,7 +14,7 @@ public class LowGravity : ClientState
 
     public override ClientState RunState()
     {
-        if (triggered)
+/*        if (triggered)
         {
             if (_currentTime < TimeToDisapear)
             {
@@ -29,7 +30,29 @@ public class LowGravity : ClientState
             GetComponentInParent<ClientController>().ToggleRagdoll(true);
             mainBone.AddForce(Physics.gravity * -2 * anitgravityStrenghtMultiplier,ForceMode.Force);
             triggered = true;
+        }*/
+
+        if (!triggered)
+        {
+            triggered = true;
+            StartCoroutine("ExecuteEffect");
         }
+
         return this;
     }
+
+    IEnumerator ExecuteEffect()
+    {
+        yield return new WaitForSeconds(initialDelay);
+        Controller.ToggleRagdoll(true);
+        while (_currentTime < TimeToDisapear)
+        {
+            mainBone.AddForce(Physics.gravity * -2 * anitgravityStrenghtMultiplier, ForceMode.Force);
+            _currentTime += Time.fixedDeltaTime;
+            yield return new WaitForFixedUpdate();
+        }
+        Controller.Spawner?.NotifyClientFinished();
+        Destroy(parent);
+    }
+
 }

@@ -8,7 +8,6 @@ public class Dissolve : ClientState
     public Material[] replacementMaterials;
 
     public float dissolveSpeed;
-    public float initialDelay;
     public float finalDelay;
 
     private bool triggered = false;

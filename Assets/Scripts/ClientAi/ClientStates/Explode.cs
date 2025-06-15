@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Explode : ClientState
@@ -14,7 +15,7 @@ public class Explode : ClientState
 
     public override ClientState RunState()
     {
-        if (triggered)
+/*        if (triggered)
         {
             if (_currentTime < TimeToDisapear)
             {
@@ -30,7 +31,23 @@ public class Explode : ClientState
             Instantiate(ExplosionEffect, transform);
             MainBone.AddExplosionForce(explosionForce, transform.position, explosionRadius);
             triggered = true;
+        }*/
+
+        if (!triggered)
+        {
+            triggered = true;
+            StartCoroutine("ExecuteEffect");
         }
         return this;
+    }
+
+    IEnumerator ExecuteEffect()
+    {
+        yield return new WaitForSeconds(initialDelay);
+        Controller.ToggleRagdoll(true);
+        MainBone.AddExplosionForce(explosionForce, transform.position, explosionRadius);
+        yield return new WaitForSeconds(TimeToDisapear);
+        Controller.Spawner?.NotifyClientFinished();
+        Destroy(gameObject.transform.parent.gameObject);
     }
 }

@@ -15,7 +15,6 @@ public class Meteor : ClientState
     private bool triggered = false;
 
     public GameObject Parent;
-    public float initialDelay;
 
     public Rigidbody Head;
     public GameObject ExplosionPrefab;

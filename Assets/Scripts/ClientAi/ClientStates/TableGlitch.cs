@@ -4,8 +4,6 @@ using UnityEngine.AI;
 
 public class TableGlitch : ClientState
 {
-    public float initialDelay;
-
     public Rigidbody mainBone;
     public NavMeshAgent agent;
     public float MinPointDist = 0.75f;

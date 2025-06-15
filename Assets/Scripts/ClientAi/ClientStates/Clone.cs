@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -21,9 +22,12 @@ public class Clone : ClientState
     public Transform[] spawnLocations;
     private int _currentIndex = 0;
 
+    public float destinationPollingTime = 0.5f;
+    private bool triggered = false; 
+
     public override ClientState RunState()
     {
-        if (!isDone)
+/*        if (!isDone)
         {
             _currentTime += Time.fixedDeltaTime;
             if(_currentTime > cloneSpawnDelay)
@@ -52,9 +56,35 @@ public class Clone : ClientState
                 clone.Exit(Controller.Spawner.Exit.transform.position);
             }
             isWalking = true;
+        }*/
+        if (!triggered)
+        {
+            triggered = true;
+            StartCoroutine("ExecuteEffect");
         }
 
-
         return this;
+    }
+
+    IEnumerator ExecuteEffect()
+    {
+        yield return new WaitForSeconds(initialDelay);
+        foreach (var pos in spawnLocations)
+        {
+            clones.Add(Instantiate(clientClonePrefab, pos.position, Parent.transform.localRotation).GetComponent<CloneControler>());
+            yield return new WaitForSeconds(cloneSpawnDelay);
+        }
+        Agent.SetDestination(Controller.Spawner.Exit.transform.position);
+        foreach (var clone in clones)
+        {
+            clone.Exit(Controller.Spawner.Exit.transform.position);
+        }
+        yield return new WaitForFixedUpdate();
+        while(Agent.remainingDistance > MinPointDist)
+        {
+            yield return new WaitForSeconds(destinationPollingTime);
+        }
+        Controller.Spawner?.NotifyClientFinished();
+        Destroy(Parent);
     }
 }

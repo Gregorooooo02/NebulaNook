@@ -5,15 +5,6 @@ public class IdlePIP : PipState
     public bool GotDrink;
     public DrinkEffect drinkEffect;
 
-    private bool AnimationPlaying = true;
-
-    public float minIdleCooldown;
-    public float maxIdleCooldown; 
-    private float currentCooldownTime;
-    private float currentTime;
-
-    public Animator animator;
-
     public BlackHolePIP blackHolePIP;
     public CombustPIP combustState;
     public FreezePIP freezeState;
@@ -40,15 +31,6 @@ public class IdlePIP : PipState
 
     public override PipState RunState()
     {
-/*        if(!AnimationPlaying && currentTime >= currentCooldownTime)
-        {
-            PlayRandomIdle();
-        } 
-        else if(currentTime < currentCooldownTime)
-        {
-            currentTime += Time.fixedDeltaTime;
-        }*/
-
         if (GotDrink)
         {
             GotDrink = false;
@@ -106,24 +88,7 @@ public class IdlePIP : PipState
                     return this;
             }
         }
-
         return this;
-    }
-
-
-    public void PlayRandomIdle()
-    {
-        currentCooldownTime = Random.Range(minIdleCooldown, maxIdleCooldown);
-        //animator.SetBool(); play random idle animation here
-        AnimationPlaying = true;
-    }
-
-
-    public void AnimationEnded()
-    {
-        //Setup it so every time the idle animation ends this method is called
-        AnimationPlaying = false;
-        currentTime = 0;
     }
 
     public void SetDrinkEffect(DrinkEffect drink)
