@@ -34,6 +34,6 @@ public class FreezePIP : PipState
         }
         mist.SetActive(true);
         yield return new WaitForSeconds(duration);
-        //Delete and spawn new
+        Destroy(controller.gameObject);
     }
 }
