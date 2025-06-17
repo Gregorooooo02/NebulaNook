@@ -20,6 +20,10 @@ public class BarBoundaryTrigger : MonoBehaviour
         {
             HandleGlassExit(other);
         }
+        else if (IsFruit(other.gameObject))
+        {
+            HandleFruitExit(other);
+        }
     }
 
     private void HandleBottleExit(Collider other)
@@ -32,7 +36,7 @@ public class BarBoundaryTrigger : MonoBehaviour
         }
 
         Debug.Log($"Butelka {other.name} opuściła obszar baru");
-        
+
         if (destroyOnExit)
         {
             StartCoroutine(DelayedDestroyBottle(other.gameObject, graceTimer));
@@ -57,7 +61,7 @@ public class BarBoundaryTrigger : MonoBehaviour
                 StartCoroutine(DelayedDestroyGlass(other.gameObject, graceTimer * 3));
                 return;
             }
-            
+
             if (filler.wasServed)
             {
                 Debug.Log($"Szklanka {other.name} została podana - wydłużam czas grace");
@@ -67,10 +71,35 @@ public class BarBoundaryTrigger : MonoBehaviour
         }
 
         Debug.Log($"Szklanka {other.name} opuściła obszar baru");
-        
+
         if (destroyOnExit)
         {
             StartCoroutine(DelayedDestroyGlass(other.gameObject, graceTimer));
+        }
+    }
+
+    private void HandleFruitExit(Collider other)
+    {
+        XRGrabInteractable grabInteractable = other.GetComponent<XRGrabInteractable>();
+        if (grabInteractable != null && grabInteractable.isSelected)
+        {
+            Debug.Log($"Owoc {other.name} jest chwytany - ignoruję");
+            return;
+        }
+
+        // Sprawdź czy owoc jest na desce do krojenia
+        FruitTracker tracker = other.GetComponent<FruitTracker>();
+        if (tracker != null && tracker.IsOnCuttingBoard())
+        {
+            Debug.Log($"Owoc {other.name} jest na desce - nie usuwam");
+            return;
+        }
+
+        Debug.Log($"Owoc {other.name} opuścił obszar baru");
+
+        if (destroyOnExit)
+        {
+            StartCoroutine(DelayedDestroyFruit(other.gameObject, graceTimer));
         }
     }
 
@@ -93,7 +122,7 @@ public class BarBoundaryTrigger : MonoBehaviour
                 Debug.Log($"Butelka {bottle.name} wróciła do obszaru baru - nie niszczę");
                 yield break;
             }
-            
+
             BottleTracker tracker = bottle.GetComponent<BottleTracker>();
             if (tracker != null)
             {
@@ -131,7 +160,7 @@ public class BarBoundaryTrigger : MonoBehaviour
             {
                 yield break;
             }
-            
+
             GlassTracker tracker = glass.GetComponent<GlassTracker>();
             if (tracker != null)
             {
@@ -140,6 +169,38 @@ public class BarBoundaryTrigger : MonoBehaviour
             else
             {
                 Destroy(glass);
+            }
+        }
+    }
+
+    private IEnumerator DelayedDestroyFruit(GameObject fruit, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (fruit != null)
+        {
+            // Sprawdź ponownie czy można usunąć
+            XRGrabInteractable grabInteractable = fruit.GetComponent<XRGrabInteractable>();
+            if (grabInteractable != null && grabInteractable.isSelected)
+            {
+                yield break;
+            }
+
+            FruitTracker tracker = fruit.GetComponent<FruitTracker>();
+            if (tracker != null && tracker.IsOnCuttingBoard())
+            {
+                yield break;
+            }
+
+            Debug.Log($"Niszczę owoc {fruit.name}");
+            
+            if (tracker != null)
+            {
+                tracker.DestroyFruit();
+            }
+            else
+            {
+                Destroy(fruit);
             }
         }
     }
@@ -157,6 +218,14 @@ public class BarBoundaryTrigger : MonoBehaviour
         if (obj.CompareTag("Glass")) return true;
         if (((1 << obj.layer) & glassLayer) != 0) return true;
         if (obj.GetComponent<GlassTracker>() != null) return true;
+        return false;
+    }
+    
+    private bool IsFruit(GameObject obj)
+    {
+        if (obj.CompareTag("Fruit")) return true;
+        if (obj.GetComponent<FruitTracker>() != null) return true;
+        if (obj.GetComponent<FruitController>() != null) return true;
         return false;
     }
 }

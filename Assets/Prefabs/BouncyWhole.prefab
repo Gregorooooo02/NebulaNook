@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 345476042558053670}
   - component: {fileID: 8526420171965133268}
   - component: {fileID: -5864002815965967799}
+  - component: {fileID: 6354251113614187252}
   m_Layer: 0
   m_Name: BouncyWhole
   m_TagString: Untagged
@@ -101,3 +102,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slicedFruitPrefab: {fileID: 605971878042886685, guid: ac1b50f2b569d4a6793e1e6e0a5825aa, type: 3}
   sliceAmount: 4
+--- !u!114 &6354251113614187252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4574353362294633971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 303ba9e4503ba4f1a86a18703d10677e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fruitType: 1

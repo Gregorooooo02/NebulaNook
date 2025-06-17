@@ -10,14 +10,24 @@ public class FruitController : MonoBehaviour
     private float currentSlices = 0f;
 
     private bool canSlice = false;
+    private CuttingBoardController cuttingBoard;
 
-    public void EnableSlicing() {canSlice = true;}
-    public void DisableSlicing() {canSlice = false;}
+    public void EnableSlicing()
+    {
+        canSlice = true;
+        cuttingBoard = FindObjectsByType<CuttingBoardController>(FindObjectsSortMode.None)[0];
+    }
+    public void DisableSlicing()
+    {
+        canSlice = false;
+        cuttingBoard = null;
+    }
 
     void OnTriggerEnter(Collider other)
     {
         if (!canSlice) return;
         if (!other.CompareTag("CutTrigger")) return;
+
         currentSlices++;
         if (currentSlices >= sliceAmount)
         {
@@ -33,6 +43,19 @@ public class FruitController : MonoBehaviour
             transform.parent
         );
 
-        Destroy(gameObject);
+        if (cuttingBoard != null)
+        {
+            cuttingBoard.OnFruitSliced(gameObject, sliced);
+        }
+
+        FruitTracker tracker = GetComponent<FruitTracker>();
+        if (tracker != null)
+        {
+            tracker.DestroyFruit();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }
