@@ -167,6 +167,14 @@ public class ClientController : MonoBehaviour
         }
     }
 
+    public void Begone()
+    {
+        _drinkWaiting.DrinkEffect = (DrinkEffect)(2137);
+        _drinkWaiting.Continue = true;
+        Spawner.ZoneScript.DisableHolograms();
+        if (!useCustomDrinkEffect) GameManager.Instance.DecrementQuota(10);
+    }
+
     private void CheckWalking()
     {
         float speed = _agent.velocity.magnitude;
@@ -219,6 +227,7 @@ public class ClientController : MonoBehaviour
         {
             Animator.enabled = true;
         }
+        bubble.gameObject.SetActive(false);
         Animator.SetBool("isDrinking", true);
         var wait = new WaitForSeconds(Animator.GetCurrentAnimatorStateInfo(0).length);
         // Wait for the drinking animation to finish

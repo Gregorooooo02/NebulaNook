@@ -44,7 +44,7 @@ public class ZoneScript : MonoBehaviour
         }
     }
 
-    private void DisableHolograms()
+    public void DisableHolograms()
     {
         currentFruit?.SetActive(false);
         enabledGlass?.SetActive(false);

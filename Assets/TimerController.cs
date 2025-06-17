@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class TimerController : MonoBehaviour
 {
+    public ClientController controller;
+
     public Gradient colorThresholds;
 
     public float timerDuration;
@@ -15,6 +17,8 @@ public class TimerController : MonoBehaviour
 
     private int currentThresholdIndex = 0;
 
+    private bool endTriggered = false;
+
     private void Start()
     {
         timerScale = 1.0f / timerDuration;
@@ -22,7 +26,12 @@ public class TimerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(currentValue == 0.0f) return;
+        if(currentValue == 0.0f && endTriggered) return;
+        else if(currentValue == 0.0f && !endTriggered)
+        {
+            controller.Begone();
+            endTriggered = true;
+        }
         currentValue -= timerScale * Time.fixedDeltaTime;
         currentValue = Mathf.Clamp01(currentValue);
 
@@ -30,4 +39,6 @@ public class TimerController : MonoBehaviour
 
         image.color = colorThresholds.Evaluate(currentValue);
     }
+
+
 }
