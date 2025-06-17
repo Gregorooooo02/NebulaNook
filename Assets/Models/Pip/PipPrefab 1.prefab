@@ -452,6 +452,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsGrabbed: 0
   pipInteractable: {fileID: 8920876415952275442}
-  playerObject: {fileID: 0}
-  timeToTriggerStandup: 2
+  timeToTriggerStandup: 0.5
   isOutsideBarZone: 0

@@ -3,7 +3,6 @@ using UnityEngine;
 public class PipSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject pipPrefab;
-    [SerializeField] private PipOutsideBarZone pipOutsideBarZone;
     public GameObject PipInstance;
 
     void Start()

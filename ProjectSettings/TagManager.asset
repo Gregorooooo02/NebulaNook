@@ -18,6 +18,7 @@ TagManager:
   - Bottle
   - Pip
   - PipSpawner
+  - PipBarCollider
   layers:
   - Default
   - TransparentFX
