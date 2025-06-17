@@ -97,7 +97,6 @@ public class FruitSpawner : XRBaseInteractable
 
         if (tracker.IsOnCuttingBoard())
         {
-            Debug.Log($"[FruitSpawner] Owoc {fruit.name} jest na desce - nie usuwam");
             return false;
         }
 

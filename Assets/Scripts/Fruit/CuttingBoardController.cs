@@ -39,7 +39,6 @@ public class CuttingBoardController : MonoBehaviour
         // Froze the fruit in place
         var rb = fruit.GetComponent<Rigidbody>();
         rb.Sleep();
-        rb.isKinematic = true;
 
         var collider = fruit.GetComponent<Collider>();
         if (collider != null) collider.isTrigger = true;
@@ -62,7 +61,6 @@ public class CuttingBoardController : MonoBehaviour
         // Unfroze the fruit
         var rb = fruit.GetComponent<Rigidbody>();
         rb.WakeUp();
-        rb.isKinematic = false;
 
         var collider = fruit.GetComponent<Collider>();
         if (collider != null) collider.isTrigger = false;

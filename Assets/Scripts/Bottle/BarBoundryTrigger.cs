@@ -24,6 +24,10 @@ public class BarBoundaryTrigger : MonoBehaviour
         {
             HandleFruitExit(other);
         }
+        else if (IsTasak(other.gameObject))
+        {
+            HandleTasakExit(other);
+        }
     }
 
     private void HandleBottleExit(Collider other)
@@ -103,6 +107,21 @@ public class BarBoundaryTrigger : MonoBehaviour
         }
     }
 
+    private void HandleTasakExit(Collider other)
+    {
+        XRGrabInteractable grabInteractable = other.GetComponent<XRGrabInteractable>();
+        if (grabInteractable != null && grabInteractable.isSelected)
+        {
+            Debug.Log($"Tasak {other.name} jest chwytany - ignoruję");
+            return;
+        }
+
+        if (destroyOnExit)
+        {
+            StartCoroutine(DelayedDestroyTasak(other.gameObject, graceTimer));
+        }
+    }
+
     private IEnumerator DelayedDestroyBottle(GameObject bottle, float delay)
     {
         yield return new WaitForSeconds(delay);
@@ -151,7 +170,6 @@ public class BarBoundaryTrigger : MonoBehaviour
             Collider glassCollider = glass.GetComponent<Collider>();
             if (glassCollider != null && GetComponent<Collider>().bounds.Intersects(glassCollider.bounds))
             {
-                Debug.Log($"Szklanka {glass.name} wróciła do obszaru baru - nie niszczę");
                 yield break;
             }
 
@@ -179,9 +197,14 @@ public class BarBoundaryTrigger : MonoBehaviour
 
         if (fruit != null)
         {
-            // Sprawdź ponownie czy można usunąć
             XRGrabInteractable grabInteractable = fruit.GetComponent<XRGrabInteractable>();
             if (grabInteractable != null && grabInteractable.isSelected)
+            {
+                yield break;
+            }
+
+            Collider fruitCollider = fruit.GetComponent<Collider>();
+            if (fruitCollider != null && GetComponent<Collider>().bounds.Intersects(fruitCollider.bounds))
             {
                 yield break;
             }
@@ -193,7 +216,7 @@ public class BarBoundaryTrigger : MonoBehaviour
             }
 
             Debug.Log($"Niszczę owoc {fruit.name}");
-            
+
             if (tracker != null)
             {
                 tracker.DestroyFruit();
@@ -201,6 +224,38 @@ public class BarBoundaryTrigger : MonoBehaviour
             else
             {
                 Destroy(fruit);
+            }
+        }
+    }
+
+    private IEnumerator DelayedDestroyTasak(GameObject tasak, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (tasak != null)
+        {
+            XRGrabInteractable grabInteractable = tasak.GetComponent<XRGrabInteractable>();
+            if (grabInteractable != null && grabInteractable.isSelected)
+            {
+                Debug.Log($"Tasak {tasak.name} jest nadal chwytany - nie niszczę");
+                yield break;
+            }
+
+            Collider tasakCollider = tasak.GetComponent<Collider>();
+            if (tasakCollider != null && GetComponent<Collider>().bounds.Intersects(tasakCollider.bounds))
+            {
+                Debug.Log($"Tasak {tasak.name} wrócił do obszaru baru - nie niszczę");
+                yield break;
+            }
+
+            TasakTracker tracker = tasak.GetComponent<TasakTracker>();
+            if (tracker != null)
+            {
+                tracker.DestroyTasak();
+            }
+            else
+            {
+                Destroy(tasak);
             }
         }
     }
@@ -220,12 +275,20 @@ public class BarBoundaryTrigger : MonoBehaviour
         if (obj.GetComponent<GlassTracker>() != null) return true;
         return false;
     }
-    
+
     private bool IsFruit(GameObject obj)
     {
         if (obj.CompareTag("Fruit")) return true;
         if (obj.GetComponent<FruitTracker>() != null) return true;
         if (obj.GetComponent<FruitController>() != null) return true;
+        return false;
+    }
+    
+    private bool IsTasak(GameObject obj)
+    {
+        if (obj.CompareTag("Tasak")) return true;
+        if (obj.GetComponent<TasakTracker>() != null) return true;
+        if (obj.GetComponent<TasakController>() != null) return true;
         return false;
     }
 }

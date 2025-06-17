@@ -19,6 +19,8 @@ TagManager:
   - Pip
   - PipSpawner
   - PipBarCollider
+  - Fruit
+  - Tasak
   layers:
   - Default
   - TransparentFX
