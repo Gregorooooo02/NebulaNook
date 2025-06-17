@@ -3551,6 +3551,54 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 759151973}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!21 &857839343
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Liquid
+  m_Shader: {fileID: -6465566751694194690, guid: 51c3d129ee295453690ebf19f1684e97, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Fill: 0
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _WobbleX: 0
+    - _WobbleZ: -0
+    m_Colors:
+    - _SideColor: {r: 0.4449, g: 0.7390488, b: 0.9375992, a: 0.8}
+    - _TopColor: {r: 0.556125, g: 0.92381096, b: 1.171999, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &858904176
 GameObject:
   m_ObjectHideFlags: 0
@@ -4832,7 +4880,7 @@ PrefabInstance:
     - target: {fileID: 563024564132929711, guid: 4ab5fe4b01ee349b7a42ee2767b5e568, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 1315913972}
+      objectReference: {fileID: 857839343}
     - target: {fileID: 8438774839083846114, guid: 4ab5fe4b01ee349b7a42ee2767b5e568, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.672
@@ -5658,54 +5706,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drinkEffect: 3
---- !u!21 &1315913972
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Liquid
-  m_Shader: {fileID: -6465566751694194690, guid: 51c3d129ee295453690ebf19f1684e97, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses:
-  - MOTIONVECTORS
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _Fill: 0
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    - _WobbleX: -0
-    - _WobbleZ: 0
-    m_Colors:
-    - _SideColor: {r: 0.4449, g: 0.7390488, b: 0.9375992, a: 0.8}
-    - _TopColor: {r: 0.556125, g: 0.92381096, b: 1.171999, a: 1}
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!1 &1353429299
 GameObject:
   m_ObjectHideFlags: 0
@@ -10171,63 +10171,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9cb9ee5e2dae0d408ae37b037d77748, type: 3}
---- !u!1001 &3176608412747813899
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1198862773812547208, guid: 6016141011fd1354785e3e8c0b879ecf, type: 3}
-      propertyPath: m_Name
-      value: GlassHologram
-      objectReference: {fileID: 0}
-    - target: {fileID: 5131934517555050016, guid: 6016141011fd1354785e3e8c0b879ecf, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.051
-      objectReference: {fileID: 0}
-    - target: {fileID: 5131934517555050016, guid: 6016141011fd1354785e3e8c0b879ecf, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.397
-      objectReference: {fileID: 0}
-    - target: {fileID: 5131934517555050016, guid: 6016141011fd1354785e3e8c0b879ecf, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 2.2060003
-      objectReference: {fileID: 0}
-    - target: {fileID: 5131934517555050016, guid: 6016141011fd1354785e3e8c0b879ecf, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5131934517555050016, guid: 6016141011fd1354785e3e8c0b879ecf, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5131934517555050016, guid: 6016141011fd1354785e3e8c0b879ecf, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5131934517555050016, guid: 6016141011fd1354785e3e8c0b879ecf, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5131934517555050016, guid: 6016141011fd1354785e3e8c0b879ecf, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5131934517555050016, guid: 6016141011fd1354785e3e8c0b879ecf, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5131934517555050016, guid: 6016141011fd1354785e3e8c0b879ecf, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6016141011fd1354785e3e8c0b879ecf, type: 3}
 --- !u!1001 &5780213901355125280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10494,4 +10437,3 @@ SceneRoots:
   - {fileID: 8534023032156914018}
   - {fileID: 1402808380}
   - {fileID: 174880193}
-  - {fileID: 3176608412747813899}
