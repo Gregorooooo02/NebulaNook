@@ -37,6 +37,7 @@ public class Rave : ClientState
                 renderer.material = new Material(renderer.material);
                 renderer.material.EnableKeyword("_EMISSION");
                 renderer.material.SetColor("_EmissionColor", _color * glow);
+                renderer.material.SetTexture("_EmissionMap", null);
             }
             _first = false;
         }
