@@ -375,8 +375,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glassFiller: {fileID: 5943680045852290725}
   streamPrefab: {fileID: 8941625051351596894, guid: 991d207acfd59472493d54e8b2fc0f57, type: 3}
-  rimRadius: 0.034
-  rimHeight: 0.073
+  rimRadius: 0.07
+  rimHeight: 0.146
   minPourAngle: 15
   maxPourAngle: 90
   minFlowRate: 0.5
