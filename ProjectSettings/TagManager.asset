@@ -12,6 +12,7 @@ TagManager:
   - PipFloorCollider
   - Pip
   - PipSpawner
+  - PipBarCollider
   layers:
   - Default
   - TransparentFX
