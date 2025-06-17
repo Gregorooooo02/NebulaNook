@@ -3,9 +3,6 @@ using UnityEngine.UI;
 
 public class TimerController : MonoBehaviour
 {
-    public float[] thresholds;
-    public Color[] ThresholdsColors;
-
     public Gradient colorThresholds;
 
     public float timerDuration;
@@ -32,13 +29,5 @@ public class TimerController : MonoBehaviour
         slider.value = currentValue;
 
         image.color = colorThresholds.Evaluate(currentValue);
-
-        /*if(currentThresholdIndex >= thresholds.Length) return;
-
-        if (thresholds[currentThresholdIndex] >= currentValue)
-        {
-            image.color = ThresholdsColors[currentThresholdIndex];
-            currentThresholdIndex++;
-        }*/
     }
 }
