@@ -44,6 +44,7 @@ public enum GlassType
 
 public enum FruitType
 {
+    NONE,
     EXPLOSIVE,
     JUMPY
 }
@@ -157,6 +158,7 @@ public class ClientController : MonoBehaviour
             {
                 bubble.SetText(questsSource.GetRandomQuestText(DesiredDrinkEffect));
             }
+            Spawner.ZoneScript.EnableHolograms(DesiredGlassType, DesiredFruitType);
         }
         else if(IsWaiting && CurrentState is not WaitForDrink)
         {
