@@ -48,7 +48,7 @@ public class FruitTracker : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void Oestroy()
+    private void OnDestroy()
     {
         if (fruitSpawner != null && !hasNotifiedSpawner)
         {

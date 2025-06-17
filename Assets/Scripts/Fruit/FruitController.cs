@@ -39,8 +39,7 @@ public class FruitController : MonoBehaviour
         GameObject sliced = Instantiate(
             slicedFruitPrefab,
             transform.position,
-            transform.rotation,
-            transform.parent
+            transform.rotation
         );
 
         if (cuttingBoard != null)

@@ -279,6 +279,7 @@ public class BarBoundaryTrigger : MonoBehaviour
     private bool IsFruit(GameObject obj)
     {
         if (obj.CompareTag("Fruit")) return true;
+        if (obj.CompareTag("SlicedFruit")) return true;
         if (obj.GetComponent<FruitTracker>() != null) return true;
         if (obj.GetComponent<FruitController>() != null) return true;
         return false;
