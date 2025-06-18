@@ -1955,7 +1955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentState: {fileID: 2374942741825442400}
-  useCustomDrinkEffect: 1
+  useCustomDrinkEffect: 0
   CustomDrinkEffect: 6
   DesiredDrinkEffect: 1
   DesiredGlassType: 0
