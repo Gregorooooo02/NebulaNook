@@ -44,6 +44,7 @@ public enum GlassType
 
 public enum FruitType
 {
+    NONE,
     EXPLOSIVE,
     JUMPY
 }
@@ -157,12 +158,21 @@ public class ClientController : MonoBehaviour
             {
                 bubble.SetText(questsSource.GetRandomQuestText(DesiredDrinkEffect));
             }
+            Spawner.ZoneScript.EnableHolograms(DesiredGlassType, DesiredFruitType);
         }
         else if(IsWaiting && CurrentState is not WaitForDrink)
         {
             bubble.gameObject.SetActive(false);
             IsWaiting = false;
         }
+    }
+
+    public void Begone()
+    {
+        _drinkWaiting.DrinkEffect = (DrinkEffect)(2137);
+        _drinkWaiting.Continue = true;
+        Spawner.ZoneScript.DisableHolograms();
+        if (!useCustomDrinkEffect) GameManager.Instance.DecrementQuota(10);
     }
 
     private void CheckWalking()
@@ -217,6 +227,7 @@ public class ClientController : MonoBehaviour
         {
             Animator.enabled = true;
         }
+        bubble.gameObject.SetActive(false);
         Animator.SetBool("isDrinking", true);
         var wait = new WaitForSeconds(Animator.GetCurrentAnimatorStateInfo(0).length);
         // Wait for the drinking animation to finish

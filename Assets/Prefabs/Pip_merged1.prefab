@@ -1139,7 +1139,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7821063724200581454}
-  - component: {fileID: 4047174534280122718}
   - component: {fileID: 8606557018917827723}
   m_Layer: 0
   m_Name: CollisionTrigger
@@ -1163,19 +1162,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6839874285185796789}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4047174534280122718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6616530757702400634}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59dc31590d0318e449d3cff41253345f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pipScript: {fileID: 8369017702932646924}
 --- !u!65 &8606557018917827723
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1246,9 +1232,6 @@ MonoBehaviour:
   initialDelay: 0.5
   GotDrink: 0
   drinkEffect: 0
-  minIdleCooldown: 1
-  maxIdleCooldown: 2.5
-  animator: {fileID: 3215333210546962751}
   blackHolePIP: {fileID: 3542249620533419566}
   combustState: {fileID: 324127155475963695}
   freezeState: {fileID: 4292169273253549456}
@@ -1618,7 +1601,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6052617028621681052, guid: cb3eb7791b79c1e4492518cb5b6dd120, type: 3}
       propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[0].m_Value
-      value: 0.4
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6052617028621681052, guid: cb3eb7791b79c1e4492518cb5b6dd120, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[0].m_Overridden
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6052617028621681052, guid: cb3eb7791b79c1e4492518cb5b6dd120, type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[0].m_Value.x
@@ -4002,9 +3989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsGrabbed: 0
   pipInteractable: {fileID: 1723296783085971568}
-  playerObject: {fileID: 0}
   timeToTriggerStandup: 2
-  isOutsideBarZone: 0
 --- !u!4 &6839874285185796789 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d8b2a622cefb46c4f9e743ee3062e875, type: 3}

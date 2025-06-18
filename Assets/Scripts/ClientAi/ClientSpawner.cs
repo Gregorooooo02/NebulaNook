@@ -19,6 +19,7 @@ public class ClientSpawner : MonoBehaviour
     private int finishedClientCount = 0;
 
     public event Action OnAllClientsFinished;
+    public ZoneScript ZoneScript;
 
     private void SpawnClient()
     {

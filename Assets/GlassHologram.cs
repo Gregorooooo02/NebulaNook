@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class GlassHologram : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public Animator animator;
+
+    private void OnEnable()
     {
-        
+        animator.SetBool("Apear", true);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
+        animator.SetBool("Apear", false);
     }
 }
