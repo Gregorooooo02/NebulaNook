@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
 public class FruitController : MonoBehaviour
 {
     [Header("Fruit Prefabs")]
     [SerializeField] private GameObject slicedFruitPrefab;
+    private Rigidbody rb;
 
     [Header("Fruit Slicing")]
     [SerializeField] private float sliceAmount = 4f;
@@ -11,6 +13,11 @@ public class FruitController : MonoBehaviour
 
     private bool canSlice = false;
     private CuttingBoardController cuttingBoard;
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
 
     public void EnableSlicing()
     {
@@ -35,7 +42,8 @@ public class FruitController : MonoBehaviour
         }
     }
 
-    private void PerformSlice() {
+    private void PerformSlice()
+    {
         GameObject sliced = Instantiate(
             slicedFruitPrefab,
             transform.position,
@@ -56,5 +64,11 @@ public class FruitController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void OnEnable()
+    {
+        rb.isKinematic = false;
+        rb.useGravity = true;
     }
 }

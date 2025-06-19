@@ -21,6 +21,8 @@ TagManager:
   - PipBarCollider
   - Fruit
   - Tasak
+  - JumpPoint
+  - BarArea
   layers:
   - Default
   - TransparentFX

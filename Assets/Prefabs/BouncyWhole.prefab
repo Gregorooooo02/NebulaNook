@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9202313258737530374}
   - component: {fileID: -5864002815965967799}
   - component: {fileID: 6354251113614187252}
-  - component: {fileID: -6488726588713309053}
+  - component: {fileID: 2821604085258797405}
   m_Layer: 0
   m_Name: BouncyWhole
   m_TagString: Fruit
@@ -117,7 +117,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!135 &9202313258737530374
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -165,8 +165,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303ba9e4503ba4f1a86a18703d10677e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fruitType: 1
---- !u!114 &-6488726588713309053
+  fruitType: 2
+--- !u!114 &2821604085258797405
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,7 +175,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4574353362294633971}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
+  m_Script: {fileID: 11500000, guid: f320858b6e2fd4eabb1b1eec69546f9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
@@ -288,3 +288,13 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
+  jumpPointTag: JumpPoint
+  jumpSpeed: 1.5
+  maxJumpHeight: 0.5
+  jumpCooldown: 1
+  slipOutDelay: 0.5
+  slipOutForce: 2
+  squashAmount: 0.3
+  squashDuration: 0.5
+  enableEditorTesting: 0
+  testJumpingInEditor: 0
