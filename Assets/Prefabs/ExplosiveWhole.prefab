@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9062401232791125971}
   - component: {fileID: 7372774784892468174}
   - component: {fileID: 6362854206902225959}
-  - component: {fileID: 1867667703470207229}
+  - component: {fileID: 910891652611312114}
   m_Layer: 0
   m_Name: ExplosiveWhole
   m_TagString: Fruit
@@ -117,7 +117,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!135 &9062401232791125971
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fruitType: 0
---- !u!114 &1867667703470207229
+--- !u!114 &910891652611312114
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,7 +175,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8823149621512272670}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
+  m_Script: {fileID: 11500000, guid: ec53d62931dbc4bfca859faa5ce95efa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
@@ -288,3 +288,39 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
+  explosionThreshold: 5
+  maxVelocity: 8
+  minHeartbeatRate: 1
+  maxHeartbeatRate: 0.05
+  pulseMagnitude: 0.3
+  pulseCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  explosionParticlePrefab: {fileID: 8784169859946565572, guid: cfeac452c39ce6f458017a7fea1a200c, type: 3}
+  explosionRadius: 3
+  explosionForce: 500
+  explosionSound: {fileID: 0}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  dangerColor: {r: 45.254833, g: 0, b: 0, a: 1}
+  colorTransitionSpeed: 5
