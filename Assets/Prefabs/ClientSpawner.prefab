@@ -161,6 +161,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlassHologram
       objectReference: {fileID: 0}
+    - target: {fileID: 2323374104472677928, guid: 6016141011fd1354785e3e8c0b879ecf, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2778661982856084353, guid: fb3e5d306c3d44ffcaa4c5a85d884888, type: 3}
+    - target: {fileID: 3862617004606113814, guid: 6016141011fd1354785e3e8c0b879ecf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4130177367623910467, guid: 6016141011fd1354785e3e8c0b879ecf, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -3952862127293443195, guid: 9299307d83b144e8aba3c74112b6688a, type: 3}
+    - target: {fileID: 4265213712588408222, guid: 6016141011fd1354785e3e8c0b879ecf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5131934517555050016, guid: 6016141011fd1354785e3e8c0b879ecf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -200,6 +216,30 @@ PrefabInstance:
     - target: {fileID: 5131934517555050016, guid: 6016141011fd1354785e3e8c0b879ecf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6042698209114858751, guid: 6016141011fd1354785e3e8c0b879ecf, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6042698209114858751, guid: 6016141011fd1354785e3e8c0b879ecf, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6042698209114858751, guid: 6016141011fd1354785e3e8c0b879ecf, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8689999843150584244, guid: 6016141011fd1354785e3e8c0b879ecf, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8689999843150584244, guid: 6016141011fd1354785e3e8c0b879ecf, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8689999843150584244, guid: 6016141011fd1354785e3e8c0b879ecf, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
