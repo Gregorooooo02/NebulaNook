@@ -1753,6 +1753,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 802827770}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &715061196
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Liquid
+  m_Shader: {fileID: -6465566751694194690, guid: 51c3d129ee295453690ebf19f1684e97, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Fill: 0
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _WobbleX: 6.49303e-10
+    - _WobbleZ: 6.49303e-10
+    m_Colors:
+    - _SideColor: {r: 0.4449, g: 0.7390488, b: 0.9375992, a: 0.8}
+    - _TopColor: {r: 0.556125, g: 0.92381096, b: 1.171999, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &735328365
 GameObject:
   m_ObjectHideFlags: 0
@@ -2340,6 +2388,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &812550403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812550394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af596738dc2ad7545b78976dd15d3e57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  linearShakeThreshold: 8
+  angularShakeThreshold: 25
+  shakeDurationToResult: 1
+  top: {fileID: 854680791}
 --- !u!1001 &847416704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2659,6 +2723,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &854680791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854680781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3adaae8c6f15a5647b946c916d40438c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snapTarget: {fileID: 1986616996}
+  bottomPart: {fileID: 812550394}
+  snapDistance: 0.1
+  isAttached: 1
 --- !u!1 &871660065
 GameObject:
   m_ObjectHideFlags: 0
@@ -4330,10 +4410,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed4ab96bb8c54348b7ffd397d2db0c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  snapTarget: {fileID: 1986616996}
-  bottomPart: {fileID: 812550394}
-  topPart: {fileID: 854680781}
-  snapDistance: 0.1
 --- !u!1 &1445801094
 GameObject:
   m_ObjectHideFlags: 0
@@ -4818,54 +4894,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: de1a8536460484f969aaec1e131c01a5, type: 3}
   m_PrefabInstance: {fileID: 1536519708}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &1553859085
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Liquid
-  m_Shader: {fileID: -6465566751694194690, guid: 51c3d129ee295453690ebf19f1684e97, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses:
-  - MOTIONVECTORS
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _Fill: 0
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    - _WobbleX: -0.000006970908
-    - _WobbleZ: -0.000006970908
-    m_Colors:
-    - _SideColor: {r: 0.4449, g: 0.7390488, b: 0.9375992, a: 0.8}
-    - _TopColor: {r: 0.556125, g: 0.92381096, b: 1.171999, a: 1}
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!1001 &1554734702
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5466,7 +5494,7 @@ PrefabInstance:
     - target: {fileID: 563024564132929711, guid: 4ab5fe4b01ee349b7a42ee2767b5e568, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 1553859085}
+      objectReference: {fileID: 715061196}
     - target: {fileID: 8438774839083846114, guid: 4ab5fe4b01ee349b7a42ee2767b5e568, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.207
@@ -6584,6 +6612,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4926001703790802853, guid: 337e6b5dc90799042935353a30181269, type: 3}
       insertIndex: -1
       addedObject: {fileID: 854680786}
+    - targetCorrespondingSourceObject: {fileID: 4926001703790802853, guid: 337e6b5dc90799042935353a30181269, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 854680791}
     - targetCorrespondingSourceObject: {fileID: 7717331358011810647, guid: 337e6b5dc90799042935353a30181269, type: 3}
       insertIndex: -1
       addedObject: {fileID: 812550398}
@@ -6593,6 +6624,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7717331358011810647, guid: 337e6b5dc90799042935353a30181269, type: 3}
       insertIndex: -1
       addedObject: {fileID: 812550399}
+    - targetCorrespondingSourceObject: {fileID: 7717331358011810647, guid: 337e6b5dc90799042935353a30181269, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 812550403}
   m_SourcePrefab: {fileID: 100100000, guid: 337e6b5dc90799042935353a30181269, type: 3}
 --- !u!1001 &1968717281
 PrefabInstance:

@@ -8,7 +8,6 @@ public class ShakeDetection : MonoBehaviour
     private XRGrabInteractable grabInteractable;
     [SerializeField] private float linearShakeThreshold;
     [SerializeField] private float angularShakeThreshold;
-    [SerializeField] private float shakeStopDelay;
     [SerializeField] private float shakeDurationToResult;
     private float shakeDuration;
     private bool isGrabbed;
@@ -29,6 +28,11 @@ public class ShakeDetection : MonoBehaviour
 
     void Update()
     {
+        if (!top.isAttached)
+        {
+            result = false;
+            shakeDuration = 0;
+        }
         if (isGrabbed && top.isAttached)
         {
             float deltaTime = Time.deltaTime;
