@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class PipController : MonoBehaviour
 {
@@ -9,12 +10,13 @@ public class PipController : MonoBehaviour
 
     public Animator animator;
     public Collider mainCollider;
+    public Rigidbody mainBody;
+    public XRGrabInteractable interactable;
 
     private void Start()
     {
         Joints = GetComponentsInChildren<Rigidbody>();
         CharacterJoints = GetComponentsInChildren<CharacterJoint>();
-
 
         ToggleRagdoll(false);
     }
@@ -33,10 +35,14 @@ public class PipController : MonoBehaviour
         mainCollider.enabled = !isRagdoll;
         animator.enabled = !isRagdoll;
 
+        interactable.enabled = !isRagdoll;
+
         foreach (var joint in Joints)
         {
             joint.isKinematic = !isRagdoll;
         }
+
+        if(isRagdoll) mainBody.isKinematic = true;
     }
 
     public void StiffenRagdoll()
