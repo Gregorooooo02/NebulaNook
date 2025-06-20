@@ -1,4 +1,6 @@
+using NUnit.Framework;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Recipe : MonoBehaviour
@@ -25,6 +27,24 @@ public class Recipe : MonoBehaviour
     [Header("Leave")]
     public float leaveOffset;
     public float leaveSpeed;
+    public AnimationCurve leaveSpeedCurve;
+
+    [Header("Catch up")]
+    public float catchUpSpeed;
+    public float catchUpDelay;
+
+    private void Start()
+    {
+        foreach (var item in IngridientsAndOperators)
+        {
+            item.localPosition = EffectIcon.localPosition;
+            item.gameObject.SetActive(false);
+        }
+        foreach (var blur in Blurs)
+        {
+            blur.SetActive(true);
+        }
+    }
 
     private void OnDisable()
     {
@@ -32,6 +52,10 @@ public class Recipe : MonoBehaviour
         {
             item.localPosition = EffectIcon.localPosition;
             item.gameObject.SetActive(false);
+        }
+        foreach(var blur in Blurs)
+        {
+            blur.SetActive(true);
         }
     }
 
@@ -52,7 +76,25 @@ public class Recipe : MonoBehaviour
         }
         int unblurLeft = unblurCount;
 
+        //Prepare available indices list
+        List<int> indices = new List<int>();
+        List<int> indicesToRemove = new List<int>();
+        for (int i = 0;i < Blurs.Length; i++)
+        {
+            indices.Add(i);
+        }
 
+        for(int i = 0;i < unblurCount; i++)
+        {
+            int index = Random.Range(0, indices.Count);
+            indicesToRemove.Add(indices[index]);
+            indices.RemoveAt(index);
+        }
+        indicesToRemove.Sort();
+        foreach (int index in indicesToRemove)
+        {
+            Blurs[index].SetActive(false);
+        }
 
         foreach (var item in IngridientsAndOperators)
         {
@@ -88,9 +130,32 @@ public class Recipe : MonoBehaviour
         while(currentOffset > leaveOffset)
         {
             currentOffset = Mathf.Clamp(currentOffset - leaveSpeed * Time.fixedDeltaTime, leaveOffset, 0);
-            MainObject.localPosition = startPos + new Vector3(currentOffset,0,0);
+            float offsetPer = currentOffset / leaveOffset;
+            float mul = leaveSpeedCurve.Evaluate(offsetPer);
+            MainObject.localPosition = startPos + new Vector3(currentOffset * mul,0,0);
             yield return new WaitForFixedUpdate();
         }
         gameObject.SetActive(false);
     }
+
+    public void MoveToNewPosition(int newIndex)
+    {
+        if(newIndex == positionIndex) return;
+        StartCoroutine(MoveToIndex(newIndex));
+    }
+
+    IEnumerator MoveToIndex(int newIndex)
+    {
+        yield return new WaitForSeconds(catchUpDelay);
+        float currentY = positionIndex * mainYOffset;
+        float newY = newIndex * mainYOffset;
+        while(currentY < newY)
+        {
+            currentY = Mathf.Min(currentY + catchUpSpeed * Time.fixedDeltaTime, newY);
+            MainObject.localPosition = new Vector3(0,currentY,0);
+            yield return new WaitForFixedUpdate();
+        }
+        positionIndex = newIndex;
+    }
+
 }

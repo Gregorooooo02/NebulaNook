@@ -159,6 +159,7 @@ public class ClientController : MonoBehaviour
                 bubble.SetText(questsSource.GetRandomQuestText(DesiredDrinkEffect));
             }
             Spawner.ZoneScript.EnableHolograms(DesiredGlassType, DesiredFruitType);
+            RecipeBook.Instance.AddRecipe(DesiredDrinkEffect, this);
         }
         else if(IsWaiting && CurrentState is not WaitForDrink)
         {
@@ -172,6 +173,7 @@ public class ClientController : MonoBehaviour
         _drinkWaiting.DrinkEffect = (DrinkEffect)(2137);
         _drinkWaiting.Continue = true;
         Spawner.ZoneScript.DisableHolograms();
+        RecipeBook.Instance.RemoveRecipe(DesiredDrinkEffect, this);
         if (!useCustomDrinkEffect) GameManager.Instance.DecrementQuota(10);
     }
 
@@ -228,6 +230,7 @@ public class ClientController : MonoBehaviour
             Animator.enabled = true;
         }
         bubble.gameObject.SetActive(false);
+        RecipeBook.Instance.RemoveRecipe(DesiredDrinkEffect, this);
         Animator.SetBool("isDrinking", true);
         var wait = new WaitForSeconds(Animator.GetCurrentAnimatorStateInfo(0).length);
         // Wait for the drinking animation to finish
