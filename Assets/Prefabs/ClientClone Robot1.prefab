@@ -193,6 +193,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7561098486974653285}
     m_Modifications:
+    - target: {fileID: 2268215344799656804, guid: b16963867350e41a684c84ad92aa115b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 847dd440335e44c4ba8a9dc03b16328f, type: 2}
     - target: {fileID: 4814820442475998116, guid: b16963867350e41a684c84ad92aa115b, type: 3}
       propertyPath: m_Name
       value: RobotMesh
