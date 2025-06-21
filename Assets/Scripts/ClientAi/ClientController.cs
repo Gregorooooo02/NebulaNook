@@ -206,11 +206,19 @@ public class ClientController : MonoBehaviour
 
     private IEnumerator WavingCoroutine()
     {
+        // If not idle, wait for the current animation to finish
+        yield return new WaitUntil(() => IsInIdleState());
         Animator.SetBool("isWaving", true);
         var wait = new WaitForSeconds(Animator.GetCurrentAnimatorStateInfo(0).length);
         // Wait for the waving animation to finish
         yield return wait;
         Animator.SetBool("isWaving", false);
+    }
+
+    private bool IsInIdleState()
+    {
+        AnimatorStateInfo stateInfo = Animator.GetCurrentAnimatorStateInfo(0);
+        return stateInfo.IsTag("Idle");
     }
 
     public void Drink(DrinkEffect effect/*, GlassType glass, FruitType fruit*/)

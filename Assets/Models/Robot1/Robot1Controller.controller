@@ -24,7 +24,7 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: d7de891b1be2e4daa951a150bfdd204a, type: 2}
-  m_Tag: 
+  m_Tag: Idle
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
@@ -287,7 +287,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Robot_arm_Approach2_120
-  m_Speed: 1
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -6805974481562079867}
@@ -323,9 +323,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.88015044
-  m_TransitionOffset: 0.104303464
-  m_ExitTime: 0.8258703
+  m_TransitionDuration: 0.46907517
+  m_TransitionOffset: 0
+  m_ExitTime: 0.12116974
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0

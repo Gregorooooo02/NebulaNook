@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ClientSpawner : MonoBehaviour
 {
-    public GameObject ClientPrefab;
+    public GameObject[] ClientPrefabs;
 
     public BarChairScript barChairScript;
     public GameObject Exit;
@@ -24,6 +24,7 @@ public class ClientSpawner : MonoBehaviour
     private void SpawnClient()
     {
         currentClientCount++;
+        GameObject ClientPrefab = ClientPrefabs[UnityEngine.Random.Range(0, ClientPrefabs.Length)];
         GameObject client = Instantiate(ClientPrefab, transform);
         ClientController controller = client.GetComponent<ClientController>();
         controller.Spawner = this;
