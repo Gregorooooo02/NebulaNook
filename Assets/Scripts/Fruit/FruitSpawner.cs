@@ -66,6 +66,8 @@ public class FruitSpawner : XRBaseInteractable
         {
             interactionManager.SelectEnter(args.interactorObject, grabInteractable);
         }
+
+        TutorialManager.Instance?.NotifyFruitPicked();
     }
 
     private bool CanSpawnNewFruit()

@@ -11,14 +11,25 @@ public class TutorialPIP : MonoBehaviour
 
     private string[] tutorial_lines =
     {
-        "Hello there!",
-        "General Kenobi!"
+        "Hello there! I am Pip I see that you are our new barman!",
+        "All the previous barmans didn't last very long... But! I belive you will!",
+        "I will teach you how things work around here. Let's start from the basics.",
+        "Oh! Here goes our first client! I will walk you through the process."
     };
 
     public float initialDelay;
     public float lineDelay;
     private bool LineDone;
     private bool ActionDone = false;
+
+    public bool ClientDoneGood = false;
+    public bool ClientDoneBad = false;
+
+    public bool ClientAproached = false;
+
+    public bool FruitPicked = false;
+    public bool GlassPicked = false;    
+
 
     private void Start()
     {
@@ -37,7 +48,9 @@ public class TutorialPIP : MonoBehaviour
         bubble.SetText(tutorial_lines[textIndex]);
         textIndex++;
         LineDone = false;
-        ActionDone = false;
+        ClientAproached = false;
+        ClientDoneGood = false;
+        ClientDoneBad = false;
     }
 
     IEnumerator Tutorial()
@@ -55,6 +68,19 @@ public class TutorialPIP : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         yield return new WaitForSeconds(lineDelay);
-        bubble.SetText("Habibi");
+        ShowNextLine();
+        while (!LineDone)
+        {
+            yield return new WaitForFixedUpdate();
+        }
+        yield return new WaitForSeconds(lineDelay);
+        TutorialManager.Instance.SpawnNextClient();
+        ShowNextLine();
+        while (!LineDone || !ClientAproached)
+        {
+            yield return new WaitForFixedUpdate();
+        }
+        yield return new WaitForSeconds(lineDelay);
+        
     }
 }

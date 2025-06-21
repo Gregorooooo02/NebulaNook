@@ -59,7 +59,13 @@ public class ClientController : MonoBehaviour
 {
     public ClientState CurrentState;
     public bool useCustomDrinkEffect = false;
+    public bool useCustomGlass = false;
+    public bool useCustomFruit = false;
+
     public DrinkEffect CustomDrinkEffect = DrinkEffect.EXPLOSION;
+    public GlassType CustomGlass = GlassType.WHISKY;
+    public FruitType CustomFruit = FruitType.NONE;
+
     public DrinkEffect DesiredDrinkEffect = DrinkEffect.COMBUTION;
     public GlassType DesiredGlassType = GlassType.COCKTAIL;
     public FruitType DesiredFruitType = FruitType.EXPLOSIVE;
@@ -123,10 +129,25 @@ public class ClientController : MonoBehaviour
             DesiredDrinkEffect = (DrinkEffect)v.GetValue(Random.Range(1, v.Length - 2));
         }
 
-        var u = Enum.GetValues(typeof(GlassType));
-        DesiredGlassType = (GlassType)u.GetValue(Random.Range(0, u.Length));
-        var f = Enum.GetValues(typeof(FruitType));
-        DesiredFruitType = (FruitType)f.GetValue(Random.Range(0, f.Length));
+        if (useCustomGlass)
+        {
+            DesiredGlassType = CustomGlass;
+        }
+        else
+        {
+            var u = Enum.GetValues(typeof(GlassType));
+            DesiredGlassType = (GlassType)u.GetValue(Random.Range(0, u.Length));
+        }
+
+        if (useCustomFruit)
+        {
+            DesiredFruitType = CustomFruit;
+        }
+        else
+        {
+            var f = Enum.GetValues(typeof(FruitType));
+            DesiredFruitType = (FruitType)f.GetValue(Random.Range(0, f.Length));
+        }
     }
 
     void FixedUpdate()
@@ -208,6 +229,7 @@ public class ClientController : MonoBehaviour
 
     private IEnumerator WavingCoroutine()
     {
+        TutorialManager.Instance?.NotifyClientAproached();
         Animator.SetBool("isWaving", true);
         var wait = new WaitForSeconds(Animator.GetCurrentAnimatorStateInfo(0).length);
         // Wait for the waving animation to finish
@@ -253,6 +275,18 @@ public class ClientController : MonoBehaviour
         }
         _drinkWaiting.DrinkEffect = effect;
         _drinkWaiting.Continue = true;
+
+        if(TutorialManager.Instance != null)
+        {
+            if (DesiredDrinkEffect == effect)
+            {
+                TutorialManager.Instance.NotifyClientDoneGood();
+            }
+            else
+            {
+                TutorialManager.Instance.NotifyClientDoneBad();
+            }
+        }
     }
 
     public void GrabGlass()
@@ -292,11 +326,11 @@ public class ClientController : MonoBehaviour
     {
         if (DesiredDrinkEffect == effect)
         {
-            GameManager.Instance.IncrementQuota(20);
+            GameManager.Instance?.IncrementQuota(20);
         }
         else
         {
-            GameManager.Instance.DecrementQuota(10);
+            GameManager.Instance?.DecrementQuota(10);
         }
 
         // if (DesiredGlassType == glass)

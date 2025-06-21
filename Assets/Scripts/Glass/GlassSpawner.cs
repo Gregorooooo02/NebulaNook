@@ -69,6 +69,8 @@ public class GlassSpawner : XRBaseInteractable
         {
             interactionManager.SelectEnter(args.interactorObject, grabInteractable);
         }
+
+        TutorialManager.Instance?.NotifyGlassPicked();
     }
 
     public void OnGlassDrinkConsumed(GameObject glass)
