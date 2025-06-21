@@ -8,7 +8,7 @@ public class Freeze : ClientState
 
     private bool triggered = false;
 
-    public SkinnedMeshRenderer[] materialsToChange;
+    public Renderer[] materialsToChange;
     public Material FrozenMaterial;
 
     public GameObject FreezeEffect;
@@ -53,7 +53,7 @@ public class Freeze : ClientState
         Controller.ToggleRagdoll(true);
         Controller.StiffenRagdoll();
         Instantiate(FreezeEffect, transform);
-        foreach (SkinnedMeshRenderer m in materialsToChange)
+        foreach (Renderer m in materialsToChange)
         {
             m.material = FrozenMaterial;
         }
