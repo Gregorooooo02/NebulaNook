@@ -13,7 +13,7 @@ public class PipController : MonoBehaviour
     public Rigidbody mainBody;
     public XRGrabInteractable interactable;
 
-    public ParticleSystem Icon;
+    public GameObject Icon;
     public Material IconMaterial;
 
     private void Start()
@@ -84,7 +84,7 @@ public class PipController : MonoBehaviour
             IdlePIP idle = (IdlePIP)CurrentState;
             idle.SetDrinkEffect(effect);
             IconMaterial.SetTexture("_BaseMap", DrinkEffectMap.Instance.effectIcons[(int)effect]);
-            Icon.Play();
+            Instantiate(Icon,transform.position,Quaternion.identity);
         }
     }
 }
