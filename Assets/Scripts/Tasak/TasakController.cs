@@ -17,6 +17,7 @@ public class TasakController : MonoBehaviour
     private void OnSelectEntered(SelectEnterEventArgs args)
     {
         blade.SetActive(true);
+        TutorialManager.Instance?.NotifyCleaverPicked();
     }
 
     private void OnSelectExited(SelectExitEventArgs args)

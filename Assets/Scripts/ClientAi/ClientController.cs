@@ -361,6 +361,7 @@ public class ClientController : MonoBehaviour
         foreach (Rigidbody r in Joints)
         {
             r.isKinematic = !isRagdoll;
+            if(isRagdoll)r.WakeUp();
         }
     }
 

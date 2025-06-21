@@ -28,7 +28,7 @@ public class FlashScript : MonoBehaviour
     {
         if (current_time >= Duration)
         {
-            profile.intensity.min = startBloomValue;
+            profile.intensity.value = startBloomValue;
             Destroy(gameObject);
         }
         current_time += Time.fixedDeltaTime;

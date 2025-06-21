@@ -37,6 +37,51 @@ public class TutorialManager : MonoBehaviour
         Pip.GlassPicked = true;
     }
 
+    public void NotifyOilPicked()
+    {
+        Pip.OilPicked = true;
+    }
+
+    public void NotifyBlowtorchPicked()
+    {
+        Pip.BlowtorchPicked = true;
+    }
+
+    public void NotifyBlowtorchTriggerPulled()
+    {
+        Pip.BlowtorchTriggerPulled = true;
+    }
+
+    public void NotifyShakerClosed()
+    {
+        Pip.ShakerClosed = true;
+    }
+
+    public void NotifyShakerOpened()
+    {
+        Pip.ShakerOpened = true;
+    }
+
+    public void NotifyShakerShook()
+    {
+        Pip.ShakerShook = true;
+    }
+
+    public void NotifyCuttingBoardPlaced()
+    {
+        Pip.CuttingBoardPlaced = true;
+    }
+
+    public void NotifyCuttingBoardCut()
+    {
+        Pip.CuttingBoardCut = true;
+    }
+
+    public void NotifyCleaverPicked()
+    {
+        Pip.CleaverPickedUp = true;
+    }
+
     public void SpawnNextClient()
     {
         ClientSpawner.SpawnClient();

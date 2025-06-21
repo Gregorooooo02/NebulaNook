@@ -42,6 +42,8 @@ public class FruitController : MonoBehaviour
             transform.rotation
         );
 
+        TutorialManager.Instance?.NotifyCuttingBoardCut();
+
         if (cuttingBoard != null)
         {
             cuttingBoard.OnFruitSliced(gameObject, sliced);
