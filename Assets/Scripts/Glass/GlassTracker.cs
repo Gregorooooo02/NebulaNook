@@ -6,6 +6,23 @@ public class GlassTracker : MonoBehaviour
     private bool hasNotifiedSpawner = false;
     private bool drinkConsumed = false;
 
+    [Header("Fruit Objects")]
+    [SerializeField] private GameObject jumpyHologram;
+    [SerializeField] private GameObject explosiveHologram;
+    [SerializeField] private GameObject jumpySlice;
+    [SerializeField] private GameObject explosiveSlice;
+
+    public FruitType attachedFruitType = FruitType.NONE;
+    private GameObject currentHologram;
+
+    private void Start()
+    {
+        if (jumpyHologram) jumpyHologram.SetActive(false);
+        if (explosiveHologram) explosiveHologram.SetActive(false);
+        if (jumpySlice) jumpySlice.SetActive(false);
+        if (explosiveSlice) explosiveSlice.SetActive(false);
+    }
+
     public void Initialize(GlassSpawner glassSpawner)
     {
         spawner = glassSpawner;
@@ -73,5 +90,65 @@ public class GlassTracker : MonoBehaviour
             spawner.OnGlassDestroyed(gameObject);
         }
         CancelInvoke();
+    }
+
+    public bool HasFruitAttached()
+    {
+        return attachedFruitType != FruitType.NONE;
+    }
+
+    public GameObject ShowFruitHologram(FruitType fruitType)
+    {
+        HideFruitHologram();
+
+        switch (fruitType)
+        {
+            case FruitType.JUMPY:
+                if (jumpyHologram)
+                {
+                    jumpyHologram.SetActive(true);
+                    currentHologram = jumpyHologram;
+                }
+                break;
+            case FruitType.EXPLOSIVE:
+                if (explosiveHologram)
+                {
+                    explosiveHologram.SetActive(true);
+                    currentHologram = explosiveHologram;
+                }
+                break;
+        }
+
+        return currentHologram;
+    }
+
+    public void HideFruitHologram()
+    {
+        if (jumpyHologram) jumpyHologram.SetActive(false);
+        if (explosiveHologram) explosiveHologram.SetActive(false);
+        currentHologram = null;
+    }
+
+    public void ActivateFruit(FruitType fruitType)
+    {
+        HideFruitHologram();
+        attachedFruitType = fruitType;
+
+        switch (fruitType)
+        {
+            case FruitType.JUMPY:
+                if (jumpySlice) jumpySlice.SetActive(true);
+                break;
+            case FruitType.EXPLOSIVE:
+                if (explosiveSlice) explosiveSlice.SetActive(true);
+                break;
+        }
+    }
+
+    public void RemoveAttachedFruit()
+    {
+        if (jumpySlice) jumpySlice.SetActive(false);
+        if (explosiveSlice) explosiveSlice.SetActive(false);
+        attachedFruitType = FruitType.NONE;
     }
 }

@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 6964191583890894341}
   - component: {fileID: 5362900831748627576}
   - component: {fileID: 3363288032335930709}
-  - component: {fileID: 8189529898815451992}
   - component: {fileID: -3917669859290237767}
+  - component: {fileID: 3293283812860966584}
   m_Layer: 0
   m_Name: ExplosiveSlice
   m_TagString: ChoppedFruit
@@ -138,7 +138,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8189529898815451992
+--- !u!114 &-3917669859290237767
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,7 +147,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 361232398024465716}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
+  m_Script: {fileID: 11500000, guid: 303ba9e4503ba4f1a86a18703d10677e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fruitType: 1
+--- !u!114 &3293283812860966584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361232398024465716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbafedd7b04284ce1a49dcd797990c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
@@ -260,16 +273,8 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
---- !u!114 &-3917669859290237767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 361232398024465716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 303ba9e4503ba4f1a86a18703d10677e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fruitType: 1
+  glassTag: Glass
+  attachDistance: 0.25
+  glassLayer:
+    serializedVersion: 2
+    m_Bits: 4294967295
