@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,6 +21,8 @@ public class SpeechBubble : MonoBehaviour
     public GameObject textObject;
     public GameObject iconObject;
 
+    private Action NotifyTextEnded;
+
     void Update()
     {
         if (_startWriting)
@@ -37,6 +40,7 @@ public class SpeechBubble : MonoBehaviour
                 {
                     _startWriting = false;
                     characterIndex = 0;
+                    NotifyTextEnded?.Invoke();
                 }
             }
         } 
@@ -44,9 +48,14 @@ public class SpeechBubble : MonoBehaviour
 
     public void SetText(string text)
     {
-        _currentText = text;
+        _currentText = text + " ";
         textObject.SetActive(true);
         _startWriting = true;
+    }
+
+    public void SetNotifyAction(Action action)
+    {
+        NotifyTextEnded = action;
     }
 
     public void SetIcon(Texture2D icon)
