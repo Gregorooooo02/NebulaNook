@@ -22,6 +22,12 @@ public class SpeechBubble : MonoBehaviour
     public GameObject iconObject;
 
     private Action NotifyTextEnded;
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>(); 
+    }
 
     void Update()
     {
@@ -42,6 +48,7 @@ public class SpeechBubble : MonoBehaviour
                     characterIndex = 0;
                     NotifyTextEnded?.Invoke();
                 }
+                if(characterIndex % 2 == 0) audioSource.Play();
             }
         } 
     }
@@ -50,7 +57,7 @@ public class SpeechBubble : MonoBehaviour
     {
         _currentText = text + " ";
         textObject.SetActive(true);
-        _startWriting = true;
+        _startWriting = true; 
     }
 
     public void SetNotifyAction(Action action)
