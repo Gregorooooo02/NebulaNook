@@ -1327,21 +1327,21 @@ MonoBehaviour:
   zAxisReference: {fileID: 67080909300977744}
   xAxisReference: {fileID: 3006686678546623021}
   TimeToPosses: 2
-  InitialFloatingForce: 2000
+  InitialFloatingForce: 1000
   maxInitialVerticalOffset: 2
   initialSuspensionTime3rdStage: 0.8
-  sidewaysJerkForce: 1000
+  sidewaysJerkForce: 500
   max1stJerkOffset: 3
   max2ndJerkOffset: 3
   firstJerkCooldown: 0.4
   secondJerkCooldown: 0.4
-  returnForce: 500
+  returnForce: 250
   returnCooldown: 0.6
   jerksAmount: 5
   maxJerksOffset: 1
-  jerkForce: 1000
+  jerkForce: 500
   jerkCooldown: 0.1
-  backwardsForce: 20000
+  backwardsForce: 10000
   targetVelocity: 40
   destroyTime: 5
 --- !u!1 &3846541511680912393
@@ -1647,7 +1647,7 @@ MonoBehaviour:
   Controller: {fileID: 6456090248501370823}
   initialDelay: 0.5
   TimeToDisapear: 5
-  anitgravityStrenghtMultiplier: 600
+  anitgravityStrenghtMultiplier: 12
   parent: {fileID: 7293946214203817095}
   mainBone: {fileID: 4118726317263924471}
 --- !u!1 &5793387578603978027
@@ -1876,7 +1876,7 @@ MonoBehaviour:
   initialDelay: 0.5
   MeteorPrefab: {fileID: 4868147546304944043, guid: 7ebf81ef434f04746af760d2a4fb9f70, type: 3}
   meteorForce: 300
-  explosionForce: 20000
+  explosionForce: 2000
   explosionRadius: 5
   explosionDistance: 0.2
   Parent: {fileID: 7293946214203817095}
@@ -2304,7 +2304,7 @@ Transform:
   m_GameObject: {fileID: 7240667245887650486}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.2, z: 0.355}
+  m_LocalPosition: {x: 0, y: -0.499, z: 0.355}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2325,7 +2325,7 @@ MonoBehaviour:
   Controller: {fileID: 6456090248501370823}
   initialDelay: 0.5
   MainBone: {fileID: 4118726317263924471}
-  explosionForce: 100000
+  explosionForce: 7500
   explosionRadius: 5
   TimeToDisapear: 5
   ExplosionEffect: {fileID: 8784169859946565572, guid: cfeac452c39ce6f458017a7fea1a200c, type: 3}
@@ -2507,7 +2507,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentState: {fileID: 2374942741825442400}
   useCustomDrinkEffect: 0
+  useCustomGlass: 0
+  useCustomFruit: 0
   CustomDrinkEffect: 6
+  CustomGlass: 1
+  CustomFruit: 0
   DesiredDrinkEffect: 1
   DesiredGlassType: 0
   DesiredFruitType: 0
@@ -2626,7 +2630,7 @@ MonoBehaviour:
   agentPathingDelay: 0.25
   Parent: {fileID: 7293946214203817095}
   yeetDelay: 7
-  yeetForce: 400000
+  yeetForce: 40000
 --- !u!1 &7679468496361615186
 GameObject:
   m_ObjectHideFlags: 0
