@@ -17,6 +17,8 @@ public class ZoneScript : MonoBehaviour
     private GameObject currentFruit;
     private GameObject enabledGlass;
 
+    public bool Enabled = true;
+
     void Awake()
     {
         anim = GetComponent<Animator>();
@@ -53,7 +55,7 @@ public class ZoneScript : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        
+        if(!Enabled) return;
         TestEffectObject testEffectObject = other.gameObject.GetComponent<TestEffectObject>();
 
         if (BarChairScript.Occupied && testEffectObject != null)

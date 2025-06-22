@@ -89,11 +89,14 @@ public class TutorialPIP : MonoBehaviour
 
     public GameObject explosiveGlass;
 
+    public ZoneScript zone;
+
     private void Start()
     {
         Instance = this;
         bubble.SetNotifyAction(LineEnded);
         StartCoroutine("Tutorial");
+        zone.Enabled = false;
     }
 
     public void LineEnded()
@@ -187,6 +190,7 @@ public class TutorialPIP : MonoBehaviour
         yield return new WaitForSeconds(lineDelay);
         Glass1Outline.SetFloat("_Active", 0);
         ShowNextLine();
+        zone.Enabled = true;
         yield return new WaitUntil(() => LineDone && ShakerOpened && (ClientDoneBad || ClientDoneGood));
         yield return new WaitForSeconds(1.0f);
         if (ClientDoneGood)
@@ -201,6 +205,7 @@ public class TutorialPIP : MonoBehaviour
         }
         yield return new WaitUntil(() => LineDone);
         yield return new WaitForSeconds(1.0f);
+        zone.Enabled = false;
         TutorialManager.Instance.SpawnNextClient();
         ShowNextLine(); //oh another client
         yield return new WaitUntil(() => LineDone && ClientAproached);
@@ -244,9 +249,11 @@ public class TutorialPIP : MonoBehaviour
         ShowNextLine(); // Put the slice on!
         yield return new WaitUntil(() => LineDone && SlicePutOnGlass);
         yield return new WaitForSeconds(1.5f);
+        zone.Enabled = true;
         ShowNextLine(); // All done!
         yield return new WaitUntil(() => LineDone && (ClientDoneBad || ClientDoneGood));
         yield return new WaitForSeconds(1);
+        zone.Enabled = false;
         ShowNextLine(); // Good job!
         yield return new WaitUntil(() => LineDone);
         yield return new WaitForSeconds(lineDelay);

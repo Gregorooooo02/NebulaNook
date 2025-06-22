@@ -1534,6 +1534,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9cb9ee5e2dae0d408ae37b037d77748, type: 3}
+--- !u!114 &225025352 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4709699832543940708, guid: e9cb9ee5e2dae0d408ae37b037d77748, type: 3}
+  m_PrefabInstance: {fileID: 225025351}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370644968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46be606ebc4551343a276b513fbdc985, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &229213204
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9002,6 +9013,10 @@ PrefabInstance:
       propertyPath: audioData
       value: 
       objectReference: {fileID: 8300000, guid: 68034e15ca9ab9c4381509a473a0db25, type: 3}
+    - target: {fileID: 4783244868012996555, guid: 85a6a11b8fd085e4e9010bbbcbde3e33, type: 3}
+      propertyPath: zone
+      value: 
+      objectReference: {fileID: 225025352}
     - target: {fileID: 4783244868012996555, guid: 85a6a11b8fd085e4e9010bbbcbde3e33, type: 3}
       propertyPath: FruitOutline
       value: 
