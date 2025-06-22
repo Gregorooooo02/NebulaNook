@@ -76,7 +76,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4242855726832823597}
-  - component: {fileID: 2742329717701389901}
   - component: {fileID: 9184737794044168154}
   m_Layer: 0
   m_Name: CollisionTrigger
@@ -100,19 +99,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3854782916920871648}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2742329717701389901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8647544501619331647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59dc31590d0318e449d3cff41253345f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pipScript: {fileID: 3407292656046659091}
 --- !u!65 &9184737794044168154
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -396,7 +382,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 0
+  m_MovementType: 2
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -452,5 +438,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsGrabbed: 0
   pipInteractable: {fileID: 8920876415952275442}
-  timeToTriggerStandup: 0.5
-  isOutsideBarZone: 0
+  timeToTriggerStandup: 2
