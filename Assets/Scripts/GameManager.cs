@@ -130,12 +130,14 @@ public class GameManager : MonoBehaviour
     public void IncrementQuota(int amount)
     {
         currentQuota += amount;
+        ScreenSpaceUI.instance?.PositiveChange(amount);
         UpdateQuotaText();
     }
 
     public void DecrementQuota(int amount)
     {
         currentQuota -= amount;
+        ScreenSpaceUI.instance?.NegativeChange(amount);
         UpdateQuotaText();
     }
 

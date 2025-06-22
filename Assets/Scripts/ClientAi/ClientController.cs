@@ -326,10 +326,12 @@ public class ClientController : MonoBehaviour
     {
         if (DesiredDrinkEffect == effect)
         {
+            ScreenSpaceUI.instance?.PositiveChange(20);
             GameManager.Instance?.IncrementQuota(20);
         }
         else
         {
+            ScreenSpaceUI.instance?.NegativeChange(10);
             GameManager.Instance?.DecrementQuota(10);
         }
 
