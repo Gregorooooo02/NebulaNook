@@ -59,7 +59,13 @@ public class ClientController : MonoBehaviour
 {
     public ClientState CurrentState;
     public bool useCustomDrinkEffect = false;
+    public bool useCustomGlass = false;
+    public bool useCustomFruit = false;
+
     public DrinkEffect CustomDrinkEffect = DrinkEffect.EXPLOSION;
+    public GlassType CustomGlass = GlassType.WHISKY;
+    public FruitType CustomFruit = FruitType.NONE;
+
     public DrinkEffect DesiredDrinkEffect = DrinkEffect.COMBUTION;
     public GlassType DesiredGlassType = GlassType.COCKTAIL;
     public FruitType DesiredFruitType = FruitType.EXPLOSIVE;
@@ -123,10 +129,25 @@ public class ClientController : MonoBehaviour
             DesiredDrinkEffect = (DrinkEffect)v.GetValue(Random.Range(1, v.Length - 2));
         }
 
-        var u = Enum.GetValues(typeof(GlassType));
-        DesiredGlassType = (GlassType)u.GetValue(Random.Range(0, u.Length));
-        var f = Enum.GetValues(typeof(FruitType));
-        DesiredFruitType = (FruitType)f.GetValue(Random.Range(0, f.Length));
+        if (useCustomGlass)
+        {
+            DesiredGlassType = CustomGlass;
+        }
+        else
+        {
+            var u = Enum.GetValues(typeof(GlassType));
+            DesiredGlassType = (GlassType)u.GetValue(Random.Range(0, u.Length));
+        }
+
+        if (useCustomFruit)
+        {
+            DesiredFruitType = CustomFruit;
+        }
+        else
+        {
+            var f = Enum.GetValues(typeof(FruitType));
+            DesiredFruitType = (FruitType)f.GetValue(Random.Range(0, f.Length));
+        }
     }
 
     void FixedUpdate()
@@ -159,6 +180,7 @@ public class ClientController : MonoBehaviour
                 bubble.SetText(questsSource.GetRandomQuestText(DesiredDrinkEffect));
             }
             Spawner.ZoneScript.EnableHolograms(DesiredGlassType, DesiredFruitType);
+            RecipeBook.Instance.AddRecipe(DesiredDrinkEffect, this);
         }
         else if(IsWaiting && CurrentState is not WaitForDrink)
         {
@@ -172,6 +194,7 @@ public class ClientController : MonoBehaviour
         _drinkWaiting.DrinkEffect = (DrinkEffect)(2137);
         _drinkWaiting.Continue = true;
         Spawner.ZoneScript.DisableHolograms();
+        RecipeBook.Instance.RemoveRecipe(DesiredDrinkEffect, this);
         if (!useCustomDrinkEffect) GameManager.Instance.DecrementQuota(10);
     }
 
@@ -208,6 +231,8 @@ public class ClientController : MonoBehaviour
     {
         // If not idle, wait for the current animation to finish
         yield return new WaitUntil(() => IsInIdleState());
+        TutorialManager.Instance?.NotifyClientAproached();
+        
         Animator.SetBool("isWaving", true);
         var wait = new WaitForSeconds(Animator.GetCurrentAnimatorStateInfo(0).length);
         // Wait for the waving animation to finish
@@ -236,6 +261,7 @@ public class ClientController : MonoBehaviour
             Animator.enabled = true;
         }
         bubble.gameObject.SetActive(false);
+        RecipeBook.Instance.RemoveRecipe(DesiredDrinkEffect, this);
         Animator.SetBool("isDrinking", true);
         var wait = new WaitForSeconds(Animator.GetCurrentAnimatorStateInfo(0).length);
         // Wait for the drinking animation to finish
@@ -258,6 +284,18 @@ public class ClientController : MonoBehaviour
         }
         _drinkWaiting.DrinkEffect = effect;
         _drinkWaiting.Continue = true;
+
+        if(TutorialManager.Instance != null)
+        {
+            if (DesiredDrinkEffect == effect)
+            {
+                TutorialManager.Instance.NotifyClientDoneGood();
+            }
+            else
+            {
+                TutorialManager.Instance.NotifyClientDoneBad();
+            }
+        }
     }
 
     public void GrabGlass()
@@ -297,11 +335,13 @@ public class ClientController : MonoBehaviour
     {
         if (DesiredDrinkEffect == effect)
         {
-            GameManager.Instance.IncrementQuota(20);
+            ScreenSpaceUI.instance?.PositiveChange(20);
+            GameManager.Instance?.IncrementQuota(20);
         }
         else
         {
-            GameManager.Instance.DecrementQuota(10);
+            ScreenSpaceUI.instance?.NegativeChange(10);
+            GameManager.Instance?.DecrementQuota(10);
         }
 
         // if (DesiredGlassType == glass)
@@ -332,6 +372,7 @@ public class ClientController : MonoBehaviour
         foreach (Rigidbody r in Joints)
         {
             r.isKinematic = !isRagdoll;
+            if(isRagdoll)r.WakeUp();
         }
     }
 

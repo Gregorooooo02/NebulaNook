@@ -29,6 +29,8 @@ public class CuttingBoardController : MonoBehaviour
 
         currentFruitsOnBoard++;
 
+        TutorialManager.Instance?.NotifyCuttingBoardPlaced();
+
         FruitTracker tracker = fruit.GetComponent<FruitTracker>();
         if (tracker != null)
         {

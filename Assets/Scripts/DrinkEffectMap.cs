@@ -8,6 +8,7 @@ public class DrinkEffectMap : MonoBehaviour
 
     public Color[] colorTable = new Color[6];
     public Texture2D[] effectIcons;
+    public Sprite[] effectSprites;
 
     private void Start()
     {

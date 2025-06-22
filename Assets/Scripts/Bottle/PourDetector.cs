@@ -29,6 +29,7 @@ public class PourDetector : MonoBehaviour
     {
         isPouring = false;
         currentStream = null;
+        TutorialManager.Instance?.NotifyOilPicked();
     }
 
     // This method is called when the object is released

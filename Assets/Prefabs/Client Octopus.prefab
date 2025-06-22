@@ -1264,7 +1264,7 @@ MonoBehaviour:
   Controller: {fileID: 6456090248501370823}
   initialDelay: 0.5
   TimeToDisapear: 5
-  anitgravityStrenghtMultiplier: 600
+  anitgravityStrenghtMultiplier: 120
   parent: {fileID: 7293946214203817095}
   mainBone: {fileID: 2655704746700022124}
 --- !u!1 &5793387578603978027
@@ -1493,7 +1493,7 @@ MonoBehaviour:
   initialDelay: 0.5
   MeteorPrefab: {fileID: 4868147546304944043, guid: 7ebf81ef434f04746af760d2a4fb9f70, type: 3}
   meteorForce: 300
-  explosionForce: 20000
+  explosionForce: 8000
   explosionRadius: 5
   explosionDistance: 0.2
   Parent: {fileID: 7293946214203817095}
@@ -1774,7 +1774,7 @@ MonoBehaviour:
   Controller: {fileID: 6456090248501370823}
   initialDelay: 0.5
   MainBone: {fileID: 2655704746700022124}
-  explosionForce: 100000
+  explosionForce: 40000
   explosionRadius: 5
   TimeToDisapear: 5
   ExplosionEffect: {fileID: 8784169859946565572, guid: cfeac452c39ce6f458017a7fea1a200c, type: 3}
@@ -1956,7 +1956,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentState: {fileID: 2374942741825442400}
   useCustomDrinkEffect: 0
+  useCustomGlass: 0
+  useCustomFruit: 0
   CustomDrinkEffect: 6
+  CustomGlass: 1
+  CustomFruit: 0
   DesiredDrinkEffect: 1
   DesiredGlassType: 0
   DesiredFruitType: 0
@@ -2075,7 +2079,7 @@ MonoBehaviour:
   agentPathingDelay: 0.25
   Parent: {fileID: 7293946214203817095}
   yeetDelay: 7
-  yeetForce: 400000
+  yeetForce: 160000
 --- !u!1 &7679468496361615186
 GameObject:
   m_ObjectHideFlags: 0

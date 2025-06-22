@@ -24,6 +24,7 @@ public class FlamethrowerController : MonoBehaviour
     {
         isFiring = false;
         currentLaser = null;
+        TutorialManager.Instance?.NotifyBlowtorchPicked();
     }
 
     private void OnSelectExited(SelectExitEventArgs args)
@@ -69,6 +70,7 @@ public class FlamethrowerController : MonoBehaviour
         Debug.Log("Starting Flamethrower");
         currentLaser = CreateLaser();
         currentLaser.BeginLaser();
+        TutorialManager.Instance?.NotifyBlowtorchTriggerPulled();
     }
 
     private void StopFiring()

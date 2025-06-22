@@ -9,6 +9,8 @@ public class PIPHelper : MonoBehaviour
 
     public GameObject TableHandle;
     public Rigidbody TableRB;
+
+    public bool enableCollisionsForMiniTable = false;
  
     private void Start()
     {
@@ -18,7 +20,8 @@ public class PIPHelper : MonoBehaviour
     public void ToggleTablePhysics(bool isActive)
     {
         TableRB.isKinematic = !isActive;
-        TableHandle.GetComponent<BoxCollider>().enabled = isActive;
+        if(!enableCollisionsForMiniTable)TableRB.useGravity = !isActive;
+        if(enableCollisionsForMiniTable)TableHandle.GetComponent<BoxCollider>().enabled = isActive;
     }
 
     public void ResetTable()

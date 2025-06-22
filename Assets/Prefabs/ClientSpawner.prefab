@@ -149,6 +149,12 @@ MonoBehaviour:
   maxClientsToSpawn: 5
   currentClientCount: 0
   ZoneScript: {fileID: 4709699832543940708}
+  tutorialSpawner: 0
+  TutorialDrinkEffect1: 0
+  TutorialGlass1: 0
+  TutorialDrinkEffect2: 0
+  TutorialGlass2: 0
+  TutorialFruit2: 0
 --- !u!1001 &1394517233756507370
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -367,6 +373,10 @@ PrefabInstance:
     - target: {fileID: 7845697122535657168, guid: d98dd3be5adbdd3458efe393a331aa65, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034771465648645394, guid: d98dd3be5adbdd3458efe393a331aa65, type: 3}
+      propertyPath: Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9034771465648645394, guid: d98dd3be5adbdd3458efe393a331aa65, type: 3}
       propertyPath: Fruits.Array.size
