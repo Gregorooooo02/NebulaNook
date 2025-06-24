@@ -2,11 +2,13 @@ using UnityEngine;
 
 public class PipSpawner : MonoBehaviour
 {
+    public static PipSpawner Instance;
     [SerializeField] private GameObject pipPrefab;
     public GameObject PipInstance;
 
     void Start()
     {
+        Instance = this;
         SpawnPip();
     }
 

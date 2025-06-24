@@ -12,6 +12,7 @@ public class RocketHelper : MonoBehaviour
 
     public void DestroyObject()
     {
-        Destroy(Parent);
+        Destroy(Parent.transform.parent.gameObject);
+        PipSpawner.Instance?.SpawnPip();
     }
 }

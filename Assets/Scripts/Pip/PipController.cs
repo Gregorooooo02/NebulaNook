@@ -10,8 +10,6 @@ public class PipController : MonoBehaviour
 
     public Animator animator;
     public Collider mainCollider;
-    public Rigidbody mainBody;
-    public XRGrabInteractable interactable;
 
     public GameObject Icon;
     public Material IconMaterial;
@@ -21,7 +19,7 @@ public class PipController : MonoBehaviour
         Joints = GetComponentsInChildren<Rigidbody>();
         CharacterJoints = GetComponentsInChildren<CharacterJoint>();
 
-        ToggleRagdoll(false);
+        //ToggleRagdoll(false);
     }
 
     private void FixedUpdate()
@@ -38,14 +36,10 @@ public class PipController : MonoBehaviour
         mainCollider.enabled = !isRagdoll;
         animator.enabled = !isRagdoll;
 
-        interactable.enabled = !isRagdoll;
-
         foreach (var joint in Joints)
         {
             joint.isKinematic = !isRagdoll;
         }
-
-        if(isRagdoll) mainBody.isKinematic = true;
     }
 
     public void StiffenRagdoll()

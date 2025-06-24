@@ -30,6 +30,7 @@ public class GravityPIP : PipState
             currentTime += Time.fixedDeltaTime;
             yield return new WaitForFixedUpdate();
         }
-        Destroy(controller.gameObject);
+        Destroy(controller.transform.parent.gameObject);
+        PipSpawner.Instance?.SpawnPip();
     }
 }

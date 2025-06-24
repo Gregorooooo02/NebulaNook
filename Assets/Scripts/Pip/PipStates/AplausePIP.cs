@@ -27,6 +27,7 @@ public class AplausePIP : PipState
             f.SetActive(true);
         }
         yield return new WaitForSeconds(duration);
-        Destroy(controller.gameObject);
+        Destroy(controller.transform.parent.gameObject);
+        PipSpawner.Instance?.SpawnPip();
     }
 }

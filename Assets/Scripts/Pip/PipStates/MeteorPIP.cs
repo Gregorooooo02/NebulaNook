@@ -48,7 +48,8 @@ public class MeteorPIP : PipState
 
         yield return new WaitForSeconds(finalDelay);
         Destroy(exposionObject);
-        Destroy(controller.gameObject);
+        Destroy(controller.transform.parent.gameObject);
+        PipSpawner.Instance?.SpawnPip();
     }
 
 

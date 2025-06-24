@@ -56,6 +56,7 @@ public class GlassPourController : MonoBehaviour
 
     public void StartStream() {
         GameObject streamObject = Instantiate(streamPrefab, transform);
+        streamObject.GetComponentInChildren<StreamTrigger>().streamEffect = glassFiller.GetFinalDrinkEffect();
         currentStream = streamObject.GetComponent<Stream>();
         streamTransform = streamObject.transform;
         currentStream.lineRenderer.startColor = glassFiller.GetLiquidColor();

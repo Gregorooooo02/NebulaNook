@@ -51,6 +51,7 @@ public class ClonePIP : PipState
         {
             Destroy(clone.gameObject);
         }
-        Destroy(controller.gameObject);
+        Destroy(controller.transform.parent.gameObject);
+        PipSpawner.Instance?.SpawnPip();
     }
 }

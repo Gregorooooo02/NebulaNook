@@ -25,6 +25,7 @@ public class AnihilationPIP : PipState
         yield return new WaitForSeconds(initialDelay);
         Instantiate(Flash,transform);
         yield return new WaitForSeconds(duration);
-        Destroy(controller.gameObject);
+        Destroy(controller.transform.parent.gameObject);
+        PipSpawner.Instance?.SpawnPip();
     }
 }

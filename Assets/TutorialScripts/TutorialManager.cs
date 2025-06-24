@@ -96,16 +96,35 @@ public class TutorialManager : MonoBehaviour
     public void NotifyGlassSpilled()
     {
         if (Pip.GlassShouldRespawn) Pip.SpilledGlass = true;
+        if (Pip.yesFlag)
+        {
+            Pip.yesFlag = false;
+            Pip.GlassShouldRespawn = true;
+        }
     }
 
     public void NotifyGlassDestroyed()
     {
         if(Pip.GlassShouldRespawn)Pip.BrokenGlass = true;
+        if (Pip.yesFlag)
+        {
+            Pip.yesFlag = false;
+            Pip.GlassShouldRespawn = true;
+        }
+    }
+
+    public void NotifyFruitMounted()
+    {
+        Pip.SlicePutOnGlass = true;
     }
 
     public void SpawnNewGlass()
     {
-        if(SpawnedGlass != null) Destroy(SpawnedGlass);
+        if (SpawnedGlass != null)
+        {
+            Pip.yesFlag = true;
+            Destroy(SpawnedGlass);
+        }
         SpawnedGlass = Instantiate(glassPrefab, glassSpawnPoint.position, Quaternion.identity);
         Pip.SpilledGlass = false;
         Pip.BrokenGlass = false;
@@ -113,7 +132,11 @@ public class TutorialManager : MonoBehaviour
 
     public void SpawnNewGlassWithFruit()
     {
-        if (SpawnedGlass != null) Destroy(SpawnedGlass);
+        if (SpawnedGlass != null) 
+        {
+            Pip.yesFlag = true;
+            Destroy(SpawnedGlass); 
+        }
         SpawnedGlass = Instantiate(glassPrefab2, glassSpawnPoint.position, Quaternion.identity);
         Pip.SpilledGlass = false;
         Pip.BrokenGlass = false;

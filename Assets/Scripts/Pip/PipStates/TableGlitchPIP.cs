@@ -38,7 +38,8 @@ public class TableGlitchPIP : PipState
         mainBone.AddExplosionForce(tableExplosiveForce, tableRB.position, 5);
 
         yield return new WaitForSeconds(duration);
-        Destroy(controller.gameObject);
-        PIPHelper.Instance.ResetTable();
+        Destroy(controller.transform.parent.gameObject);
+        PIPHelper.Instance?.ResetTable();
+        PipSpawner.Instance?.SpawnPip();
     }
 }

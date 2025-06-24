@@ -131,6 +131,7 @@ public class PossesionPIP : PipState
             yield return new WaitForFixedUpdate();
         }
         yield return new WaitForSeconds(destroyTime);
-        Destroy(controller.gameObject);
+        Destroy(controller.transform.parent.gameObject);
+        PipSpawner.Instance?.SpawnPip();
     }
 }
