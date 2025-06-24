@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8959285607540184333}
   - component: {fileID: 6843299574408672662}
   - component: {fileID: 8215714489894415420}
+  - component: {fileID: 8114703462349932711}
   m_Layer: 0
   m_Name: ExplosionGlassWithFruitTutorial 1
   m_TagString: Glass
@@ -276,6 +277,19 @@ MonoBehaviour:
   explosiveSlice: {fileID: 7508188641231072075}
   glassType: 0
   attachedFruitType: 1
+  isTutorial: 1
+--- !u!114 &8114703462349932711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675285361160517044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b15870532c73dde409991e5d9c789337, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &862710027012781497
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,7 +389,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 597171aca3774734997d6c4891d66f28, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -8,7 +8,7 @@ public class GlassFiller : MonoBehaviour
     [SerializeField] private float fillSpeed = 0.2f;
     [SerializeField, Range(0, 1f)] private float startingFill = 0f;
 
-    [HideInInspector]
+    //[HideInInspector]
     public float currentFillAmount = 0f;
 
     [SerializeField] private float[] fillAmounts = new float[6];

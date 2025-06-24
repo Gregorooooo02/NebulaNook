@@ -86,6 +86,9 @@ public class TutorialPIP : MonoBehaviour
     private bool ProgressLine = false;
 
     public int wastedGlassCount = 0;
+    public int wastedGlassesLimit = 10;
+
+    public bool yesFlag = false;
 
     public Material Glass1Outline;
     public Material OilBottleOutline;
@@ -132,7 +135,7 @@ public class TutorialPIP : MonoBehaviour
         CuttingBoardPlaced = false;
         CuttingBoardCut = false;
         CleaverPickedUp = false;
-        SlicePutOnGlass = false;
+        //SlicePutOnGlass = false;
     }
 
     IEnumerator Tutorial()
@@ -263,6 +266,7 @@ public class TutorialPIP : MonoBehaviour
                 {
                     bubble.SetText("This is where I would tell you to put the slice on the glass... Where is the glass?! Fortunately I have a spare!");
                     LineDone = false;
+                    GlassShouldRespawn = false;
                     TutorialManager.Instance?.SpawnNewGlass();
                     wastedGlassCount++;
                     yield return new WaitUntil(() => LineDone);
@@ -275,6 +279,7 @@ public class TutorialPIP : MonoBehaviour
                 {
                     bubble.SetText("The glass was more than half full last time I looked at it... Well doesn't matter here's another!");
                     LineDone = false;
+                    GlassShouldRespawn = false;
                     TutorialManager.Instance?.SpawnNewGlass();
                     wastedGlassCount++;
                     yield return new WaitUntil(() => LineDone);
@@ -290,6 +295,7 @@ public class TutorialPIP : MonoBehaviour
             }
             yield return new WaitUntil(() => LineDone && (SlicePutOnGlass || BrokenGlass || SpilledGlass));
             yield return new WaitForSeconds(1.5f);
+            if (wastedGlassCount >= wastedGlassesLimit) GetTheFuckOut();
         } while (BrokenGlass || SpilledGlass);
         if (ProgressLine){ 
             ProgressLine = false;
@@ -305,6 +311,7 @@ public class TutorialPIP : MonoBehaviour
                 {
                     bubble.SetText("Where is the glass?! Well no matter just give it to the customer.");
                     LineDone = false;
+                    GlassShouldRespawn = false;
                     TutorialManager.Instance?.SpawnNewGlassWithFruit();
                     wastedGlassCount++;
                     ProgressLine = true;
@@ -313,6 +320,7 @@ public class TutorialPIP : MonoBehaviour
                 {
                     bubble.SetText("The glass was more than half full last time I looked at it... Well no matter just give it to the customer.");
                     LineDone = false;
+                    GlassShouldRespawn = false;
                     TutorialManager.Instance?.SpawnNewGlassWithFruit();
                     wastedGlassCount++;
                     ProgressLine = true;
@@ -324,8 +332,9 @@ public class TutorialPIP : MonoBehaviour
             }
             yield return new WaitUntil(() => LineDone && (ClientDoneBad || ClientDoneGood || BrokenGlass || SpilledGlass));
             yield return new WaitForSeconds(1);
+            if (wastedGlassCount >= wastedGlassesLimit) GetTheFuckOut();
         } while (BrokenGlass || SpilledGlass);
-
+        GlassShouldRespawn = false;
         zone.Enabled = false;
         ShowNextLine(); // Good job!
         yield return new WaitUntil(() => LineDone);
@@ -346,6 +355,15 @@ public class TutorialPIP : MonoBehaviour
         yield return new WaitUntil(() => LineDone);
         yield return new WaitForSeconds(lineDelay);
         // After this line, deactivate the bubble
+        bubble.gameObject.SetActive(false);
+        LevelManager.Instance.FadeIntoScene(2);
+    }
+
+    IEnumerator GetTheFuckOut()
+    {
+        bubble.SetText("You wasted so many drinks... I am done with you!");
+        LineDone = false;
+        yield return new WaitUntil(() => LineDone);
         bubble.gameObject.SetActive(false);
         LevelManager.Instance.FadeIntoScene(2);
     }

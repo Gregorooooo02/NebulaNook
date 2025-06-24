@@ -16,12 +16,15 @@ public class GlassTracker : MonoBehaviour
     public FruitType attachedFruitType = FruitType.NONE;
     private GameObject currentHologram;
 
+    public bool isTutorial = false;
+
     private void Start()
     {
         if (jumpyHologram) jumpyHologram.SetActive(false);
         if (explosiveHologram) explosiveHologram.SetActive(false);
         if (jumpySlice) jumpySlice.SetActive(false);
         if (explosiveSlice) explosiveSlice.SetActive(false);
+        if(isTutorial) explosiveSlice.SetActive(true);
     }
 
     public void Initialize(GlassSpawner glassSpawner)
