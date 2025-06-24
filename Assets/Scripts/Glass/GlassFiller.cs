@@ -70,17 +70,29 @@ public class GlassFiller : MonoBehaviour
         return DrinkEffect.MATTER; // If everything fails keel over :D
     }
 
-    public float Drain(float amount) {
+    public Color GetLiquidColor()
+    {
+        Color currentColor = new Color(0, 0, 0);
+        for (int i = 0; i < DrinkEffectMap.Instance.colorTable.Length; i++)
+        {
+            currentColor += (DrinkEffectMap.Instance.colorTable[i] * (fillAmounts[i] / currentFillAmount));
+        }
+        return currentColor;
+    }
+
+    public float Drain(float amount)
+    {
         float prev = currentFillAmount;
         currentFillAmount = Mathf.Clamp01(currentFillAmount - amount);
 
         const float eps = 0.01f;
-        if (currentFillAmount < eps) {
+        if (currentFillAmount < eps)
+        {
             currentFillAmount = 0f;
         }
 
         float diffMul = 1.0f - ((prev - currentFillAmount) / prev);
-        for(int i = 0;i < fillAmounts.Length; i++)
+        for (int i = 0; i < fillAmounts.Length; i++)
         {
             fillAmounts[i] *= diffMul;
         }

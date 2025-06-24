@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 2800191288328751219}
   - component: {fileID: 4192378592363320792}
   m_Layer: 7
-  m_Name: liquid1
+  m_Name: liquid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -432,6 +432,7 @@ MonoBehaviour:
   explosiveHologram: {fileID: 6929652647747922969}
   jumpySlice: {fileID: 2770269922929353374}
   explosiveSlice: {fileID: 3422051681761834046}
+  glassType: 0
   attachedFruitType: 0
 --- !u!1 &2770269922929353374
 GameObject:
@@ -651,7 +652,7 @@ GameObject:
   - component: {fileID: 176575288662950436}
   - component: {fileID: 8029146728270859687}
   m_Layer: 0
-  m_Name: glass1
+  m_Name: glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

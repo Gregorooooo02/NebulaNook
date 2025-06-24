@@ -67,6 +67,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fillSpeed: 0.2
+  streamEffect: 0
 --- !u!1 &8247792326252429193
 GameObject:
   m_ObjectHideFlags: 0
@@ -4910,6 +4911,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1067097793928179472}
   - component: {fileID: 8621739143435559671}
+  - component: {fileID: 5351318021680272183}
   - component: {fileID: 6379790514580552709}
   m_Layer: 8
   m_Name: Stream
@@ -4951,6 +4953,18 @@ MonoBehaviour:
   ignoreLayer:
     serializedVersion: 2
     m_Bits: 119
+--- !u!114 &5351318021680272183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8941625051351596894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 743ed76f1c7a44ce49a7dc23dea80cc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!120 &6379790514580552709
 LineRenderer:
   serializedVersion: 2
@@ -5028,24 +5042,24 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 0.19607843}
-      key1: {r: 0.8039216, g: 0.8, b: 0.48235294, a: 1}
-      key2: {r: 1, g: 0.94992757, b: 0.3160377, a: 0}
+      key0: {r: 1, g: 0.868332, b: 0, a: 1}
+      key1: {r: 1, g: 0.868332, b: 0, a: 1}
+      key2: {r: 1, g: 0.9783717, b: 0, a: 0}
       key3: {r: 1, g: 0.9783717, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
-      ctime1: 18304
-      ctime2: 52428
+      ctime1: 65535
+      ctime2: 65535
       ctime3: 65535
       ctime4: 0
       ctime5: 0
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 7681
+      atime1: 65535
       atime2: 0
       atime3: 0
       atime4: 0
@@ -5054,7 +5068,7 @@ LineRenderer:
       atime7: 0
       m_Mode: 0
       m_ColorSpace: 0
-      m_NumColorKeys: 4
+      m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 6

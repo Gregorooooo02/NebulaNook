@@ -470,6 +470,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7612765826481563873, guid: d00e7b1c3733f4be8b4ff7cd9d1ad136, type: 3}
+      propertyPath: m_Name
+      value: glass
+      objectReference: {fileID: 0}
     - target: {fileID: -6809236748908187110, guid: d00e7b1c3733f4be8b4ff7cd9d1ad136, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -481,6 +485,10 @@ PrefabInstance:
     - target: {fileID: -6809236748908187110, guid: d00e7b1c3733f4be8b4ff7cd9d1ad136, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1042936812688445303, guid: d00e7b1c3733f4be8b4ff7cd9d1ad136, type: 3}
+      propertyPath: m_Name
+      value: liquid
       objectReference: {fileID: 0}
     - target: {fileID: -1042936812688445303, guid: d00e7b1c3733f4be8b4ff7cd9d1ad136, type: 3}
       propertyPath: m_Layer

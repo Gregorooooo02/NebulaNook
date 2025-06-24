@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class Stream : MonoBehaviour
 {
-    private LineRenderer lineRenderer;
+    [HideInInspector]
+    public LineRenderer lineRenderer;
     private ParticleSystem splashParticle;
     [SerializeField] private Transform streamTrigger;
     [SerializeField] private LayerMask ignoreLayer;
