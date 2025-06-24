@@ -571,6 +571,7 @@ MonoBehaviour:
   explosiveHologram: {fileID: 827028624677078436}
   jumpySlice: {fileID: 894532797189910527}
   explosiveSlice: {fileID: 5600070942346883309}
+  glassType: 2
   attachedFruitType: 0
 --- !u!1 &4068792131702474592
 GameObject:
