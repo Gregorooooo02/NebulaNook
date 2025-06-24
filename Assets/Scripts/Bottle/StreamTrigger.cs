@@ -3,7 +3,7 @@ using UnityEngine;
 public class StreamTrigger : MonoBehaviour
 {
     [SerializeField] private float fillSpeed = 0.2f;
-    [SerializeField] private DrinkEffect streamEffect;
+    public DrinkEffect streamEffect;
 
     private void OnTriggerStay(Collider other)
     {
@@ -11,6 +11,12 @@ public class StreamTrigger : MonoBehaviour
         if (glassFiller != null)
         {
             glassFiller.Fill(fillSpeed * Time.deltaTime, streamEffect);
+        }
+
+        PipAlcoholic pipMouth = other.GetComponent<PipAlcoholic>();
+        if(pipMouth != null)
+        {
+            pipMouth.Trigger(streamEffect);
         }
     }
 }

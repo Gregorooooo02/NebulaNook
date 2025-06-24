@@ -855,7 +855,7 @@ PrefabInstance:
     - target: {fileID: 4402796508590442042, guid: ff254623e3f4bbd4bac90d17ca6a8fbe, type: 3}
       propertyPath: pipPrefab
       value: 
-      objectReference: {fileID: 6172128042314649615, guid: f556a7f75ed3f46e7afe7eb459995fed, type: 3}
+      objectReference: {fileID: 1517570125960369745, guid: 7be12474bc3e1994ea7e08e5936fe2bd, type: 3}
     - target: {fileID: 4402796508590442042, guid: ff254623e3f4bbd4bac90d17ca6a8fbe, type: 3}
       propertyPath: pipOutsideBarZone
       value: 

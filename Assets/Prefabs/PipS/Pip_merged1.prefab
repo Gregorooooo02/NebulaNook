@@ -3107,7 +3107,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -3128,7 +3128,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.003, y: 0.002, z: 0.003}
   m_Center: {x: 0, y: 0.002, z: 0}
@@ -3292,7 +3292,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -3313,7 +3313,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.002, y: 0.002, z: 0.00025}
   m_Center: {x: 0, y: 0, z: 0.000125}
@@ -3345,7 +3345,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -3366,7 +3366,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.007, y: 0.003, z: 0.007}
   m_Center: {x: 0, y: 0.0015, z: 0}
@@ -3638,8 +3638,6 @@ MonoBehaviour:
   CurrentState: {fileID: 3576423974815676630}
   animator: {fileID: 3215333210546962751}
   mainCollider: {fileID: 8903462743168834399}
-  mainBody: {fileID: 8720601480524245643}
-  interactable: {fileID: 1723296783085971568}
   Icon: {fileID: 8362789183915856769, guid: c47d7a26eefaed34895d2eff48e5477e, type: 3}
   IconMaterial: {fileID: 2100000, guid: 50b31dbcdc8751547a435a7ced4dc563, type: 2}
 --- !u!114 &8369017702932646924
@@ -3695,7 +3693,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -3762,7 +3760,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.001
   m_Center: {x: 0, y: 0, z: 0}
@@ -3814,7 +3812,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -3835,7 +3833,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.001, y: 0.003, z: 0.001}
   m_Center: {x: 0, y: 0.002, z: 0}
