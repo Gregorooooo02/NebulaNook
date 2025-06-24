@@ -21,7 +21,7 @@ public class PipController : MonoBehaviour
         Joints = GetComponentsInChildren<Rigidbody>();
         CharacterJoints = GetComponentsInChildren<CharacterJoint>();
 
-        ToggleRagdoll(false);
+        //ToggleRagdoll(false);
     }
 
     private void FixedUpdate()
@@ -42,9 +42,9 @@ public class PipController : MonoBehaviour
 
         foreach (var joint in Joints)
         {
+            if(joint == mainBody) continue;
             joint.isKinematic = !isRagdoll;
         }
-
         if(isRagdoll) mainBody.isKinematic = true;
     }
 

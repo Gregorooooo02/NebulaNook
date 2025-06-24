@@ -853,6 +853,10 @@ PrefabInstance:
       value: PipSpawner
       objectReference: {fileID: 0}
     - target: {fileID: 4402796508590442042, guid: ff254623e3f4bbd4bac90d17ca6a8fbe, type: 3}
+      propertyPath: pipPrefab
+      value: 
+      objectReference: {fileID: 6172128042314649615, guid: f556a7f75ed3f46e7afe7eb459995fed, type: 3}
+    - target: {fileID: 4402796508590442042, guid: ff254623e3f4bbd4bac90d17ca6a8fbe, type: 3}
       propertyPath: pipOutsideBarZone
       value: 
       objectReference: {fileID: 1959377289}

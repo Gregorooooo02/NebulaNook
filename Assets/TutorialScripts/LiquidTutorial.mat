@@ -54,8 +54,8 @@ Material:
     - _Fill: 1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _WobbleX: -0.000000034119527
-    - _WobbleZ: 0.000000034119527
+    - _WobbleX: -0.000000043201002
+    - _WobbleZ: 0.000000043201002
     m_Colors:
     - _SideColor: {r: 0.745283, g: 0.2781932, b: 0, a: 0.8}
     - _TopColor: {r: 1, g: 0.37412894, b: 0, a: 1}
