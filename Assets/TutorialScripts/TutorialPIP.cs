@@ -79,6 +79,14 @@ public class TutorialPIP : MonoBehaviour
 
     public bool SlicePutOnGlass = false;
 
+    public bool SpilledGlass = false;
+    public bool BrokenGlass = false;
+
+    public bool GlassShouldRespawn = false;
+    private bool ProgressLine = false;
+
+    public int wastedGlassCount = 0;
+
     public Material Glass1Outline;
     public Material OilBottleOutline;
     public Material BlowtorchBottleOutline;
@@ -218,7 +226,8 @@ public class TutorialPIP : MonoBehaviour
         ShowNextLine(); //fruits and glasses
         yield return new WaitUntil(() => LineDone);
         yield return new WaitForSeconds(1.5f);
-        explosiveGlass.SetActive(true);
+        TutorialManager.Instance?.SpawnNewGlass();
+        GlassShouldRespawn = true;
         ShowNextLine(); //pre prepared
         yield return new WaitUntil(() => LineDone);
         yield return new WaitForSeconds(1.5f);
@@ -246,13 +255,77 @@ public class TutorialPIP : MonoBehaviour
         ShowNextLine(); // Smack it!
         yield return new WaitUntil(() => LineDone && CuttingBoardCut);
         yield return new WaitForSeconds(0.5f);
-        ShowNextLine(); // Put the slice on!
-        yield return new WaitUntil(() => LineDone && SlicePutOnGlass);
-        yield return new WaitForSeconds(1.5f);
+        do
+        {
+            if (BrokenGlass || SpilledGlass)
+            {
+                if (BrokenGlass)
+                {
+                    bubble.SetText("This is where I would tell you to put the slice on the glass... Where is the glass?! Fortunately I have a spare!");
+                    LineDone = false;
+                    TutorialManager.Instance?.SpawnNewGlass();
+                    wastedGlassCount++;
+                    yield return new WaitUntil(() => LineDone);
+                    yield return new WaitForSeconds(1);
+                    bubble.SetText("Now put the slice on the glass and give it to the customer.");
+                    LineDone = false;
+                    ProgressLine = true;
+                }
+                else if (SpilledGlass)
+                {
+                    bubble.SetText("The glass was more than half full last time I looked at it... Well doesn't matter here's another!");
+                    LineDone = false;
+                    TutorialManager.Instance?.SpawnNewGlass();
+                    wastedGlassCount++;
+                    yield return new WaitUntil(() => LineDone);
+                    yield return new WaitForSeconds(1);
+                    bubble.SetText("Now put the slice on the glass and give it to the customer.");
+                    LineDone = false;
+                    ProgressLine = true;
+                }
+            }
+            else
+            {
+                ShowNextLine();// Put the slice on!
+            }
+            yield return new WaitUntil(() => LineDone && (SlicePutOnGlass || BrokenGlass || SpilledGlass));
+            yield return new WaitForSeconds(1.5f);
+        } while (BrokenGlass || SpilledGlass);
+        if (ProgressLine){ 
+            ProgressLine = false;
+            textIndex++; 
+        }
+
         zone.Enabled = true;
-        ShowNextLine(); // All done!
-        yield return new WaitUntil(() => LineDone && (ClientDoneBad || ClientDoneGood));
-        yield return new WaitForSeconds(1);
+        do
+        {
+            if (BrokenGlass || SpilledGlass)
+            {
+                if (BrokenGlass)
+                {
+                    bubble.SetText("Where is the glass?! Well no matter just give it to the customer.");
+                    LineDone = false;
+                    TutorialManager.Instance?.SpawnNewGlassWithFruit();
+                    wastedGlassCount++;
+                    ProgressLine = true;
+                }
+                else if (SpilledGlass)
+                {
+                    bubble.SetText("The glass was more than half full last time I looked at it... Well no matter just give it to the customer.");
+                    LineDone = false;
+                    TutorialManager.Instance?.SpawnNewGlassWithFruit();
+                    wastedGlassCount++;
+                    ProgressLine = true;
+                }
+            }
+            else
+            {
+                ShowNextLine(); // All done!
+            }
+            yield return new WaitUntil(() => LineDone && (ClientDoneBad || ClientDoneGood || BrokenGlass || SpilledGlass));
+            yield return new WaitForSeconds(1);
+        } while (BrokenGlass || SpilledGlass);
+
         zone.Enabled = false;
         ShowNextLine(); // Good job!
         yield return new WaitUntil(() => LineDone);
@@ -260,13 +333,13 @@ public class TutorialPIP : MonoBehaviour
         ShowNextLine(); // Liquor tap
         yield return new WaitUntil(() => LineDone);
         yield return new WaitForSeconds(lineDelay);
-        ShowNextLine(); // Effect testing
-        yield return new WaitUntil(() => LineDone);
-        yield return new WaitForSeconds(lineDelay);
-        ShowNextLine(); // Recipe screen
+        ShowNextLine(); // Recipe screen 
         yield return new WaitUntil(() => LineDone);
         yield return new WaitForSeconds(lineDelay);
         ShowNextLine(); // Recipes incomplete
+        yield return new WaitUntil(() => LineDone);
+        yield return new WaitForSeconds(lineDelay);
+        ShowNextLine(); // Effect testing
         yield return new WaitUntil(() => LineDone);
         yield return new WaitForSeconds(lineDelay);
         ShowNextLine(); // Good luck!

@@ -24,6 +24,8 @@ public class SpeechBubble : MonoBehaviour
     private Action NotifyTextEnded;
     private AudioSource audioSource;
 
+   
+
     private void Start()
     {
         audioSource = GetComponent<AudioSource>(); 

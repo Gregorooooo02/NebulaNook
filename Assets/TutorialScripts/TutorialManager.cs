@@ -7,6 +7,12 @@ public class TutorialManager : MonoBehaviour
     public ClientSpawner ClientSpawner;
     public TutorialPIP Pip;
 
+    public Transform glassSpawnPoint;
+    public GameObject glassPrefab;
+    public GameObject glassPrefab2;
+
+    private GameObject SpawnedGlass;
+
     private void Start()
     {
         Instance = this;
@@ -85,6 +91,32 @@ public class TutorialManager : MonoBehaviour
     public void SpawnNextClient()
     {
         ClientSpawner.SpawnClient();
+    }
+
+    public void NotifyGlassSpilled()
+    {
+        if (Pip.GlassShouldRespawn) Pip.SpilledGlass = true;
+    }
+
+    public void NotifyGlassDestroyed()
+    {
+        if(Pip.GlassShouldRespawn)Pip.BrokenGlass = true;
+    }
+
+    public void SpawnNewGlass()
+    {
+        if(SpawnedGlass != null) Destroy(SpawnedGlass);
+        SpawnedGlass = Instantiate(glassPrefab, glassSpawnPoint.position, Quaternion.identity);
+        Pip.SpilledGlass = false;
+        Pip.BrokenGlass = false;
+    }
+
+    public void SpawnNewGlassWithFruit()
+    {
+        if (SpawnedGlass != null) Destroy(SpawnedGlass);
+        SpawnedGlass = Instantiate(glassPrefab2, glassSpawnPoint.position, Quaternion.identity);
+        Pip.SpilledGlass = false;
+        Pip.BrokenGlass = false;
     }
 
 }
