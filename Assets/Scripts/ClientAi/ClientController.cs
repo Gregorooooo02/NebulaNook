@@ -246,15 +246,15 @@ public class ClientController : MonoBehaviour
         return stateInfo.IsTag("Idle");
     }
 
-    public void Drink(DrinkEffect effect/*, GlassType glass, FruitType fruit*/)
+    public void Drink(DrinkEffect effect, GlassType glass, FruitType fruit)
     {
         if (IsWaiting && DesiredDrinkEffect != DrinkEffect.EMPTY)
         {
-            StartCoroutine(DrinkCoroutine(effect));
+            StartCoroutine(DrinkCoroutine(effect, glass, fruit));
         }
     }
 
-    private IEnumerator DrinkCoroutine(DrinkEffect effect)
+    private IEnumerator DrinkCoroutine(DrinkEffect effect, GlassType glass, FruitType fruit)
     {
         if (!Animator.enabled)
         {
@@ -280,7 +280,7 @@ public class ClientController : MonoBehaviour
 
         if (!useCustomDrinkEffect)
         {
-            CalculatePoints(effect);
+            CalculatePoints(effect, glass, fruit);
         }
         _drinkWaiting.DrinkEffect = effect;
         _drinkWaiting.Continue = true;
@@ -331,7 +331,7 @@ public class ClientController : MonoBehaviour
         }
     }
 
-    private void CalculatePoints(DrinkEffect effect/*, GlassType glass, FruitType fruit*/)
+    private void CalculatePoints(DrinkEffect effect, GlassType glass, FruitType fruit)
     {
         if (DesiredDrinkEffect == effect)
         {
@@ -344,23 +344,23 @@ public class ClientController : MonoBehaviour
             GameManager.Instance?.DecrementQuota(10);
         }
 
-        // if (DesiredGlassType == glass)
-        // {
-        //     GameManager.Instance.IncrementQuota(5);
-        // }
-        // else
-        // {
-        //     GameManager.Instance.DecrementQuota(5);
-        // }
+        if (DesiredGlassType == glass)
+        {
+            GameManager.Instance.IncrementQuota(5);
+        }
+        else
+        {
+            GameManager.Instance.DecrementQuota(5);
+        }
 
-        // if (DesiredFruitType == fruit)
-        // {
-        //     GameManager.Instance.IncrementQuota(10);
-        // }
-        // else
-        // {
-        //     GameManager.Instance.DecrementQuota(5);
-        // }
+        if (DesiredFruitType == fruit)
+        {
+            GameManager.Instance.IncrementQuota(10);
+        }
+        else
+        {
+            GameManager.Instance.DecrementQuota(5);
+        }
     }
 
     public void ToggleRagdoll(bool isRagdoll)

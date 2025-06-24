@@ -12,6 +12,7 @@ public class GlassTracker : MonoBehaviour
     [SerializeField] private GameObject jumpySlice;
     [SerializeField] private GameObject explosiveSlice;
 
+    public GlassType glassType = GlassType.COCKTAIL;
     public FruitType attachedFruitType = FruitType.NONE;
     private GameObject currentHologram;
 
