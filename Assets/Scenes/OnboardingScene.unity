@@ -9019,7 +9019,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1316889416697506944, guid: 85a6a11b8fd085e4e9010bbbcbde3e33, type: 3}
       propertyPath: CharDelay
-      value: 0.05
+      value: 0.033
       objectReference: {fileID: 0}
     - target: {fileID: 1316889416697506944, guid: 85a6a11b8fd085e4e9010bbbcbde3e33, type: 3}
       propertyPath: audioData
@@ -9030,9 +9030,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 225025352}
     - target: {fileID: 4783244868012996555, guid: 85a6a11b8fd085e4e9010bbbcbde3e33, type: 3}
+      propertyPath: lineDelay
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4783244868012996555, guid: 85a6a11b8fd085e4e9010bbbcbde3e33, type: 3}
       propertyPath: FruitOutline
       value: 
       objectReference: {fileID: 2100000, guid: 814e3bc4553ec764c8022e4cd565b684, type: 2}
+    - target: {fileID: 4783244868012996555, guid: 85a6a11b8fd085e4e9010bbbcbde3e33, type: 3}
+      propertyPath: initialDelay
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4783244868012996555, guid: 85a6a11b8fd085e4e9010bbbcbde3e33, type: 3}
       propertyPath: Glass1Outline
       value: 

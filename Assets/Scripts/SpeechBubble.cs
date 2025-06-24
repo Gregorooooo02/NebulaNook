@@ -48,7 +48,7 @@ public class SpeechBubble : MonoBehaviour
                     characterIndex = 0;
                     NotifyTextEnded?.Invoke();
                 }
-                if(characterIndex % 2 == 0) audioSource.Play();
+                if(characterIndex % 3 == 0) audioSource.Play();
             }
         } 
     }
