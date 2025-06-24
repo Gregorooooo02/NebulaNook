@@ -108,6 +108,14 @@ public class TutorialPIP : MonoBehaviour
         bubble.SetNotifyAction(LineEnded);
         StartCoroutine("Tutorial");
         zone.Enabled = false;
+
+        Glass1Outline.SetFloat("_Active", 0);
+        OilBottleOutline.SetFloat("_Active", 0);
+        BlowtorchBottleOutline.SetFloat("_Active", 0);
+        ShakerOutline.SetFloat("_Active", 0);
+        FruitOutline.SetFloat("_Active", 0);
+        CuttingBoardOutline.SetFloat("_Active", 0);
+        CleaverOutline.SetFloat("_Active", 0);
     }
 
     public void LineEnded()
