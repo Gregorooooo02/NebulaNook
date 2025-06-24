@@ -11,7 +11,6 @@ public class StreamTrigger : MonoBehaviour
         {
             GlassController glassController = other.GetComponent<GlassController>();
             LineRenderer streamLineRenderer = GetComponentInParent<LineRenderer>();
-            print("sdasd");
             if (glassController != null && streamLineRenderer != null)
             {
                 glassController.Fill(fillSpeed * Time.deltaTime, streamEffect, streamLineRenderer.endColor);
