@@ -61,7 +61,7 @@ public class ZoneScript : MonoBehaviour
         if (BarChairScript.Occupied && testEffectObject != null)
         {
             DisableHolograms();
-            BarChairScript.Occupier.Drink(testEffectObject.drinkEffect);
+            BarChairScript.Occupier.Drink(testEffectObject.drinkEffect, GlassType.COCKTAIL, FruitType.NONE);
         }
         
         if (!BarChairScript.Occupied && currentGlass != null) return;
@@ -78,8 +78,11 @@ public class ZoneScript : MonoBehaviour
             // other.gameObject.transform.SetParent(DrinkTarget);
             other.gameObject.transform.position = DrinkTarget.position;
 
+            // Get the GlassTracker component
+            GlassTracker glassTracker = currentGlass.GetComponent<GlassTracker>();
+
             BarChairScript.Occupier.currentGlass = currentGlass;
-            BarChairScript.Occupier.Drink(component.GetFinalDrinkEffect());
+            BarChairScript.Occupier.Drink(component.GetFinalDrinkEffect(), glassTracker.glassType, glassTracker.attachedFruitType);
             component.wasServed = true;
 
             currentGlass = null;
