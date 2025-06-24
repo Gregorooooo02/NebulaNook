@@ -1055,7 +1055,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 5eca9c268aa90204585ea0c51772b5a9, type: 3}
   - {fileID: 2800000, guid: 462d84db6e2064441acfd57b5a70990f, type: 3}
   effectSprites:
-  - {fileID: -378778646, guid: 1eb62fd17c3267240b2b05a1b53013e5, type: 3}
+  - {fileID: -732565473, guid: 1d26bd6389e33334a8d0c1a16f05a82e, type: 3}
   - {fileID: -378778646, guid: 1eb62fd17c3267240b2b05a1b53013e5, type: 3}
   - {fileID: -1002036648, guid: dd03494656636384fbb7cae0bea29eb0, type: 3}
   - {fileID: 689927762, guid: 755e7df692ae4964899349a12811b3b3, type: 3}
