@@ -197,7 +197,7 @@ public class TutorialPIP : MonoBehaviour
         {
             bubble.SetText("Good job! You're a natural!");
             LineDone = false;
-        } 
+        }
         else if (ClientDoneBad)
         {
             bubble.SetText("Well, better luck next time.");
@@ -272,5 +272,28 @@ public class TutorialPIP : MonoBehaviour
         ShowNextLine(); // Good luck!
         yield return new WaitUntil(() => LineDone);
         yield return new WaitForSeconds(lineDelay);
+        // After this line, deactivate the bubble
+        bubble.gameObject.SetActive(false);
+        LevelManager.Instance.FadeIntoScene(2);
+    }
+
+    public void SetAllDone()
+    {
+        ClientDoneGood = true;
+        ClientDoneBad = true;
+        ClientAproached = true;
+        FruitPicked = true;
+        GlassPicked = true;
+        OilPicked = true;
+        BlowtorchPicked = true;
+        BlowtorchTriggerPulled = true;
+        ShakerOpened = true;
+        ShakerClosed = true;
+        ShakerShook = true;
+        ShakerDone = true;
+        CuttingBoardPlaced = true;
+        CuttingBoardCut = true;
+        CleaverPickedUp = true;
+        SlicePutOnGlass = true;
     }
 }
