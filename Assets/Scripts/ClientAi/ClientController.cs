@@ -333,33 +333,47 @@ public class ClientController : MonoBehaviour
 
     private void CalculatePoints(DrinkEffect effect, GlassType glass, FruitType fruit)
     {
+        int result = 0;
         if (DesiredDrinkEffect == effect)
         {
-            ScreenSpaceUI.instance?.PositiveChange(20);
             GameManager.Instance?.IncrementQuota(20);
+            result += 20;
         }
         else
         {
-            ScreenSpaceUI.instance?.NegativeChange(10);
             GameManager.Instance?.DecrementQuota(10);
+            result -= 10;
         }
 
         if (DesiredGlassType == glass)
         {
-            GameManager.Instance.IncrementQuota(5);
+            GameManager.Instance.IncrementQuota(10);
+            result += 10;
         }
         else
         {
             GameManager.Instance.DecrementQuota(5);
+            result -= 5;
         }
 
         if (DesiredFruitType == fruit)
         {
             GameManager.Instance.IncrementQuota(10);
+            result += 10;
         }
         else
         {
             GameManager.Instance.DecrementQuota(5);
+            result -= 5;
+        }
+        
+        if (result > 0)
+        {
+            ScreenSpaceUI.instance?.PositiveChange(result);
+        }
+        else if (result < 0)
+        {
+            ScreenSpaceUI.instance?.NegativeChange(result);
         }
     }
 
