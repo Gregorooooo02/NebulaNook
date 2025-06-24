@@ -274,6 +274,7 @@ MonoBehaviour:
   explosiveHologram: {fileID: 8114368689727474844}
   jumpySlice: {fileID: 5426691679556641943}
   explosiveSlice: {fileID: 7508188641231072075}
+  glassType: 0
   attachedFruitType: 1
 --- !u!1 &862710027012781497
 GameObject:
@@ -374,7 +375,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 597171aca3774734997d6c4891d66f28, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

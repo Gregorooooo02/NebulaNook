@@ -10626,7 +10626,7 @@ MonoBehaviour:
   Pip: {fileID: 1624926470}
   glassSpawnPoint: {fileID: 1192196257}
   glassPrefab: {fileID: 675285361160517044, guid: 915c9d885dce7384082b2788862dca9f, type: 3}
-  glassPrefab2: {fileID: 0}
+  glassPrefab2: {fileID: 675285361160517044, guid: 3ac070541252c314caab45588c14b20b, type: 3}
 --- !u!4 &1613868212
 Transform:
   m_ObjectHideFlags: 0
