@@ -23,6 +23,7 @@ public class GlassPourController : MonoBehaviour
     [SerializeField] private float maxFlowRate = 0.5f;
 
     private Stream currentStream = null;
+    [HideInInspector] public bool IsPouring = false;
     private Transform streamTransform = null;
 
     void Update()
@@ -53,19 +54,21 @@ public class GlassPourController : MonoBehaviour
         UpdateStreamTransform();
     }
 
-    private void StartStream() {
+    public void StartStream() {
         GameObject streamObject = Instantiate(streamPrefab, transform);
         currentStream = streamObject.GetComponent<Stream>();
         streamTransform = streamObject.transform;
         currentStream.lineRenderer.startColor = glassFiller.GetLiquidColor();
         currentStream.BeginStream();
+        IsPouring = true;
     }
 
-    private void StopStream() {
+    public void StopStream() {
         currentStream.EndStream();
         Destroy(currentStream.gameObject);
         currentStream = null;
         streamTransform = null;
+        IsPouring = false;
     }
 
     private void UpdateStreamTransform() {

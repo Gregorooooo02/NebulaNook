@@ -5,7 +5,7 @@ using UnityEngine;
 public class GlassFiller : MonoBehaviour
 {
     [SerializeField] private Renderer liquidRenderer;
-    [SerializeField] private float fillSpeed = 0.2f;
+    [SerializeField] public float fillSpeed = 0.5f;
     [SerializeField, Range(0, 1f)] private float startingFill = 0f;
 
     [HideInInspector]
@@ -52,7 +52,9 @@ public class GlassFiller : MonoBehaviour
         resultPoint.z += fillAmounts[4] * DrinkMovementAmount;
         resultPoint.y -= fillAmounts[5] * DrinkMovementAmount;
 
-        if(currentFillAmount < minimumDrinkAmount) return DrinkEffect.EMPTY; // Check if enough drink was poured
+        print(resultPoint);
+
+        if (currentFillAmount < minimumDrinkAmount) return DrinkEffect.EMPTY; // Check if enough drink was poured
         if(resultPoint.magnitude < minimumDrinkDistance) return DrinkEffect.WATER; // Check if result is water
 
         resultPoint += DrinkEffectMap.MapObject.transform.position;
