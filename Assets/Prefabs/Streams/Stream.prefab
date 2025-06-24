@@ -67,6 +67,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fillSpeed: 0.2
+  streamEffect: 0
 --- !u!1 &8247792326252429193
 GameObject:
   m_ObjectHideFlags: 0
@@ -4950,7 +4951,7 @@ MonoBehaviour:
   streamTrigger: {fileID: 5593831209845178720}
   ignoreLayer:
     serializedVersion: 2
-    m_Bits: 119
+    m_Bits: 3191
 --- !u!120 &6379790514580552709
 LineRenderer:
   serializedVersion: 2

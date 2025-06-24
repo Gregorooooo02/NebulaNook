@@ -8,6 +8,8 @@ public class TopPartController : MonoBehaviour
     [SerializeField] private Transform snapTarget;
     [SerializeField] private GameObject bottomPart;
     [SerializeField] private float snapDistance;
+    [SerializeField] private GlassFiller glassFiller;
+    [SerializeField] private GlassPourController glassPourController;
 
     private XRGrabInteractable grabInteractable;
     private Rigidbody rb;
@@ -28,6 +30,7 @@ public class TopPartController : MonoBehaviour
     {
         if (isAttached)
         {
+            enableLiquidInteraction();
             DetachFromBottom();
         }
     }
@@ -45,6 +48,7 @@ public class TopPartController : MonoBehaviour
         float dist = Vector3.Distance(transform.position, snapTarget.position);
         if (dist <= snapDistance)
         {
+            disableLiquidInteraction();
             AttachToBottom();
         }
     }
@@ -63,5 +67,21 @@ public class TopPartController : MonoBehaviour
         transform.rotation = bottomPart.transform.rotation;
         transform.SetParent(bottomPart.transform, true);
         isAttached = true;
+    }
+
+    void disableLiquidInteraction()
+    {
+        glassFiller.fillSpeed = 0.0f;
+        if (glassPourController.IsPouring)
+        {
+            glassPourController.StopStream();
+        }
+        glassPourController.enabled = false;
+    }
+
+    void enableLiquidInteraction()
+    {
+        glassFiller.fillSpeed = 0.5f;
+        glassPourController.enabled = true;
     }
 }

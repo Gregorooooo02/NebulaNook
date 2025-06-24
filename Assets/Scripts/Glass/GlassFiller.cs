@@ -5,7 +5,7 @@ using UnityEngine;
 public class GlassFiller : MonoBehaviour
 {
     [SerializeField] private Renderer liquidRenderer;
-    [SerializeField] private float fillSpeed = 0.2f;
+    [SerializeField] public float fillSpeed = 0.5f;
     [SerializeField, Range(0, 1f)] private float startingFill = 0f;
 
     [HideInInspector]
