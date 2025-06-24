@@ -80,6 +80,6 @@ public class ShakeDetection : MonoBehaviour
 
     void OnShakeDetect()
     {
-        print("Shake detected");
+        print($"Shake detected: {shakeDuration / shakeDurationToResult * 100}%");
     }
 }
