@@ -7,10 +7,23 @@ public class StreamTrigger : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        GlassFiller glassFiller = other.GetComponent<GlassFiller>();
-        if (glassFiller != null)
+        if (other.tag == "Glass")
         {
-            glassFiller.Fill(fillSpeed * Time.deltaTime, streamEffect);
+            GlassController glassController = other.GetComponent<GlassController>();
+            LineRenderer streamLineRenderer = GetComponentInParent<LineRenderer>();
+            print("sdasd");
+            if (glassController != null && streamLineRenderer != null)
+            {
+                glassController.Fill(fillSpeed * Time.deltaTime, streamEffect, streamLineRenderer.endColor);
+            }
+        }
+        else
+        {
+            GlassFiller glassFiller = other.GetComponent<GlassFiller>();
+            if (glassFiller != null)
+            {
+                glassFiller.Fill(fillSpeed * Time.deltaTime, streamEffect);
+            }
         }
     }
 }
