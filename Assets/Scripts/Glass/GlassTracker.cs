@@ -135,6 +135,8 @@ public class GlassTracker : MonoBehaviour
         HideFruitHologram();
         attachedFruitType = fruitType;
 
+        TutorialManager.Instance?.NotifyFruitMounted();
+
         switch (fruitType)
         {
             case FruitType.JUMPY:

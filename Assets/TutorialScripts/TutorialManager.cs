@@ -103,6 +103,11 @@ public class TutorialManager : MonoBehaviour
         if(Pip.GlassShouldRespawn)Pip.BrokenGlass = true;
     }
 
+    public void NotifyFruitMounted()
+    {
+        Pip.SlicePutOnGlass = true;
+    }
+
     public void SpawnNewGlass()
     {
         if(SpawnedGlass != null) Destroy(SpawnedGlass);
