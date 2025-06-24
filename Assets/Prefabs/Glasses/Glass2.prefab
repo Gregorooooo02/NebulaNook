@@ -775,10 +775,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43f4762008b524b9f85711a82707ef11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpyHologram: {fileID: 0}
-  explosiveHologram: {fileID: 0}
-  jumpySlice: {fileID: 0}
-  explosiveSlice: {fileID: 0}
+  jumpyHologram: {fileID: 7221677140128243552}
+  explosiveHologram: {fileID: 6395451290786242449}
+  jumpySlice: {fileID: 5975024760665295758}
+  explosiveSlice: {fileID: 7199667395457116145}
   glassType: 1
   attachedFruitType: 0
 --- !u!114 &7695758094535745677
@@ -801,6 +801,7 @@ MonoBehaviour:
   maxPourAngle: 90
   minFlowRate: 0.5
   maxFlowRate: 5
+  IsPouring: 0
 --- !u!65 &3498627918114926898
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -416,6 +416,7 @@ MonoBehaviour:
   maxPourAngle: 90
   minFlowRate: 0.5
   maxFlowRate: 5
+  IsPouring: 0
 --- !u!114 &-1509438934103824406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -432,7 +433,7 @@ MonoBehaviour:
   explosiveHologram: {fileID: 6929652647747922969}
   jumpySlice: {fileID: 2770269922929353374}
   explosiveSlice: {fileID: 3422051681761834046}
-  glassType: 0
+  glassType: 3
   attachedFruitType: 0
 --- !u!1 &2770269922929353374
 GameObject:

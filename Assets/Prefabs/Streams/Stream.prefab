@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fillSpeed: 0.2
-  streamEffect: 0
+  streamEffect: 23
 --- !u!1 &8247792326252429193
 GameObject:
   m_ObjectHideFlags: 0
@@ -4911,7 +4911,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1067097793928179472}
   - component: {fileID: 8621739143435559671}
-  - component: {fileID: 5351318021680272183}
   - component: {fileID: 6379790514580552709}
   m_Layer: 8
   m_Name: Stream
@@ -4949,22 +4948,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f89119459def46d9bef48c7e66875fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lineRenderer: {fileID: 0}
   streamTrigger: {fileID: 5593831209845178720}
   ignoreLayer:
     serializedVersion: 2
     m_Bits: 119
---- !u!114 &5351318021680272183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8941625051351596894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 743ed76f1c7a44ce49a7dc23dea80cc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!120 &6379790514580552709
 LineRenderer:
   serializedVersion: 2

@@ -197,7 +197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4780621927995412780, guid: e9cb9ee5e2dae0d408ae37b037d77748, type: 3}
       propertyPath: ClientPrefabs.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4780621927995412780, guid: e9cb9ee5e2dae0d408ae37b037d77748, type: 3}
       propertyPath: 'ClientPrefabs.Array.data[0]'
@@ -207,6 +207,10 @@ PrefabInstance:
       propertyPath: 'ClientPrefabs.Array.data[1]'
       value: 
       objectReference: {fileID: 7293946214203817095, guid: de0963d7766744e6188d0d1744e941f3, type: 3}
+    - target: {fileID: 4780621927995412780, guid: e9cb9ee5e2dae0d408ae37b037d77748, type: 3}
+      propertyPath: 'ClientPrefabs.Array.data[2]'
+      value: 
+      objectReference: {fileID: 7293946214203817095, guid: b39818cc8293747e989478da75ff05b3, type: 3}
     - target: {fileID: 5826602635857755046, guid: e9cb9ee5e2dae0d408ae37b037d77748, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.996
@@ -1596,16 +1600,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4780621927995412780, guid: e9cb9ee5e2dae0d408ae37b037d77748, type: 3}
       propertyPath: ClientPrefabs.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4780621927995412780, guid: e9cb9ee5e2dae0d408ae37b037d77748, type: 3}
       propertyPath: 'ClientPrefabs.Array.data[0]'
       value: 
-      objectReference: {fileID: 7293946214203817095, guid: 7b526014f0b5640b1af0cb0f51f72b2c, type: 3}
+      objectReference: {fileID: 7293946214203817095, guid: b39818cc8293747e989478da75ff05b3, type: 3}
     - target: {fileID: 4780621927995412780, guid: e9cb9ee5e2dae0d408ae37b037d77748, type: 3}
       propertyPath: 'ClientPrefabs.Array.data[1]'
       value: 
       objectReference: {fileID: 7293946214203817095, guid: de0963d7766744e6188d0d1744e941f3, type: 3}
+    - target: {fileID: 4780621927995412780, guid: e9cb9ee5e2dae0d408ae37b037d77748, type: 3}
+      propertyPath: 'ClientPrefabs.Array.data[2]'
+      value: 
+      objectReference: {fileID: 7293946214203817095, guid: b39818cc8293747e989478da75ff05b3, type: 3}
     - target: {fileID: 5826602635857755046, guid: e9cb9ee5e2dae0d408ae37b037d77748, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.02
@@ -2310,7 +2318,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.9
+  m_Radius: 1.8
   m_Height: 7
   m_Direction: 1
   m_Center: {x: 0, y: 1.18, z: 0}
@@ -7106,7 +7114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4780621927995412780, guid: e9cb9ee5e2dae0d408ae37b037d77748, type: 3}
       propertyPath: ClientPrefabs.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4780621927995412780, guid: e9cb9ee5e2dae0d408ae37b037d77748, type: 3}
       propertyPath: 'ClientPrefabs.Array.data[0]'
@@ -7116,6 +7124,10 @@ PrefabInstance:
       propertyPath: 'ClientPrefabs.Array.data[1]'
       value: 
       objectReference: {fileID: 7293946214203817095, guid: de0963d7766744e6188d0d1744e941f3, type: 3}
+    - target: {fileID: 4780621927995412780, guid: e9cb9ee5e2dae0d408ae37b037d77748, type: 3}
+      propertyPath: 'ClientPrefabs.Array.data[2]'
+      value: 
+      objectReference: {fileID: 7293946214203817095, guid: b39818cc8293747e989478da75ff05b3, type: 3}
     - target: {fileID: 5826602635857755046, guid: e9cb9ee5e2dae0d408ae37b037d77748, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.46
