@@ -432,15 +432,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d00e7b1c3733f4be8b4ff7cd9d1ad136, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.939
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d00e7b1c3733f4be8b4ff7cd9d1ad136, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.807
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d00e7b1c3733f4be8b4ff7cd9d1ad136, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.242
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d00e7b1c3733f4be8b4ff7cd9d1ad136, type: 3}
       propertyPath: m_LocalRotation.w
@@ -536,9 +536,6 @@ PrefabInstance:
       addedObject: {fileID: 1269891512952821420}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d00e7b1c3733f4be8b4ff7cd9d1ad136, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3535908811177041223}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d00e7b1c3733f4be8b4ff7cd9d1ad136, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 3972515968171505853}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d00e7b1c3733f4be8b4ff7cd9d1ad136, type: 3}
       insertIndex: -1
@@ -558,6 +555,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d00e7b1c3733f4be8b4ff7cd9d1ad136, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2350423216513153694}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d00e7b1c3733f4be8b4ff7cd9d1ad136, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9068185163200226148}
     - targetCorrespondingSourceObject: {fileID: -1042936812688445303, guid: d00e7b1c3733f4be8b4ff7cd9d1ad136, type: 3}
       insertIndex: -1
       addedObject: {fileID: 436014040931090977}
@@ -736,33 +736,6 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 1
---- !u!114 &3535908811177041223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6015722306311712144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e2c375960acd42cca183ae0e020bd0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  liquidRenderer: {fileID: 9035145945714805289}
-  fillSpeed: 0.2
-  startingFill: 0
-  currentFillAmount: 0
-  fillAmounts:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  DrinkMovementAmount: 0.99
-  minimumDrinkAmount: 0.05
-  minimumDrinkDistance: 0.05
-  wasServed: 0
 --- !u!114 &3972515968171505853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -793,7 +766,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14060a245b57d42f8b68bac946b006cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  glassFiller: {fileID: 3535908811177041223}
+  glassFiller: {fileID: 0}
+  glassController: {fileID: 9068185163200226148}
   streamPrefab: {fileID: 8941625051351596894, guid: 991d207acfd59472493d54e8b2fc0f57, type: 3}
   rimRadius: 0.043
   rimHeight: 0.04
@@ -907,6 +881,26 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.7, y: 1.7, z: 0.1}
   m_Center: {x: 0, y: -0.1, z: -0.8}
+--- !u!114 &9068185163200226148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6015722306311712144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72396867f29728c4d94e88561fa362af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  liquidRenderer: {fileID: 9035145945714805289}
+  explosionPrefab: {fileID: 8784169859946565572, guid: cfeac452c39ce6f458017a7fea1a200c, type: 3}
+  fillSpeed: 0.5
+  startingFill: 0
+  explosionRadius: 2
+  explosionForce: 300
+  currentFillAmount: 0
+  drinkEffect: 23
 --- !u!4 &6356816838175373098 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d00e7b1c3733f4be8b4ff7cd9d1ad136, type: 3}

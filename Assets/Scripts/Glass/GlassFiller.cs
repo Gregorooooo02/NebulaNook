@@ -25,7 +25,8 @@ public class GlassFiller : MonoBehaviour
         liquidRenderer.sharedMaterial.SetFloat("_Fill", currentFillAmount);
     }
 
-    public void Fill(float delta, DrinkEffect pouredDrink) {
+    public void Fill(float delta, DrinkEffect pouredDrink)
+    {
         currentFillAmount = Mathf.Clamp(currentFillAmount + delta * fillSpeed, 0f, 1f);
         liquidRenderer.sharedMaterial.SetFloat("_Fill", currentFillAmount);
 
@@ -55,7 +56,7 @@ public class GlassFiller : MonoBehaviour
         print(resultPoint);
 
         if (currentFillAmount < minimumDrinkAmount) return DrinkEffect.EMPTY; // Check if enough drink was poured
-        if(resultPoint.magnitude < minimumDrinkDistance) return DrinkEffect.WATER; // Check if result is water
+        if (resultPoint.magnitude < minimumDrinkDistance) return DrinkEffect.WATER; // Check if result is water
 
         resultPoint += DrinkEffectMap.MapObject.transform.position;
 
@@ -103,7 +104,8 @@ public class GlassFiller : MonoBehaviour
         return prev - currentFillAmount;
     }
 
-    public float GetFillAmount() {
+    public float GetFillAmount()
+    {
         return currentFillAmount;
     }
 }

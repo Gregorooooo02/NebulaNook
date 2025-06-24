@@ -4,6 +4,7 @@ public class GlassPourController : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GlassFiller glassFiller;
+    [SerializeField] private GlassController glassController;
     [SerializeField] private GameObject streamPrefab;
 
     [Header("Geometry")]
@@ -28,7 +29,7 @@ public class GlassPourController : MonoBehaviour
 
     void Update()
     {
-        float fillAmount = glassFiller.GetFillAmount();
+        float fillAmount = glassFiller ? glassFiller.GetFillAmount() : glassController.currentFillAmount;
         float dynamicThreshold = Mathf.Lerp(maxPourAngle, minPourAngle, fillAmount);
 
         float angleFromUp = Vector3.Angle(transform.up, Vector3.up);
@@ -42,13 +43,29 @@ public class GlassPourController : MonoBehaviour
         float t = Mathf.InverseLerp(dynamicThreshold, maxPourAngle, angleFromUp);
         float flowRate = maxFlowRate * t * fillAmount;
         flowRate = Mathf.Max(flowRate, minFlowRate * fillAmount);
-        
-        float drained = glassFiller.Drain(flowRate * Time.deltaTime);
 
-        if (glassFiller.GetFillAmount() <= 0) {
-            StopStream();
-            return;
+        if (glassFiller)
+        {
+            glassFiller.Drain(flowRate * Time.deltaTime);
+
+            if (glassFiller.GetFillAmount() <= 0)
+            {
+                StopStream();
+                return;
+            }
         }
+        else
+        {
+            glassController.Drain(flowRate * Time.deltaTime);
+
+            if (glassController.currentFillAmount <= 0)
+            {
+                glassController.drinkEffect = DrinkEffect.EMPTY;
+                StopStream();
+                return;
+            }
+        }
+
 
         if (currentStream == null) StartStream();
         UpdateStreamTransform();
@@ -59,8 +76,8 @@ public class GlassPourController : MonoBehaviour
         streamObject.GetComponentInChildren<StreamTrigger>().streamEffect = glassFiller.GetFinalDrinkEffect();
         currentStream = streamObject.GetComponent<Stream>();
         streamTransform = streamObject.transform;
-        currentStream.lineRenderer.startColor = glassFiller.GetLiquidColor();
-        currentStream.lineRenderer.endColor = glassFiller.GetLiquidColor();
+        currentStream.lineRenderer.startColor = glassFiller ? glassFiller.GetLiquidColor() : glassController.GetLiquidColor();
+        currentStream.lineRenderer.endColor = glassFiller ? glassFiller.GetLiquidColor() : glassController.GetLiquidColor();
         currentStream.BeginStream();
         IsPouring = true;
     }

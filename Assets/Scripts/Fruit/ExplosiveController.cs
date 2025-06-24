@@ -210,7 +210,7 @@ public class ExplosiveController : XRGrabInteractable
 
     private void AddExplosionForce()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
+Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
         
         foreach (Collider col in colliders)
         {

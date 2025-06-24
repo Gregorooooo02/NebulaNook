@@ -23,6 +23,7 @@ TagManager:
   - Tasak
   - JumpPoint
   - BarArea
+  - Shaker
   layers:
   - Default
   - TransparentFX
