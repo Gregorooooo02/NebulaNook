@@ -985,7 +985,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 985510241351428193, guid: ff254623e3f4bbd4bac90d17ca6a8fbe, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 146479823}
+      addedObject: {fileID: 150768847}
   m_SourcePrefab: {fileID: 100100000, guid: ff254623e3f4bbd4bac90d17ca6a8fbe, type: 3}
 --- !u!1001 &148065320
 PrefabInstance:
@@ -1129,20 +1129,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 985510241351428193, guid: ff254623e3f4bbd4bac90d17ca6a8fbe, type: 3}
   m_PrefabInstance: {fileID: 146479821}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &146479823
+--- !u!114 &150768847
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 146479822}
+  m_GameObject: {fileID: 150768846}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6210c0fb117144235b4a6f2a6f1bad93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   drawGizmo: 1
-  gizmoColor: {r: 0.58017635, g: 0, b: 1, a: 1}
+  gizmoColor: {r: 0.5729389, g: 0, b: 1, a: 1}
   gizmoSize: 0.1
 --- !u!4 &156946590 stripped
 Transform:
@@ -8447,6 +8447,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2028992034953377421, guid: 9c4444cf85712c648b0817cd5f7b4e93, type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2028992034953377421, guid: 9c4444cf85712c648b0817cd5f7b4e93, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3754340426427008492, guid: 9c4444cf85712c648b0817cd5f7b4e93, type: 3}
       propertyPath: m_Name
       value: Screen Space UI
@@ -14982,7 +14990,7 @@ SceneRoots:
   - {fileID: 246713319}
   - {fileID: 668948061}
   - {fileID: 146479821}
-  - {fileID: 1574797891}
   - {fileID: 1414059768}
   - {fileID: 1234845905}
   - {fileID: 148065320}
+  - {fileID: 1574797891}
