@@ -24,7 +24,7 @@ public class TutorialPIP : MonoBehaviour
         "This one you can't just pour. Try pulling the trigger.",
         "Great! Now use it to pour into the shaker! When you finish close the shaker.",
         "Now shake it with all you got!!",
-        "Thats the spirit!",
+        "Thats the spirit! Do it more!",
         "Now it's time to pour the drink into the glass. Notice that in front of the client there is a hologram of the glass.",
         "It shows the type of the glass client wants the drink in. You don't have to use the exact glass but the client will pay extra if you do.",
         "Now grab the glass from the rack above.",
