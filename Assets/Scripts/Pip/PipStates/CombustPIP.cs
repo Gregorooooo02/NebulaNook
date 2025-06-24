@@ -21,7 +21,8 @@ public class CombustPIP : PipState
         {
             done = false;
             triggered = false;
-            return DefaultState;
+            Destroy(controller.transform.parent.gameObject);
+            PipSpawner.Instance?.SpawnPip();
         }
         return this;
     }

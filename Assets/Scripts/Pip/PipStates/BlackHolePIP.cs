@@ -22,6 +22,7 @@ public class BlackHolePIP : PipState
         yield return new WaitForSeconds(initialDelay);
         GameObject blackhole = Instantiate(BlackHole, transform);
         yield return new WaitForSeconds (duration);
-        Destroy(controller.gameObject);
+        Destroy(controller.transform.parent.gameObject);
+        PipSpawner.Instance?.SpawnPip();
     }
 }

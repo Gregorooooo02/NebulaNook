@@ -29,6 +29,7 @@ public class NegativePIP : PipState
             r.material = new Material(NegativeMaterial);
         }
         yield return new WaitForSeconds(duration);
-        Destroy(controller.gameObject);
+        Destroy(controller.transform.parent.gameObject);
+        PipSpawner.Instance?.SpawnPip();
     }
 }

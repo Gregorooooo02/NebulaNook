@@ -27,7 +27,8 @@ public class BubblesPIP : PipState
         {
             done = false;
             triggered = false;
-            return DefaultState;
+            Destroy(controller.transform.parent.gameObject);
+            PipSpawner.Instance?.SpawnPip();
         }
         return this;
     }

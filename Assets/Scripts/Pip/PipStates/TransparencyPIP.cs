@@ -59,7 +59,8 @@ public class TransparencyPIP : PipState
             yield return new WaitForFixedUpdate();
         }
         yield return new WaitForSeconds(duration);
-        Destroy(controller.gameObject);
+        Destroy(controller.transform.parent.gameObject);
+        PipSpawner.Instance?.SpawnPip();
     }
 
     private void ChangeAlphas()

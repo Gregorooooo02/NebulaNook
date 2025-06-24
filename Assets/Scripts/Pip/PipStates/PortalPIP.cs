@@ -57,6 +57,7 @@ public class PortalPIP : PipState
         yield return new WaitForSeconds(1.05f);
         portalEffect.SetActive(false);
         yield return new WaitForSeconds(finalDelay);
-        Destroy(controller.gameObject);
+        Destroy(controller.transform.parent.gameObject);
+        PipSpawner.Instance?.SpawnPip();
     }
 }

@@ -23,6 +23,7 @@ public class PassOutPIP : PipState
         yield return new WaitForSeconds(initialDelay);
         controller.ToggleRagdoll(true);
         yield return new WaitForSeconds(duration);
-        Destroy(Parent);
+        Destroy(controller.transform.parent.gameObject);
+        PipSpawner.Instance?.SpawnPip();
     }
 }
