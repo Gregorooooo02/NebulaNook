@@ -1691,6 +1691,53 @@ MonoBehaviour:
   glitchRate: 0.5
   Parent: {fileID: 7293946214203817095}
   animator: {fileID: 861174071496401118}
+--- !u!1 &7092854858340664303
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5423354946132124943}
+  - component: {fileID: 5396700719691714558}
+  m_Layer: 0
+  m_Name: GlassSocket
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5423354946132124943
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7092854858340664303}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.17345989, y: -0.8325152, z: -0.50644565, w: 0.14262846}
+  m_LocalPosition: {x: 0.00028, y: 0.00055, z: -0.0002}
+  m_LocalScale: {x: 0.0011292066, y: 0.0011292066, z: 0.0011292069}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7040183045772447715}
+  m_LocalEulerAnglesHint: {x: -63.218, y: 187.881, z: 18.684}
+--- !u!114 &5396700719691714558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7092854858340664303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6210c0fb117144235b4a6f2a6f1bad93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drawGizmo: 1
+  gizmoColor: {r: 1, g: 0.24117154, b: 0, a: 1}
+  gizmoSize: 0.1
 --- !u!1 &7126163594829592172
 GameObject:
   m_ObjectHideFlags: 0
@@ -1997,7 +2044,7 @@ MonoBehaviour:
   mainCollider: {fileID: 2456777775951258800}
   SourceType: 0
   useIcons: 1
-  GlassSocket: {fileID: 0}
+  GlassSocket: {fileID: 5423354946132124943}
   Spawner: {fileID: 0}
   currentGlass: {fileID: 0}
 --- !u!95 &405454394730435261
@@ -2542,8 +2589,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7507098032151806873, guid: 523c2afef934c4b0f8eaa2434248a480, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5423354946132124943}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7645512123042582567, guid: 523c2afef934c4b0f8eaa2434248a480, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3213799338412449855}
   m_SourcePrefab: {fileID: 100100000, guid: 523c2afef934c4b0f8eaa2434248a480, type: 3}
 --- !u!95 &861174071496401118 stripped
 Animator:
@@ -2595,11 +2648,29 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 7602720644734490213, guid: 523c2afef934c4b0f8eaa2434248a480, type: 3}
   m_PrefabInstance: {fileID: 692798768488107130}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &7040183045772447715 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7507098032151806873, guid: 523c2afef934c4b0f8eaa2434248a480, type: 3}
+  m_PrefabInstance: {fileID: 692798768488107130}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7171700981462899805 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7645512123042582567, guid: 523c2afef934c4b0f8eaa2434248a480, type: 3}
   m_PrefabInstance: {fileID: 692798768488107130}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3213799338412449855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7171700981462899805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b32e9e8846284edca15ff61c679ef85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clientController: {fileID: 6456090248501370823}
 --- !u!4 &7253239360461060217 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7869475251118568451, guid: 523c2afef934c4b0f8eaa2434248a480, type: 3}

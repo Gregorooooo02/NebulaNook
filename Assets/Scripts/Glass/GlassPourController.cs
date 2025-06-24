@@ -59,6 +59,7 @@ public class GlassPourController : MonoBehaviour
         currentStream = streamObject.GetComponent<Stream>();
         streamTransform = streamObject.transform;
         currentStream.lineRenderer.startColor = glassFiller.GetLiquidColor();
+        currentStream.lineRenderer.endColor = glassFiller.GetLiquidColor();
         currentStream.BeginStream();
         IsPouring = true;
     }
