@@ -378,21 +378,9 @@ public class TutorialPIP : MonoBehaviour
 
     public void SetAllDone()
     {
-        ClientDoneGood = true;
-        ClientDoneBad = true;
-        ClientAproached = true;
-        FruitPicked = true;
-        GlassPicked = true;
-        OilPicked = true;
-        BlowtorchPicked = true;
-        BlowtorchTriggerPulled = true;
         ShakerOpened = true;
         ShakerClosed = true;
         ShakerShook = true;
         ShakerDone = true;
-        CuttingBoardPlaced = true;
-        CuttingBoardCut = true;
-        CleaverPickedUp = true;
-        SlicePutOnGlass = true;
     }
 }
