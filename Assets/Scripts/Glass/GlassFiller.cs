@@ -11,7 +11,7 @@ public class GlassFiller : MonoBehaviour
     [HideInInspector]
     public float currentFillAmount = 0f;
 
-    [SerializeField] private float[] fillAmounts = new float[6];
+    [SerializeField] public float[] fillAmounts = new float[6];
     [SerializeField] private float DrinkMovementAmount = 2.0f;
     [SerializeField] private float minimumDrinkAmount = 0.05f;
     [SerializeField] private float minimumDrinkDistance = 0.05f;
