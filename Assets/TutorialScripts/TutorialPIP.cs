@@ -26,7 +26,7 @@ public class TutorialPIP : MonoBehaviour
         "Now shake it with all you got!!",
         "Thats the spirit!",
         "Now it's time to pour the drink into the glass. Notice that in front of the client there is a hologram of the glass.",
-        "It shows the type of the glass client wants the drink in. You don't have to use the exact glass but the client will pay extra if you will.",
+        "It shows the type of the glass client wants the drink in. You don't have to use the exact glass but the client will pay extra if you do.",
         "Now grab the glass from the rack above.",
         "Now just open the shaker, pour it's contents into the glass and give it to the customer.",
         "Oh there comes another customer!",
@@ -44,9 +44,9 @@ public class TutorialPIP : MonoBehaviour
         "All done! Give finished drink to the customer.",
         "Good job! Just remember that there are more liquors available and a LOT more possible effects.",
         "For example there is a liquor tap on the right, thought it's out of order today.",
-        "And if you're ever in doubt about the drink effect you can test it on me! Even if I'd rather you didn't!",
         "Also there is a screen with the recipes on the counter. It was supposed to show you the recipes for the effects that the customers ask for.",
         "Unfortunately effect database got damaged and now recipes are incomplete. Still it may prove useful.",
+        "And if you're ever in doubt about the drink effect you can test it on me! Even if I'd rather you didn't!",
         "Well that's it for now. Good luck on your job. You'll need it!"
     };
 
