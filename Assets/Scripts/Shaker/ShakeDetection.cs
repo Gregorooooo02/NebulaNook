@@ -13,13 +13,16 @@ public class ShakeDetection : MonoBehaviour
     private bool isGrabbed;
     private bool result = false;
     private DrinkEffect finalEffect = DrinkEffect.EMPTY;
+
     private Quaternion lastRotation; private Vector3 lastPosition;
     [SerializeField] private TopPartController top;
     [SerializeField] private GlassFiller glassFiller;
+    private float[] lastShakerState = new float[6];
+    private float lastShakerFill = 0.0f;
 
     void Awake()
     {
-        glassFiller.fillSpeed = 0.0f;    
+        glassFiller.fillSpeed = 0.0f;
     }
 
     void Start()
@@ -35,13 +38,30 @@ public class ShakeDetection : MonoBehaviour
 
     void Update()
     {
-        print(finalEffect);
-        if (!top.isAttached)
+        if (isPouring())
         {
+            lastShakerState = glassFiller.fillAmounts;
+            lastShakerFill = glassFiller.GetFillAmount();
+            shakeDuration = 0.0f;
             result = false;
-            shakeDuration = 0;
+            finalEffect = DrinkEffect.MATTER;
         }
-        if (isGrabbed && top.isAttached)
+
+        else if (isDraining())
+        {
+            lastShakerFill = glassFiller.GetFillAmount();
+            lastShakerState = glassFiller.fillAmounts;
+
+            if (lastShakerFill == 0.0f)
+            {
+                shakeDuration = 0.0f;
+                result = false;
+                finalEffect = DrinkEffect.EMPTY;
+            }
+        }
+
+
+        if (isGrabbed && top.isAttached && !result)
         {
             float deltaTime = Time.deltaTime;
             if (deltaTime == 0)
@@ -55,9 +75,8 @@ public class ShakeDetection : MonoBehaviour
             bool isLinearShaking = linearVelocity.magnitude > linearShakeThreshold;
             bool isAngularShaking = angularVelocity.magnitude > angularShakeThreshold;
 
-            if ((isLinearShaking || isAngularShaking) && !result)
+            if (isLinearShaking || isAngularShaking)
             {
-                OnShakeDetect();
                 shakeDuration += deltaTime;
                 if (shakeDuration > shakeDurationToResult)
                 {
@@ -83,10 +102,18 @@ public class ShakeDetection : MonoBehaviour
         if (angleDegrees > 180f) angleDegrees -= 360f;
         float angleRad = angleDegrees * Mathf.Deg2Rad;
         Vector3 angularVelocity = axis * (angleRad / deltaTime);
-        return angularVelocity;    
+        return angularVelocity;
     }
 
-    void OnShakeDetect()
+    private bool isPouring()
     {
+        float current = glassFiller.GetFillAmount();
+        return current > lastShakerFill;
+    }
+
+    private bool isDraining()
+    {
+        float current = glassFiller.GetFillAmount();
+        return current < lastShakerFill;
     }
 }
