@@ -11,6 +11,11 @@ public class PIPHelper : MonoBehaviour
     public Rigidbody TableRB;
 
     public bool enableCollisionsForMiniTable = false;
+
+    public GameObject gameOverAnimationObject;
+    public GameObject[] objectsToDisable;
+
+    public bool TriggerGameOver = false;
  
     private void Start()
     {
@@ -29,5 +34,35 @@ public class PIPHelper : MonoBehaviour
         ToggleTablePhysics(false);
         TableHandle.transform.localPosition = Vector3.zero;
         TableHandle.transform.localRotation = Quaternion.identity;
+    }
+
+    public void StartGameOverSequence()
+    {
+        Light[] sceneLights = FindObjectsByType<Light>(FindObjectsSortMode.None);
+
+        foreach(Light light in sceneLights)
+        {
+            light.enabled = false;
+        }
+
+        foreach(GameObject obj in objectsToDisable)
+        {
+            obj.SetActive(false);
+        }
+
+        PipCoordinator co = FindAnyObjectByType<PipCoordinator>();
+
+        co.gameObject.SetActive(false);
+
+        gameOverAnimationObject.SetActive(true);
+    }
+
+    public void Update()
+    {
+        if (TriggerGameOver)
+        {
+            TriggerGameOver = false;
+            StartGameOverSequence();
+        }
     }
 }

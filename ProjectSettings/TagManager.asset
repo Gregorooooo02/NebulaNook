@@ -24,6 +24,7 @@ TagManager:
   - JumpPoint
   - BarArea
   - Shaker
+  - GameOver
   layers:
   - Default
   - TransparentFX
