@@ -15,6 +15,7 @@ public class TriggerBlack : MonoBehaviour
         {
             ToHide.SetActive(false);
             gameObject.transform.position = GameoverRoom.Instance.transform.position;
+            GameoverRoom.Instance.SetText("Your manager got a little angry huh?");
         }
     }
 }
