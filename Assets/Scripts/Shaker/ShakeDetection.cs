@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.U2D;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
@@ -57,19 +58,26 @@ public class ShakeDetection : MonoBehaviour
 
             if ((isLinearShaking || isAngularShaking) && !result)
             {
-                OnShakeDetect();
                 shakeDuration += deltaTime;
                 if (shakeDuration > shakeDurationToResult)
                 {
                     result = true;
                     finalEffect = glassFiller.GetFinalDrinkEffect();
-                    confetti.Play();
+                    StartCoroutine(playParticles());
                 }
             }
 
             lastPosition = transform.position;
             lastRotation = transform.rotation;
         }
+    }
+
+    private IEnumerator playParticles()
+    {
+        var instance = Instantiate(confetti, transform.position, transform.rotation);
+        instance.Play();
+        yield return new WaitForSeconds(1);
+        Destroy(instance);
     }
 
     private Vector3 calculateLinearVelocity(float deltaTime)
@@ -87,7 +95,4 @@ public class ShakeDetection : MonoBehaviour
         return angularVelocity;    
     }
 
-    void OnShakeDetect()
-    {
-    }
 }
