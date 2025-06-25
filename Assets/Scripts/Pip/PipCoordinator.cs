@@ -11,8 +11,8 @@ public class PipCoordinator : MonoBehaviour
     {
         PipPhysics.SetActive(false);
 
-        PipEffects.transform.localPosition = PipPhysics.transform.position;
-        PipEffects.transform.localRotation = PipPhysics.transform.rotation;
+        PipEffects.transform.localPosition = PipPhysics.transform.localPosition;
+        PipEffects.transform.localRotation = PipPhysics.transform.localRotation;
 
         PipEffects.SetActive(true);
         PipController.Drink(effect);

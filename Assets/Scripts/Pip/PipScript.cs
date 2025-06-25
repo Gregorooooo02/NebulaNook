@@ -35,7 +35,7 @@ public class PipScript : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (other.tag == "PipBarCollider")
+/*        if (other.tag == "PipBarCollider")
         {
             isOutsideBarZone = true;
         }
@@ -46,7 +46,7 @@ public class PipScript : MonoBehaviour
                 isOutsideBarZone = false;
                 resetPosition();
             }
-        }
+        }*/
     }
 
     public void resetPosition()

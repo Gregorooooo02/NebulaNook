@@ -91,8 +91,6 @@ public class WaitForDrink : ClientState
                 case DrinkEffect.GLITCH:
                     return glitchState;
                 case DrinkEffect.WATER:
-                case DrinkEffect.EMPTY:
-                    break;
                 default:
                     return nextState;       
             }

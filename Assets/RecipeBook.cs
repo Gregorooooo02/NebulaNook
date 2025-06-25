@@ -20,12 +20,12 @@ public class RecipeBook : MonoBehaviour
     public void AddRecipe(DrinkEffect effectRecipe, ClientController asker)
     {
         int actualIndex = (int)effectRecipe - 1;
-        if(currentlyActiveRecipies.Contains(actualIndex))return;
+        if (asker != null) clients.Add(asker);
+        if (currentlyActiveRecipies.Contains(actualIndex))return;
         int activeRecipeCount = currentlyActiveRecipies.Count;
         currentlyActiveRecipies.Add(actualIndex);
         Recipes[actualIndex].positionIndex = activeRecipeCount;
         Recipes[actualIndex].gameObject.SetActive(true);
-        if(asker != null)clients.Add(asker);
     }
 
     public void RemoveRecipe(DrinkEffect effectRecipe, ClientController asker)

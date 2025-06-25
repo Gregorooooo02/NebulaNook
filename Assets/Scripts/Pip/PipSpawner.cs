@@ -14,7 +14,7 @@ public class PipSpawner : MonoBehaviour
 
     public void SpawnPip()
     {
-        GameObject pip = Instantiate(pipPrefab, transform);
+        GameObject pip = Instantiate(pipPrefab, transform.position,transform.rotation);
         PipInstance = pip;
     }
 

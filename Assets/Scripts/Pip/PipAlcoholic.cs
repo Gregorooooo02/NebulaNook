@@ -6,6 +6,7 @@ public class PipAlcoholic : MonoBehaviour
 
     public void Trigger(DrinkEffect effect)
     {
+        Debug.Log("Pip Triggered!");
         PipCoordinator.SwitchPips(effect);
     }
     

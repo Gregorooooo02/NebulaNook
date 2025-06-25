@@ -24,6 +24,7 @@ TagManager:
   - JumpPoint
   - BarArea
   - Shaker
+  - GameOver
   layers:
   - Default
   - TransparentFX
@@ -37,8 +38,8 @@ TagManager:
   - Spawner
   - Bottle
   - Glass
-  - 
-  - 
+  - Pip Stream Trigger
+  - Pip
   - 
   - 
   - 
