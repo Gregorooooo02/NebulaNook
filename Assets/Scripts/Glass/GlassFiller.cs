@@ -18,6 +18,7 @@ public class GlassFiller : MonoBehaviour
 
     [HideInInspector]
     public bool wasServed = false;
+    [SerializeField] private ParticleSystem empty;
 
     private void Awake()
     {
@@ -92,6 +93,7 @@ public class GlassFiller : MonoBehaviour
         if (currentFillAmount < eps)
         {
             currentFillAmount = 0f;
+            empty.Play();
         }
 
         float diffMul = 1.0f - ((prev - currentFillAmount) / prev);

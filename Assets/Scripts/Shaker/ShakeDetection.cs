@@ -12,10 +12,11 @@ public class ShakeDetection : MonoBehaviour
     private float shakeDuration;
     private bool isGrabbed;
     private bool result = false;
-    private DrinkEffect finalEffect = DrinkEffect.EMPTY;
+    public DrinkEffect finalEffect = DrinkEffect.EMPTY;
     private Quaternion lastRotation; private Vector3 lastPosition;
     [SerializeField] private TopPartController top;
     [SerializeField] private GlassFiller glassFiller;
+    [SerializeField] private ParticleSystem confetti;
 
     void Awake()
     {
@@ -35,7 +36,6 @@ public class ShakeDetection : MonoBehaviour
 
     void Update()
     {
-        print(finalEffect);
         if (!top.isAttached)
         {
             result = false;
@@ -63,6 +63,7 @@ public class ShakeDetection : MonoBehaviour
                 {
                     result = true;
                     finalEffect = glassFiller.GetFinalDrinkEffect();
+                    confetti.Play();
                 }
             }
 
