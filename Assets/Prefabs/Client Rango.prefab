@@ -972,7 +972,7 @@ MonoBehaviour:
   secondJerkCooldown: 0.4
   returnForce: 500
   returnCooldown: 0.6
-  jerksAmount: 3
+  jerksAmount: 2
   maxJerksOffset: 0.7
   jerkForce: 1000
   jerkCooldown: 0.1

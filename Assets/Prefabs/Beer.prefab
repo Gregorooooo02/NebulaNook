@@ -222,9 +222,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c6578b5dc3424c128752a95bcd9a6af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pourThreshold: 75
   pourOrigin: {fileID: 3900631864923596909}
   streamPrefab: {fileID: 8941625051351596894, guid: 991d207acfd59472493d54e8b2fc0f57, type: 3}
+  grabInteractable: {fileID: 0}
+  pourThreshold: 75
+  shouldParentStream: 1
 --- !u!114 &4201617031810136293
 MonoBehaviour:
   m_ObjectHideFlags: 0
