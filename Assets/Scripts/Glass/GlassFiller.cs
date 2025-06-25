@@ -15,9 +15,11 @@ public class GlassFiller : MonoBehaviour
     [SerializeField] private float DrinkMovementAmount = 2.0f;
     [SerializeField] private float minimumDrinkAmount = 0.05f;
     [SerializeField] private float minimumDrinkDistance = 0.05f;
+    [SerializeField] private ShakeDetection shakeDetection;
 
     [HideInInspector]
     public bool wasServed = false;
+    [SerializeField] private ParticleSystem empty;
 
     private void Awake()
     {
@@ -32,6 +34,7 @@ public class GlassFiller : MonoBehaviour
 
         if (currentFillAmount >= 1.0f) return;
         fillAmounts[(int)pouredDrink] += delta * fillSpeed;
+        shakeDetection.finalEffect = DrinkEffect.MATTER;
 
         Color currentColor = new Color(0, 0, 0);
         for (int i = 0; i < DrinkEffectMap.Instance.colorTable.Length; i++)
@@ -92,6 +95,8 @@ public class GlassFiller : MonoBehaviour
         if (currentFillAmount < eps)
         {
             currentFillAmount = 0f;
+            empty.Play();
+            shakeDetection.finalEffect = DrinkEffect.EMPTY;
         }
 
         float diffMul = 1.0f - ((prev - currentFillAmount) / prev);

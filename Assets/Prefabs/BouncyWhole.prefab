@@ -298,3 +298,5 @@ MonoBehaviour:
   squashDuration: 0.5
   enableEditorTesting: 0
   testJumpingInEditor: 0
+  playerLayerName: Player
+  playerTag: Player

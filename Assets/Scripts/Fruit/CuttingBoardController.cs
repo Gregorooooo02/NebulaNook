@@ -16,16 +16,21 @@ public class CuttingBoardController : MonoBehaviour
         c.isTrigger = true;
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision collision)
     {
-        var fruit = other.GetComponent<FruitController>();
+        var fruit = collision.gameObject.GetComponent<FruitController>();
         if (fruit == null) return;
 
         if (currentFruitsOnBoard >= maxFruitsOnBoard)
         {
-            PushFruitAway(other.gameObject);
+            PushFruitAway(collision.gameObject);
             return;
         }
+
+        fruit.EnableSlicing();
+        // Froze the fruit in place
+        var rb = fruit.GetComponent<Rigidbody>();
+        rb.isKinematic = true;
 
         currentFruitsOnBoard++;
 
@@ -37,13 +42,11 @@ public class CuttingBoardController : MonoBehaviour
             tracker.SetOnCuttingBoard(true);
         }
 
-        fruit.EnableSlicing();
-        // Froze the fruit in place
-        var rb = fruit.GetComponent<Rigidbody>();
-        rb.Sleep();
-
         var collider = fruit.GetComponent<Collider>();
-        if (collider != null) collider.isTrigger = true;
+        if (collider != null)
+        {
+            collider.isTrigger = true;
+        }
     }
 
     void OnTriggerExit(Collider other)

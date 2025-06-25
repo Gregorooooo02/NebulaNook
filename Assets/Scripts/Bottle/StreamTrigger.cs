@@ -1,4 +1,6 @@
+using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class StreamTrigger : MonoBehaviour
 {
@@ -7,16 +9,7 @@ public class StreamTrigger : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Glass")
-        {
-            GlassController glassController = other.GetComponent<GlassController>();
-            LineRenderer streamLineRenderer = GetComponentInParent<LineRenderer>();
-            if (glassController != null && streamLineRenderer != null)
-            {
-                glassController.Fill(fillSpeed * Time.deltaTime, streamEffect, streamLineRenderer.endColor);
-            }
-        }
-        else
+        if (other.tag != "Glass")
         {
             GlassFiller glassFiller = other.GetComponent<GlassFiller>();
             if (glassFiller != null)
@@ -24,11 +17,19 @@ public class StreamTrigger : MonoBehaviour
                 glassFiller.Fill(fillSpeed * Time.deltaTime, streamEffect);
             }
         }
-
         PipAlcoholic pipMouth = other.GetComponent<PipAlcoholic>();
-        if(pipMouth != null)
+        if (pipMouth != null)
         {
             pipMouth.Trigger(streamEffect);
+        }
+        else
+        {
+            GlassController glassController = other.GetComponent<GlassController>();
+            LineRenderer streamLineRenderer = GetComponent<LineRenderer>();
+            if (glassController != null && streamLineRenderer != null)
+            {
+                glassController.Fill(fillSpeed * Time.deltaTime, streamEffect, streamLineRenderer.startColor);
+            }
         }
     }
 }

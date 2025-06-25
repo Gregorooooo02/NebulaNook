@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.U2D;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
@@ -12,14 +13,14 @@ public class ShakeDetection : MonoBehaviour
     private float shakeDuration;
     private bool isGrabbed;
     private bool result = false;
-    private DrinkEffect finalEffect = DrinkEffect.EMPTY;
-
+    public DrinkEffect finalEffect = DrinkEffect.EMPTY;
     private Quaternion lastRotation; private Vector3 lastPosition;
     [SerializeField] private TopPartController top;
     [SerializeField] private GlassFiller glassFiller;
+    [SerializeField] private ParticleSystem confetti;
     private float[] lastShakerState = new float[6];
     private float lastShakerFill = 0.0f;
-
+    
     void Awake()
     {
         glassFiller.fillSpeed = 0.0f;
@@ -82,12 +83,21 @@ public class ShakeDetection : MonoBehaviour
                 {
                     result = true;
                     finalEffect = glassFiller.GetFinalDrinkEffect();
+                    StartCoroutine(playParticles());
                 }
             }
 
             lastPosition = transform.position;
             lastRotation = transform.rotation;
         }
+    }
+
+    private IEnumerator playParticles()
+    {
+        var instance = Instantiate(confetti, transform.position, transform.rotation);
+        instance.Play();
+        yield return new WaitForSeconds(1);
+        Destroy(instance);
     }
 
     private Vector3 calculateLinearVelocity(float deltaTime)
