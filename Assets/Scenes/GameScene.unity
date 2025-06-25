@@ -196,6 +196,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4780621927995412780, guid: e9cb9ee5e2dae0d408ae37b037d77748, type: 3}
+      propertyPath: maxClientSpawnDelay
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4780621927995412780, guid: e9cb9ee5e2dae0d408ae37b037d77748, type: 3}
       propertyPath: ClientPrefabs.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -1311,8 +1315,8 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 1, g: 0.5801887, b: 0.89646363, a: 1}
-  m_Intensity: 60
-  m_Range: 50
+  m_Intensity: 20
+  m_Range: 20
   m_SpotAngle: 57.690613
   m_InnerSpotAngle: 17.84628
   m_CookieSize: 10
@@ -1757,7 +1761,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4780621927995412780, guid: e9cb9ee5e2dae0d408ae37b037d77748, type: 3}
       propertyPath: maxClientSpawnDelay
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4780621927995412780, guid: e9cb9ee5e2dae0d408ae37b037d77748, type: 3}
       propertyPath: ClientPrefabs.Array.size
@@ -5418,6 +5422,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8470870297942979330, guid: ff24bc7f73a294ed59a2f2c5400b356f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8911000258304204335, guid: ff24bc7f73a294ed59a2f2c5400b356f, type: 3}
       propertyPath: ToHide
       value: 
@@ -5425,7 +5433,8 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 6098780858064639687, guid: ff24bc7f73a294ed59a2f2c5400b356f, type: 3}
     - {fileID: 6727668378436992524, guid: ff24bc7f73a294ed59a2f2c5400b356f, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8470870297942979330, guid: ff24bc7f73a294ed59a2f2c5400b356f, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7697499718999504140, guid: ff24bc7f73a294ed59a2f2c5400b356f, type: 3}
       insertIndex: -1
@@ -6731,8 +6740,8 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 1, g: 0.5801887, b: 0.89646363, a: 1}
-  m_Intensity: 60
-  m_Range: 50
+  m_Intensity: 20
+  m_Range: 20
   m_SpotAngle: 57.690613
   m_InnerSpotAngle: 17.84628
   m_CookieSize: 10
@@ -7735,6 +7744,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4780621927995412780, guid: e9cb9ee5e2dae0d408ae37b037d77748, type: 3}
+      propertyPath: maxClientSpawnDelay
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4780621927995412780, guid: e9cb9ee5e2dae0d408ae37b037d77748, type: 3}
       propertyPath: ClientPrefabs.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -8372,8 +8385,8 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 1, g: 0.5801887, b: 0.89646363, a: 1}
-  m_Intensity: 60
-  m_Range: 50
+  m_Intensity: 20
+  m_Range: 20
   m_SpotAngle: 57.690613
   m_InnerSpotAngle: 17.84628
   m_CookieSize: 10
@@ -8939,6 +8952,14 @@ PrefabInstance:
       propertyPath: head
       value: 
       objectReference: {fileID: 810899118}
+    - target: {fileID: 361831348664370202, guid: 9c4444cf85712c648b0817cd5f7b4e93, type: 3}
+      propertyPath: NegativeColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 361831348664370202, guid: 9c4444cf85712c648b0817cd5f7b4e93, type: 3}
+      propertyPath: PositiveColor.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2028992034953377421, guid: 9c4444cf85712c648b0817cd5f7b4e93, type: 3}
       propertyPath: m_Camera
       value: 
@@ -14759,8 +14780,8 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 1, g: 0.5801887, b: 0.89646363, a: 1}
-  m_Intensity: 60
-  m_Range: 50
+  m_Intensity: 20
+  m_Range: 20
   m_SpotAngle: 57.690613
   m_InnerSpotAngle: 17.84628
   m_CookieSize: 10

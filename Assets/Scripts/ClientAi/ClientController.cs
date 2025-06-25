@@ -29,7 +29,6 @@ public enum DrinkEffect
     METEOR,
     TABLE_GLITCH,
     GLITCH,
-
     EMPTY,
     WATER
 }
@@ -353,12 +352,12 @@ public class ClientController : MonoBehaviour
         if (DesiredDrinkEffect == effect)
         {
             GameManager.Instance?.IncrementQuota(50);
-            result += 50;
+            result += 40;
         }
         else
         {
             GameManager.Instance?.DecrementQuota(20);
-            result -= 20;
+            result -= 25;
         }
 
         if (DesiredGlassType == glass)
@@ -369,7 +368,7 @@ public class ClientController : MonoBehaviour
         else
         {
             GameManager.Instance?.DecrementQuota(5);
-            result -= 5;
+            result -= 10;
         }
 
         if (DesiredFruitType == fruit)
@@ -380,7 +379,7 @@ public class ClientController : MonoBehaviour
         else
         {
             GameManager.Instance?.DecrementQuota(5);
-            result -= 5;
+            result -= 10;
         }
         
         if (result > 0)
@@ -402,7 +401,10 @@ public class ClientController : MonoBehaviour
         foreach (Rigidbody r in Joints)
         {
             r.isKinematic = !isRagdoll;
-            if(isRagdoll)r.WakeUp();
+            if (isRagdoll) r.WakeUp();
+        }
+        {
+            
         }
     }
 

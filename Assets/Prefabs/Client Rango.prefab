@@ -5174,6 +5174,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Timer
       objectReference: {fileID: 0}
+    - target: {fileID: 494862441029465903, guid: 111c764b3bade2b4f8f7eed9d86a1df4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5215255579037950906, guid: 111c764b3bade2b4f8f7eed9d86a1df4, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1

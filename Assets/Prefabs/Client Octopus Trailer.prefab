@@ -46,10 +46,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 6456090248501370823}
+  initialDelay: 0.5
   CombutionEffect: {fileID: 7744299578055473756}
   parent: {fileID: 7293946214203817095}
   Agent: {fileID: 6456754139563140130}
   MinPointDist: 2
+  leaveDelay: 2
+  destinationPollingTime: 0.5
+  CombutionAudioSource: {fileID: 0}
 --- !u!1 &690008073286530927
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,6 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 6456090248501370823}
+  initialDelay: 0.25
   renderers:
   - {fileID: 6103530954978721595}
   - {fileID: 4865973176325548003}
@@ -183,10 +188,10 @@ MonoBehaviour:
   - {fileID: 2100000, guid: e6c2d13fccd31b14fbd3ff053cd4df80, type: 2}
   - {fileID: 2100000, guid: ec41cafe210faf045a33f6c1d1909509, type: 2}
   dissolveSpeed: 0.33
-  initialDelay: 0.25
   finalDelay: 0.25
   particleEffect: {fileID: 4652869815591065415}
   Parent: {fileID: 7293946214203817095}
+  DissolveAudioSource: {fileID: 0}
 --- !u!1 &737603855692482419
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,9 +343,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 6456090248501370823}
+  initialDelay: 0.5
   Agent: {fileID: 6456754139563140130}
   MinPointDist: 0.75
   BubblesPrefab: {fileID: 8678071041699480933, guid: 48063ce8fd8513c429c1aafeef80ff18, type: 3}
+  walkDelay: 2
+  destinationPollingTime: 0.5
+  BubblesAudioSource: {fileID: 0}
 --- !u!1 &1830095099868151243
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,6 +395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 6456090248501370823}
+  initialDelay: 0.5
   Agent: {fileID: 6456754139563140130}
   MinPointDist: 0.75
 --- !u!1 &2007791399881843486
@@ -433,6 +443,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 6456090248501370823}
+  initialDelay: 0.5
   TimeToDisapear: 5
   materialsToChange:
   - {fileID: 6103530954978721595}
@@ -445,6 +456,7 @@ MonoBehaviour:
   FrozenMaterial: {fileID: 2100000, guid: 3f2887c8c6f6cf541b3c46fd28134e41, type: 2}
   FreezeEffect: {fileID: 6691560211994750216, guid: 863e439569d752a43aa3d8e5e11828aa, type: 3}
   parent: {fileID: 7293946214203817095}
+  FreezeAudioSource: {fileID: 0}
 --- !u!1 &2260760600679780111
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,6 +534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 6456090248501370823}
+  initialDelay: 0.5
   transitionTime: 2
   transparentMaterials:
   - {fileID: 2100000, guid: a0eac96189b154c6691df8fafb6ca3f6, type: 2}
@@ -590,6 +603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 6456090248501370823}
+  initialDelay: 0.5
   agent: {fileID: 6456754139563140130}
   MinPointDist: 0.75
   Parent: {fileID: 7293946214203817095}
@@ -640,6 +654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 6456090248501370823}
+  initialDelay: 0.5
   nextState: {fileID: 7086151004023943173}
   Agent: {fileID: 6456754139563140130}
   MinPointDist: 0.75
@@ -690,11 +705,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 6456090248501370823}
+  initialDelay: 0.5
   waitTime: 2
   Agent: {fileID: 6456754139563140130}
   MinPointDist: 0.75
   VFX: {fileID: 4780054818964698608}
   Parent: {fileID: 7293946214203817095}
+  destinationPollingTime: 0.5
 --- !u!1 &2830148992344247397
 GameObject:
   m_ObjectHideFlags: 0
@@ -776,6 +793,7 @@ MonoBehaviour:
   CharDelay: 0.05
   textObject: {fileID: 5793387578603978027}
   iconObject: {fileID: 690008073286530927}
+  pipClips: []
 --- !u!1 &2836051723289305055
 GameObject:
   m_ObjectHideFlags: 0
@@ -852,9 +870,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 6456090248501370823}
+  initialDelay: 1
   agent: {fileID: 6456754139563140130}
   MinPointDist: 0.75
-  initialDelay: 1
   NegativeMaterial: {fileID: 2100000, guid: 338fe63e699c8e448a835c6deeb2740b, type: 2}
   renderers:
   - {fileID: 6103530954978721595}
@@ -949,6 +967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 6456090248501370823}
+  initialDelay: 0.5
   particles: {fileID: 7059915676020873697}
   rootBoneRB: {fileID: 2655704746700022124}
   Parent: {fileID: 7293946214203817095}
@@ -1017,10 +1036,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 6456090248501370823}
+  initialDelay: 0.5
   TimeToDisapear: 4
   parent: {fileID: 7293946214203817095}
   flash: {fileID: 8771651359076398066, guid: adfe0788ac5c1d442a2aca30addb7a9f, type: 3}
   Model: {fileID: 3538669982199511873}
+  AnnihilationAudioSource: {fileID: 0}
 --- !u!1 &4311632477919902214
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,6 +1087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 6456090248501370823}
+  initialDelay: 0.5
   Agent: {fileID: 6456754139563140130}
   MinPointDist: 0.75
   TimeToDisapear: 10
@@ -1115,6 +1137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 6456090248501370823}
+  initialDelay: 0.5
   nextState: {fileID: 1502780027653658336}
 --- !u!1 &4611973361224934128
 GameObject:
@@ -1223,7 +1246,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 6456090248501370823}
+  initialDelay: 0.5
   BlackHole: {fileID: 470982254637823090, guid: ed16ff2c8bb01ba41aa34690790f3d1d, type: 3}
+  BlackHoleAudioSource: {fileID: 0}
 --- !u!1 &5380909189450916374
 GameObject:
   m_ObjectHideFlags: 0
@@ -1269,10 +1294,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 6456090248501370823}
+  initialDelay: 0.5
   TimeToDisapear: 5
   anitgravityStrenghtMultiplier: 5000
   parent: {fileID: 7293946214203817095}
   mainBone: {fileID: 2655704746700022124}
+  LowGravityAudioSource: {fileID: 0}
 --- !u!1 &5793387578603978027
 GameObject:
   m_ObjectHideFlags: 0
@@ -1496,15 +1523,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 6456090248501370823}
+  initialDelay: 0.5
   MeteorPrefab: {fileID: 4868147546304944043, guid: 7ebf81ef434f04746af760d2a4fb9f70, type: 3}
   meteorForce: 300
   explosionForce: 100000
   explosionRadius: 5
   explosionDistance: 0.2
   Parent: {fileID: 7293946214203817095}
-  initialDelay: 0.5
   Head: {fileID: 4887860926777385192}
   ExplosionPrefab: {fileID: 6013298604102375408, guid: 0729cabd380c51545979afe5d2c3ad1f, type: 3}
+  MeteorAudioSource: {fileID: 0}
   finalDelay: 3
 --- !u!135 &7521444948766929250
 SphereCollider:
@@ -1600,6 +1628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 6456090248501370823}
+  initialDelay: 0.5
   agent: {fileID: 6456754139563140130}
   MinPointDist: 0.75
   Parent: {fileID: 7293946214203817095}
@@ -1650,9 +1679,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 6456090248501370823}
+  initialDelay: 0.25
   agent: {fileID: 6456754139563140130}
   MinPointDist: 0.75
-  initialDelay: 0.25
   renderers:
   - {fileID: 6103530954978721595}
   - {fileID: 4865973176325548003}
@@ -1672,6 +1701,7 @@ MonoBehaviour:
   glitchRate: 0.5
   Parent: {fileID: 7293946214203817095}
   animator: {fileID: 7831792607383223169}
+  GlitchAudioSource: {fileID: 0}
 --- !u!1 &7126163594829592172
 GameObject:
   m_ObjectHideFlags: 0
@@ -1717,6 +1747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 6456090248501370823}
+  initialDelay: 0.5
   waitTime: 3
   Agent: {fileID: 6456754139563140130}
   MinPointDist: 0.75
@@ -1776,11 +1807,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 6456090248501370823}
+  initialDelay: 0.5
   MainBone: {fileID: 2655704746700022124}
   explosionForce: 200000
   explosionRadius: 5
   TimeToDisapear: 5
   ExplosionEffect: {fileID: 8784169859946565572, guid: cfeac452c39ce6f458017a7fea1a200c, type: 3}
+  ExplosionAudioSource: {fileID: 0}
 --- !u!1 &7293946214203817095
 GameObject:
   m_ObjectHideFlags: 0
@@ -1959,7 +1992,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentState: {fileID: 2374942741825442400}
   useCustomDrinkEffect: 1
+  useCustomGlass: 0
+  useCustomFruit: 0
   CustomDrinkEffect: 6
+  CustomGlass: 1
+  CustomFruit: 0
   DesiredDrinkEffect: 1
   DesiredGlassType: 0
   DesiredFruitType: 0
@@ -1972,6 +2009,9 @@ MonoBehaviour:
   GlassSocket: {fileID: 3465436978029201833}
   Spawner: {fileID: 0}
   currentGlass: {fileID: 0}
+  ClientAudio: {fileID: 0}
+  WelcomeClips: []
+  DrinkClips: []
 --- !u!95 &405454394730435261
 Animator:
   serializedVersion: 7
@@ -2075,9 +2115,12 @@ MonoBehaviour:
   agent: {fileID: 6456754139563140130}
   MinPointDist: 0.75
   animationActivationDelay: 0.5
+  agentPathingDelay: 0.25
   Parent: {fileID: 7293946214203817095}
   yeetDelay: 7
   yeetForce: 2000000
+  audioClips: []
+  TableAudioSource: {fileID: 0}
 --- !u!1 &7679468496361615186
 GameObject:
   m_ObjectHideFlags: 0
@@ -2128,6 +2171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 6456090248501370823}
+  initialDelay: 0.5
   Agent: {fileID: 6456754139563140130}
   cloneSpawnDelay: 0.35
   clientClonePrefab: {fileID: 4958140414647071798, guid: f421d6591d73b4cf9a0e6504862b53d8, type: 3}
@@ -2139,6 +2183,8 @@ MonoBehaviour:
   - {fileID: 304954352003698371}
   - {fileID: 5775448431759907502}
   - {fileID: 5734307671628357252}
+  destinationPollingTime: 0.5
+  CloneAudioSource: {fileID: 0}
 --- !u!1 &7853571296115299533
 GameObject:
   m_ObjectHideFlags: 0
@@ -2218,6 +2264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 6456090248501370823}
+  initialDelay: 0.5
   Renderers:
   - {fileID: 6103530954978721595}
   - {fileID: 4865973176325548003}
@@ -2292,6 +2339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 6456090248501370823}
+  initialDelay: 0.5
   agent: {fileID: 6456754139563140130}
   MinPointDist: 0.75
   waitingTime: 2
@@ -2300,6 +2348,7 @@ MonoBehaviour:
   - {fileID: 3339219463169748640}
   - {fileID: 7825119980550984018}
   Parent: {fileID: 7293946214203817095}
+  ApplauseAudioSource: {fileID: 0}
 --- !u!1 &7974157919049045273
 GameObject:
   m_ObjectHideFlags: 0
@@ -2345,6 +2394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 6456090248501370823}
+  initialDelay: 0.5
   nextState: {fileID: 3123611320134322167}
   passOutState: {fileID: 4297969352186075874}
   explodeState: {fileID: 7448452755128044486}
@@ -2416,7 +2466,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 6456090248501370823}
+  initialDelay: 0.5
   animator: {fileID: 405454394730435261}
+  destinationPollingTime: 0.5
 --- !u!1 &9131926821067517631
 GameObject:
   m_ObjectHideFlags: 0
@@ -4625,7 +4677,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7816271456062756039, guid: e39c175a6f1714adf994dea6cad25ee9, type: 3}
       propertyPath: m_Name
-      value: Octopus
+      value: ClientMesh
       objectReference: {fileID: 0}
     - target: {fileID: 7866436964385988222, guid: e39c175a6f1714adf994dea6cad25ee9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

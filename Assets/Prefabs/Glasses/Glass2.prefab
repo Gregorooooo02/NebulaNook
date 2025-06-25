@@ -558,6 +558,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d00e7b1c3733f4be8b4ff7cd9d1ad136, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9068185163200226148}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d00e7b1c3733f4be8b4ff7cd9d1ad136, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2336889276972020}
     - targetCorrespondingSourceObject: {fileID: -1042936812688445303, guid: d00e7b1c3733f4be8b4ff7cd9d1ad136, type: 3}
       insertIndex: -1
       addedObject: {fileID: 436014040931090977}
@@ -903,6 +906,20 @@ MonoBehaviour:
   currentFillAmount: 0
   drinkEffect: 23
   wasServed: 0
+--- !u!114 &2336889276972020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6015722306311712144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f838dd922362d48b4ac5a84256770c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsGrabbed: 0
+  grabInteractable: {fileID: 1269891512952821420}
 --- !u!4 &6356816838175373098 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d00e7b1c3733f4be8b4ff7cd9d1ad136, type: 3}

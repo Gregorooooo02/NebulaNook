@@ -312,6 +312,7 @@ GameObject:
   - component: {fileID: 4762681486025428517}
   - component: {fileID: 5330648615832197064}
   - component: {fileID: 4526569458404067640}
+  - component: {fileID: 3161262201964065852}
   m_Layer: 0
   m_Name: Glass1
   m_TagString: Glass
@@ -570,6 +571,20 @@ MonoBehaviour:
   currentFillAmount: 0
   drinkEffect: 23
   wasServed: 0
+--- !u!114 &3161262201964065852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071645477898967731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f838dd922362d48b4ac5a84256770c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsGrabbed: 0
+  grabInteractable: {fileID: 2417325388689883724}
 --- !u!1 &4068792131702474592
 GameObject:
   m_ObjectHideFlags: 0
