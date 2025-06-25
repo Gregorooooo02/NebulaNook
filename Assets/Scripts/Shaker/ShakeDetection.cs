@@ -64,6 +64,7 @@ public class ShakeDetection : MonoBehaviour
 
         if (isGrabbed && top.isAttached && !result)
         {
+            TutorialManager.Instance?.NotifyShakerShook();
             float deltaTime = Time.deltaTime;
             if (deltaTime == 0)
             {
@@ -96,6 +97,7 @@ public class ShakeDetection : MonoBehaviour
     {
         var instance = Instantiate(confetti, transform.position, transform.rotation, null);
         instance.GetComponent<ParticleSystem>().Play();
+        TutorialPIP.Instance?.SetShakeDone(true);
         yield return new WaitForSeconds(1);
         Destroy(instance);
     }

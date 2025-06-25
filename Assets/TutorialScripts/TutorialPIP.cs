@@ -305,9 +305,10 @@ public class TutorialPIP : MonoBehaviour
             yield return new WaitForSeconds(1.5f);
             if (wastedGlassCount >= wastedGlassesLimit) GetTheFuckOut();
         } while (BrokenGlass || SpilledGlass);
-        if (ProgressLine){ 
+        if (ProgressLine)
+        {
             ProgressLine = false;
-            textIndex++; 
+            textIndex++;
         }
 
         zone.Enabled = true;
@@ -382,5 +383,10 @@ public class TutorialPIP : MonoBehaviour
         ShakerClosed = true;
         ShakerShook = true;
         ShakerDone = true;
+    }
+
+    public void SetShakeDone(bool done)
+    {
+        ShakerDone = done;
     }
 }

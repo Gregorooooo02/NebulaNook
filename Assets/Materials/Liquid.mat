@@ -51,7 +51,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Fill: 0.27000016
+    - _Fill: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _WobbleX: -1.0039454e-31

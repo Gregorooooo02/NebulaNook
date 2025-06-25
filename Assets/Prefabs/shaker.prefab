@@ -361,7 +361,7 @@ MonoBehaviour:
   finalEffect: 23
   top: {fileID: 8161588567138559794}
   glassFiller: {fileID: 785031083813328130}
-  confetti: {fileID: 3659274086729608519}
+  confetti: {fileID: 3857143501795910839, guid: c09677881e1681a419dd1df7660db302, type: 3}
 --- !u!114 &785031083813328130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1093,11 +1093,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c09677881e1681a419dd1df7660db302, type: 3}
---- !u!198 &3659274086729608519 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 5027541132873288662, guid: c09677881e1681a419dd1df7660db302, type: 3}
-  m_PrefabInstance: {fileID: 8578566058881623697}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8336640681737797033 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 341291599530138424, guid: c09677881e1681a419dd1df7660db302, type: 3}

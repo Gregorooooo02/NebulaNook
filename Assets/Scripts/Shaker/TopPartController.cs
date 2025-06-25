@@ -55,6 +55,7 @@ public class TopPartController : MonoBehaviour
 
     void DetachFromBottom()
     {
+        TutorialManager.Instance?.NotifyShakerOpened();
         isAttached = false;
         transform.SetParent(null, true);
         rb.isKinematic = false;
@@ -62,6 +63,7 @@ public class TopPartController : MonoBehaviour
 
     void AttachToBottom()
     {
+        TutorialManager.Instance?.NotifyShakerClosed();
         rb.isKinematic = true;
         transform.position = snapTarget.position;
         transform.rotation = bottomPart.transform.rotation;

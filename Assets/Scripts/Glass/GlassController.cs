@@ -35,7 +35,7 @@ public class GlassController : MonoBehaviour
             var explosion = Instantiate(explosionPrefab, gameObject.transform.position, Quaternion.identity, null);
 
             Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
-            
+
             foreach (Collider col in colliders)
             {
                 Rigidbody colRb = col.GetComponent<Rigidbody>();
@@ -44,7 +44,7 @@ public class GlassController : MonoBehaviour
                     colRb.AddExplosionForce(explosionForce, transform.position, explosionRadius);
                 }
             }
-            
+
             Destroy(gameObject);
         }
 
@@ -53,7 +53,7 @@ public class GlassController : MonoBehaviour
 
         if (currentFillAmount >= 1.0f) return;
         drinkEffect = pouredDrink;
-
+        print("kek");
         liquidRenderer.sharedMaterial.SetColor("_TopColor", color);
         liquidRenderer.sharedMaterial.SetColor("_SideColor", color * 0.8f);
     }
