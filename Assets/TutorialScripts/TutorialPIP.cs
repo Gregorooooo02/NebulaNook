@@ -136,7 +136,7 @@ public class TutorialPIP : MonoBehaviour
         OilPicked = false;
         BlowtorchPicked = false;
         BlowtorchTriggerPulled = false;
-        ShakerOpened = false;
+        //ShakerOpened = false;
         ShakerClosed = false;
         ShakerShook = false;
         ShakerDone = false;
