@@ -659,6 +659,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8492495846023235358, guid: e9cb9ee5e2dae0d408ae37b037d77748, type: 3}
   m_PrefabInstance: {fileID: 1154658957}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &49677425 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8612608233192915135, guid: 852d232555361476dae9fe1cb0e19d41, type: 3}
+  m_PrefabInstance: {fileID: 4898214694836964754}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &50336837
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1040,6 +1045,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3266889020733634223, guid: e8bc1526ba59e484388f16dee6797988, type: 3}
+      propertyPath: Jukebox
+      value: 
+      objectReference: {fileID: 49677425}
+    - target: {fileID: 3266889020733634223, guid: e8bc1526ba59e484388f16dee6797988, type: 3}
       propertyPath: TriggerGameOver
       value: 0
       objectReference: {fileID: 0}
@@ -1049,7 +1058,7 @@ PrefabInstance:
       objectReference: {fileID: 404857870}
     - target: {fileID: 3266889020733634223, guid: e8bc1526ba59e484388f16dee6797988, type: 3}
       propertyPath: objectsToDisable.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3266889020733634223, guid: e8bc1526ba59e484388f16dee6797988, type: 3}
       propertyPath: 'objectsToDisable.Array.data[0]'
@@ -1058,7 +1067,11 @@ PrefabInstance:
     - target: {fileID: 3266889020733634223, guid: e8bc1526ba59e484388f16dee6797988, type: 3}
       propertyPath: 'objectsToDisable.Array.data[1]'
       value: 
-      objectReference: {fileID: 150768846}
+      objectReference: {fileID: 2090588917}
+    - target: {fileID: 3266889020733634223, guid: e8bc1526ba59e484388f16dee6797988, type: 3}
+      propertyPath: 'objectsToDisable.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1350617778}
     - target: {fileID: 3378432460557668006, guid: e8bc1526ba59e484388f16dee6797988, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.157
@@ -14750,6 +14763,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: de1a8536460484f969aaec1e131c01a5, type: 3}
   m_PrefabInstance: {fileID: 2063297223}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2090588917 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1488859858591468900, guid: ec0a4d659ea815d4aaed5ffd4faecafc, type: 3}
+  m_PrefabInstance: {fileID: 1656189219}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2095671458
 GameObject:
   m_ObjectHideFlags: 0
@@ -15675,3 +15693,4 @@ SceneRoots:
   - {fileID: 1574797891}
   - {fileID: 1143434475}
   - {fileID: 1439719490}
+  - {fileID: 4898214694836964754}

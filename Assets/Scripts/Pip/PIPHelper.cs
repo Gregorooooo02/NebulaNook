@@ -14,6 +14,7 @@ public class PIPHelper : MonoBehaviour
 
     public GameObject gameOverAnimationObject;
     public GameObject[] objectsToDisable;
+    public AudioSource Jukebox;
 
     public bool TriggerGameOver = false;
  
@@ -49,6 +50,8 @@ public class PIPHelper : MonoBehaviour
         {
             obj.SetActive(false);
         }
+
+        Jukebox.enabled = false;
 
         PipCoordinator co = FindAnyObjectByType<PipCoordinator>();
 
