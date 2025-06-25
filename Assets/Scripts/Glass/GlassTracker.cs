@@ -31,8 +31,8 @@ public class GlassTracker : MonoBehaviour
     {
         spawner = glassSpawner;
 
-        GlassFiller glassFiller = GetComponent<GlassFiller>();
-        if (glassFiller != null)
+        GlassController glassController = GetComponent<GlassController>();
+        if (glassController != null)
         {
             InvokeRepeating(nameof(CheckIfDrinkConsumed), 1f, 0.5f);
         }
@@ -42,10 +42,10 @@ public class GlassTracker : MonoBehaviour
     {
         if (drinkConsumed) return;
 
-        GlassFiller glassFiller = GetComponent<GlassFiller>();
-        if (glassFiller != null)
+        GlassController glassController = GetComponent<GlassController>();
+        if (glassController != null)
         {
-            bool wasServedAndEmpty = glassFiller.wasServed && glassFiller.currentFillAmount <= 0.1f;
+            bool wasServedAndEmpty = glassController.wasServed && glassController.currentFillAmount <= 0.1f;
 
             if (wasServedAndEmpty)
             {

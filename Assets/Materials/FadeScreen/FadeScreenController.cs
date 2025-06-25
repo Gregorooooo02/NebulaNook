@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class FadeScreenController : MonoBehaviour
 {
@@ -8,12 +9,14 @@ public class FadeScreenController : MonoBehaviour
 
     [SerializeField] private float speed = 1.0f;
     [SerializeField] private Material fadeMaterial;
+    [SerializeField] private AudioMixer audioMixer;
 
     private float FadeTime
     {
         set
         {
             fadeMaterial.SetFloat("_FadeTime", value);
+            audioMixer.SetFloat("_MasterVolume", Mathf.Lerp(0, -80f, value));
         }
     }
 

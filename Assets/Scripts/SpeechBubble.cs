@@ -23,12 +23,13 @@ public class SpeechBubble : MonoBehaviour
 
     private Action NotifyTextEnded;
     private AudioSource audioSource;
+    public AudioClip[] pipClips;
 
-   
 
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>(); 
+        audioSource = GetComponent<AudioSource>();
+        RandomizeAudioClips();
     }
 
     void Update()
@@ -36,7 +37,7 @@ public class SpeechBubble : MonoBehaviour
         if (_startWriting)
         {
             _currentCharTime += Time.deltaTime;
-            if(_currentCharTime > CharDelay)
+            if (_currentCharTime > CharDelay)
             {
                 _currentCharTime = 0;
                 characterIndex++;
@@ -50,16 +51,27 @@ public class SpeechBubble : MonoBehaviour
                     characterIndex = 0;
                     NotifyTextEnded?.Invoke();
                 }
-                if(characterIndex % 3 == 0) audioSource.Play();
+                if (characterIndex % 2 == 0)
+                {
+                    RandomizeAudioClips();
+                    audioSource.Play();
+                }
             }
         } 
+    }
+
+    private void RandomizeAudioClips()
+    {
+        if (pipClips.Length == 0) return;
+        int randomIndex = UnityEngine.Random.Range(0, pipClips.Length);
+        audioSource.clip = pipClips[randomIndex];
     }
 
     public void SetText(string text)
     {
         _currentText = text + " ";
         textObject.SetActive(true);
-        _startWriting = true; 
+        _startWriting = true;
     }
 
     public void SetNotifyAction(Action action)

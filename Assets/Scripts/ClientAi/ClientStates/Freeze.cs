@@ -13,30 +13,32 @@ public class Freeze : ClientState
 
     public GameObject FreezeEffect;
     public GameObject parent;
+    public AudioSource FreezeAudioSource;
+
     public override ClientState RunState()
     {
-/*        if (triggered)
-        {
-            if (_currentTime < TimeToDisapear)
-            {
-                _currentTime += Time.fixedDeltaTime;
-                return this;
-            }
+        /*        if (triggered)
+                {
+                    if (_currentTime < TimeToDisapear)
+                    {
+                        _currentTime += Time.fixedDeltaTime;
+                        return this;
+                    }
 
-            Controller.Spawner?.NotifyClientFinished();
-            Destroy(parent);
-        }
-        else
-        {
-            GetComponentInParent<ClientController>().ToggleRagdoll(true);
-            GetComponentInParent<ClientController>().StiffenRagdoll();
-            Instantiate(FreezeEffect, transform);
-            foreach(SkinnedMeshRenderer m in materialsToChange)
-            {
-                m.material = FrozenMaterial;
-            }
-            triggered = true;
-        }*/
+                    Controller.Spawner?.NotifyClientFinished();
+                    Destroy(parent);
+                }
+                else
+                {
+                    GetComponentInParent<ClientController>().ToggleRagdoll(true);
+                    GetComponentInParent<ClientController>().StiffenRagdoll();
+                    Instantiate(FreezeEffect, transform);
+                    foreach(SkinnedMeshRenderer m in materialsToChange)
+                    {
+                        m.material = FrozenMaterial;
+                    }
+                    triggered = true;
+                }*/
 
 
         if (!triggered)
@@ -53,6 +55,7 @@ public class Freeze : ClientState
         Controller.ToggleRagdoll(true);
         Controller.StiffenRagdoll();
         Instantiate(FreezeEffect, transform);
+        FreezeAudioSource.Play();
         foreach (Renderer m in materialsToChange)
         {
             m.material = FrozenMaterial;

@@ -57,7 +57,7 @@ Transform:
   m_GameObject: {fileID: 6723392955478452242}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.26, y: 0.93, z: 0.06}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -375,7 +375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   liquidRenderer: {fileID: 1023475162871527266}
-  fillSpeed: 0.2
+  fillSpeed: 1
   startingFill: 0
   currentFillAmount: 0
   fillAmounts:
@@ -410,8 +410,8 @@ MonoBehaviour:
   rimHeight: 0.095
   minPourAngle: 15
   maxPourAngle: 90
-  minFlowRate: 0.1
-  maxFlowRate: 0.5
+  minFlowRate: 0.25
+  maxFlowRate: 1.5
   IsPouring: 0
 --- !u!65 &8075355418501499570
 BoxCollider:

@@ -1052,7 +1052,7 @@ GameObject:
   - component: {fileID: 8911000258304204335}
   m_Layer: 2
   m_Name: XR Origin (XR Rig)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1170,7 +1170,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26ba13c47fe1e424b9750cc93a112369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ToActivate: {fileID: 2007148419268004138}
 --- !u!1 &8470870297942979330
 GameObject:
   m_ObjectHideFlags: 0

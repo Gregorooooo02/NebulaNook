@@ -15,6 +15,7 @@ public class Dissolve : ClientState
 
     public GameObject particleEffect;
     public GameObject Parent;
+    public AudioSource DissolveAudioSource;
 
     public override ClientState RunState()
     {
@@ -23,7 +24,7 @@ public class Dissolve : ClientState
             for (int i = 0; i < renderers.Length; i++)
             {
                 renderers[i].material = new Material(replacementMaterials[i]);
-                renderers[i].material.SetFloat("_Dissolve_Amount",0.0f);
+                renderers[i].material.SetFloat("_Dissolve_Amount", 0.0f);
             }
             triggered = true;
             StartCoroutine("ExecuteEffect");
@@ -36,7 +37,8 @@ public class Dissolve : ClientState
     {
         yield return new WaitForSeconds(initialDelay);
         particleEffect.SetActive(true);
-        while(dissolveAmount < 1.0f)
+        DissolveAudioSource.Play();
+        while (dissolveAmount < 1.0f)
         {
             dissolveAmount += dissolveSpeed * Time.fixedDeltaTime;
             foreach (Renderer renderer in renderers)

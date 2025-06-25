@@ -11,26 +11,27 @@ public class LowGravity : ClientState
 
     public GameObject parent;
     public Rigidbody mainBone;
+    public AudioSource LowGravityAudioSource;
 
     public override ClientState RunState()
     {
-/*        if (triggered)
-        {
-            if (_currentTime < TimeToDisapear)
-            {
-                _currentTime += Time.fixedDeltaTime;
-                mainBone.AddForce(Physics.gravity * -2 * anitgravityStrenghtMultiplier, ForceMode.Force);
-                return this;
-            }
-            Controller.Spawner?.NotifyClientFinished();
-            Destroy(parent);
-        }
-        else
-        {
-            GetComponentInParent<ClientController>().ToggleRagdoll(true);
-            mainBone.AddForce(Physics.gravity * -2 * anitgravityStrenghtMultiplier,ForceMode.Force);
-            triggered = true;
-        }*/
+        /*        if (triggered)
+                {
+                    if (_currentTime < TimeToDisapear)
+                    {
+                        _currentTime += Time.fixedDeltaTime;
+                        mainBone.AddForce(Physics.gravity * -2 * anitgravityStrenghtMultiplier, ForceMode.Force);
+                        return this;
+                    }
+                    Controller.Spawner?.NotifyClientFinished();
+                    Destroy(parent);
+                }
+                else
+                {
+                    GetComponentInParent<ClientController>().ToggleRagdoll(true);
+                    mainBone.AddForce(Physics.gravity * -2 * anitgravityStrenghtMultiplier,ForceMode.Force);
+                    triggered = true;
+                }*/
 
         if (!triggered)
         {
@@ -45,6 +46,7 @@ public class LowGravity : ClientState
     {
         yield return new WaitForSeconds(initialDelay);
         Controller.ToggleRagdoll(true);
+        LowGravityAudioSource.Play();
         while (_currentTime < TimeToDisapear)
         {
             mainBone.AddForce(Physics.gravity * -2 * anitgravityStrenghtMultiplier, ForceMode.Force);

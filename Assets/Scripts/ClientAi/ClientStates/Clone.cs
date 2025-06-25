@@ -24,39 +24,41 @@ public class Clone : ClientState
 
     public float destinationPollingTime = 0.5f;
     private bool triggered = false; 
+    
+    public AudioSource CloneAudioSource;
 
     public override ClientState RunState()
     {
-/*        if (!isDone)
-        {
-            _currentTime += Time.fixedDeltaTime;
-            if(_currentTime > cloneSpawnDelay)
-            {
-                clones.Add(Instantiate(clientClonePrefab, spawnLocations[_currentIndex].position, Parent.transform.localRotation).GetComponent<CloneControler>());
-                _currentTime = 0;
-                _currentIndex++;
-                if(_currentIndex >= spawnLocations.Length) isDone = true;
-            }
-            return this;
-        }
-        if (isWalking)
-        {
-            if (Vector3.Distance(transform.position, Controller.Spawner.Exit.transform.position) <= MinPointDist)
-            {
-                isWalking = false;
-                Controller.Spawner?.NotifyClientFinished();
-                Destroy(Parent);
-            }
+        /*        if (!isDone)
+                {
+                    _currentTime += Time.fixedDeltaTime;
+                    if(_currentTime > cloneSpawnDelay)
+                    {
+                        clones.Add(Instantiate(clientClonePrefab, spawnLocations[_currentIndex].position, Parent.transform.localRotation).GetComponent<CloneControler>());
+                        _currentTime = 0;
+                        _currentIndex++;
+                        if(_currentIndex >= spawnLocations.Length) isDone = true;
+                    }
+                    return this;
+                }
+                if (isWalking)
+                {
+                    if (Vector3.Distance(transform.position, Controller.Spawner.Exit.transform.position) <= MinPointDist)
+                    {
+                        isWalking = false;
+                        Controller.Spawner?.NotifyClientFinished();
+                        Destroy(Parent);
+                    }
 
-        } else
-        {
-            Agent.SetDestination(Controller.Spawner.Exit.transform.position);
-            foreach (var clone in clones)
-            {
-                clone.Exit(Controller.Spawner.Exit.transform.position);
-            }
-            isWalking = true;
-        }*/
+                } else
+                {
+                    Agent.SetDestination(Controller.Spawner.Exit.transform.position);
+                    foreach (var clone in clones)
+                    {
+                        clone.Exit(Controller.Spawner.Exit.transform.position);
+                    }
+                    isWalking = true;
+                }*/
         if (!triggered)
         {
             triggered = true;
@@ -72,6 +74,7 @@ public class Clone : ClientState
         foreach (var pos in spawnLocations)
         {
             clones.Add(Instantiate(clientClonePrefab, pos.position, Parent.transform.localRotation).GetComponent<CloneControler>());
+            CloneAudioSource.Play();
             yield return new WaitForSeconds(cloneSpawnDelay);
         }
         Agent.SetDestination(Controller.Spawner.Exit.transform.position);

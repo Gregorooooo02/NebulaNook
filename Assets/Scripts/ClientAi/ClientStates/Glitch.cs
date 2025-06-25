@@ -18,6 +18,7 @@ public class Glitch : ClientState
 
     public GameObject Parent;
     public Animator animator;
+    public AudioSource GlitchAudioSource;
 
     public override ClientState RunState()
     {
@@ -42,10 +43,11 @@ public class Glitch : ClientState
     {
         yield return new WaitForSeconds(initialDelay);
         animator.enabled = false;
-        while(currentGlitchStrenght < 1.0f)
+        GlitchAudioSource.Play();
+        while (currentGlitchStrenght < 1.0f)
         {
             currentGlitchStrenght += glitchRate * Time.fixedDeltaTime;
-            if(currentGlitchStrenght > 1.0f)
+            if (currentGlitchStrenght > 1.0f)
             {
                 currentGlitchStrenght = 1.0f;
             }

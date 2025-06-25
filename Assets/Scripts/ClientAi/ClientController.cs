@@ -96,10 +96,15 @@ public class ClientController : MonoBehaviour
     public GameObject currentGlass;
     private bool _isGlassInHand = false;
 
+    public AudioSource ClientAudio;
+    public AudioClip[] WelcomeClips;
+    public AudioClip[] DrinkClips;
+
     private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
         _drinkWaiting = GetComponentInChildren<WaitForDrink>();
+        ClientAudio = GetComponent<AudioSource>();
 
         SetDesiredDrink();
 
@@ -160,7 +165,6 @@ public class ClientController : MonoBehaviour
         }
         CheckWaiting();
 
-
         CheckWalking();
         CheckWaiving(); 
     }
@@ -195,7 +199,7 @@ public class ClientController : MonoBehaviour
         _drinkWaiting.Continue = true;
         Spawner.ZoneScript.DisableHolograms();
         RecipeBook.Instance.RemoveRecipe(DesiredDrinkEffect, this);
-        if (!useCustomDrinkEffect) GameManager.Instance.DecrementQuota(10);
+        if (!useCustomDrinkEffect) GameManager.Instance.DecrementQuota(0);
     }
 
     private void CheckWalking()
@@ -234,6 +238,12 @@ public class ClientController : MonoBehaviour
         TutorialManager.Instance?.NotifyClientAproached();
         
         Animator.SetBool("isWaving", true);
+        yield return new WaitForSeconds(2f); // Wait a bit before playing the audio
+        ClientAudio.clip = WelcomeClips[Random.Range(0, WelcomeClips.Length)];
+        if (!ClientAudio.isPlaying)
+        {
+            ClientAudio.Play();
+        }
         var wait = new WaitForSeconds(Animator.GetCurrentAnimatorStateInfo(0).length);
         // Wait for the waving animation to finish
         yield return wait;
@@ -263,6 +273,12 @@ public class ClientController : MonoBehaviour
         bubble.gameObject.SetActive(false);
         RecipeBook.Instance.RemoveRecipe(DesiredDrinkEffect, this);
         Animator.SetBool("isDrinking", true);
+        yield return new WaitForSeconds(1f); // Wait a bit before playing the audio
+        ClientAudio.clip = DrinkClips[Random.Range(0, WelcomeClips.Length)];
+        if (!ClientAudio.isPlaying)
+        {
+            ClientAudio.Play();
+        }
         var wait = new WaitForSeconds(Animator.GetCurrentAnimatorStateInfo(0).length);
         // Wait for the drinking animation to finish
         yield return wait;
@@ -270,10 +286,10 @@ public class ClientController : MonoBehaviour
 
         if (currentGlass != null)
         {
-            GlassFiller filler = currentGlass.GetComponent<GlassFiller>();
-            if (filler != null)
+            GlassController controller = currentGlass.GetComponent<GlassController>();
+            if (controller != null)
             {
-                filler.currentFillAmount = 0f; // Empty the glass
+                controller.currentFillAmount = 0f; // Empty the glass
                 currentGlass.GetComponent<GlassTracker>().OnDrinkConsumed();
             }
         }
@@ -336,19 +352,19 @@ public class ClientController : MonoBehaviour
         int result = 0;
         if (DesiredDrinkEffect == effect)
         {
-            GameManager.Instance?.IncrementQuota(20);
-            result += 20;
+            GameManager.Instance?.IncrementQuota(50);
+            result += 50;
         }
         else
         {
-            GameManager.Instance?.DecrementQuota(10);
-            result -= 10;
+            GameManager.Instance?.DecrementQuota(20);
+            result -= 20;
         }
 
         if (DesiredGlassType == glass)
         {
-            GameManager.Instance?.IncrementQuota(10);
-            result += 10;
+            GameManager.Instance.IncrementQuota(20);
+            result += 20;
         }
         else
         {
@@ -358,8 +374,8 @@ public class ClientController : MonoBehaviour
 
         if (DesiredFruitType == fruit)
         {
-            GameManager.Instance?.IncrementQuota(10);
-            result += 10;
+            GameManager.Instance.IncrementQuota(20);
+            result += 20;
         }
         else
         {

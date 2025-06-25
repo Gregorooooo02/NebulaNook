@@ -16,10 +16,14 @@ public class GlassController : MonoBehaviour
     public float currentFillAmount = 0f;
     public DrinkEffect drinkEffect;
 
+    [HideInInspector]
+    public bool wasServed = false;
+
 
     private void Awake()
     {
         currentFillAmount = Mathf.Clamp01(startingFill);
+        liquidRenderer.sharedMaterial = new Material(liquidRenderer.sharedMaterial);
         liquidRenderer.sharedMaterial.SetFloat("_Fill", currentFillAmount);
         rb = GetComponent<Rigidbody>();
     }

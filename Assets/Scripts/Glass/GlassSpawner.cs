@@ -132,11 +132,11 @@ public class GlassSpawner : XRBaseInteractable
 
     private bool CanRemoveGlass(GameObject glass)
     {
-        GlassFiller glassFiller = glass.GetComponent<GlassFiller>();
-        if (glassFiller == null) return true;
+        GlassController glassController = glass.GetComponent<GlassController>();
+        if (glassController == null) return true;
 
-        bool hasContent = glassFiller.currentFillAmount >= minFillToProtect;
-        bool wasServedButNotConsumed = glassFiller.wasServed && glassFiller.currentFillAmount > 0.1f;
+        bool hasContent = glassController.currentFillAmount >= minFillToProtect;
+        bool wasServedButNotConsumed = glassController.wasServed && glassController.currentFillAmount > 0.1f;
         
         return !hasContent && !wasServedButNotConsumed;
     }

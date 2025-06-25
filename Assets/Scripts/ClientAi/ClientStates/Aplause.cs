@@ -14,7 +14,7 @@ public class Aplause : ClientState
 
     public GameObject[] confetti;
     public GameObject Parent;
-
+    public AudioSource ApplauseAudioSource;
 
     public override ClientState RunState()
     {
@@ -33,6 +33,7 @@ public class Aplause : ClientState
 
     IEnumerator ExecuteEffect()
     {
+        ApplauseAudioSource.Play();
         foreach (var f in confetti)
         {
             f.SetActive(true);

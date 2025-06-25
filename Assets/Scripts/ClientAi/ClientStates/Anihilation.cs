@@ -10,6 +10,7 @@ public class Anihilation : ClientState
     public GameObject parent;
     public GameObject flash;
     public GameObject Model;
+    public AudioSource AnnihilationAudioSource;
     public override ClientState RunState()
     {
         if (!triggered)
@@ -24,6 +25,7 @@ public class Anihilation : ClientState
     {
         yield return new WaitForSeconds(initialDelay);
         Controller.ToggleRagdoll(true);
+        AnnihilationAudioSource.Play();
         Instantiate(flash, transform);
         yield return new WaitForFixedUpdate();
         Model.SetActive(false);
