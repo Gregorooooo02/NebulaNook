@@ -15,20 +15,25 @@ public class FlashScript : MonoBehaviour
 
     private float current_time = 0.0f;
     private Bloom profile;
-    private float startBloomValue;
+
+    private VolumeProfile clonedProfile;
+    private Bloom cloneBloom;
 
     private void Start()
     {
         Volume = FindAnyObjectByType<Volume>();
         Volume.profile.TryGet(out profile);
-        startBloomValue = profile.intensity.value;
+
+        clonedProfile = Instantiate(Volume.profile);
+        cloneBloom = Instantiate(profile);
     }
 
     void FixedUpdate()
     {
         if (current_time >= Duration)
         {
-            profile.intensity.value = startBloomValue;
+            clonedProfile.components[0] = cloneBloom;
+            Volume.profile = clonedProfile;
             Destroy(gameObject);
         }
         current_time += Time.fixedDeltaTime;
