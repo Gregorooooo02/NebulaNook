@@ -347,23 +347,23 @@ public class ClientController : MonoBehaviour
 
         if (DesiredGlassType == glass)
         {
-            GameManager.Instance.IncrementQuota(10);
+            GameManager.Instance?.IncrementQuota(10);
             result += 10;
         }
         else
         {
-            GameManager.Instance.DecrementQuota(5);
+            GameManager.Instance?.DecrementQuota(5);
             result -= 5;
         }
 
         if (DesiredFruitType == fruit)
         {
-            GameManager.Instance.IncrementQuota(10);
+            GameManager.Instance?.IncrementQuota(10);
             result += 10;
         }
         else
         {
-            GameManager.Instance.DecrementQuota(5);
+            GameManager.Instance?.DecrementQuota(5);
             result -= 5;
         }
         
