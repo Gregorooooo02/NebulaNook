@@ -6,6 +6,8 @@ public class ScreenSpaceUI : MonoBehaviour
 {
     public static ScreenSpaceUI instance;
 
+    public Transform head;
+    public float distanceFromHead = 1.0f;
     public TextMeshProUGUI text;
 
     public Color PositiveColor;
@@ -25,6 +27,12 @@ public class ScreenSpaceUI : MonoBehaviour
     {
         instance = this;
         startPos = text.gameObject.transform.position;
+    }
+
+    private void Update()
+    {
+        gameObject.transform.position = head.position + new Vector3(head.forward.x, head.forward.y, head.forward.z).normalized * distanceFromHead;
+        gameObject.transform.rotation = Quaternion.LookRotation(head.forward, head.up);
     }
 
     public void PositiveChange(int amount)
