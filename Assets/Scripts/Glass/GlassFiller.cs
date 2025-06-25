@@ -22,6 +22,7 @@ public class GlassFiller : MonoBehaviour
     private void Awake()
     {
         currentFillAmount = Mathf.Clamp01(startingFill);
+        liquidRenderer.sharedMaterial = new Material(liquidRenderer.sharedMaterial);
         liquidRenderer.sharedMaterial.SetFloat("_Fill", currentFillAmount);
     }
 

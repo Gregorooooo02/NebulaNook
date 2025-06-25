@@ -754,6 +754,7 @@ MonoBehaviour:
   explosiveSlice: {fileID: 7199667395457116145}
   glassType: 1
   attachedFruitType: 0
+  isTutorial: 0
 --- !u!114 &7695758094535745677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -895,12 +896,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   liquidRenderer: {fileID: 9035145945714805289}
   explosionPrefab: {fileID: 8784169859946565572, guid: cfeac452c39ce6f458017a7fea1a200c, type: 3}
-  fillSpeed: 0.5
+  fillSpeed: 1
   startingFill: 0
   explosionRadius: 2
   explosionForce: 300
   currentFillAmount: 0
   drinkEffect: 23
+  wasServed: 0
 --- !u!4 &6356816838175373098 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d00e7b1c3733f4be8b4ff7cd9d1ad136, type: 3}

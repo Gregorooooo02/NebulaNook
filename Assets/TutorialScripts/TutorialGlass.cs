@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class TutorialGlass : MonoBehaviour
 {
-    private GlassFiller filler;
+    private GlassController controller;
     void Start()
     {
-        filler = GetComponent<GlassFiller>();
+        controller = GetComponent<GlassController>();
     }
 
     private void FixedUpdate()
     {
-        if(filler.currentFillAmount < 0.1f)
+        if(controller.currentFillAmount < 0.1f)
         {
             TutorialManager.Instance?.NotifyGlassSpilled();
         }

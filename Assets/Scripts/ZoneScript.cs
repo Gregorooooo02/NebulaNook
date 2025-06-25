@@ -66,7 +66,7 @@ public class ZoneScript : MonoBehaviour
         
         if (!BarChairScript.Occupied && currentGlass != null) return;
 
-        if (other.gameObject.TryGetComponent<GlassFiller>(out GlassFiller component) && !component.wasServed)
+        if (other.gameObject.TryGetComponent<GlassController>(out GlassController component) && !component.wasServed)
         {
             if (component.currentFillAmount < 0.5f) return; // Check if the glass is filled enough
             currentGlass = other.gameObject;
@@ -82,7 +82,7 @@ public class ZoneScript : MonoBehaviour
             GlassTracker glassTracker = currentGlass.GetComponent<GlassTracker>();
 
             BarChairScript.Occupier.currentGlass = currentGlass;
-            BarChairScript.Occupier.Drink(component.GetFinalDrinkEffect(), glassTracker.glassType, glassTracker.attachedFruitType);
+            BarChairScript.Occupier.Drink(component.drinkEffect, glassTracker.glassType, glassTracker.attachedFruitType);
             component.wasServed = true;
 
             currentGlass = null;

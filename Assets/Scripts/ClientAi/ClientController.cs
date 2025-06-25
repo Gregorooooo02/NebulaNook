@@ -195,7 +195,7 @@ public class ClientController : MonoBehaviour
         _drinkWaiting.Continue = true;
         Spawner.ZoneScript.DisableHolograms();
         RecipeBook.Instance.RemoveRecipe(DesiredDrinkEffect, this);
-        if (!useCustomDrinkEffect) GameManager.Instance.DecrementQuota(10);
+        if (!useCustomDrinkEffect) GameManager.Instance.DecrementQuota(0);
     }
 
     private void CheckWalking()
@@ -270,10 +270,10 @@ public class ClientController : MonoBehaviour
 
         if (currentGlass != null)
         {
-            GlassFiller filler = currentGlass.GetComponent<GlassFiller>();
-            if (filler != null)
+            GlassController controller = currentGlass.GetComponent<GlassController>();
+            if (controller != null)
             {
-                filler.currentFillAmount = 0f; // Empty the glass
+                controller.currentFillAmount = 0f; // Empty the glass
                 currentGlass.GetComponent<GlassTracker>().OnDrinkConsumed();
             }
         }
@@ -336,19 +336,19 @@ public class ClientController : MonoBehaviour
         int result = 0;
         if (DesiredDrinkEffect == effect)
         {
-            GameManager.Instance?.IncrementQuota(20);
-            result += 20;
+            GameManager.Instance?.IncrementQuota(50);
+            result += 50;
         }
         else
         {
-            GameManager.Instance?.DecrementQuota(10);
-            result -= 10;
+            GameManager.Instance?.DecrementQuota(20);
+            result -= 20;
         }
 
         if (DesiredGlassType == glass)
         {
-            GameManager.Instance.IncrementQuota(10);
-            result += 10;
+            GameManager.Instance.IncrementQuota(20);
+            result += 20;
         }
         else
         {
@@ -358,8 +358,8 @@ public class ClientController : MonoBehaviour
 
         if (DesiredFruitType == fruit)
         {
-            GameManager.Instance.IncrementQuota(10);
-            result += 10;
+            GameManager.Instance.IncrementQuota(20);
+            result += 20;
         }
         else
         {

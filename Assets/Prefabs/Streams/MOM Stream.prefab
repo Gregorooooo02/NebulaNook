@@ -66,7 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7de72733b597440e4b10eadeb7ad1b2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fillSpeed: 0.2
+  fillSpeed: 0.3
   streamEffect: 5
 --- !u!1 &8247792326252429193
 GameObject:
@@ -4948,6 +4948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f89119459def46d9bef48c7e66875fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lineRenderer: {fileID: 0}
   streamTrigger: {fileID: 5593831209845178720}
   ignoreLayer:
     serializedVersion: 2

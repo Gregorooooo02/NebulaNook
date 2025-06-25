@@ -56,17 +56,17 @@ public class BarBoundaryTrigger : MonoBehaviour
             return;
         }
 
-        GlassFiller filler = other.GetComponent<GlassFiller>();
-        if (filler != null)
+        GlassController controller = other.GetComponent<GlassController>();
+        if (controller != null)
         {
-            if (filler.currentFillAmount > 0.1f)
+            if (controller.currentFillAmount > 0.1f)
             {
                 Debug.Log($"Szklanka {other.name} ma ciecz - wydłużam czas grace");
                 StartCoroutine(DelayedDestroyGlass(other.gameObject, graceTimer * 3));
                 return;
             }
 
-            if (filler.wasServed)
+            if (controller.wasServed)
             {
                 Debug.Log($"Szklanka {other.name} została podana - wydłużam czas grace");
                 StartCoroutine(DelayedDestroyGlass(other.gameObject, graceTimer * 5));
@@ -173,8 +173,8 @@ public class BarBoundaryTrigger : MonoBehaviour
                 yield break;
             }
 
-            GlassFiller filler = glass.GetComponent<GlassFiller>();
-            if (filler != null && (filler.currentFillAmount > 0.1f || filler.wasServed))
+            GlassController controller = glass.GetComponent<GlassController>();
+            if (controller != null && (controller.currentFillAmount > 0.1f || controller.wasServed))
             {
                 yield break;
             }
