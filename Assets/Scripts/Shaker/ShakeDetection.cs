@@ -17,7 +17,7 @@ public class ShakeDetection : MonoBehaviour
     private Quaternion lastRotation; private Vector3 lastPosition;
     [SerializeField] private TopPartController top;
     [SerializeField] private GlassFiller glassFiller;
-    [SerializeField] private ParticleSystem confetti;
+    [SerializeField] private GameObject confetti;
     private float[] lastShakerState = new float[6];
     private float lastShakerFill = 0.0f;
     
@@ -94,8 +94,8 @@ public class ShakeDetection : MonoBehaviour
 
     private IEnumerator playParticles()
     {
-        var instance = Instantiate(confetti, transform.position, transform.rotation);
-        instance.Play();
+        var instance = Instantiate(confetti, transform.position, transform.rotation, null);
+        instance.GetComponent<ParticleSystem>().Play();
         yield return new WaitForSeconds(1);
         Destroy(instance);
     }
