@@ -96,10 +96,15 @@ public class ClientController : MonoBehaviour
     public GameObject currentGlass;
     private bool _isGlassInHand = false;
 
+    public AudioSource ClientAudio;
+    public AudioClip[] WelcomeClips;
+    public AudioClip[] DrinkClips;
+
     private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
         _drinkWaiting = GetComponentInChildren<WaitForDrink>();
+        ClientAudio = GetComponent<AudioSource>();
 
         SetDesiredDrink();
 
@@ -159,7 +164,6 @@ public class ClientController : MonoBehaviour
             CurrentState = nextState;
         }
         CheckWaiting();
-
 
         CheckWalking();
         CheckWaiving(); 
@@ -234,6 +238,12 @@ public class ClientController : MonoBehaviour
         TutorialManager.Instance?.NotifyClientAproached();
         
         Animator.SetBool("isWaving", true);
+        yield return new WaitForSeconds(2f); // Wait a bit before playing the audio
+        ClientAudio.clip = WelcomeClips[Random.Range(0, WelcomeClips.Length)];
+        if (!ClientAudio.isPlaying)
+        {
+            ClientAudio.Play();
+        }
         var wait = new WaitForSeconds(Animator.GetCurrentAnimatorStateInfo(0).length);
         // Wait for the waving animation to finish
         yield return wait;
@@ -263,6 +273,12 @@ public class ClientController : MonoBehaviour
         bubble.gameObject.SetActive(false);
         RecipeBook.Instance.RemoveRecipe(DesiredDrinkEffect, this);
         Animator.SetBool("isDrinking", true);
+        yield return new WaitForSeconds(1f); // Wait a bit before playing the audio
+        ClientAudio.clip = DrinkClips[Random.Range(0, WelcomeClips.Length)];
+        if (!ClientAudio.isPlaying)
+        {
+            ClientAudio.Play();
+        }
         var wait = new WaitForSeconds(Animator.GetCurrentAnimatorStateInfo(0).length);
         // Wait for the drinking animation to finish
         yield return wait;
