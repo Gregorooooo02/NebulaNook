@@ -9822,74 +9822,6 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
---- !u!1 &1439719489
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1439719490}
-  - component: {fileID: 1439719492}
-  - component: {fileID: 1439719491}
-  m_Layer: 0
-  m_Name: BoardTrigger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1439719490
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1439719489}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1656818225}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1439719491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1439719489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e79455e0f3bc4e79b458d3025c4da2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxFruitsOnBoard: 1
-  allowSlicedFruits: 0
---- !u!65 &1439719492
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1439719489}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.015, y: 0.01, z: 0.001}
-  m_Center: {x: 0.0035, y: 0, z: 0.0005}
 --- !u!1 &1461703099
 GameObject:
   m_ObjectHideFlags: 0
@@ -11477,14 +11409,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: cff7a60dd2ae54bc7afdf07024f83b04, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1439719490}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cff7a60dd2ae54bc7afdf07024f83b04, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1656818227}
+      addedObject: {fileID: 1656818230}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cff7a60dd2ae54bc7afdf07024f83b04, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1656818231}
   m_SourcePrefab: {fileID: 100100000, guid: cff7a60dd2ae54bc7afdf07024f83b04, type: 3}
 --- !u!4 &1656818225 stripped
 Transform:
@@ -11496,8 +11428,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: cff7a60dd2ae54bc7afdf07024f83b04, type: 3}
   m_PrefabInstance: {fileID: 1656818224}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &1656818227
-MeshCollider:
+--- !u!65 &1656818230
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -11514,10 +11446,23 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -8678823145569952518, guid: cff7a60dd2ae54bc7afdf07024f83b04, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.015, y: 0.009, z: 0.0008}
+  m_Center: {x: 0.003, y: -8.992061e-12, z: -0.0003}
+--- !u!114 &1656818231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656818226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e79455e0f3bc4e79b458d3025c4da2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxFruitsOnBoard: 1
+  allowSlicedFruits: 0
 --- !u!1001 &1682075547
 PrefabInstance:
   m_ObjectHideFlags: 0
