@@ -14,6 +14,7 @@ public class PourDetector : MonoBehaviour
 
     private bool isPouring = false;
     private Stream currentStream = null;
+    private BottleAudio bottleAudio;
 
     [SerializeField] private bool shouldParentStream = true;
 
@@ -21,6 +22,8 @@ public class PourDetector : MonoBehaviour
     {
         grabInteractable.selectEntered.AddListener(OnSelectEntered);
         grabInteractable.selectExited.AddListener(OnSelectExited);
+
+        bottleAudio = GetComponent<BottleAudio>();
     }
 
     // This method is called when the object is grabbed
@@ -61,16 +64,20 @@ public class PourDetector : MonoBehaviour
         }
     }
 
-    private void StartPour() {
+    private void StartPour()
+    {
         Debug.Log("Start");
         currentStream = CreateStream();
         currentStream.BeginStream();
+        bottleAudio.StartPourSound();
     }
 
-    private void EndPour() {
+    private void EndPour()
+    {
         Debug.Log("End");
         currentStream.EndStream();
         currentStream = null;
+        bottleAudio.EndPourSound();
     }
 
     private float CalculatePourAngle() {
