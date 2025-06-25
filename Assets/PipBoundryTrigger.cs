@@ -1,10 +1,35 @@
 using System.Collections;
+using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class PipBoundryTrigger : MonoBehaviour
 {
     [SerializeField] private float graceTimer = 0.5f;
+    [SerializeField] private float pollTime = 5.0f;
+    [SerializeField] private bool usePolling = false;
+
+    private void Start()
+    {
+        if(usePolling)StartCoroutine(CheckForPip());
+    }
+
+    IEnumerator CheckForPip()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(pollTime);
+            if(PipSpawner.Instance.PipInstance != null)
+            {
+                PipCoordinator coordinator = PipSpawner.Instance.PipInstance.GetComponent<PipCoordinator>();
+                if (coordinator && !GetComponent<Collider>().bounds.Intersects(coordinator.MainCollider.bounds))
+                {
+                    coordinator.pipScript.resetPosition();
+                }
+            }
+        }
+        
+    }
 
     private void OnTriggerExit(Collider other)
     {

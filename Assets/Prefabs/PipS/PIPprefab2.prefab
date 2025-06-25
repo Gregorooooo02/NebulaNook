@@ -50,6 +50,8 @@ MonoBehaviour:
   PipPhysics: {fileID: 5839647691515648933}
   PipEffects: {fileID: 3113311554617672380}
   PipController: {fileID: 960547977325164671}
+  MainCollider: {fileID: 7288410309344903112}
+  pipScript: {fileID: 4645069612343188972}
 --- !u!1 &7472171476975647998
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,6 +170,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecb246b1515bb8e449c4ec0e0f6af1da, type: 3}
+--- !u!114 &4645069612343188972 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8117442989751768400, guid: ecb246b1515bb8e449c4ec0e0f6af1da, type: 3}
+  m_PrefabInstance: {fileID: 3517427133642098876}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5839647691515648933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0bf8aab99decf347a53df527eb1a9f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5839647691515648933 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7051214202013651737, guid: ecb246b1515bb8e449c4ec0e0f6af1da, type: 3}
@@ -176,6 +189,11 @@ GameObject:
 --- !u!4 &6503558562412232991 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7678955508606618019, guid: ecb246b1515bb8e449c4ec0e0f6af1da, type: 3}
+  m_PrefabInstance: {fileID: 3517427133642098876}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &7288410309344903112 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 6194080991120914292, guid: ecb246b1515bb8e449c4ec0e0f6af1da, type: 3}
   m_PrefabInstance: {fileID: 3517427133642098876}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7571307070784608252

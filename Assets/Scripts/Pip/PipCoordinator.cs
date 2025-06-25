@@ -6,6 +6,8 @@ public class PipCoordinator : MonoBehaviour
     public GameObject PipEffects;
 
     public PipController PipController;
+    public Collider MainCollider;
+    public PipScript pipScript;
 
     public void SwitchPips(DrinkEffect effect)
     {
