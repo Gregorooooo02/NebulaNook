@@ -9021,6 +9021,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1307327910}
   - component: {fileID: 1307327909}
+  - component: {fileID: 1307327911}
   m_Layer: 0
   m_Name: PipBarCollider
   m_TagString: PipBarCollider
@@ -9066,6 +9067,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1307327911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307327908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3b5fcb7771254943a35f4fddbe2c0d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  graceTimer: 0.5
 --- !u!1001 &1314847970
 PrefabInstance:
   m_ObjectHideFlags: 0
