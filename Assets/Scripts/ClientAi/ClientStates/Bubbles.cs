@@ -14,24 +14,25 @@ public class Bubbles : ClientState
 
     public float walkDelay = 2;
     public float destinationPollingTime = 0.5f;
+    public AudioSource BubblesAudioSource;
 
     public override ClientState RunState()
     {
-/*        if (_isWalking)
-        {
-            if (Vector3.Distance(transform.position, Controller.Spawner.Exit.transform.position) <= MinPointDist)
-            {
-                _isWalking = false;
-                Controller.Spawner?.NotifyClientFinished();
-                Destroy(gameObject.transform.parent.gameObject);
-            }
-        }
-        else
-        {
-            Agent.SetDestination(Controller.Spawner.Exit.transform.position);
-            Instantiate(BubblesPrefab, transform);
-            _isWalking = true;
-        }*/
+        /*        if (_isWalking)
+                {
+                    if (Vector3.Distance(transform.position, Controller.Spawner.Exit.transform.position) <= MinPointDist)
+                    {
+                        _isWalking = false;
+                        Controller.Spawner?.NotifyClientFinished();
+                        Destroy(gameObject.transform.parent.gameObject);
+                    }
+                }
+                else
+                {
+                    Agent.SetDestination(Controller.Spawner.Exit.transform.position);
+                    Instantiate(BubblesPrefab, transform);
+                    _isWalking = true;
+                }*/
 
         if (!triggered)
         {
@@ -46,6 +47,7 @@ public class Bubbles : ClientState
     {
         yield return new WaitForSeconds(initialDelay);
         Instantiate(BubblesPrefab, transform);
+        BubblesAudioSource.Play();
         yield return new WaitForSeconds(walkDelay);
         Agent.SetDestination(Controller.Spawner.Exit.transform.position);
         yield return new WaitForSeconds(destinationPollingTime);

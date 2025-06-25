@@ -17,6 +17,8 @@ public class TableGlitch : ClientState
 
     public float yeetDelay;
     public float yeetForce;
+    public AudioClip[] audioClips;
+    public AudioSource TableAudioSource;
 
     public override ClientState RunState()
     {

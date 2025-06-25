@@ -20,11 +20,13 @@ public class TableHandle : MonoBehaviour
     {
         this.activator = activator;
         StartAnim();
+        activator.TableAudioSource.PlayOneShot(activator.audioClips[0]);
     }
 
     public void TriggerYeet()
     {
         activator.TriggerYeet(yeetDirection);
+        activator.TableAudioSource.PlayOneShot(activator.audioClips[1]);
     }
 
     private void StartAnim()

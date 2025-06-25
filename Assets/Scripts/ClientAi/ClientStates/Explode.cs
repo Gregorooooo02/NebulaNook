@@ -12,26 +12,27 @@ public class Explode : ClientState
     private bool triggered = false;
 
     public GameObject ExplosionEffect;
+    public AudioSource ExplosionAudioSource;
 
     public override ClientState RunState()
     {
-/*        if (triggered)
-        {
-            if (_currentTime < TimeToDisapear)
-            {
-                _currentTime += Time.fixedDeltaTime;
-                return this;
-            }
-            Controller.Spawner?.NotifyClientFinished();
-            Destroy(gameObject.transform.parent.gameObject);
-        }
-        else
-        {
-            GetComponentInParent<ClientController>().ToggleRagdoll(true);
-            Instantiate(ExplosionEffect, transform);
-            MainBone.AddExplosionForce(explosionForce, transform.position, explosionRadius);
-            triggered = true;
-        }*/
+        /*        if (triggered)
+                {
+                    if (_currentTime < TimeToDisapear)
+                    {
+                        _currentTime += Time.fixedDeltaTime;
+                        return this;
+                    }
+                    Controller.Spawner?.NotifyClientFinished();
+                    Destroy(gameObject.transform.parent.gameObject);
+                }
+                else
+                {
+                    GetComponentInParent<ClientController>().ToggleRagdoll(true);
+                    Instantiate(ExplosionEffect, transform);
+                    MainBone.AddExplosionForce(explosionForce, transform.position, explosionRadius);
+                    triggered = true;
+                }*/
 
         if (!triggered)
         {
@@ -46,6 +47,7 @@ public class Explode : ClientState
         yield return new WaitForSeconds(initialDelay);
         Controller.ToggleRagdoll(true);
         Instantiate(ExplosionEffect, transform);
+        ExplosionAudioSource.Play();
         MainBone.AddExplosionForce(explosionForce, transform.position, explosionRadius);
         yield return new WaitForSeconds(TimeToDisapear);
         Controller.Spawner?.NotifyClientFinished();

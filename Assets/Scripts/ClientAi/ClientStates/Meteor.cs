@@ -18,6 +18,7 @@ public class Meteor : ClientState
 
     public Rigidbody Head;
     public GameObject ExplosionPrefab;
+    public AudioSource MeteorAudioSource;
 
     public float finalDelay;
 
@@ -50,6 +51,7 @@ public class Meteor : ClientState
         Controller.ToggleRagdoll(true);
         Vector3 explosionPosition = transform.position - ((transform.position - SpawnPoint.transform.position).normalized * explosionDistance);
         GameObject exposionObject = Instantiate(ExplosionPrefab, explosionPosition, Quaternion.identity);
+        MeteorAudioSource.Play();
         Head.AddExplosionForce(explosionForce,explosionPosition, explosionRadius);
         Controller.Spawner?.NotifyClientFinished();
         
