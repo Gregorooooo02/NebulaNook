@@ -12271,15 +12271,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3484ccd5d405947f9a6259324983e7ef, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.128
+      value: -0.391
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3484ccd5d405947f9a6259324983e7ef, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.29
+      value: 2.302
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3484ccd5d405947f9a6259324983e7ef, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.306
+      value: -3.238
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3484ccd5d405947f9a6259324983e7ef, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14808,6 +14808,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8612608233192915135, guid: 852d232555361476dae9fe1cb0e19d41, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 52b9db18ae2064629a8948af176ad6c6, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

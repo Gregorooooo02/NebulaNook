@@ -166,6 +166,7 @@ MonoBehaviour:
   IsFadingComplete: 0
   speed: 1
   fadeMaterial: {fileID: 2100000, guid: 16b2e297f05c64fc59dbefbb9616fb3d, type: 2}
+  audioMixer: {fileID: 24100000, guid: 52b9db18ae2064629a8948af176ad6c6, type: 2}
 --- !u!1001 &219578987
 PrefabInstance:
   m_ObjectHideFlags: 0

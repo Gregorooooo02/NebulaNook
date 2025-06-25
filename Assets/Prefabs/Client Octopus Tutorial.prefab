@@ -3634,7 +3634,7 @@ MonoBehaviour:
   useCustomGlass: 1
   useCustomFruit: 1
   CustomDrinkEffect: 6
-  CustomGlass: 1
+  CustomGlass: 0
   CustomFruit: 0
   DesiredDrinkEffect: 1
   DesiredGlassType: 0
