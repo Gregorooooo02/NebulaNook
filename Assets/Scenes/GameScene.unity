@@ -196,6 +196,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4780621927995412780, guid: e9cb9ee5e2dae0d408ae37b037d77748, type: 3}
+      propertyPath: maxClientSpawnDelay
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4780621927995412780, guid: e9cb9ee5e2dae0d408ae37b037d77748, type: 3}
       propertyPath: ClientPrefabs.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -1066,6 +1070,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 150768847}
   m_SourcePrefab: {fileID: 100100000, guid: ff254623e3f4bbd4bac90d17ca6a8fbe, type: 3}
+--- !u!114 &146936868 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8141396673553066687, guid: f3c3e1260164dd1458e351eb242cc3e9, type: 3}
+  m_PrefabInstance: {fileID: 1414059768}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &148065320
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1398,8 +1413,8 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 1, g: 0.5801887, b: 0.89646363, a: 1}
-  m_Intensity: 60
-  m_Range: 50
+  m_Intensity: 20
+  m_Range: 20
   m_SpotAngle: 57.690613
   m_InnerSpotAngle: 17.84628
   m_CookieSize: 10
@@ -1844,7 +1859,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4780621927995412780, guid: e9cb9ee5e2dae0d408ae37b037d77748, type: 3}
       propertyPath: maxClientSpawnDelay
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4780621927995412780, guid: e9cb9ee5e2dae0d408ae37b037d77748, type: 3}
       propertyPath: ClientPrefabs.Array.size
@@ -3226,6 +3241,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 433564247}
+  - component: {fileID: 433564248}
   m_Layer: 5
   m_Name: EndOfDayBad
   m_TagString: BadScreen
@@ -3256,6 +3272,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0.75, y: 0.5}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &433564248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433564246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de142f69811a34f0faa9020e3f773eb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  head: {fileID: 810899118}
+  distanceFromHead: 0.5
 --- !u!1 &440735234 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2a988e2ee0ff549d8823842044e17af5, type: 3}
@@ -4884,6 +4914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resetButton: {fileID: 2095671460}
+  resetButton2: {fileID: 146936868}
   nextDayButton: {fileID: 1747073308}
 --- !u!1001 &672065035
 PrefabInstance:
@@ -5267,6 +5298,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &758789467 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3897265662373917752, guid: f3c3e1260164dd1458e351eb242cc3e9, type: 3}
+  m_PrefabInstance: {fileID: 1414059768}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &758789473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758789467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de142f69811a34f0faa9020e3f773eb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  head: {fileID: 810899118}
+  distanceFromHead: 0.5
 --- !u!1 &761225058
 GameObject:
   m_ObjectHideFlags: 0
@@ -5756,6 +5806,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8470870297942979330, guid: ff24bc7f73a294ed59a2f2c5400b356f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8911000258304204335, guid: ff24bc7f73a294ed59a2f2c5400b356f, type: 3}
       propertyPath: ToHide
       value: 
@@ -5763,7 +5817,8 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 6098780858064639687, guid: ff24bc7f73a294ed59a2f2c5400b356f, type: 3}
     - {fileID: 6727668378436992524, guid: ff24bc7f73a294ed59a2f2c5400b356f, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8470870297942979330, guid: ff24bc7f73a294ed59a2f2c5400b356f, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7697499718999504140, guid: ff24bc7f73a294ed59a2f2c5400b356f, type: 3}
       insertIndex: -1
@@ -7199,8 +7254,8 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 1, g: 0.5801887, b: 0.89646363, a: 1}
-  m_Intensity: 60
-  m_Range: 50
+  m_Intensity: 20
+  m_Range: 20
   m_SpotAngle: 57.690613
   m_InnerSpotAngle: 17.84628
   m_CookieSize: 10
@@ -7680,6 +7735,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1082735029}
+  - component: {fileID: 1082735030}
   m_Layer: 5
   m_Name: EndOfDayGood
   m_TagString: GoodScreen
@@ -7710,6 +7766,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0.75, y: 0.5}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1082735030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082735028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de142f69811a34f0faa9020e3f773eb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  head: {fileID: 810899118}
+  distanceFromHead: 0.5
 --- !u!1 &1096511124
 GameObject:
   m_ObjectHideFlags: 0
@@ -8139,6 +8209,10 @@ PrefabInstance:
     - target: {fileID: 4780621927995412780, guid: e9cb9ee5e2dae0d408ae37b037d77748, type: 3}
       propertyPath: maxClientsToSpawn
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4780621927995412780, guid: e9cb9ee5e2dae0d408ae37b037d77748, type: 3}
+      propertyPath: maxClientSpawnDelay
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4780621927995412780, guid: e9cb9ee5e2dae0d408ae37b037d77748, type: 3}
       propertyPath: ClientPrefabs.Array.size
@@ -8778,8 +8852,8 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 1, g: 0.5801887, b: 0.89646363, a: 1}
-  m_Intensity: 60
-  m_Range: 50
+  m_Intensity: 20
+  m_Range: 20
   m_SpotAngle: 57.690613
   m_InnerSpotAngle: 17.84628
   m_CookieSize: 10
@@ -9345,6 +9419,14 @@ PrefabInstance:
       propertyPath: head
       value: 
       objectReference: {fileID: 810899118}
+    - target: {fileID: 361831348664370202, guid: 9c4444cf85712c648b0817cd5f7b4e93, type: 3}
+      propertyPath: NegativeColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 361831348664370202, guid: 9c4444cf85712c648b0817cd5f7b4e93, type: 3}
+      propertyPath: PositiveColor.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2028992034953377421, guid: 9c4444cf85712c648b0817cd5f7b4e93, type: 3}
       propertyPath: m_Camera
       value: 
@@ -9403,15 +9485,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7975571305088118266, guid: 9c4444cf85712c648b0817cd5f7b4e93, type: 3}
       propertyPath: m_LocalScale.x
-      value: -0.002
+      value: -0.0015
       objectReference: {fileID: 0}
     - target: {fileID: 7975571305088118266, guid: 9c4444cf85712c648b0817cd5f7b4e93, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.002
+      value: 0.0015
       objectReference: {fileID: 0}
     - target: {fileID: 7975571305088118266, guid: 9c4444cf85712c648b0817cd5f7b4e93, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.002
+      value: 0.0015
       objectReference: {fileID: 0}
     - target: {fileID: 7975571305088118266, guid: 9c4444cf85712c648b0817cd5f7b4e93, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9467,7 +9549,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8026736027108616584, guid: 9c4444cf85712c648b0817cd5f7b4e93, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 68812544
+      value: 1703680
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10823,7 +10905,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3897265662373917752, guid: f3c3e1260164dd1458e351eb242cc3e9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 758789473}
   m_SourcePrefab: {fileID: 100100000, guid: f3c3e1260164dd1458e351eb242cc3e9, type: 3}
 --- !u!1 &1415679209
 GameObject:
@@ -15221,8 +15306,8 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 1, g: 0.5801887, b: 0.89646363, a: 1}
-  m_Intensity: 60
-  m_Range: 50
+  m_Intensity: 20
+  m_Range: 20
   m_SpotAngle: 57.690613
   m_InnerSpotAngle: 17.84628
   m_CookieSize: 10
@@ -16001,9 +16086,9 @@ SceneRoots:
   - {fileID: 463362006}
   - {fileID: 3328486401187655374}
   - {fileID: 1656189219}
-  - {fileID: 246713319}
   - {fileID: 668948061}
   - {fileID: 146479821}
+  - {fileID: 246713319}
   - {fileID: 1414059768}
   - {fileID: 1234845905}
   - {fileID: 148065320}

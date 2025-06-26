@@ -20,10 +20,13 @@ public class ShakeDetection : MonoBehaviour
     [SerializeField] private GameObject confetti;
     private float[] lastShakerState = new float[6];
     private float lastShakerFill = 0.0f;
-    
+
+    private ShakerAudio bottomAudio;
+
     void Awake()
     {
         glassFiller.fillSpeed = 0.0f;
+        bottomAudio = GetComponent<ShakerAudio>();
     }
 
     void Start()
@@ -97,17 +100,18 @@ public class ShakeDetection : MonoBehaviour
     {
         var instance = Instantiate(confetti, transform.position, transform.rotation, null);
         instance.GetComponent<ParticleSystem>().Play();
+        bottomAudio?.PlayShakeCompleteSound();
         TutorialPIP.Instance?.SetShakeDone(true);
         yield return new WaitForSeconds(1);
         Destroy(instance);
     }
 
-    private Vector3 calculateLinearVelocity(float deltaTime)
+    public Vector3 calculateLinearVelocity(float deltaTime)
     {
         return (transform.position - lastPosition) / deltaTime;
     }
 
-    private Vector3 calculateAngularVelocity(float deltaTime)
+    public Vector3 calculateAngularVelocity(float deltaTime)
     {
         Quaternion deltaRot = transform.rotation * Quaternion.Inverse(lastRotation);
         deltaRot.ToAngleAxis(out float angleDegrees, out Vector3 axis);

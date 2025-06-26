@@ -27,6 +27,14 @@ public class GlassPourController : MonoBehaviour
     private Stream currentStream = null;
     [HideInInspector] public bool IsPouring = false;
     private Transform streamTransform = null;
+    private GlassAudio glassAudio;
+    private ShakerAudio shakerAudio;
+
+    private void Awake()
+    {
+        glassAudio = GetComponent<GlassAudio>();
+        shakerAudio = GetComponentInParent<ShakerAudio>();
+    }
 
     void Update()
     {
@@ -72,7 +80,8 @@ public class GlassPourController : MonoBehaviour
         UpdateStreamTransform();
     }
 
-    public void StartStream() {
+    public void StartStream()
+    {
         GameObject streamObject = Instantiate(streamPrefab, transform);
         if (glassFiller)
         {
@@ -87,14 +96,19 @@ public class GlassPourController : MonoBehaviour
         currentStream.lineRenderer.endColor = glassFiller ? glassFiller.GetLiquidColor() : glassController.GetLiquidColor();
         currentStream.BeginStream();
         IsPouring = true;
+        glassAudio?.StartPourSound();
+        shakerAudio?.StartPourSound();
     }
 
-    public void StopStream() {
-        currentStream.EndStream();
+    public void StopStream()
+    {
+        currentStream?.EndStream();
         Destroy(currentStream.gameObject);
         currentStream = null;
         streamTransform = null;
         IsPouring = false;
+        glassAudio?.EndPourSound();
+        shakerAudio?.EndPourSound();
     }
 
     private void UpdateStreamTransform() {

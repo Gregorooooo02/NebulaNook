@@ -15,6 +15,8 @@ public class TopPartController : MonoBehaviour
     private Rigidbody rb;
     public bool isAttached = true;
 
+    private ShakerAudio topAudio;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -24,6 +26,8 @@ public class TopPartController : MonoBehaviour
         grabInteractable.selectExited.AddListener(OnRelease);
 
         AttachToBottom();
+
+        topAudio = GetComponent<ShakerAudio>();
     }
 
     void OnGrab(SelectEnterEventArgs args)
@@ -59,6 +63,8 @@ public class TopPartController : MonoBehaviour
         isAttached = false;
         transform.SetParent(null, true);
         rb.isKinematic = false;
+
+        topAudio?.PlayDetachSound();
     }
 
     void AttachToBottom()
@@ -69,6 +75,8 @@ public class TopPartController : MonoBehaviour
         transform.rotation = bottomPart.transform.rotation;
         transform.SetParent(bottomPart.transform, true);
         isAttached = true;
+
+        topAudio?.PlayAttachSound();
     }
 
     void disableLiquidInteraction()

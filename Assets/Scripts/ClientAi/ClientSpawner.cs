@@ -77,14 +77,14 @@ public class ClientSpawner : MonoBehaviour
         if (!tutorialSpawner)
         {
             finishedClientCount++;
-            if (finishedClientCount >= maxClientsToSpawn)
+            if (maxClientsToSpawn > 0 && finishedClientCount >= maxClientsToSpawn)
             {
                 OnAllClientsFinished?.Invoke();
             }
+            else if (maxClientsToSpawn <= 0)
+            {
+                Debug.LogWarning("Max clients to spawn is set to 0, no clients will be spawned.");
+            }
         } 
-        else
-        {
-
-        }  
     }
 }

@@ -173,6 +173,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b9927ad0885df4753ae52d94c0c947cf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5504286846641310180}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b9927ad0885df4753ae52d94c0c947cf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -6009417933326007663}
   m_SourcePrefab: {fileID: 100100000, guid: b9927ad0885df4753ae52d94c0c947cf, type: 3}
 --- !u!1 &1360302311624797197 stripped
 GameObject:
@@ -427,6 +430,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6ee0db59dd3084a9eb5ede6d82da9a37, type: 3}
   - {fileID: 8300000, guid: 2ddd98ca1492c422fa6b513a0dafdf3b, type: 3}
   - {fileID: 8300000, guid: e4f45878163324cdcadc2b6572e97574, type: 3}
+  minImpactForce: 0.1
+  collisionCooldown: 1
 --- !u!82 &5504286846641310180
 AudioSource:
   m_ObjectHideFlags: 0
@@ -524,6 +529,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-6009417933326007663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360302311624797197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f838dd922362d48b4ac5a84256770c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsGrabbed: 0
+  grabInteractable: {fileID: 5155730708424045655}
 --- !u!4 &1849593041560123063 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b9927ad0885df4753ae52d94c0c947cf, type: 3}

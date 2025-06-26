@@ -4203,8 +4203,13 @@ MonoBehaviour:
   Spawner: {fileID: 0}
   currentGlass: {fileID: 0}
   ClientAudio: {fileID: 5872627581379705710}
-  WelcomeClips: []
-  DrinkClips: []
+  WelcomeClips:
+  - {fileID: 8300000, guid: ca1426739d41e4adaa8fd469def8e454, type: 3}
+  - {fileID: 8300000, guid: 9559d56c65a164bff835e88824c5b5ef, type: 3}
+  - {fileID: 8300000, guid: 414292b97fdf848b38ffc3e5b42e2116, type: 3}
+  DrinkClips:
+  - {fileID: 8300000, guid: 2010988a98e14484c8825c981e395e34, type: 3}
+  - {fileID: 8300000, guid: 4b7974e10485946d39b66e02bba7fdbd, type: 3}
 --- !u!95 &405454394730435261
 Animator:
   serializedVersion: 7
@@ -6274,6 +6279,10 @@ PrefabInstance:
     - target: {fileID: 494862441029465903, guid: 111c764b3bade2b4f8f7eed9d86a1df4, type: 3}
       propertyPath: m_Name
       value: Timer
+      objectReference: {fileID: 0}
+    - target: {fileID: 494862441029465903, guid: 111c764b3bade2b4f8f7eed9d86a1df4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5215255579037950906, guid: 111c764b3bade2b4f8f7eed9d86a1df4, type: 3}
       propertyPath: m_AnchorMax.x
