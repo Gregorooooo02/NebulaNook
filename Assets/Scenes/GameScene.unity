@@ -3091,6 +3091,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 433564247}
+  - component: {fileID: 433564248}
   m_Layer: 5
   m_Name: EndOfDayBad
   m_TagString: BadScreen
@@ -3121,6 +3122,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0.75, y: 0.5}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &433564248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433564246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de142f69811a34f0faa9020e3f773eb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  head: {fileID: 810899118}
+  distanceFromHead: 0.5
 --- !u!1 &440735234 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2a988e2ee0ff549d8823842044e17af5, type: 3}
@@ -5002,6 +5017,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &758789467 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3897265662373917752, guid: f3c3e1260164dd1458e351eb242cc3e9, type: 3}
+  m_PrefabInstance: {fileID: 1414059768}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &758789473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758789467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de142f69811a34f0faa9020e3f773eb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  head: {fileID: 810899118}
+  distanceFromHead: 0.5
 --- !u!1 &761225058
 GameObject:
   m_ObjectHideFlags: 0
@@ -7221,6 +7255,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1082735029}
+  - component: {fileID: 1082735030}
   m_Layer: 5
   m_Name: EndOfDayGood
   m_TagString: GoodScreen
@@ -7251,6 +7286,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0.75, y: 0.5}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1082735030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082735028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de142f69811a34f0faa9020e3f773eb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  head: {fileID: 810899118}
+  distanceFromHead: 0.5
 --- !u!1 &1096511124
 GameObject:
   m_ObjectHideFlags: 0
@@ -9018,15 +9067,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7975571305088118266, guid: 9c4444cf85712c648b0817cd5f7b4e93, type: 3}
       propertyPath: m_LocalScale.x
-      value: -0.002
+      value: -0.0015
       objectReference: {fileID: 0}
     - target: {fileID: 7975571305088118266, guid: 9c4444cf85712c648b0817cd5f7b4e93, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.002
+      value: 0.0015
       objectReference: {fileID: 0}
     - target: {fileID: 7975571305088118266, guid: 9c4444cf85712c648b0817cd5f7b4e93, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.002
+      value: 0.0015
       objectReference: {fileID: 0}
     - target: {fileID: 7975571305088118266, guid: 9c4444cf85712c648b0817cd5f7b4e93, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9082,7 +9131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8026736027108616584, guid: 9c4444cf85712c648b0817cd5f7b4e93, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 68812544
+      value: 1703680
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10436,7 +10485,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3897265662373917752, guid: f3c3e1260164dd1458e351eb242cc3e9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 758789473}
   m_SourcePrefab: {fileID: 100100000, guid: f3c3e1260164dd1458e351eb242cc3e9, type: 3}
 --- !u!1 &1415679209
 GameObject:
@@ -15560,9 +15612,9 @@ SceneRoots:
   - {fileID: 463362006}
   - {fileID: 3328486401187655374}
   - {fileID: 1656189219}
-  - {fileID: 246713319}
   - {fileID: 668948061}
   - {fileID: 146479821}
+  - {fileID: 246713319}
   - {fileID: 1414059768}
   - {fileID: 1234845905}
   - {fileID: 148065320}

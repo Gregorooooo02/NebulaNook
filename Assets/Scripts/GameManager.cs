@@ -75,21 +75,20 @@ public class GameManager : MonoBehaviour
         RefreshSceneReferences();
         UpdateQuotaText();
         SetupSpawners();
-
-        if (clientSpawners != null)
-        {
-            foreach (var spawner in clientSpawners)
-            {
-                spawner.maxClientsToSpawn = baseClientToSpawn + currentDay - 1;
-            }
-        }
     }
 
     private void SetupSpawners()
     {
-        if (clientSpawners == null) return;
+        if (clientSpawners == null || clientSpawners.Length == 0) return;
+
+        spawnersFinishedCount = 0;
+
         foreach (var spawner in clientSpawners)
         {
+            // Unsubscribe from previous events to avoid duplicates
+            spawner.OnAllClientsFinished -= OnSpawnerFinished;
+
+            spawner.maxClientsToSpawn = baseClientToSpawn + currentDay - 1;
             spawner.OnAllClientsFinished += OnSpawnerFinished;
         }
     }
@@ -107,6 +106,9 @@ public class GameManager : MonoBehaviour
     private void HandleEndOfDay()
     {
         Debug.Log("Koniec dnia!");
+
+        if (clientSpawners == null || clientSpawners.Length == 0) return;
+
         if (currentQuota >= maxQuota)
         {
             endOfDayScreenGood.SetActive(true);
@@ -130,14 +132,12 @@ public class GameManager : MonoBehaviour
     public void IncrementQuota(int amount)
     {
         currentQuota += amount;
-        ScreenSpaceUI.instance?.PositiveChange(amount);
         UpdateQuotaText();
     }
 
     public void DecrementQuota(int amount)
     {
         currentQuota -= amount;
-        ScreenSpaceUI.instance?.NegativeChange(amount);
         UpdateQuotaText();
     }
 
@@ -166,9 +166,6 @@ public class GameManager : MonoBehaviour
 
         endOfDayScreenBad.SetActive(false);
         endOfDayScreenGood.SetActive(false);
-
-        if (endOfDayScreenGood != null) endOfDayScreenGood.SetActive(false);
-        if (endOfDayScreenBad != null) endOfDayScreenBad.SetActive(false);
 
         InitializeGameScene();
     }
@@ -210,6 +207,7 @@ public class GameManager : MonoBehaviour
         clientSpawners = null;
         endOfDayScreenGood = null;
         endOfDayScreenBad = null;
+        spawnersFinishedCount = 0;
 
         // Znajdź quota text
         GameObject quotaObject = GameObject.FindGameObjectWithTag("QuotaText");

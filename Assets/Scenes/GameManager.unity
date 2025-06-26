@@ -185,7 +185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4434546913148543697, guid: 3ceeb4cc783014c57afaa7b5b50b37db, type: 3}
       propertyPath: baseClientToSpawn
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4434546913148543697, guid: 3ceeb4cc783014c57afaa7b5b50b37db, type: 3}
       propertyPath: endOfDayScreenBad

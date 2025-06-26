@@ -9,12 +9,14 @@ public class TriggerBlack : MonoBehaviour
         if (component != null)
         {
             gameObject.transform.position = GameoverRoom.Instance.transform.position;
+            GameoverRoom.Instance.GameOverScreen.SetActive(true);
         }
 
         if (other.CompareTag("GameOver"))
         {
             ToHide.SetActive(false);
             gameObject.transform.position = GameoverRoom.Instance.transform.position;
+            GameoverRoom.Instance.GameOverScreen.SetActive(true);
             GameoverRoom.Instance.SetText("Your manager got a little angry huh?");
         }
     }

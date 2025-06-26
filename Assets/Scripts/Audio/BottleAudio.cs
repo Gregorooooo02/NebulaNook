@@ -23,7 +23,7 @@ public class BottleAudio : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    private void OllisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (!hasPlayedFristDropSound)
         {

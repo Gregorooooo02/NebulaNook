@@ -430,7 +430,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6ee0db59dd3084a9eb5ede6d82da9a37, type: 3}
   - {fileID: 8300000, guid: 2ddd98ca1492c422fa6b513a0dafdf3b, type: 3}
   - {fileID: 8300000, guid: e4f45878163324cdcadc2b6572e97574, type: 3}
-  minImpactForce: 2
+  minImpactForce: 0.1
   collisionCooldown: 1
 --- !u!82 &5504286846641310180
 AudioSource:
