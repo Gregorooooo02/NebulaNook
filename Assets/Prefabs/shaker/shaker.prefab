@@ -709,6 +709,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6d881a2ec51c1b44dbcaef55da899969, type: 3}
+      propertyPath: m_TagString
+      value: Shaker
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1077,6 +1081,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7386d515f0a4aaa4d83f0cf191446a37, type: 3}
       propertyPath: m_Name
       value: indicator-half
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7386d515f0a4aaa4d83f0cf191446a37, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
