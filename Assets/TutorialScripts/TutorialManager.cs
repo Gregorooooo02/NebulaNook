@@ -126,6 +126,8 @@ public class TutorialManager : MonoBehaviour
             Destroy(SpawnedGlass);
         }
         SpawnedGlass = Instantiate(glassPrefab, glassSpawnPoint.position, Quaternion.identity);
+        SpawnedGlass.GetComponent<GlassController>().currentFillAmount = 1;
+        SpawnedGlass.GetComponent<GlassController>().drinkEffect = DrinkEffect.EXPLOSION;
         Pip.SpilledGlass = false;
         Pip.BrokenGlass = false;
     }
@@ -138,6 +140,8 @@ public class TutorialManager : MonoBehaviour
             Destroy(SpawnedGlass); 
         }
         SpawnedGlass = Instantiate(glassPrefab2, glassSpawnPoint.position, Quaternion.identity);
+        SpawnedGlass.GetComponent<GlassController>().currentFillAmount = 1;
+        SpawnedGlass.GetComponent<GlassController>().drinkEffect = DrinkEffect.EXPLOSION;
         Pip.SpilledGlass = false;
         Pip.BrokenGlass = false;
     }

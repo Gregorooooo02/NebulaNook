@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 506202044079530642}
   - component: {fileID: 7405264933051633909}
   - component: {fileID: 9088777916109047160}
-  - component: {fileID: 8959285607540184333}
   - component: {fileID: 6843299574408672662}
   - component: {fileID: 8215714489894415420}
   - component: {fileID: 779304781290668860}
+  - component: {fileID: 2079456389906041383}
   m_Layer: 0
   m_Name: ExplosionGlassTutorial
   m_TagString: Glass
@@ -212,33 +212,6 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 1
---- !u!114 &8959285607540184333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 675285361160517044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e2c375960acd42cca183ae0e020bd0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  liquidRenderer: {fileID: 3087824782756441144}
-  fillSpeed: 1
-  startingFill: 1
-  currentFillAmount: 0
-  fillAmounts:
-  - 0
-  - 0.5
-  - 0
-  - 0
-  - 0.5
-  - 0
-  DrinkMovementAmount: 0.99
-  minimumDrinkAmount: 0.05
-  minimumDrinkDistance: 0.05
-  wasServed: 0
 --- !u!114 &6843299574408672662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,14 +224,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14060a245b57d42f8b68bac946b006cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  glassFiller: {fileID: 8959285607540184333}
+  glassFiller: {fileID: 0}
+  glassController: {fileID: 2079456389906041383}
   streamPrefab: {fileID: 8941625051351596894, guid: 991d207acfd59472493d54e8b2fc0f57, type: 3}
+  shakeDetection: {fileID: 0}
   rimRadius: 0.07
   rimHeight: 0.146
   minPourAngle: 15
   maxPourAngle: 90
   minFlowRate: 0.5
   maxFlowRate: 5
+  IsPouring: 0
 --- !u!114 &8215714489894415420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,6 +253,7 @@ MonoBehaviour:
   explosiveSlice: {fileID: 7508188641231072075}
   glassType: 0
   attachedFruitType: 0
+  isTutorial: 0
 --- !u!114 &779304781290668860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,6 +266,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b15870532c73dde409991e5d9c789337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2079456389906041383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675285361160517044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72396867f29728c4d94e88561fa362af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  liquidRenderer: {fileID: 3087824782756441144}
+  explosionPrefab: {fileID: 0}
+  fillSpeed: 0.5
+  startingFill: 0.088
+  explosionRadius: 3
+  explosionForce: 500
+  currentFillAmount: 1
+  drinkEffect: 6
+  wasServed: 0
 --- !u!1 &862710027012781497
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,7 +386,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 597171aca3774734997d6c4891d66f28, type: 2}
+  - {fileID: 2100000, guid: 83185b6c6e1d3441789e0e88bfb9bd27, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

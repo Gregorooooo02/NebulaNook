@@ -11,43 +11,43 @@ public class TutorialPIP : MonoBehaviour
 
     private string[] tutorial_lines =
     {
-        "Hello there! I am Pip I see that you are our new bartender!",
-        "All the previous bartenders didn't last very long... But! I belive you will!",
-        "I will teach you how things work around here. Let's start from the basics.",
-        "Oh! Here goes our first client! I will walk you through the process.",
-        "This customer wants a drink with explosive effect so give him one!",
-        "First grab the shaker and open it.",
-        "Great!",
-        "Behind you there is a counter with the finest liquors on this side of galaxy!",
-        "For now there is only one bottle there. Grab it!",
-        "Now pour it into the shaker! When you're done pick up the blowtorch from the drawer on the right side of the bar.",
-        "This one you can't just pour. Try pulling the trigger.",
-        "Great! Now use it to pour into the shaker! When you finish close the shaker.",
-        "Now shake it with all you got!!",
-        "Thats the spirit! Do it more!",
-        "Now it's time to pour the drink into the glass. Notice that in front of the client there is a hologram of the glass.",
-        "It shows the type of the glass client wants the drink in. You don't have to use the exact glass but the client will pay extra if you do.",
-        "Now grab the glass from the rack above.",
-        "Now just open the shaker, pour it's contents into the glass and give it to the customer.",
-        "Oh there comes another customer!",
-        "The same effect again huh? Explosives are popular these days...",
-        "Anyways this time customer also wants the fruit with the drink. You can see the type of the desired fruit as the hologram.",
-        "The fruits are the same as the glasses. As in you get a bonus for giving the right one.",
-        "I pre prepared the drink for you. This time your task is to prepare the fruit.",
-        "The containers with the fruits are on the left side of the bar.",
-        "Now grab the red fruit and place it on the cutting board on the right. But be careful! It's extremly volatile and will explode if handled too roughly.",
-        "Good job! You have a talent handling explosives I see! You are perfect for this job then.",
-        "Now grab the cleaver! It should be next to the cutting board.",
-        "Ah yes an elegant tool, for more civilized bar...",
-        "Now! Smack the fruit with it!!",
-        "*Ehm* excuse me. Now pick up the slice and put it on the glass.",
-        "All done! Give finished drink to the customer.",
-        "Good job! Just remember that there are more liquors available and a LOT more possible effects.",
-        "For example there is a liquor tap on the right, thought it's out of order today.",
-        "Also there is a screen with the recipes on the counter. It was supposed to show you the recipes for the effects that the customers ask for.",
-        "Unfortunately effect database got damaged and now recipes are incomplete. Still it may prove useful.",
-        "And if you're ever in doubt about the drink effect you can test it on me! Even if I'd rather you didn't!",
-        "Well that's it for now. Good luck on your job. You'll need it!"
+        "Hello there! My name is Pip and I'll introduce You to Your new, wonderful job!",
+        "All of the previous bartenders didn't last very long... But don't worry, I doubt You'll share their fate!",
+        "I will teach You how things work around here. Let's start with the basics.",
+        "Oh, look here! Here goes Our first client! I will walk You through the process.",
+        "This customer wants a drink with an explosive effect, so let's prepare them one!",
+        "First, open the shaker by grabbing the lid.",
+        "Great! I can already see that You have a knack!",
+        "Behind You, on the counter, You can find the finest ingredients in this side of the galaxy!",
+        "To make it easier for You, we'll focus on only one for now - the Motor oil. Go get it and I'll show you how we prepare drinks around here!",
+        "I can see you have the oil, awesome! Let's pour it about halfway and fill the rest with fire - use the burner which You can find in the drawer on the right.",
+        "One important thing - You can't just pour out the fire like that! Push the trigger and see the magic by yourself!",
+        "Great! Now fill the rest of the shaker with fire! If You fill the shaker too much with oil, do not worry! Pour out some and add the fire. When You're done, close the shaker by putting the lid back on.",
+        "Now, use the big muscles of Yours and mix it vigorously!",
+        "Thats the spirit! Keep going!",
+        "Great job! Now, let's grab some glass and serve the goods. Notice that in front of the client, there is a hologram of the glass.",
+        "It shows the type of the glass client wants the drink in. You don't have to use the exact glass, but the client will pay extra if You do.",
+        "You can find various glasses on the rack above you, grab one and let's keep going.",
+        "Now, just open the shaker, pour it's contents into the glass and serve it to the customer.",
+        "Oh, another customer! Let's serve them too!",
+        "Explosives again, huh? This one is popular these days... Can't blame them, the explosion of flavor is out of this world!",
+        "Anyways... This time the customer also wants the fruit with the drink. You can see the type of the desired fruit as the hologram, above the glass hologram.",
+        "Fruits are not required either, but the extra cash is always good.",
+        "I've already prepared the drink for You, let's focus on the fruit.",
+        "You can find fruits on the left side of the bar.",
+        "Grab the red one and put it on the cutting board. One thing though, this fruit requires extra care, due to it's fragile and explosive nature!",
+        "I've never seen this level of competence with explosives before! You must've done it before!",
+        "Next, You'll need something to cut it with. I think I've left the cleaver somewhere next to the board...",
+        "I can see You found it. An extraodinary piece of technology, isn't it?",
+        "Now, chop the fruit up!",
+        "Good job! Grab the fruit slice and let's decorate the glass!",
+        "Already looking more elegant, I could chug it up myself!",
+        "You did great, but keep in mind that the real world scenario is much more complicated than this - way more ingredients, way more outcomes!",
+        "I could show you how the tap in the front tap works, but the damn thing broke...",
+        "I think I have one more tip for you - You could notice the screen with the recipes in the front. It used to show bartenders the requested recipes.",
+        "For some reason the database is corrupted and the recipes are incomplete. It ain't much but it may be useful.",
+        "I'll supervise you for the first couple of weeks. If you have prepared a drink and you are too afraid to serve it to the customer, try it on me first!",
+        "That's it for now. Good luck on your new career path, You'll definetly need it!"
     };
 
     public float initialDelay;
@@ -214,12 +214,12 @@ public class TutorialPIP : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         if (ClientDoneGood)
         {
-            bubble.SetText("Good job! You're a natural!");
+            bubble.SetText("You did awesome!");
             LineDone = false;
         }
         else if (ClientDoneBad)
         {
-            bubble.SetText("Well, better luck next time.");
+            bubble.SetText("Well, nobody's perfect the first time.");
             LineDone = false;
         }
         yield return new WaitUntil(() => LineDone);
@@ -285,14 +285,14 @@ public class TutorialPIP : MonoBehaviour
                 }
                 else if (SpilledGlass)
                 {
-                    bubble.SetText("The glass was more than half full last time I looked at it... Well doesn't matter here's another!");
+                    bubble.SetText("The glass was more than half full last time I looked at it... Well, that doesn't matter. Here's another one!");
                     LineDone = false;
                     GlassShouldRespawn = false;
                     TutorialManager.Instance?.SpawnNewGlass();
                     wastedGlassCount++;
                     yield return new WaitUntil(() => LineDone);
                     yield return new WaitForSeconds(1);
-                    bubble.SetText("Now put the slice on the glass and give it to the customer.");
+                    bubble.SetText("Now, put the slice on the glass and give it to the customer.");
                     LineDone = false;
                     ProgressLine = true;
                 }
