@@ -12,7 +12,6 @@ public class GlassController : MonoBehaviour
     [SerializeField] private float explosionRadius = 3;
     [SerializeField] private float explosionForce = 500;
 
-    [HideInInspector]
     public float currentFillAmount = 0f;
     public DrinkEffect drinkEffect;
 
@@ -30,7 +29,7 @@ public class GlassController : MonoBehaviour
 
     public void Fill(float delta, DrinkEffect pouredDrink, Color color)
     {
-        if (drinkEffect != DrinkEffect.EMPTY && pouredDrink != drinkEffect)
+        if (drinkEffect != DrinkEffect.EMPTY && pouredDrink != drinkEffect && explosionPrefab)
         {
             var explosion = Instantiate(explosionPrefab, gameObject.transform.position, Quaternion.identity, null);
 

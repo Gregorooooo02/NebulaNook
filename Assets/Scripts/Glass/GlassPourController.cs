@@ -6,6 +6,7 @@ public class GlassPourController : MonoBehaviour
     [SerializeField] private GlassFiller glassFiller;
     [SerializeField] private GlassController glassController;
     [SerializeField] private GameObject streamPrefab;
+    [SerializeField] private ShakeDetection shakeDetection;
 
     [Header("Geometry")]
     [Tooltip("Radius of the glass rim, where the stream will be spawned")]
@@ -75,7 +76,10 @@ public class GlassPourController : MonoBehaviour
         GameObject streamObject = Instantiate(streamPrefab, transform);
         if (glassFiller)
         {
-            streamObject.GetComponentInChildren<StreamTrigger>().streamEffect = glassFiller.GetFinalDrinkEffect();    
+            streamObject.GetComponentInChildren<StreamTrigger>().streamEffect =
+                glassFiller && shakeDetection
+                    ? shakeDetection.finalEffect 
+                    : glassController.drinkEffect;
         }
         currentStream = streamObject.GetComponent<Stream>();
         streamTransform = streamObject.transform;
