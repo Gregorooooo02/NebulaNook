@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PipSpawner : MonoBehaviour
 {
@@ -14,12 +15,22 @@ public class PipSpawner : MonoBehaviour
 
     public void SpawnPip()
     {
-        GameObject pip = Instantiate(pipPrefab, transform.position,transform.rotation);
+        GameObject pip = Instantiate(pipPrefab, transform.position, transform.rotation);
         PipInstance = pip;
+
+        Scene gameScene = SceneManager.GetSceneByName("GameScene");
+        if (gameScene.isLoaded)
+        {
+            SceneManager.MoveGameObjectToScene(pip, gameScene);
+        }
     }
 
     public void DespawnPip()
     {
-        Destroy(pipPrefab);
+        if (PipInstance != null)
+        {
+            Destroy(PipInstance);
+            PipInstance = null;
+        }
     }
 }

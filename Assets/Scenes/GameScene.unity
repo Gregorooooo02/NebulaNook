@@ -991,6 +991,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 150768847}
   m_SourcePrefab: {fileID: 100100000, guid: ff254623e3f4bbd4bac90d17ca6a8fbe, type: 3}
+--- !u!114 &146936868 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8141396673553066687, guid: f3c3e1260164dd1458e351eb242cc3e9, type: 3}
+  m_PrefabInstance: {fileID: 1414059768}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &148065320
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4634,6 +4645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resetButton: {fileID: 2095671460}
+  resetButton2: {fileID: 146936868}
   nextDayButton: {fileID: 1747073308}
 --- !u!1001 &672065035
 PrefabInstance:

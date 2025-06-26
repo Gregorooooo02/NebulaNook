@@ -6,6 +6,7 @@ public class GameManagerConnector : MonoBehaviour
 {
     [Header("Buttons")]
     [SerializeField] public Button resetButton;
+    [SerializeField] public Button resetButton2;
     [SerializeField] public Button nextDayButton;
 
     private void Start()
@@ -28,6 +29,16 @@ public class GameManagerConnector : MonoBehaviour
                 GameManager.Instance.ResetGame();
             });
             Debug.Log("Reset button connected to GameManager.");
+        }
+
+        if (resetButton2 != null)
+        {
+            resetButton2.onClick.RemoveAllListeners();
+            resetButton2.onClick.AddListener(() =>
+            {
+                GameManager.Instance.ResetGame();
+            });
+            Debug.Log("Reset button 2 connected to GameManager.");
         }
 
         if (nextDayButton != null)
