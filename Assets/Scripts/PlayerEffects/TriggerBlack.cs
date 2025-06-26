@@ -3,6 +3,7 @@ using UnityEngine;
 public class TriggerBlack : MonoBehaviour
 {
     public GameObject ToHide;
+    public AudioSource jukebox;
     private void OnTriggerEnter(Collider other)
     {
         var component = other.gameObject.GetComponent<Blackhole_expand>();
@@ -10,6 +11,7 @@ public class TriggerBlack : MonoBehaviour
         {
             gameObject.transform.position = GameoverRoom.Instance.transform.position;
             GameoverRoom.Instance.GameOverScreen.SetActive(true);
+            jukebox.Stop();
         }
 
         if (other.CompareTag("GameOver"))
@@ -18,6 +20,7 @@ public class TriggerBlack : MonoBehaviour
             gameObject.transform.position = GameoverRoom.Instance.transform.position;
             GameoverRoom.Instance.GameOverScreen.SetActive(true);
             GameoverRoom.Instance.SetText("Your manager got a little angry huh?");
+            jukebox.Stop();
         }
     }
 }

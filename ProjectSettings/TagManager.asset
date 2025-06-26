@@ -25,6 +25,8 @@ TagManager:
   - BarArea
   - Shaker
   - GameOver
+  - GoodEnding
+  - BadEnding
   layers:
   - Default
   - TransparentFX

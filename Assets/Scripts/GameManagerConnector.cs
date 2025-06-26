@@ -9,6 +9,13 @@ public class GameManagerConnector : MonoBehaviour
     [SerializeField] public Button resetButton2;
     [SerializeField] public Button nextDayButton;
 
+    [Header("References")]
+    [SerializeField] private GameObject goodEnding;
+    [SerializeField] private GameObject badEnding;
+    [SerializeField] private GameObject jukebox;
+    [SerializeField] private AudioClip goodClip;
+    [SerializeField] private AudioClip badClip;
+
     private void Start()
     {
         StartCoroutine(ConnectToGameManager());
@@ -49,6 +56,38 @@ public class GameManagerConnector : MonoBehaviour
                 GameManager.Instance.NextDay();
             });
             Debug.Log("Next Day button connected to GameManager.");
+        }
+
+        if (goodEnding != null)
+        {
+            goodEnding.SetActive(false);
+            GameManager.Instance.goodEnding = goodEnding;
+            Debug.Log("Good ending connected to GameManager.");
+        }
+
+        if (badEnding != null)
+        {
+            badEnding.SetActive(false);
+            GameManager.Instance.badEnding = badEnding;
+            Debug.Log("Bad ending connected to GameManager.");
+        }
+
+        if (jukebox != null)
+        {
+            GameManager.Instance.jukebox = jukebox;
+            Debug.Log("Jukebox connected to GameManager.");
+        }
+
+        if (goodClip != null)
+        {
+            GameManager.Instance.goodClip = goodClip;
+            Debug.Log("Good clip connected to GameManager.");
+        }
+
+        if (badClip != null)
+        {
+            GameManager.Instance.badClip = badClip;
+            Debug.Log("Bad clip connected to GameManager.");
         }
     }
 }

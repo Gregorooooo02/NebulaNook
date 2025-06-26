@@ -19,6 +19,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject endOfDayScreenGood;
     [SerializeField] private GameObject endOfDayScreenBad;
 
+    [SerializeField] public GameObject goodEnding;
+    [SerializeField] public GameObject badEnding;
+    [SerializeField] public GameObject jukebox;
+    [SerializeField] public AudioClip goodClip;
+    [SerializeField] public AudioClip badClip;
+
     private void Awake()
     {
         if (Instance == null)
@@ -111,6 +117,11 @@ public class GameManager : MonoBehaviour
 
         if (currentQuota >= maxQuota)
         {
+            goodEnding.SetActive(true);
+            var source = jukebox.GetComponent<AudioSource>();
+            source.Stop();
+            source.clip = goodClip;
+            source.Play();
             endOfDayScreenGood.SetActive(true);
             var quotaText = GameObject.Find("QuotaTextGood")?.GetComponentInChildren<TMPro.TextMeshProUGUI>();
             if (quotaText != null)
@@ -120,8 +131,13 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            endOfDayScreenBad.SetActive(true);
-            var quotaText = GameObject.Find("QuotaTextBad")?.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+            // endOfDayScreenBad.SetActive(true);
+            badEnding.SetActive(true);
+            var source = jukebox.GetComponent<AudioSource>();
+            source.Stop();
+            source.clip = badClip;
+            source.Play();
+
             if (quotaText != null)
             {
                 quotaText.text = $"{currentQuota}";
@@ -207,6 +223,8 @@ public class GameManager : MonoBehaviour
         clientSpawners = null;
         endOfDayScreenGood = null;
         endOfDayScreenBad = null;
+        goodEnding = null;
+        badEnding = null;
         spawnersFinishedCount = 0;
 
         // Znajdź quota text
@@ -285,6 +303,29 @@ public class GameManager : MonoBehaviour
         if (endOfDayScreenGood != null) endOfDayScreenGood.SetActive(false);
         if (endOfDayScreenBad != null) endOfDayScreenBad.SetActive(false);
 
+        goodEnding = GameObject.FindGameObjectWithTag("GoodEnding");
+        if (goodEnding != null)
+        {
+            Debug.Log($"Znaleziono GoodEnding: {goodEnding.name}");
+        }
+        else
+        {
+            Debug.LogWarning("Nie znaleziono obiektu z tagiem 'GoodEnding'");
+        }
+
+        badEnding = GameObject.FindGameObjectWithTag("BadEnding");
+        if (badEnding != null)
+        {
+            Debug.Log($"Znaleziono BadEnding: {badEnding.name}");
+        }
+        else
+        {
+            Debug.LogWarning("Nie znaleziono obiektu z tagiem 'BadEnding'");
+        }
+
+        if (goodEnding != null) goodEnding.SetActive(false);
+        if (badEnding != null) badEnding.SetActive(false);
+
         Debug.Log($"RefreshSceneReferences zakończony. QuotaText: {quotaText != null}, Spawners: {clientSpawners?.Length ?? 0}, GoodScreen: {endOfDayScreenGood != null}, BadScreen: {endOfDayScreenBad != null}");
     }
 
@@ -294,5 +335,8 @@ public class GameManager : MonoBehaviour
         clientSpawners = null;
         endOfDayScreenGood = null;
         endOfDayScreenBad = null;
+        goodEnding = null;
+        badEnding = null;
+        spawnersFinishedCount = 0;
     }
 }
