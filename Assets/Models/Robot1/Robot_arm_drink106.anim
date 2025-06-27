@@ -31261,7 +31261,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 4.2
+  - time: 4.16
     functionName: OnReleaseGlass
     data: 
     objectReferenceParameter: {fileID: 0}

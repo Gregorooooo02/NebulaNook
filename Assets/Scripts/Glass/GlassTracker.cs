@@ -80,10 +80,8 @@ public class GlassTracker : MonoBehaviour
             {
                 spawner.OnGlassDestroyed(gameObject);
             }
+            Destroy(gameObject);
         }
-
-        CancelInvoke();
-        Destroy(gameObject);
     }
 
     private void OnDestroy()
@@ -93,7 +91,6 @@ public class GlassTracker : MonoBehaviour
             hasNotifiedSpawner = true;
             spawner.OnGlassDestroyed(gameObject);
         }
-        CancelInvoke();
     }
 
     public bool HasFruitAttached()

@@ -281,7 +281,7 @@ MonoBehaviour:
   liquidRenderer: {fileID: 3087824782756441144}
   explosionPrefab: {fileID: 0}
   fillSpeed: 0.5
-  startingFill: 0.088
+  startingFill: 1
   explosionRadius: 3
   explosionForce: 500
   currentFillAmount: 1
@@ -386,7 +386,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 83185b6c6e1d3441789e0e88bfb9bd27, type: 2}
+  - {fileID: 2100000, guid: 597171aca3774734997d6c4891d66f28, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

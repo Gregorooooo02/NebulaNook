@@ -180,12 +180,16 @@ PrefabInstance:
       value: GameManager
       objectReference: {fileID: 0}
     - target: {fileID: 4434546913148543697, guid: 3ceeb4cc783014c57afaa7b5b50b37db, type: 3}
+      propertyPath: maxQuota
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 4434546913148543697, guid: 3ceeb4cc783014c57afaa7b5b50b37db, type: 3}
       propertyPath: quotaText
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4434546913148543697, guid: 3ceeb4cc783014c57afaa7b5b50b37db, type: 3}
       propertyPath: baseClientToSpawn
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4434546913148543697, guid: 3ceeb4cc783014c57afaa7b5b50b37db, type: 3}
       propertyPath: endOfDayScreenBad

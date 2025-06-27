@@ -33,16 +33,16 @@ public class GlassController : MonoBehaviour
         {
             var explosion = Instantiate(explosionPrefab, gameObject.transform.position, Quaternion.identity, null);
 
-            Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
+            // Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
 
-            foreach (Collider col in colliders)
-            {
-                Rigidbody colRb = col.GetComponent<Rigidbody>();
-                if (colRb != null && colRb != rb)
-                {
-                    colRb.AddExplosionForce(explosionForce, transform.position, explosionRadius);
-                }
-            }
+            // foreach (Collider col in colliders)
+            // {
+            //     Rigidbody colRb = col.GetComponent<Rigidbody>();
+            //     if (colRb != null && colRb != rb)
+            //     {
+            //         colRb.AddExplosionForce(explosionForce, transform.position, explosionRadius);
+            //     }
+            // }
 
             Destroy(gameObject);
         }

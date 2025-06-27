@@ -128,22 +128,22 @@ public class TutorialPIP : MonoBehaviour
         bubble.SetText(tutorial_lines[textIndex]);
         textIndex++;
         LineDone = false;
-        ClientAproached = false;
-        ClientDoneGood = false;
-        ClientDoneBad = false;
-        FruitPicked = false;
-        GlassPicked = false;
-        OilPicked = false;
-        BlowtorchPicked = false;
-        BlowtorchTriggerPulled = false;
-        //ShakerOpened = false;
-        ShakerClosed = false;
-        ShakerShook = false;
-        ShakerDone = false;
-        CuttingBoardPlaced = false;
-        CuttingBoardCut = false;
-        CleaverPickedUp = false;
-        //SlicePutOnGlass = false;
+        // ClientAproached = false;
+        // ClientDoneGood = false;
+        // ClientDoneBad = false;
+        // FruitPicked = false;
+        // GlassPicked = false;
+        // OilPicked = false;
+        // BlowtorchPicked = false;
+        // BlowtorchTriggerPulled = false;
+        // //ShakerOpened = false;
+        // ShakerClosed = false;
+        // ShakerShook = false;
+        // ShakerDone = false;
+        // CuttingBoardPlaced = false;
+        // CuttingBoardCut = false;
+        // CleaverPickedUp = false;
+        // SlicePutOnGlass = false;
     }
 
     IEnumerator Tutorial()

@@ -51,7 +51,7 @@ public class PIPHelper : MonoBehaviour
             obj.SetActive(false);
         }
 
-        Jukebox.enabled = false;
+        // Jukebox.enabled = false;
 
         PipCoordinator co = FindAnyObjectByType<PipCoordinator>();
 

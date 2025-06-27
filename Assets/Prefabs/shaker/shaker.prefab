@@ -439,7 +439,7 @@ MonoBehaviour:
   shakeDetection: {fileID: 9194132142254058052}
   rimRadius: 0.069
   rimHeight: 0.095
-  minPourAngle: 15
+  minPourAngle: 30
   maxPourAngle: 90
   minFlowRate: 0.25
   maxFlowRate: 1.5

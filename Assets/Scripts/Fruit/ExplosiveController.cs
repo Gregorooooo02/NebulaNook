@@ -204,7 +204,7 @@ public class ExplosiveController : XRGrabInteractable
             AudioSource.PlayClipAtPoint(explosionSound, transform.position);
         }
         
-        AddExplosionForce();
+        // AddExplosionForce();
         Destroy(gameObject);
     }
 

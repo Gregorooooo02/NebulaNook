@@ -403,9 +403,6 @@ public class ClientController : MonoBehaviour
             r.isKinematic = !isRagdoll;
             if (isRagdoll) r.WakeUp();
         }
-        {
-            
-        }
     }
 
     public void StiffenRagdoll()

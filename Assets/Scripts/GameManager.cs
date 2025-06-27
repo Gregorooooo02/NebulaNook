@@ -132,7 +132,8 @@ public class GameManager : MonoBehaviour
         else
         {
             // endOfDayScreenBad.SetActive(true);
-            badEnding.SetActive(true);
+            // badEnding.SetActive(true);
+            PIPHelper.Instance?.StartGameOverSequence();
             var source = jukebox.GetComponent<AudioSource>();
             source.Stop();
             source.clip = badClip;

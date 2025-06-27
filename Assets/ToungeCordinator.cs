@@ -14,6 +14,12 @@ public class ToungeCordinator : MonoBehaviour
 
     public void Resume()
     {
-        animator.speed = originalSpeed;
+        // animator.speed = originalSpeed;
+        animator.gameObject.SetActive(true);
+    }
+
+    public void FuckThisShit()
+    {
+        TriggerBlack.Instance.ToTheBlackRoom();
     }
 }
