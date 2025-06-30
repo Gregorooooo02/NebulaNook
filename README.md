@@ -1,11 +1,11 @@
-# NebulaNook
+# NebulaNook 🚀
 A VR bartending game set in a mysterious interstellar bar. Mix wild drinks, slice alien fruits, and serve thirsty extraterrestrials — but watch out… something strange is going on behind the scenes.
 <p align="center">
   <img src="NebulaNook_Gif.gif", width="50%">
 </p>
 
 **Nebula Nook** is a game made for Meta Quest 3/3S, built in Unity using OpenXR.
-## Gameplay
+## Gameplay 🎮
 Step behind the bar and into the chaos! As the newest bartender in Nebula Nook, your job is to mix outrageous cocktails using cosmic liquors, weird fruits, and bizarre ingredients from across the galaxy.
 - **Mix and Match**: Combine various alien spirits to create unique drinks.
 - **Precision Cutting**: Slice, dice, and garnish with precision for that five-star service.
@@ -23,7 +23,7 @@ Time is money — literally. Each shift, you’ll need to hit a drink quota befo
     <img src="Nebula3.JPG", width="50%">
 </p>
 
-## Story
+## Story 📖
 You're the newest hire at _Nebula Nook_, a bar floating in the depths of space. Upon arrival, you're greeted by **Pip**, an overly enthusiastic (and slightly suspicious) little purple alien who shows you the ropes.
 
 The job seems simple — make drinks, earn credits, survive the night. But things aren't quite what they seem. Every previous bartender has mysteriously vanished, and Pip’s nervous laughter doesn’t help.
@@ -35,7 +35,7 @@ Keep the customers happy. Keep the credits flowing. And whatever you do… don�
     <img src="Nebula4.JPG", width="60%">
 </p>
 
-### Our Team
+### Our Team ⭐️
 <div align="center">
   <table style="width:100%; text-align:center;">
     <tr>
