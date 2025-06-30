@@ -44,11 +44,11 @@ Keep the customers happy. Keep the credits flowing. And whatever you do… don�
     </tr>
     <tr>
       <td><a href="https://github.com/bazyl02">Mateusz Podgórski</td>
-      <td>Lead Game Programmer</td>
+      <td>Game Programmer</td>
     </tr>
     <tr>
       <td><a href="https://github.com/Gregorooooo02">Grzegorz Bednarek</td>
-      <td>Lead Game Designer</td>
+      <td>Game Designer</td>
     </tr>
     <tr>
       <td><a href="https://github.com/heshsaih">Kamil Maciocha</td>
@@ -56,15 +56,15 @@ Keep the customers happy. Keep the credits flowing. And whatever you do… don�
     </tr>
     <tr>
       <td><a href="https://www.artstation.com/user-5119974">Bartosz Żuber</td>
-      <td>Lead Environment Artist</td>
+      <td>Environment Artist</td>
     </tr>
     <tr>
       <td><a href="https://www.artstation.com/flyzie?fbclid=IwZXh0bgNhZW0CMTEAAR6ze6CLfcu3O-MXbpOoTLwZb24iWcj7UQL4WpZseIiVYsawcmVJRKgFu4GkEw_aem_QUzM2Rfw4aPSThnrLDfkmg">Bartłomiej Rutowicz</td>
-      <td>Lead Character Artist</td>
+      <td>Character Artist</td>
     </tr>
     <tr>
       <td><a href="https://github.com/TreBroN02">Norbert Rudny</td>
-      <td>Lead 3D Animator</td>
+      <td>3D Animator</td>
     </tr>
   </table>
 </div>
